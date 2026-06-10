@@ -1,0 +1,1349 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="임태형">
+<title>교육방법 및 교육공학 — 3주차 2022 개정 교육과정과 AI·디지털 교육</title>
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reset.css">
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css">
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/white.css" id="theme">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* ───── ppt-korea-policy-navy (PI 정책 2026-05-26) ───── */
+:root {
+  --bg:           #FFFFFF;
+  --surface:      #E8F1FB;
+  --text:         #1A1A1A;
+  --text-muted:   #5C6470;
+  --navy:         #0B2C5C;
+  --blue:         #1B66C9;
+  --red:          #E03B3B;
+  --green:        #1F9D57;
+  --border:       #C5D2E3;
+  --grid:         #E3EAF3;
+  --margin-x:     72px;
+  --header-h:    130px;
+  --content-top: 36px;
+  --content-bot: 44px;
+  --chip-size:    72px;
+}
+
+html, body { background: var(--bg); }
+.reveal {
+  font-family: 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+.reveal .slides { text-align: left; }
+.reveal section { padding: 0; }
+.reveal section, .reveal section.present { background: var(--bg); }
+
+.reveal section img,
+.reveal section table {
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  max-width: 100%;
+}
+
+/* ─── 헤더바 ─── */
+.header-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--margin-x);
+  z-index: 5;
+}
+.header-bar .chapter-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  padding: 8px 18px;
+  border-radius: 2px;
+  margin-right: 24px;
+  font-variant-numeric: tabular-nums;
+}
+.header-bar .header-title {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.header-bar .header-meta {
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  letter-spacing: 0.04em;
+}
+
+/* ─── 본문 영역 ─── */
+.body-area {
+  position: absolute;
+  top: calc(var(--header-h) + var(--content-top));
+  left: var(--margin-x);
+  right: var(--margin-x);
+  height: calc(100% - var(--header-h) - var(--content-top) - var(--content-bot));
+}
+
+/* ─── 번호 칩 ─── */
+.num-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--chip-size);
+  height: var(--chip-size);
+  background: var(--blue);
+  color: #fff;
+  font-size: 44px;
+  font-weight: 700;
+  border-radius: 2px;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+.num-chip.navy { background: var(--navy); }
+
+/* ─── 헤딩 / 본문 / 캡션 ─── */
+.slide-heading {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 4px solid var(--navy);
+  padding-bottom: 12px;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.015em;
+}
+.slide-subheading {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+.body-text {
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text);
+}
+.body-text strong { font-weight: 700; color: var(--blue); }
+.body-text em { font-style: normal; color: var(--navy); font-weight: 700; }
+.body-text .up { color: var(--green); font-weight: 700; }
+.body-text .down { color: var(--red); font-weight: 700; }
+.caption {
+  font-size: 24px;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-top: 12px;
+}
+.caption.with-rule {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 20px;
+}
+
+/* ─── KRDS 박스 콜아웃 ─── */
+.callout {
+  padding: 22px 26px;
+  margin: 16px 0;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--navy);
+  border-radius: 2px;
+  background: var(--surface);
+}
+.callout--info { background: var(--surface); border-left: 5px solid var(--blue); }
+.callout--summary {
+  background: var(--surface);
+  border-top: 4px solid var(--navy);
+  border-bottom: 4px solid var(--navy);
+  padding-top: 28px;
+  position: relative;
+}
+.callout--summary::before {
+  content: "핵심";
+  position: absolute;
+  top: -14px; left: 26px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+.callout--warning {
+  background: #fff;
+  border-left: 5px solid var(--red);
+  color: var(--text);
+}
+
+/* ─── 번호 매긴 섹션 ─── */
+.num-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.num-section:last-child { margin-bottom: 0; }
+.num-section .num-chip { width: 56px; height: 56px; font-size: 32px; }
+.num-section .text {
+  flex: 1;
+  font-size: 40px;
+  line-height: 1.45;
+  color: var(--text);
+}
+.num-section .text strong { color: var(--navy); font-weight: 700; }
+.num-section .text .label {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+  letter-spacing: -0.005em;
+}
+
+/* ─── 1. layout-cover ─── */
+section.layout-cover {
+  padding: 0;
+  position: relative;
+  height: 100%;
+  background: #fff !important;
+}
+section.layout-cover::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--navy);
+}
+section.layout-cover::after {
+  content: "";
+  position: absolute;
+  bottom: 60px;
+  left: var(--margin-x);
+  right: var(--margin-x);
+  height: 1px;
+  background: var(--border);
+}
+section.layout-cover .cover-content {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: auto;
+}
+section.layout-cover .cover-eyebrow {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 28px;
+}
+section.layout-cover .cover-title {
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1.08;
+  color: var(--navy);
+  letter-spacing: -0.03em;
+  margin: 0 0 24px 0;
+}
+section.layout-cover .cover-rule {
+  width: 96px;
+  height: 5px;
+  background: var(--blue);
+  margin: 28px auto;
+}
+section.layout-cover .cover-subtitle {
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+section.layout-cover .cover-photo {
+  position: absolute;
+  right: 80px;
+  top: 200px;
+  width: 400px;
+  height: 266px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  z-index: 3;
+}
+section.layout-cover .cover-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+section.layout-cover .cover-photo .photo-credit {
+  position: absolute;
+  bottom: 0; right: 0;
+  font-size: 12px;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  padding: 2px 6px;
+  letter-spacing: 0;
+}
+
+/* ─── 2. layout-section ─── */
+section.layout-section {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  background: var(--navy) !important;
+  color: #fff;
+  position: relative;
+}
+section.layout-section::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 12px;
+  background: var(--blue);
+}
+section.layout-section .section-inner { padding: 0 96px 0 88px; }
+section.layout-section .section-num {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.18em;
+  margin-bottom: 32px;
+}
+section.layout-section .section-title {
+  font-size: 100px;
+  font-weight: 900;
+  line-height: 1.12;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+section.layout-section .section-blurb {
+  font-size: 32px;
+  font-weight: 500;
+  color: #B7C8DD;
+  margin-top: 28px;
+  line-height: 1.5;
+  max-width: 1400px;
+}
+
+/* ─── 3. layout-text ─── */
+section.layout-text { padding: 0; }
+section.layout-text .body-area { display: flex; flex-direction: column; }
+section.layout-text .body-area ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+section.layout-text .body-area ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 18px;
+  font-size: 34px;
+  line-height: 1.5;
+  color: var(--text);
+}
+section.layout-text .body-area ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 2px;
+  color: var(--blue);
+  font-size: 14px;
+}
+section.layout-text .body-area ul li em {
+  font-style: italic;
+  color: var(--navy);
+}
+section.layout-text .body-area ul.refs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 48px;
+}
+section.layout-text .body-area ul.refs-grid li {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+/* ─── 4. layout-image ─── */
+section.layout-image { padding: 0; height: 100%; }
+section.layout-image .body-area {
+  display: flex;
+  gap: 56px;
+  align-items: center;
+}
+section.layout-image .body-area .copy {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 40px; line-height: 1.5;
+  align-self: stretch;
+}
+section.layout-image .body-area .copy ul {
+  list-style: none; padding-left: 0; margin: 0;
+}
+section.layout-image .body-area .copy ul li {
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 14px;
+}
+section.layout-image .body-area .copy ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--blue);
+  font-size: 22px;
+  line-height: 1.4;
+}
+section.layout-image .body-area .copy p { margin: 14px 0; }
+section.layout-image .body-area figure {
+  margin: 0;
+  flex: 1 1 0;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section.layout-image .body-area figure svg.diagram,
+section.layout-image .body-area figure img {
+  width: 100%;
+  height: auto;
+  max-height: 580px;
+  display: block;
+  background: var(--bg);
+  object-fit: contain;
+}
+section.layout-image .body-area figcaption {
+  margin-top: 14px;
+  font-size: 24px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* layout-image-wide */
+section.layout-image-wide { padding: 0; }
+section.layout-image-wide .body-area {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+section.layout-image-wide .body-area figure {
+  margin: 0; width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section.layout-image-wide .body-area figure svg.diagram,
+section.layout-image-wide .body-area figure img {
+  max-width: 100%;
+  max-height: 680px;
+  width: auto;
+  height: auto;
+  background: var(--bg);
+  object-fit: contain;
+}
+section.layout-image-wide .body-area figcaption {
+  margin-top: 14px;
+  font-size: 28px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ─── 5. layout-table ─── */
+section.layout-table { padding: 0; }
+section.layout-table .body-area .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 38px;
+  line-height: 1.4;
+}
+section.layout-table .data-table th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 32px;
+  border-right: 1px solid var(--border);
+}
+section.layout-table .data-table th:last-child { border-right: none; }
+section.layout-table .data-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  vertical-align: top;
+  background: #fff;
+}
+section.layout-table .data-table td:last-child { border-right: none; }
+section.layout-table .data-table tr:nth-child(even) td { background: var(--surface); }
+section.layout-table .data-table td.num {
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+}
+section.layout-table .data-table caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 28px;
+  color: var(--blue);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+section.layout-table .body-area .callout {
+  margin-top: 24px;
+  font-size: 38px;
+}
+
+/* ─── 6. layout-flex-2col ─── */
+section.layout-flex-2col { padding: 0; height: 100%; }
+section.layout-flex-2col .body-area { display: flex; flex-direction: column; }
+section.layout-flex-2col .cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  flex: 1;
+  align-items: stretch;
+}
+section.layout-flex-2col .col-card {
+  border: 2px solid var(--border);
+  background: var(--bg);
+  padding: 26px 30px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+}
+section.layout-flex-2col .col-card.primary {
+  border-color: var(--navy);
+  background: var(--surface);
+}
+section.layout-flex-2col .col-card.muted {
+  border-color: var(--text-muted);
+  border-style: dashed;
+}
+section.layout-flex-2col .col-card .col-title {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 16px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--navy);
+}
+section.layout-flex-2col .col-card.muted .col-title {
+  color: var(--text-muted);
+  border-bottom-color: var(--text-muted);
+}
+section.layout-flex-2col .col-card ul {
+  list-style: none; padding: 0; margin: 0;
+  font-size: 38px;
+  line-height: 1.45;
+}
+section.layout-flex-2col .col-card ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+section.layout-flex-2col .col-card ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--blue);
+  font-size: 14px;
+  line-height: 1.8;
+}
+section.layout-flex-2col .col-card.muted ul li::before { color: var(--text-muted); }
+section.layout-flex-2col .col-card ul li strong { color: var(--navy); font-weight: 700; }
+section.layout-flex-2col .col-card figure {
+  flex: 1;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+section.layout-flex-2col .col-card figure img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  display: block;
+}
+section.layout-flex-2col .col-card figcaption {
+  font-size: 22px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ─── 7. layout-flow-cards ─── */
+section.layout-flow-cards { padding: 0; height: 100%; }
+section.layout-flow-cards .body-area { display: flex; flex-direction: column; }
+section.layout-flow-cards .flow-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 30px;
+}
+section.layout-flow-cards .flow-row.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1200px;
+}
+section.layout-flow-cards .flow-row.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+section.layout-flow-cards .flow-card {
+  background: var(--bg);
+  border-top: 6px solid var(--blue);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 22px 22px 26px;
+  position: relative;
+  min-height: 260px;
+}
+section.layout-flow-cards .flow-card .step-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+}
+section.layout-flow-cards .flow-card .step-key {
+  font-size: 44px;
+  font-weight: 900;
+  color: var(--navy);
+  margin: 10px 0 14px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+section.layout-flow-cards .flow-card .step-desc {
+  font-size: 28px;
+  color: var(--text);
+  line-height: 1.45;
+}
+section.layout-flow-cards .flow-card::after {
+  content: "▶";
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--blue);
+  font-size: 38px;
+  z-index: 2;
+}
+section.layout-flow-cards .flow-card:last-child::after { display: none; }
+/* 가~사 7항목 전용: 번호 목록 스타일 */
+section.layout-flow-cards .policy-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 48px;
+}
+section.layout-flow-cards .policy-list li {
+  font-size: 38px;
+  line-height: 1.5;
+  color: var(--text);
+  padding-left: 48px;
+  position: relative;
+}
+section.layout-flow-cards .policy-list li .policy-key {
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: var(--blue);
+  font-size: 38px;
+}
+section.layout-flow-cards .policy-list li strong { color: var(--navy); font-weight: 700; }
+
+/* ─── 8. layout-closing ─── */
+section.layout-closing { padding: 0; position: relative; }
+section.layout-closing .body-area {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section.layout-closing .closing-quote {
+  font-size: 68px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 0 36px;
+}
+section.layout-closing .closing-quote em {
+  font-style: normal;
+  color: var(--blue);
+  font-weight: 900;
+}
+section.layout-closing .closing-meta {
+  font-size: 32px;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+
+/* ─── Reveal.js UI ─── */
+.reveal .slide-number {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-muted);
+  bottom: 18px; right: 32px;
+}
+.reveal aside.notes { display: none; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- ━━━━━━━━━━━━━━━━ 1. COVER ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-cover">
+    <div class="cover-content">
+      <div class="cover-eyebrow">교육방법 및 교육공학 · CHAPTER 03</div>
+      <h1 class="cover-title">2022 개정<br>교육과정과<br>AI·디지털 교육</h1>
+      <div class="cover-rule"></div>
+      <div class="cover-subtitle">정책적 맥락과 학습이론의 기초</div>
+    </div>
+    <div class="cover-photo">
+      <img src="../images/img-s01-cover-bg.png" alt="교육과정 문서, 디지털 태블릿, 학습심리학 아이콘이 어우러진 타이틀 배경 일러스트">
+      <div class="photo-credit">AI-generated · gpt-image-gen</div>
+    </div>
+    <aside class="notes">3장은 교직 교육과정 안에서 교육방법 및 교육공학의 위치를 재조망하고, 2022 개정 교육과정의 핵심 방향을 살펴보며, AI·디지털 교육 시대의 학습자 특성 변화와 학습심리학 패러다임의 이행을 다룹니다. 이 장에서 정립한 정책적 맥락과 이론적 토대는 4장에서 본격적으로 다루는 체제적 교수설계 모형의 전제가 됩니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 2. 학습목표 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">3장 학습 목표</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">3장 학습 목표</h2>
+        <div class="num-section">
+          <span class="num-chip">01</span>
+          <div class="text">
+            <span class="label">교직 교육과정</span>
+            교직 교육과정 안에서 교육공학의 위치를 설명한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">02</span>
+          <div class="text">
+            <span class="label">TPACK</span>
+            TPACK 모형의 세 핵심 지식과 교차 영역을 구분한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">03</span>
+          <div class="text">
+            <span class="label">2022 개정 교육과정</span>
+            핵심 방향과 교수학습 원칙을 적용한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">04</span>
+          <div class="text">
+            <span class="label">AI·디지털 시대 학습자</span>
+            특성 변화를 교사 역할과 연결한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">05</span>
+          <div class="text">
+            <span class="label">학습심리학 패러다임</span>
+            행동주의·인지주의·구성주의의 핵심 개념을 비교한다.
+          </div>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s02-objectives.png" alt="5가지 학습목표를 아이콘과 함께 시각화한 목표 맵 일러스트">
+        <figcaption>그림 3-0 · 3장 학습목표 맵</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">3장의 다섯 가지 학습목표를 안내합니다. 교직 교육과정에서 교육공학의 위치, TPACK 모형, 2022 개정 교육과정의 핵심 방향, AI 네이티브 학습자 특성, 그리고 행동주의·인지주의·구성주의 세 학습심리학 패러다임이 이 장의 핵심 내용입니다. 이 다섯 가지는 4장 체제적 교수설계의 이론적 전제이기도 합니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 3. SECTION 1 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 01</div>
+      <h2 class="section-title">교직 교육과정 안에서의<br>교육방법 및 교육공학</h2>
+      <p class="section-blurb">안내 질문: 교육공학 지식이 교사의 수업 역량에 어떻게 기여하는가?</p>
+    </div>
+    <aside class="notes">1절에서는 교원양성 과정에서 교직 교과목군이 어떻게 구성되는지, 그 안에서 교육방법 및 교육공학이 왜 현장 적합성 역량의 핵심 과목으로 평가받는지를 설명합니다. 국가교육회의의 현장 적합성 강조와 임용시험 출제 경향을 연결하여 이 과목의 전략적 위치를 안내합니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 4. 교직 과목군과 교육공학의 위치 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">교직 과목군과 교육공학의 위치</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">교직 과목군과 교육공학의 위치</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>역량 영역</th>
+            <th>세부 역량</th>
+            <th>관련 과목(예시)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>현장 적합성</strong></td>
+            <td>수업 설계·실행</td>
+            <td><strong>교육방법 및 교육공학</strong></td>
+          </tr>
+          <tr>
+            <td class="num"><strong>현장 적합성</strong></td>
+            <td>학습자 이해·지원</td>
+            <td>교육심리, 특수교육학</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>현장 적합성</strong></td>
+            <td>학교 현장 이해</td>
+            <td>교직실무, 학교폭력예방</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>인성</strong></td>
+            <td>교사 윤리·성찰</td>
+            <td>교육봉사, 교직소양</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--info" style="margin-top:24px; font-size:38px;">
+        교육방법 및 교육공학은 <strong>교직이론</strong> 영역에서 교수·학습 이론, 교수설계, 교수매체 활용을 다루는 과목이다.
+      </div>
+    </div>
+    <aside class="notes">교원양성 과정의 현장 적합성 역량 구조를 분석합니다. 인성 영역과 전문성 영역으로 구분하며, 전문성 영역 내 교수 설계와 디지털 기술 활용이 교육방법 및 교육공학이 직접 다루는 탐구 영역임을 설명합니다. 초등 임용 1차 교직논술에서 교수 설계·학습이론·디지털 교육 관련 논제가 꾸준히 출제되어 왔으며 이 과목의 전략적 중요성을 강조합니다(조학규, 2025).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 5. 교사 핵심역량 중 교수 역량 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">교사 핵심역량 중 교수 역량</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">교사 핵심역량 중 교수 역량</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>역량 요소</th>
+            <th>내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>수업 설계</strong></td>
+            <td>교육과정 분석·성취기준 기반 수업 계획</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>수업 실행</strong></td>
+            <td>다양한 교수법·매체 활용, 상호작용 촉진</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>수업 성찰</strong></td>
+            <td>자기 평가·동료 피드백 기반 수업 개선</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>디지털 활용</strong></td>
+            <td>AI·디지털 도구의 교수·학습 통합 적용</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--summary" style="margin-top:24px; font-size:38px;">
+        교수 역량의 지식 구조를 체계화한 것이 <strong>TPACK 모형</strong>이다.
+      </div>
+    </div>
+    <aside class="notes">경기도교육청의 교사 핵심역량 체계에서 교수 역량의 하위 요소를 설명합니다. 교과 전문성, 수업 설계 및 운영, 디지털 활용 역량이 포함됩니다. 수업 설계 및 운영 역량과 디지털 활용 역량은 교육방법 및 교육공학을 통해 집중적으로 증진됩니다. 교과 내용 지식의 숙달만으로는 효과적인 수업이 이루어지지 않으며, 이 역량들의 지식 구조를 체계화한 것이 TPACK 모형임을 연결합니다(류지헌, 김민정, 임태형, 2023; 조학규, 2025).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 6. TPACK ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">TPACK 모형: 교사 지식의 통합 구조</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">TPACK 모형: 교사 지식의 통합 구조</h2>
+        <p class="body-text"><strong>세 핵심 지식</strong>: TK(기술 지식) · CK(내용 지식) · PK(교수법 지식)</p>
+        <p class="body-text"><strong>교차 영역</strong>: TCK · TPK · PCK → 중심: <strong>TPACK</strong></p>
+        <div class="callout callout--info" style="margin-top:20px;">
+          디지털 도구 활용이 능숙해도 교수법·교과 지식이 통합되지 않으면 효과적 수업이 되지 않는다.<br>
+          <span style="font-size:32px; color:var(--text-muted);">— Mishra &amp; Koehler (2006)</span>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s06-fig3-1.png" alt="TPACK 세 원이 겹쳐진 벤다이어그램, 각 영역에 한국어 레이블 부착">
+        <figcaption>그림 3-1 · TPACK 모형 (Mishra &amp; Koehler, 2006)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">Mishra와 Koehler(2006)의 TPACK 모형을 소개합니다. TK(기술 지식: 기술을 어떻게 활용할 것인가), CK(내용 지식: 무엇을 가르칠 것인가), PK(교수 지식: 어떻게 가르칠 것인가)의 세 핵심 지식이 교차하며 TCK·TPK·PCK를 형성하고, 세 지식이 모두 통합되는 중심이 TPACK입니다. 예컨대 동적 기하 소프트웨어를 활용한 도형 탐구 수업은 TK·CK·PK가 통합된 TPACK의 발현입니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 7. SECTION 2 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 02</div>
+      <h2 class="section-title">2022 개정 교육과정<br>총론의 핵심 방향</h2>
+      <p class="section-blurb">안내 질문: 2022 개정 교육과정이 교사의 수업 설계 방식에 어떤 변화를 요구하는가?</p>
+    </div>
+    <aside class="notes">2절에서는 2022 개정 교육과정(교육부 고시 제2022-33호)의 구성 중점 가~사 일곱 항목, 여섯 핵심역량과 추구하는 인간상, 그리고 교수·학습 설계 원칙 가~라를 살펴봅니다. 이 교육과정이 교수·학습 방법과 디지털 환경에 관한 요구를 2015 개정 교육과정에 비해 현저히 강화했음을 강조합니다(교육부, 2022).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 8. 교육과정 구성의 중점 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flow-cards">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">교육과정 구성의 중점 가~사</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">교육과정 구성의 중점 가~사</h2>
+      <ul class="policy-list">
+        <li><span class="policy-key">가.</span> 미래 사회 불확실성 대응 · <strong>학습 주도성</strong> 함양</li>
+        <li><span class="policy-key">나.</span> 인격적 성장 · 공동체 의식 함양</li>
+        <li><span class="policy-key">다.</span> 언어·수리·<strong>디지털 기초소양</strong> 갖추기</li>
+        <li><span class="policy-key">라.</span> 진로·학습 주도적 설계 · <strong>맞춤형 교육과정</strong></li>
+        <li><span class="policy-key">마.</span> 깊이 있는 학습 · 교과 간 연계·통합</li>
+        <li><span class="policy-key">바.</span> 학생 <strong>참여형 수업</strong> · 과정 중심 평가</li>
+        <li><span class="policy-key">사.</span> 교육과정 자율화·분권화 · 거버넌스 강화</li>
+      </ul>
+    </div>
+    <aside class="notes">2022 개정 교육과정 총론의 구성 중점 가~사 일곱 항목을 소개합니다. 교육방법 및 교육공학과 연결되는 핵심 항목은 세 가지입니다. '다' 항목은 디지털 기초소양을 언어·수리 소양과 동등한 기초역량으로 격상합니다. '마' 항목의 깊이 있는 학습은 정교한 수업 설계 없이 구현될 수 없습니다. '바' 항목의 학생 참여형 수업과 과정 중심 평가는 교육공학이 강조해 온 능동적 학습 원리와 맥을 같이합니다(교육부, 2022).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 9. 핵심역량과 인간상 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">핵심역량 체계와 추구하는 인간상</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">핵심역량 체계와 추구하는 인간상</h2>
+        <p class="body-text"><strong>6대 핵심역량</strong></p>
+        <ul class="body-text" style="font-size:40px;">
+          <li style="list-style:none; position:relative; padding-left:36px; margin-bottom:10px;"><span style="position:absolute;left:0;color:var(--blue);">■</span>자기관리 · 지식정보처리 · 창의적 사고</li>
+          <li style="list-style:none; position:relative; padding-left:36px; margin-bottom:10px;"><span style="position:absolute;left:0;color:var(--blue);">■</span>심미적 감성 · 협력적 소통 · 공동체 역량</li>
+        </ul>
+        <p class="body-text" style="margin-top:18px;"><strong>추구하는 인간상</strong></p>
+        <ul class="body-text" style="font-size:40px;">
+          <li style="list-style:none; position:relative; padding-left:36px; margin-bottom:10px;"><span style="position:absolute;left:0;color:var(--blue);">■</span>자기주도적인 사람 · 창의적인 사람</li>
+          <li style="list-style:none; position:relative; padding-left:36px; margin-bottom:10px;"><span style="position:absolute;left:0;color:var(--blue);">■</span>교양 있는 사람 · 더불어 사는 사람</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="../images/img-s09-core-competencies.png" alt="6대 핵심역량 방사형 다이어그램과 4개 인간상 블록 연결 구조">
+        <figcaption>그림 3-2 · 2022 개정 교육과정 핵심역량 체계</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">2022 개정 교육과정의 여섯 핵심역량과 네 가지 추구하는 인간상을 설명합니다. 지식정보처리 역량은 디지털 정보를 깊이 있게 이해하고 비판적으로 탐구하는 능력과 직결됩니다. 핵심역량 함양의 수단으로 탐구·개념 기반의 깊이 있는 학습이 강조되고 있으며, 이는 TPACK 역량을 갖추어 수업을 설계할 수 있는 교사의 전문성에 달려 있음을 강조합니다(교육부, 2022).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 10. 교수학습 설계 원칙 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">교수·학습 설계 원칙 가~라</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">교수·학습 설계 원칙 가~라</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>원칙</th>
+            <th>핵심 내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>가. 깊이 있는 학습과 핵심역량</strong></td>
+            <td>핵심역량 함양, 성취기준 기반 탐구·토의·프로젝트 학습</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>나. 능동적 참여와 학습의 즐거움</strong></td>
+            <td>학생 능동적 참여, 토의·토론·체험·탐구·협동 학습</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>다. 학생 맞춤형 수업</strong></td>
+            <td>학습자 특성·수준 고려 맞춤형 수업, 지능정보기술 활용</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>라. 유연·안전한 교수·학습 환경 및 디지털 학습 환경</strong></td>
+            <td>디지털 기반 학습 환경 구축, 안전하고 유연한 환경 조성</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--info" style="margin-top:24px; font-size:36px;">
+        '가'⑤ 디지털 기초소양을 <strong>모든 교과</strong>를 통해 함양 · '다'② 지능정보기술 활용 맞춤형 학습 · '라'③ 디지털 학습 환경 구축 — 교육공학 역량의 정책적 근거
+      </div>
+    </div>
+    <aside class="notes">2022 개정 교육과정 총론의 교수·학습 설계 원칙 가~라 네 항목을 설명합니다. 교육방법 및 교육공학과 가장 직접적으로 연결되는 세 조항을 강조합니다. 가항 ⑤에서 디지털 기초소양을 모든 교과에 걸쳐 함양하도록 수업을 설계하라는 요구, 다항 ②에서 지능정보기술을 활용한 맞춤형 학습, 라항 ③에서 디지털 학습 환경 구축을 명시한 조항이 교육공학 역량의 필요성을 정책 차원에서 직접 뒷받침합니다(교육부, 2022).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 11. SECTION 3 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 03</div>
+      <h2 class="section-title">AI·디지털 교육 시대와<br>초등교육의 변화</h2>
+      <p class="section-blurb">안내 질문: AI 네이티브 세대의 특성이 교사의 수업 설계에 무엇을 요구하는가?</p>
+    </div>
+    <aside class="notes">3절에서는 AI·디지털 교육 시대의 학습자 세대 전환(디지털 네이티브→AI 네이티브), 디지털 기초소양의 정책적 위상 변화, 그리고 교수·학습 환경 재편과 교사의 과제를 다룹니다. 이 내용은 2022 개정 교육과정이 강조하는 디지털 기초소양의 시대적 배경입니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 12. 학습자 세대 전환 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">학습자 세대 전환: 디지털 네이티브 → AI 네이티브</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">학습자 세대 전환: 디지털 네이티브 → AI 네이티브</h2>
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">디지털 네이티브 (Prensky, 2001)</div>
+          <ul>
+            <li>인터넷·스마트폰과 함께 성장</li>
+            <li>멀티태스킹·즉각적 피드백 선호</li>
+            <li>디지털 기기를 <strong>'모국어'</strong>처럼 사용</li>
+          </ul>
+          <figure>
+            <img src="../images/img-s12-ai-native.png" alt="왼쪽 스마트폰을 든 어린이, 오른쪽 AI 챗봇과 대화하는 어린이 대비 일러스트">
+            <figcaption>AI-generated · gpt-image-gen</figcaption>
+          </figure>
+        </div>
+        <div class="col-card">
+          <div class="col-title">AI 네이티브 (알파 세대 이후)</div>
+          <ul>
+            <li>생성형 AI를 <strong>일상 도구</strong>로 활용</li>
+            <li>검색보다 대화형 질의 선호</li>
+            <li><strong>AI 윤리·비판적 사고</strong> 역량 요구</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">Prensky(2001)가 제안한 디지털 네이티브 개념에서 오늘날 알파 세대의 AI 네이티브 특성으로의 전환을 설명합니다. 알파 세대는 AI 스피커, AI 기반 추천 알고리즘, 대화형 AI와 함께 성장하였으며, 이 세대에게 AI는 도구가 아니라 환경입니다. 이 세대 전환은 교사에게 교수법의 근본적 재고와 TPACK 역량에 기반한 수업 설계를 요구합니다(Prensky, 2001; 교육부, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 13. 디지털 기초소양의 정책적 위상 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">디지털 기초소양의 정책적 위상</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">디지털 기초소양의 정책적 위상</h2>
+        <ul class="body-text">
+          <li><strong>2015 개정</strong>: SW·정보교육 강화가 시작되었으나 주로 <strong>특정 교과·영역 중심</strong>으로 편성</li>
+          <li><strong>2022 개정</strong>: 디지털 기초소양을 언어·수리 소양과 함께 <strong>모든 교과 수업 설계에서 함양</strong>하도록 명시</li>
+          <li><strong>21세기 4Cs</strong>: 비판적 사고 · 소통 · 협력 · 창의성</li>
+        </ul>
+        <div class="callout callout--summary" style="margin-top:20px; font-size:38px;">
+          단순한 교과 확대가 아닌 <strong>교육 패러다임 자체의 전환</strong> — 모든 교과 교사의 과제
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s13-digital-literacy.png" alt="2015 개정에서 2022 개정으로 디지털 소양 위상 확대 화살표 다이어그램과 4Cs 원형 배치">
+        <figcaption>그림 3-3 · 디지털 기초소양 정책 위상 변화</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">디지털 기초소양의 정책적 위상이 2015 개정 교육과정에서 2022 개정 교육과정으로 넘어오면서 크게 높아졌음을 설명합니다. 2015 개정에서는 중학교 정보 과목 필수화와 초등 SW교육 강화가 시행되었으나, 특정 교과·영역 중심으로 편성되었습니다. 2022 개정에서는 디지털 기초소양을 언어·수리 소양과 함께 모든 교과 수업 설계에서 함양하도록 명시하였습니다. 21세기 4Cs(비판적 사고·소통·협력·창의성)가 디지털 리터러시를 실천 기반으로 하고 있음을 연결합니다(교육부, 2022; 교육부, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 14. 교수학습 환경 재편과 교사의 과제 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">교수·학습 환경 재편과 교사의 과제</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">교수·학습 환경 재편과 교사의 과제</h2>
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">기회: 환경 재편</div>
+          <ul>
+            <li>AI 튜터·학습 분석 도구 확산</li>
+            <li>원격·혼합학습 일상화</li>
+            <li>개별화 피드백 <strong>자동화</strong> 가능</li>
+          </ul>
+        </div>
+        <div class="col-card">
+          <div class="col-title">과제: 교사 역량</div>
+          <ul>
+            <li><strong>형평성</strong>: 디지털 격차 해소</li>
+            <li><strong>윤리적 감수성</strong>: AI 편향·개인정보 보호</li>
+            <li><strong>인간적 관계</strong>: 기계가 대체할 수 없는 정서적 지지</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">AI·디지털 교육 시대의 교수·학습 환경이 물리적 교실과 디지털 공간의 경계가 흐려지는 방향으로 재편되고 있음을 설명합니다. AI 기반 학습 분석 도구는 교사의 역할을 지원하지만, 데이터를 해석하고 교수적 판단으로 전환하는 것은 교사의 전문적 역량에 달려 있습니다. 형평성 문제(디지털 접근성 격차→학습 격차)와 AI·디지털 교육의 확산이 기술적 역량과 윤리적 감수성을 동시에 요구함을 강조합니다(교육부, 2022; 교육부, 2023; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 15. SECTION 4 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 04</div>
+      <h2 class="section-title">학습심리학<br>패러다임의 변화</h2>
+      <p class="section-blurb">안내 질문: 세 학습심리학 패러다임이 각각 어떤 수업 설계 원리를 제안하는가?</p>
+    </div>
+    <aside class="notes">4절에서는 행동주의에서 인지주의로, 다시 구성주의로 이어지는 학습심리학 패러다임의 이행을 추적합니다. 이 패러다임의 이행은 단순한 이론적 교체가 아니라 '학습이란 무엇인가'와 '교수란 무엇이어야 하는가'에 대한 근본 가정의 전환을 의미합니다. 각 패러다임이 제안하는 수업 설계 원리를 연결하여 설명합니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 16. 행동주의 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">행동주의: 자극-반응의 학습관</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">행동주의: 자극-반응의 학습관</h2>
+        <p class="body-text"><strong>고전적 조건화</strong> (파블로프): 중성 자극 → 조건 자극 → 조건 반응</p>
+        <p class="body-text"><strong>조작적 조건화</strong> (스키너): 강화·처벌로 행동 빈도 조절</p>
+        <div class="callout callout--info" style="margin-top:20px; font-size:38px;">
+          수업 설계 적용: 명확한 목표 제시, <strong>즉각적 강화(피드백)</strong>, 반복 연습
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s16-behaviorism.png" alt="파블로프의 조건화 화살표 다이어그램(왼쪽)과 스키너 박스 단면도(오른쪽) 나란히 배치">
+        <figcaption>그림 3-4 · 행동주의 학습 기제 (파블로프 &amp; 스키너)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">행동주의(Behaviorism) 패러다임을 설명합니다. 파블로프의 고전적 조건화(1900년대)와 스키너의 조작적 조건화(1930년대)가 핵심입니다. 행동주의 관점에서 학습은 관찰 가능한 행동의 변화로 정의되며, 교수 설계는 목표 행동을 세분화하고 적절한 강화 계획을 수립하는 것으로 귀결됩니다. 수행 목표 진술, 프로그램드 인스트럭션, 완전학습 등 초기 교육공학에 이론적 토대를 제공했음을 설명합니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 17. 인지주의와 CIP ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">인지주의와 인지정보처리이론(CIP)</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">인지주의와 인지정보처리이론(CIP)</h2>
+        <p class="body-text"><strong>감각기억</strong> → (주의) → <strong>작동기억</strong> → (부호화) → <strong>장기기억</strong></p>
+        <p class="body-text">작동기억은 제한적이므로 정보는 <strong>의미 단위로 조직</strong>하고 불필요한 인지 부하를 줄여야 한다</p>
+        <div class="callout callout--info" style="margin-top:20px; font-size:38px;">
+          멀티미디어: 시각·청각 채널 분리로 작동기억 부하 분산<br>
+          <span style="font-size:32px; color:var(--text-muted);">— Mayer (2001)</span>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s17-fig3-2.png" alt="감각기억→작동기억→장기기억 3단계 수평 흐름도, 각 단계 용량·처리 한국어 주석">
+        <figcaption>그림 3-5 · 인지정보처리이론(CIP)의 기억 구조</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">1950~60년대 이후 인지주의(Cognitivism) 패러다임으로의 전환을 설명합니다. 인지정보처리이론(CIP)에서 학습은 새로운 정보와 사전 지식이 결합하여 장기기억에 저장되는 과정입니다. 작동기억의 제한된 용량(7±2)은 교수 설계의 핵심 제약 조건입니다. 외재적 인지 부하를 줄이고 본질적 학습 처리를 지원하는 방향으로 수업을 설계해야 하며, Mayer(2001)의 멀티미디어 학습 이론이 이 원리를 계승함을 설명합니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 18. 무주의 맹시 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">무주의 맹시와 수업 설계 함의</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">무주의 맹시와 수업 설계 함의</h2>
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">무주의 맹시 실험 (Simons &amp; Chabris, 1999)</div>
+          <ul>
+            <li>농구 패스 세기 과제 중 고릴라를 <strong>감지하지 못함</strong></li>
+            <li><strong>주의가 다른 과제에 집중되면 눈에 보이는 예상치 못한 자극도 알아차리지 못할 수 있다</strong></li>
+            <li>학습자 인지 자원은 분산되지 않는다</li>
+          </ul>
+        </div>
+        <div class="col-card">
+          <div class="col-title">수업 설계 원리</div>
+          <ul>
+            <li>핵심 내용에 <strong>신호(signaling)</strong> 적용</li>
+            <li>불필요한 시각 요소 제거 (일관성 원리)</li>
+            <li>학습자 주의를 <strong>명시적으로 유도</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">Simons와 Chabris(1999)의 '보이지 않는 고릴라' 실험으로 무주의 맹시(inattentional blindness)를 설명합니다. 농구공 패스 횟수를 세는 과제에 집중하는 동안 화면 가운데를 걸어가는 고릴라를 알아채지 못하는 현상입니다. 교수 설계 함의: 학습 과제에서 핵심적 요소가 아닌 장식적·부가적 요소들은 학습자의 주의를 분산시키고 작동기억의 용량을 소모합니다. 따라서 신호(signaling) 적용, 불필요한 시각 요소 제거, 학습자의 주의를 명시적으로 유도하는 것이 중요합니다(Simons &amp; Chabris, 1999).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 19. 구성주의 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">구성주의: 인지적 구성주의 vs 사회적 구성주의</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">구성주의: 인지적 vs 사회적 구성주의</h2>
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">피아제 — 인지적 구성주의 (1952)</div>
+          <ul>
+            <li>도식(schema) → <strong>동화·조절</strong> → 평형화</li>
+            <li>내적 <strong>불평형</strong>이 학습의 원동력</li>
+            <li>교사 역할: 인지 갈등 유발자</li>
+          </ul>
+        </div>
+        <div class="col-card">
+          <div class="col-title">비고츠키 — 사회적 구성주의 (Vygotsky, 1978)</div>
+          <ul>
+            <li><strong>ZPD</strong>: 실제 발달 수준 ↔ 잠재 발달 수준</li>
+            <li><strong>스캐폴딩</strong>: Wood, Bruner &amp; Ross(1976)가 발전시킨 ZPD 지원 개념</li>
+            <li>사회적 상호작용이 발달을 선도</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">구성주의(Constructivism)의 두 주요 흐름을 설명합니다. 피아제의 인지적 구성주의: 도식→동화·조절→평형화의 인지발달 과정, 내적 불평형이 학습의 원동력, 아동 중심 교육·발견 학습·탐구 학습의 이론적 토대입니다. 비고츠키의 사회적 구성주의: ZPD(근접발달영역)와 스캐폴딩 개념, 협력 학습·또래 교수의 이론적 근거입니다. 지식이 타인 및 사회와의 상호작용 속에서 구성된다는 관점을 설명합니다(Piaget, 1952; Vygotsky, 1978; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 20. 세 패러다임 통합 비교 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">세 패러다임 통합 비교</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">세 패러다임 통합 비교</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>행동주의</th>
+            <th>인지주의</th>
+            <th>구성주의</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num">학습 정의</td>
+            <td>행동 변화</td>
+            <td>정보 처리·저장</td>
+            <td>의미 구성</td>
+          </tr>
+          <tr>
+            <td class="num">핵심 원리</td>
+            <td>강화·처벌</td>
+            <td>작동기억·청킹</td>
+            <td>도식화·ZPD</td>
+          </tr>
+          <tr>
+            <td class="num">교사 역할</td>
+            <td>강화자</td>
+            <td>정보 제공자</td>
+            <td>촉진자·비계</td>
+          </tr>
+          <tr>
+            <td class="num">수업 적용</td>
+            <td>목표 명세·반복 연습</td>
+            <td>선행조직자·멀티미디어</td>
+            <td>탐구·협력학습</td>
+          </tr>
+          <tr>
+            <td class="num">대표 학자</td>
+            <td>파블로프·스키너</td>
+            <td>Miller·Mayer</td>
+            <td>피아제·비고츠키</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <aside class="notes">행동주의·인지주의·구성주의 세 패러다임을 다섯 가지 차원(학습 정의, 핵심 원리, 교사 역할, 수업 적용, 대표 학자)으로 통합 비교합니다. 세 패러다임은 서로를 완전히 대체하는 것이 아니라, 각각의 설명력이 가장 강한 학습 맥락에서 상보적으로 활용됩니다. 3장에서 정립한 이 이론적 토대는 4장에서 본격적으로 다루는 체제적 교수설계 모형의 전제가 됩니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 21. 참고문헌 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-text">
+    <div class="header-bar">
+      <span class="chapter-chip">03</span>
+      <span class="header-title">참고문헌</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">참고문헌</h2>
+      <ul class="refs-grid">
+        <li>류지헌, 김민정, 임태형 (2023). <em>수업역량 강화를 위한 교육방법 및 교육공학</em> (1판 2쇄). 학지사.</li>
+        <li>Miller, G. A. (1956). The magical number seven, plus or minus two. <em>Psychological Review</em>, <em>63</em>(2), 81–97.</li>
+        <li>교육부 (2022). <em>2022 개정 교육과정 확정·발표</em>. 교육부 고시 제2022-33호.</li>
+        <li>Mishra, P., &amp; Koehler, M. J. (2006). Technological pedagogical content knowledge. <em>Teachers College Record</em>, <em>108</em>(6), 1017–1054.</li>
+        <li>교육부 (2023). <em>디지털 기반 교육혁신 방안</em>. 교육부.</li>
+        <li>Prensky, M. (2001). Digital Natives, Digital Immigrants. <em>On the Horizon</em>, <em>9</em>(5), 1–6.</li>
+        <li>조학규 (2025). <em>하이패스 교직논술 기본편</em>. G스쿨.</li>
+        <li>Simons, D. J., &amp; Chabris, C. F. (1999). Gorillas in our midst: Sustained inattentional blindness. <em>Perception</em>, <em>28</em>(9), 1059–1074.</li>
+        <li>Piaget, J. (1952). <em>The Origins of Intelligence in Children</em>. W. W. Norton.</li>
+        <li>Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. <em>Cognitive Science</em>, <em>12</em>(2), 257–285.</li>
+        <li>Vygotsky, L. S. (1978). <em>Mind in Society</em>. Harvard University Press.</li>
+        <li>Wood, D., Bruner, J. S., &amp; Ross, G. (1976). The role of tutoring in problem solving. <em>Journal of Child Psychology and Psychiatry</em>, <em>17</em>(2), 89–100.</li>
+      </ul>
+    </div>
+    <aside class="notes">3장 참고문헌 12편을 APA 형식으로 2단 배치합니다. 류지헌·김민정·임태형(2023), 교육부(2022, 2023), 조학규(2025), Miller(1956), Mishra &amp; Koehler(2006), Prensky(2001), Simons &amp; Chabris(1999), Piaget(1952), Sweller(1988), Vygotsky(1978), Wood, Bruner &amp; Ross(1976)가 포함됩니다.</aside>
+  </section>
+
+</div>
+</div>
+<script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1920,
+    height: 1080,
+    margin: 0.0,
+    minScale: 0.2,
+    maxScale: 2.0,
+    controls: true,
+    progress: true,
+    slideNumber: true,
+    hash: true,
+    transition: 'fade',
+    transitionSpeed: 'default',
+    backgroundTransition: 'none',
+    plugins: []
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1323 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="임태형">
+<title>교육방법 및 교육공학 — 7주차 학습 동기 유발 전략: 이론에서 수업 실천으로</title>
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reset.css">
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css">
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/white.css" id="theme">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* ───── ppt-korea-policy-navy (PI 정책 2026-05-26) ───── */
+:root {
+  --bg:           #FFFFFF;
+  --surface:      #E8F1FB;
+  --text:         #1A1A1A;
+  --text-muted:   #5C6470;
+  --navy:         #0B2C5C;
+  --blue:         #1B66C9;
+  --red:          #E03B3B;
+  --green:        #1F9D57;
+  --border:       #C5D2E3;
+  --grid:         #E3EAF3;
+  --margin-x:     72px;
+  --header-h:    130px;
+  --content-top: 36px;
+  --content-bot: 44px;
+  --chip-size:    72px;
+}
+
+html, body { background: var(--bg); }
+.reveal {
+  font-family: 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+.reveal .slides { text-align: left; }
+.reveal section { padding: 0; }
+.reveal section, .reveal section.present { background: var(--bg); }
+
+.reveal section img,
+.reveal section table {
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  max-width: 100%;
+}
+
+/* ─── 헤더바 ─── */
+.header-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--margin-x);
+  z-index: 5;
+}
+.header-bar .chapter-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  padding: 8px 18px;
+  border-radius: 2px;
+  margin-right: 24px;
+  font-variant-numeric: tabular-nums;
+}
+.header-bar .header-title {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.header-bar .header-meta {
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  letter-spacing: 0.04em;
+}
+
+/* ─── 본문 영역 ─── */
+.body-area {
+  position: absolute;
+  top: calc(var(--header-h) + var(--content-top));
+  left: var(--margin-x);
+  right: var(--margin-x);
+  height: calc(100% - var(--header-h) - var(--content-top) - var(--content-bot));
+}
+
+/* ─── 번호 칩 ─── */
+.num-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--chip-size);
+  height: var(--chip-size);
+  background: var(--blue);
+  color: #fff;
+  font-size: 44px;
+  font-weight: 700;
+  border-radius: 2px;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+.num-chip.navy { background: var(--navy); }
+
+/* ─── 헤딩 / 본문 / 캡션 ─── */
+.slide-heading {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 4px solid var(--navy);
+  padding-bottom: 12px;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.015em;
+}
+.body-text {
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text);
+}
+.body-text strong { font-weight: 700; color: var(--blue); }
+.body-text em { font-style: normal; color: var(--navy); font-weight: 700; }
+
+/* ─── KRDS 박스 콜아웃 ─── */
+.callout {
+  padding: 22px 26px;
+  margin: 16px 0;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--navy);
+  border-radius: 2px;
+  background: var(--surface);
+}
+.callout--info { background: var(--surface); border-left: 5px solid var(--blue); }
+.callout--summary {
+  background: var(--surface);
+  border-top: 4px solid var(--navy);
+  border-bottom: 4px solid var(--navy);
+  padding-top: 28px;
+  position: relative;
+}
+.callout--summary::before {
+  content: "핵심";
+  position: absolute;
+  top: -14px; left: 26px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+
+/* ─── 번호 매긴 섹션 ─── */
+.num-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.num-section:last-child { margin-bottom: 0; }
+.num-section .num-chip { width: 56px; height: 56px; font-size: 32px; }
+.num-section .text {
+  flex: 1;
+  font-size: 40px;
+  line-height: 1.45;
+  color: var(--text);
+}
+.num-section .text strong { color: var(--navy); font-weight: 700; }
+.num-section .text .label {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+/* ─── 1. layout-cover ─── */
+section.layout-cover {
+  padding: 0;
+  position: relative;
+  height: 100%;
+  background: #fff !important;
+}
+section.layout-cover::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--navy);
+}
+section.layout-cover::after {
+  content: "";
+  position: absolute;
+  bottom: 60px;
+  left: var(--margin-x);
+  right: var(--margin-x);
+  height: 1px;
+  background: var(--border);
+}
+section.layout-cover .cover-content {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: auto;
+}
+section.layout-cover .cover-eyebrow {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 28px;
+}
+section.layout-cover .cover-title {
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1.08;
+  color: var(--navy);
+  letter-spacing: -0.03em;
+  margin: 0 0 24px 0;
+}
+section.layout-cover .cover-rule {
+  width: 96px;
+  height: 5px;
+  background: var(--blue);
+  margin: 28px auto;
+}
+section.layout-cover .cover-subtitle {
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+section.layout-cover .cover-photo {
+  position: absolute;
+  right: 80px;
+  top: 200px;
+  width: 400px;
+  height: 266px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  z-index: 3;
+}
+section.layout-cover .cover-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+section.layout-cover .cover-photo .photo-credit {
+  position: absolute;
+  bottom: 0; right: 0;
+  font-size: 12px;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  padding: 2px 6px;
+}
+
+/* ─── 2. layout-section ─── */
+section.layout-section {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  background: var(--navy) !important;
+  color: #fff;
+  position: relative;
+}
+section.layout-section::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 12px;
+  background: var(--blue);
+}
+section.layout-section .section-inner { padding: 0 96px 0 88px; }
+section.layout-section .section-num {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.18em;
+  margin-bottom: 32px;
+}
+section.layout-section .section-title {
+  font-size: 100px;
+  font-weight: 900;
+  line-height: 1.12;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+section.layout-section .section-blurb {
+  font-size: 32px;
+  font-weight: 500;
+  color: #B7C8DD;
+  margin-top: 28px;
+  line-height: 1.5;
+  max-width: 1400px;
+}
+
+/* ─── 3. layout-text ─── */
+section.layout-text { padding: 0; }
+section.layout-text .body-area { display: flex; flex-direction: column; }
+section.layout-text .body-area ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+section.layout-text .body-area ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 18px;
+  font-size: 34px;
+  line-height: 1.5;
+  color: var(--text);
+}
+section.layout-text .body-area ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 2px;
+  color: var(--blue);
+  font-size: 14px;
+}
+section.layout-text .body-area ul li em { font-style: italic; color: var(--navy); }
+
+/* ─── 4. layout-image ─── */
+section.layout-image { padding: 0; height: 100%; }
+section.layout-image .body-area {
+  display: flex;
+  gap: 56px;
+  align-items: center;
+}
+section.layout-image .body-area .copy {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 40px; line-height: 1.5;
+  align-self: stretch;
+}
+section.layout-image .body-area .copy ul {
+  list-style: none; padding-left: 0; margin: 0;
+}
+section.layout-image .body-area .copy ul li {
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 14px;
+}
+section.layout-image .body-area .copy ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--blue);
+  font-size: 22px;
+  line-height: 1.4;
+}
+section.layout-image .body-area .copy p { margin: 14px 0; }
+section.layout-image .body-area figure {
+  margin: 0;
+  flex: 1 1 0;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section.layout-image .body-area figure img {
+  width: 100%;
+  height: auto;
+  max-height: 580px;
+  display: block;
+  background: var(--bg);
+  object-fit: contain;
+}
+section.layout-image .body-area figcaption {
+  margin-top: 14px;
+  font-size: 24px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ─── 5. layout-table ─── */
+section.layout-table { padding: 0; }
+section.layout-table .body-area .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 38px;
+  line-height: 1.4;
+}
+section.layout-table .data-table th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 32px;
+  border-right: 1px solid var(--border);
+}
+section.layout-table .data-table th:last-child { border-right: none; }
+section.layout-table .data-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  vertical-align: top;
+  background: #fff;
+}
+section.layout-table .data-table td:last-child { border-right: none; }
+section.layout-table .data-table tr:nth-child(even) td { background: var(--surface); }
+section.layout-table .data-table td.num {
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+}
+section.layout-table .body-area .callout {
+  margin-top: 24px;
+  font-size: 38px;
+}
+
+/* ─── 6. layout-flex-2col ─── */
+section.layout-flex-2col { padding: 0; }
+section.layout-flex-2col .body-area { display: flex; flex-direction: column; }
+section.layout-flex-2col .cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  flex: 1;
+  align-items: stretch;
+}
+section.layout-flex-2col .col-card {
+  border: 2px solid var(--border);
+  background: var(--bg);
+  padding: 26px 30px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+}
+section.layout-flex-2col .col-card.primary {
+  border-color: var(--navy);
+  background: var(--surface);
+}
+section.layout-flex-2col .col-card.muted {
+  border-color: var(--text-muted);
+  border-style: dashed;
+}
+section.layout-flex-2col .col-card .col-title {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 16px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--navy);
+}
+section.layout-flex-2col .col-card.muted .col-title {
+  color: var(--text-muted);
+  border-bottom-color: var(--text-muted);
+}
+section.layout-flex-2col .col-card ul {
+  list-style: none; padding: 0; margin: 0;
+  font-size: 38px;
+  line-height: 1.45;
+}
+section.layout-flex-2col .col-card ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+section.layout-flex-2col .col-card ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--blue);
+  font-size: 14px;
+  line-height: 1.8;
+}
+section.layout-flex-2col .col-card.muted ul li::before { color: var(--text-muted); }
+section.layout-flex-2col .col-card ul li strong { color: var(--navy); font-weight: 700; }
+section.layout-flex-2col .col-card figure {
+  flex: 1;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+section.layout-flex-2col .col-card figure img {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+  display: block;
+}
+section.layout-flex-2col .col-card figcaption {
+  font-size: 22px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ─── 7. layout-flow-cards ─── */
+section.layout-flow-cards { padding: 0; }
+section.layout-flow-cards .body-area { display: flex; flex-direction: column; }
+section.layout-flow-cards .flow-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 30px;
+}
+section.layout-flow-cards .flow-row.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1200px;
+}
+section.layout-flow-cards .flow-row.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+section.layout-flow-cards .flow-card {
+  background: var(--bg);
+  border-top: 6px solid var(--blue);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 22px 22px 26px;
+  position: relative;
+  min-height: 260px;
+}
+section.layout-flow-cards .flow-card .step-key {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--navy);
+  margin: 10px 0 14px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+section.layout-flow-cards .flow-card .step-desc {
+  font-size: 28px;
+  color: var(--text);
+  line-height: 1.45;
+}
+section.layout-flow-cards .flow-card .step-desc strong { color: var(--blue); font-weight: 700; }
+section.layout-flow-cards .flow-card::after {
+  content: "▶";
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--blue);
+  font-size: 38px;
+  z-index: 2;
+}
+section.layout-flow-cards .flow-card:last-child::after { display: none; }
+
+/* ─── 8. layout-closing ─── */
+section.layout-closing { padding: 0; position: relative; }
+section.layout-closing .body-area {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section.layout-closing .closing-quote {
+  font-size: 68px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 0 36px;
+}
+section.layout-closing .closing-quote em {
+  font-style: normal;
+  color: var(--blue);
+  font-weight: 900;
+}
+section.layout-closing .closing-meta {
+  font-size: 32px;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+section.layout-closing .closing-list {
+  list-style: none;
+  padding: 0; margin: 0 0 32px;
+  text-align: center;
+}
+section.layout-closing .closing-list li {
+  font-size: 44px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.6;
+}
+section.layout-closing .closing-list li strong { color: var(--blue); }
+
+/* ─── Reveal.js UI ─── */
+.reveal .slide-number {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-muted);
+  bottom: 18px; right: 32px;
+}
+.reveal aside.notes { display: none; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- ━━━━━━━━━━━━━━━━ 1. COVER ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-cover">
+    <div class="cover-content">
+      <div class="cover-eyebrow">교육방법 및 교육공학 · CHAPTER 07</div>
+      <h1 class="cover-title">학습 동기<br>유발 전략</h1>
+      <div class="cover-rule"></div>
+      <div class="cover-subtitle">이론에서 수업 실천으로</div>
+    </div>
+    <div class="cover-photo">
+      <img src="../images/img-s01-cover-bg.png" alt="ARCS 알파벳·몰입 파도·동기 불꽃 아이콘이 어우러진 타이틀 배경 일러스트">
+      <div class="photo-credit">AI-generated · gpt-image-gen</div>
+    </div>
+    <aside class="notes">7장은 학습자의 동기를 수업 설계의 핵심 변수로 다루는 장입니다. 5장에서 가녜의 9사태와 학습 조건을 다루었고, 6장에서 협동학습 구조를 다루었다면, 7장은 그 모든 수업 설계의 전제가 되는 학습자 동기를 어떻게 의도적으로 설계할 수 있는지를 탐구합니다. Keller의 ARCS 모형을 중심으로, SDT와 몰입(Flow) 이론을 통합적으로 이해하는 것이 이 장의 핵심입니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 2. 학습목표 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">7장 학습 목표</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">7장 학습 목표</h2>
+        <div class="num-section">
+          <span class="num-chip">01</span>
+          <div class="text">
+            <span class="label">내재적·외재적 동기</span>
+            내재적·외재적 동기의 차이와 과잉정당화 효과를 설명한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">02</span>
+          <div class="text">
+            <span class="label">SDT 세 가지 욕구</span>
+            자기결정성 이론(SDT)의 세 가지 기본 심리 욕구를 적용한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">03</span>
+          <div class="text">
+            <span class="label">ARCS 12가지 전략</span>
+            ARCS 모형의 네 요소와 각 요소의 3가지 하위 전략을 사용한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">04</span>
+          <div class="text">
+            <span class="label">ARCS-V 의지</span>
+            ARCS-V 모형에서 의지(Volition)의 의미와 역할을 분석한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">05</span>
+          <div class="text">
+            <span class="label">몰입 이론</span>
+            몰입(Flow) 이론의 도전-능력 균형 조건을 수업 설계에 연결한다.
+          </div>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s02-objectives.png" alt="5가지 학습목표를 아이콘으로 시각화한 목표 맵">
+        <figcaption>그림 7-0 · 7장 학습 목표 맵</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">7장의 다섯 가지 학습목표를 안내합니다. 내재적·외재적 동기 구분과 과잉정당화 효과, SDT의 세 가지 기본 심리 욕구(자율성·유능감·관계성), ARCS 네 요소와 12가지 하위 전략, ARCS-V에서 의지(V) 추가의 이유, 몰입 이론의 도전-능력 균형 조건이 핵심 내용입니다. 이 모든 내용은 Dick &amp; Carey 10단계 ⑥교수전략개발 단계에서 동기 유발 전략을 설계할 때 직접 활용됩니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 3. SECTION 1 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 01</div>
+      <h2 class="section-title">학습 동기의<br>개념과<br>이론적 토대</h2>
+      <p class="section-blurb">안내 질문: 동기가 수업 설계의 핵심 변수가 되는 이유는 무엇인가?</p>
+    </div>
+    <aside class="notes">1절에서는 동기의 정의와 학습에서의 역할, 내재적·외재적 동기의 구분과 과잉정당화 효과, 그리고 자기결정성 이론(SDT)의 세 가지 기본 심리 욕구를 다룹니다. 핵심은 동기가 인지 능력과 달리 수업 설계를 통해 의도적으로 강화될 수 있다는 것입니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 4. 동기의 정의 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">동기의 정의와 학습에서의 역할</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">동기의 정의와 학습에서의 역할</h2>
+        <p class="body-text"><strong>동기(Motivation)</strong>: 행동을 <strong>시작</strong>(activation)하고, <strong>방향</strong>을 이끌며(direction), <strong>지속</strong>하게 하는(persistence) 내적 상태</p>
+        <div class="callout callout--info" style="margin-top:24px; font-size:40px;">
+          지능은 비교적 고정적이지만, 동기는 수업 설계로 <strong>의도적으로 강화</strong>할 수 있다<br>
+          <span style="font-size:28px; color:var(--text-muted);">— 류지헌, 김민정, 임태형 (2023)</span>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s04-motivation-concept.png" alt="동기의 3가지 기능(시작·방향·지속)을 불꽃→화살표→체인으로 표현한 개념도">
+        <figcaption>그림 7-1 · 동기의 3가지 기능 (류지헌 외, 2023)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">동기의 정의와 학습에서의 역할을 설명합니다. 동기는 행동을 시작하고(activation), 특정 방향으로 이끌며(direction), 지속하게 하는(persistence) 내적 상태입니다. 학습 동기의 중요성은 인지 능력이 유사한 학습자들 사이에서도 성취 차이가 발생하는 주요 이유가 동기의 차이라는 점에서 확인됩니다. 인지 능력이나 사전 지식은 비교적 고정적인 데 반해, 동기는 수업 설계와 교사의 전략에 의해 의도적으로 강화될 수 있다는 점에서 교육공학적 접근의 핵심 대상입니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 5. 내재적 vs 외재적 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">내재적 동기 vs 외재적 동기</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">내재적 동기 (Intrinsic)</div>
+          <ul>
+            <li>활동 자체에서 만족·즐거움</li>
+            <li>탐구 자체가 보람</li>
+            <li>지속성·깊이 있는 학습</li>
+          </ul>
+        </div>
+        <div class="col-card muted">
+          <div class="col-title">외재적 동기 (Extrinsic)</div>
+          <ul>
+            <li>성적·칭찬·보상·벌 회피</li>
+            <li><strong>과잉정당화 효과</strong>: 외적 보상 도입 시 내재적 흥미가 감소할 수 있음</li>
+            <li>내면화를 통해 더 자기결정적인 외재적 동기로 <strong>발전</strong> 가능</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">내재적 동기와 외재적 동기의 차이를 설명합니다. 내재적 동기는 활동 자체에서 만족을 얻기 때문에 발생하는 동기이고, 외재적 동기는 활동 외부의 결과물(성적, 칭찬, 보상)을 위해 발생합니다. 핵심 개념은 과잉정당화 효과(overjustification effect)입니다. 외적 보상이 내재적으로 흥미를 느끼던 활동에 도입되면 오히려 내재적 흥미가 감소할 수 있습니다. 그러나 이분법적 판단을 피해야 합니다 — 외재적 동기도 내면화되어 더 자기결정적인 외재적 동기로 발전할 수 있고, 학습의 출발점이 될 수 있습니다(Ryan &amp; Deci, 2000; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 6. SDT + Deci 초상 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">자기결정성 이론(SDT): 세 가지 기본 심리 욕구</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">Edward L. Deci &amp; Richard M. Ryan (1985)</div>
+          <figure>
+            <img src="../images/img-s06-deci-portrait.png" alt="Edward L. Deci 교수 초상 사진">
+            <figcaption>Edward L. Deci · Wikimedia Commons</figcaption>
+          </figure>
+        </div>
+        <div class="col-card">
+          <div class="col-title">세 가지 기본 심리 욕구</div>
+          <ul>
+            <li><strong>자율성</strong>: 스스로 선택·결정하는 감각</li>
+            <li><strong>유능감</strong>: 효과적으로 기능한다는 믿음</li>
+            <li><strong>관계성</strong>: 타인과 의미 있게 연결</li>
+          </ul>
+          <div class="callout callout--info" style="margin-top:20px; font-size:34px;">
+            세 욕구 충족 시 외재적 동기도 <strong>내면화</strong> 가능
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">자기결정성 이론(SDT)을 설명합니다. Deci &amp; Ryan(1985)은 동기를 자율성 정도에 따른 연속체로 파악합니다. 세 가지 기본 심리 욕구: 자율성(자신의 행동이 스스로의 선택에 의해 이루어진다는 감각), 유능감(환경과의 상호작용에서 효과적으로 기능할 수 있다는 믿음), 관계성(타인과 의미 있게 연결되어 있다는 감각). 이 세 욕구가 충족될 때 외재적 규제에서 시작한 동기도 내면화(internalization)되어 자기결정적 동기로 전환될 수 있습니다. SDT의 유능감 욕구는 Keller ARCS의 자신감(C) 전략과 개념적으로 관련지어 볼 수 있습니다(Deci &amp; Ryan, 1985; Ryan &amp; Deci, 2000).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 7. SECTION 2 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 02</div>
+      <h2 class="section-title">Keller의<br>ARCS<br>동기 설계 모형</h2>
+      <p class="section-blurb">안내 질문: ARCS 모형이 '처방적(prescriptive) 설계 모형'인 이유는 무엇인가?</p>
+    </div>
+    <aside class="notes">2절에서는 ARCS 모형의 개발 배경과 이론적 특성, 그리고 ARCS 네 요소의 구조와 상호 보완적 관계를 다룹니다. Keller가 FSU 교육공학과에서 분산된 동기 이론들을 종합하여 처방적 설계 모형으로 체계화했다는 점이 핵심입니다. Walter Dick, Gagné 등 FSU 교육공학과의 지적 계보를 함께 이해할 수 있다는 사실도 맥락으로 설명합니다(Keller, 1987).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 8. ARCS 개발 배경 + Keller 초상 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">ARCS 모형의 개발 배경</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">John M. Keller (1987)</div>
+          <figure>
+            <img src="../images/img-s08-keller-portrait.png" alt="John M. Keller 교수 초상 사진">
+            <figcaption>John M. Keller · Wikimedia Commons</figcaption>
+          </figure>
+        </div>
+        <div class="col-card">
+          <div class="col-title">개발 배경과 이론적 특성</div>
+          <ul>
+            <li>교수설계에서 동기 변수가 소홀히 다루어짐</li>
+            <li>분산된 동기 이론들 → <strong>처방적 설계 모형</strong>으로 통합</li>
+            <li>기대-가치 이론·귀인 이론·성취 동기 이론 흡수</li>
+            <li>FSU 교육공학과 — Walter Dick, Gagné와 같은 지적 계보 (1985년 이후)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">ARCS 모형의 개발 배경을 설명합니다. Keller(1987)는 당시 교수설계 분야가 학습 내용 구조화와 수행 목표 진술에 집중하면서 동기 변수를 소홀히 다룬다는 문제의식에서 ARCS 모형을 개발했습니다. 분산되어 있던 동기 관련 심리학 이론들(기대-가치 이론, 귀인 이론, 성취 동기 이론 등)을 교사와 교수설계자가 실제로 사용할 수 있는 처방적 설계 모형으로 체계화했습니다. Keller는 1983년 Syracuse 대학교에서 ARCS 모형의 토대를 발표하고, 1985년 이후 FSU 교육공학과 교수로 재직하며 Walter Dick, Gagné와 같은 지적 계보를 공유했습니다(Keller, 1987; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 9. ARCS 구조 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">ARCS 모형의 구조와 네 요소</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">ARCS 모형의 구조와 네 요소</h2>
+        <p class="body-text"><strong>A</strong>ttention(주의집중) · <strong>R</strong>elevance(관련성) · <strong>C</strong>onfidence(자신감) · <strong>S</strong>atisfaction(만족감)</p>
+        <p class="body-text">네 요소는 <strong>상호 보완적</strong> — 어느 하나의 결핍이 전체 동기를 저하시킨다</p>
+        <div class="callout callout--info" style="font-size:36px; margin-top:20px;">
+          흥미로운 A 전략만으로는 부족하다 — R·C·S가 함께 설계되어야 동기가 지속된다<br>
+          <span style="font-size:26px; color:var(--text-muted);">— Keller (1987)</span>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s09-arcs-diagram.png" alt="ARCS 네 요소가 상호 연결된 순환 다이어그램">
+        <figcaption>그림 7-2 · ARCS 모형의 네 요소 (Keller, 1987)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">ARCS 모형의 구조와 네 요소를 설명합니다. Attention(주의집중)·Relevance(관련성)·Confidence(자신감)·Satisfaction(만족감)의 네 요소는 서로 독립적이 아니라 상호 보완적 관계를 갖습니다. 아무리 자신감을 높이는 전략을 구사해도 학습 내용이 학습자의 삶과 무관하다고 느껴지면 동기는 유지되기 어렵습니다. ARCS 모형의 수업 설계상의 의의는 동기 문제를 진단하고 처방하는 체계적 절차를 제공한다는 데 있으며, 동기 설계 절차(MDLP)는 ADDIE 흐름과 유사하게 분석-설계-실행-평가 단계로 이루어집니다(Keller, 1987; Keller, 2010; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 10. SECTION 3 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 03</div>
+      <h2 class="section-title">ARCS<br>네 요소의<br>수업 전략</h2>
+      <p class="section-blurb">안내 질문: 관련성(R) 전략이 학습자의 발달 단계에 따라 달라져야 하는 이유는 무엇인가?</p>
+    </div>
+    <aside class="notes">3절에서는 ARCS 네 요소 각각의 세 가지 하위 전략을 구체적 수업 예시와 함께 다룹니다. A(주의집중): 지각적 주의 환기·탐구적 주의 환기·다양성. R(관련성): 친밀성·목적지향·동기 부합성. C(자신감): 학습 필요조건 제시·성공 기회·개인적 조절감. S(만족감): 내재적 강화·긍정적 결과 강화·공정성. 각각이 3가지 하위 전략을 가져 총 12가지 전략 체계를 이룹니다(Keller, 1987; Keller, 2010).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 11. ARCS-A ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">A — 주의집중(Attention): 탐구적 흥미와 지각적 자극</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">A — 주의집중(Attention)</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>하위 전략</th>
+            <th>내용</th>
+            <th>수업 예시</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>지각적 주의 환기</strong></td>
+            <td>감각적 변화로 집중 유도</td>
+            <td>예상치 못한 자극, 시각 자료 활용</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>탐구적 주의 환기</strong></td>
+            <td>지적 호기심 자극</td>
+            <td>"왜 그럴까?" 질문, 인지 갈등 제시</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>다양성</strong></td>
+            <td>수업 방법·계열 변화</td>
+            <td>매체 교체, 활동 유형 전환</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--summary" style="margin-top:24px; font-size:38px;">
+        수업 도입뿐 아니라 <strong>전개 전반</strong>에 걸쳐 지속적으로 적용
+      </div>
+    </div>
+    <aside class="notes">ARCS의 A(주의집중) 전략을 설명합니다. 지각적 주의 환기(perceptual arousal)는 시각적 자극, 소리, 움직임 등 감각적 변화로 주의를 끕니다. 탐구적 주의 환기(inquiry arousal)는 지적 갈등 유발, 문제 제시, 질문으로 능동적 탐구를 유도하며 지각적 주의 환기보다 더 깊은 인지 처리를 촉진합니다. 다양성(variability)은 단조로운 강의 구조가 주의집중의 저해 요인임을 전제로 매체 교체와 활동 유형 전환으로 주의를 유지합니다. 주의집중 전략은 도입 단계뿐 아니라 수업 전반에 걸쳐 지속적으로 적용되어야 합니다(Keller, 1987; Keller, 2010).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 12. ARCS-R ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">R — 관련성(Relevance): 학습의 개인적 의미 형성</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">R — 관련성(Relevance)</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>하위 전략</th>
+            <th>내용</th>
+            <th>수업 예시</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>친밀성</strong></td>
+            <td>기존 경험·배경 지식과 연결</td>
+            <td>현재 경험, 친숙한 예문 활용</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>목적지향</strong></td>
+            <td>목표와 수업 내용의 연결 명시</td>
+            <td>"이것을 배우는 이유" 제시</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>동기 부합성</strong></td>
+            <td>성취·협동·귀속 욕구 연결</td>
+            <td>선택권 부여, 성취감 시각화</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--summary" style="margin-top:24px; font-size:38px;">
+        "이것을 왜 배워야 하는가?"에 <strong>답</strong>하는 전략 범주
+      </div>
+    </div>
+    <aside class="notes">ARCS의 R(관련성) 전략을 설명합니다. 친밀성(familiarity)은 기존 배경 지식·경험과 새 학습을 연결해 낯설지 않게 합니다. 목적지향(goal orientation)은 학습 목표를 명확히 제시하고 수업 내용이 그 목표와 어떻게 연결되는지를 보여줍니다. 동기 부합성(motive matching)은 학습자의 성취 요구, 협동 요구, 귀속감 요구 등 심리적 욕구와 학습 경험을 연결합니다. 관련성 전략은 학습자의 발달 단계와 문화적 배경에 따라 차별화될 필요가 있습니다 — 초등학생과 대학생에게 효과적인 관련성 맥락은 다릅니다(Keller, 1987; Keller, 2010).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 13. ARCS-C ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">C — 자신감(Confidence): 성공 기대와 개인적 통제감</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">C — 자신감(Confidence)</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>하위 전략</th>
+            <th>내용</th>
+            <th>수업 예시</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>학습 필요조건 제시</strong></td>
+            <td>기대치·기준 사전 투명 공개</td>
+            <td>평가 요소·기준 명시</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>성공 기회 제시</strong></td>
+            <td>단순→복잡 계열화, 초기 성공 설계</td>
+            <td>즉각 피드백·연습 문제</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>개인적 조절감</strong></td>
+            <td>학습 과정 통제감 부여</td>
+            <td>난이도 선택, 자신만의 속도</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--summary" style="margin-top:24px; font-size:38px;">
+        SDT의 <strong>유능감 욕구</strong>와 개념적으로 연결
+      </div>
+    </div>
+    <aside class="notes">ARCS의 C(자신감) 전략을 설명합니다. 학습 필요조건 제시(performance requirements)는 기대치와 평가 기준을 명확하게 사전에 제시합니다. 성공 기회 제시(success opportunities)는 단순에서 복잡으로 계열화하여 초기 성공 경험을 축적하게 합니다. 개인적 조절감(personal control)은 학습자가 자신의 학습 과정을 어느 정도 통제할 수 있다는 감각을 갖도록 합니다. 자신감 전략은 SDT의 유능감 욕구와 직접 연결됩니다 — 학습자가 유능하다는 감각을 경험할 때 내재적 동기가 강화됩니다(Keller, 1987; Keller, 2010; Deci &amp; Ryan, 1985).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 14. ARCS-S ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">S — 만족감(Satisfaction): 학습 결과의 가치화</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">S — 만족감(Satisfaction)</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>하위 전략</th>
+            <th>내용</th>
+            <th>수업 예시</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>내재적 강화</strong></td>
+            <td>새 기술 실제 적용 기회</td>
+            <td>실제 문제 해결, 타인 도움</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>긍정적 결과 강화</strong></td>
+            <td>칭찬·외적 보상 제공</td>
+            <td>단, 내재적 흥미 대체 금지</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>공정성</strong></td>
+            <td>목표-평가 일치, 공정한 기준</td>
+            <td>수업 내용과 평가 문항 일치</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--summary" style="margin-top:24px; font-size:38px;">
+        현재 수업의 마무리이자 <strong>다음 학습 동기의 씨앗</strong>
+      </div>
+    </div>
+    <aside class="notes">ARCS의 S(만족감) 전략을 설명합니다. 내재적 강화(natural consequences)는 새로 배운 내용이나 기술을 실제 적용하는 기회를 제공합니다. 긍정적 결과 강화(positive consequences)는 정확한 반응에 칭찬과 외적 보상을 제공하되, 과도한 외적 보상이 내재적 흥미를 대체하지 않도록 주의해야 합니다(5장의 과잉정당화 효과). 공정성(equity)은 수업 목표와 평가 내용의 일치, 공정한 기준 적용으로 신뢰를 형성합니다. 만족감은 수업 마지막 단계뿐 아니라 전반에 걸쳐 작은 성공과 긍정적 피드백의 축적으로 이루어집니다(Keller, 1987; Keller, 2010).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 15. SECTION 4 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 04</div>
+      <h2 class="section-title">ARCS 모형의<br>확장과<br>교실 적용</h2>
+      <p class="section-blurb">안내 질문: ARCS-V에서 '의지(Volition)'를 별도 요소로 추가한 이유는 무엇인가?</p>
+    </div>
+    <aside class="notes">4절에서는 Keller(2010)가 기존 ARCS에 의지(Volition)를 추가한 ARCS-V 모형과, ARCS 수업 동기 설계 절차(분석-설계-평가)를 다룹니다. 핵심 질문은 '동기(motivation)와 의지(volition)는 왜 구분되어야 하는가'입니다. Julius Kuhl의 행동 통제 이론이 이론적 근거입니다(Keller, 2010).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 16. ARCS-V ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">ARCS-V 모형: 의지(Volition)의 추가</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">ARCS-V 모형: 의지(Volition)의 추가</h2>
+        <p class="body-text">기존 ARCS에 <strong>V(Volition, 의지)</strong> 추가 <em>(Keller, 2010)</em></p>
+        <p class="body-text"><strong>의지</strong>: 방해물·유혹을 억제하고 목표를 <strong>지속하는</strong> 자기조절 능력</p>
+        <div class="callout callout--info" style="font-size:36px; margin-top:20px;">
+          동기(방향 설정) ≠ 의지(지속 실행)<br>
+          — Keller(2010)가 Kuhl의 행동 통제 이론(Action Control Theory)을 바탕으로 V 추가
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s16-arcs-v-diagram.png" alt="기존 ARCS 4요소에 V(의지)가 추가된 ARCS-V 5요소 확장 다이어그램">
+        <figcaption>그림 7-3 · ARCS-V 모형 (Keller, 2010)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">ARCS-V 모형을 설명합니다. Keller(2010)는 기존 ARCS에 V(Volition, 의지)를 추가했습니다. 이론적 근거는 Julius Kuhl의 행동 통제 이론(Action Control Theory): 동기는 행동의 목표를 설정하고 방향을 결정하는 역할이고, 의지는 목표를 향해 나아가는 과정에서 방해물과 유혹을 억제하고 과제를 지속하는 자기조절 능력입니다. "공부하고 싶다"(동기)와 스마트폰 유혹을 이겨내고 실제로 공부를 지속하는 것(의지)은 별개의 심리적 역량입니다. ARCS-V의 의지 전략은 자기조절 학습(self-regulated learning) 이론과도 연결됩니다(Keller, 2010).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 17. ARCS 절차 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">ARCS 수업 동기 설계 절차</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">ARCS 수업 동기 설계 절차</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>단계</th>
+            <th>핵심 활동</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>분석</strong></td>
+            <td>학습자 동기 특성 진단 → ARCS 어느 요소에서 문제인지 파악</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>설계</strong></td>
+            <td>해당 요소 집중 전략 선택 → 수업에 통합</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>평가</strong></td>
+            <td>동기 변화 측정 → 전략 효과 확인 및 개선</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--summary" style="margin-top:24px; font-size:38px;">
+        ADDIE 흐름과 유사한 <strong>간략화한 수업 적용 절차</strong> — ARCS는 이론 틀이자 실천 도구
+      </div>
+    </div>
+    <aside class="notes">ARCS 수업 동기 설계 절차를 설명합니다. 분석 단계에서는 학습자의 동기 특성을 진단하여 ARCS의 어느 요소에서 문제가 발생하는지를 파악합니다. 설계 단계에서는 진단 결과에 따라 해당 요소에 집중한 전략을 선택하고 수업에 통합합니다. 평가 단계에서는 동기 변화를 측정하여 전략의 효과를 확인하고 개선합니다. 이 절차는 4장의 ADDIE 모형 흐름과 유사하게 학습자 분석→설계→평가의 순환 구조를 가집니다. ARCS 네 요소와 구체적 전략은 교직 논술 출제 사례로 다루어질 수 있습니다(Keller, 1987; Keller, 2010; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 18. SECTION 5 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 05</div>
+      <h2 class="section-title">학습몰입과<br>최적 동기<br>상태</h2>
+      <p class="section-blurb">안내 질문: 몰입 이론과 ARCS 모형은 어떻게 보완적인 관계를 이루는가?</p>
+    </div>
+    <aside class="notes">5절에서는 칙센트미하이의 몰입(Flow) 이론과 교실 적용, 그리고 ARCS·SDT·몰입 이론의 통합적 이해를 다룹니다. 핵심 질문은 몰입 이론(기술적 접근)과 ARCS(처방적 접근)가 어떻게 보완적으로 기능하는가입니다. 두 이론을 함께 이해하면 교사는 ARCS 전략으로 동기의 기초를 마련하면서 동시에 몰입이 일어날 수 있는 도전-능력 균형을 설계에 반영할 수 있습니다(Csikszentmihalyi, 1990).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 19. 몰입 이론 + 칙센트미하이 초상 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">칙센트미하이의 몰입(Flow) 이론</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">Mihaly Csikszentmihalyi (1990)</div>
+          <figure>
+            <img src="../images/img-s19-csikszentmihalyi-portrait.png" alt="Mihaly Csikszentmihalyi 교수 초상 사진">
+            <figcaption>Mihaly Csikszentmihalyi · Wikimedia Commons</figcaption>
+          </figure>
+        </div>
+        <div class="col-card">
+          <div class="col-title">몰입의 조건과 특성</div>
+          <ul>
+            <li>도전 수준 ↔ 능력 수준 <strong>균형</strong> 시 발생</li>
+            <li>도전 &gt; 능력: <strong>불안(anxiety)</strong></li>
+            <li>능력 &gt; 도전: <strong>지루함(boredom)</strong></li>
+            <li>균형 영역: <strong>자기목적적(autotelic)</strong> 경험</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">칙센트미하이의 몰입(Flow) 이론을 설명합니다. 몰입은 활동에 완전히 빠져들어 시간의 흐름조차 잊고 노력을 거의 의식하지 않고 과제를 수행하는 경험으로, 자의식이 사라지고 활동 자체가 목적이 되는 자기목적적(autotelic) 경험입니다. 몰입 발생 조건: 과제의 도전 수준과 학습자의 능력 수준이 균형을 이룰 때 발생합니다. 도전이 능력을 훨씬 초과하면 불안(anxiety)이, 능력이 도전보다 훨씬 높으면 지루함(boredom)이 발생합니다. 몰입 이론은 ARCS(처방적·동기 설계)와 보완 관계에 있습니다 — ARCS는 동기가 낮은 학습자의 동기를 설계적으로 높이는 처방적 접근이고, 몰입 이론은 동기의 최적 상태가 어떤 조건에서 자연스럽게 발생하는지를 기술합니다(Csikszentmihalyi, 1990).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 20. 몰입 채널 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">몰입 채널: 도전-능력 균형 영역</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">몰입 채널: 도전-능력 균형 영역</h2>
+        <p class="body-text"><strong>x축</strong>: 학습자의 <strong>능력(skill)</strong> 수준 / <strong>y축</strong>: 과제의 <strong>도전(challenge)</strong> 수준</p>
+        <p class="body-text">대각선 좁은 영역 = <strong>몰입 채널</strong> — 두 수준이 모두 높고 균형을 이룰 때 최적 몰입</p>
+        <div class="callout callout--info" style="font-size:36px; margin-top:20px;">
+          단순히 낮은 수준의 균형이 아니라, <strong>높은 수준에서의 균형</strong>이 깊은 몰입을 만든다<br>
+          <span style="font-size:28px; color:var(--text-muted);">— Csikszentmihalyi (1990)</span>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s20-flow-channel.png" alt="칙센트미하이 몰입 채널 2차원 그래프: 불안·몰입·지루함 세 영역 구분">
+        <figcaption>그림 7-4 · 몰입 채널 (Csikszentmihalyi, 1990)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">몰입 채널 다이어그램을 설명합니다. x축은 학습자의 능력(skill) 수준, y축은 과제의 도전(challenge) 수준입니다. 두 수준이 적절히 균형을 이루는 대각선 좁은 영역에서만 몰입 경험이 가능합니다. 낮은 수준에서의 균형은 몰입보다 무관심(apathy)에 가까우며, 몰입은 도전과 능력이 모두 상대적으로 높은 균형에서 발생합니다. 몰입의 도전-능력 균형은 Vygotsky의 ZPD와 개념적으로 비교할 수 있으나 동일한 이론은 아닙니다. 교사가 학습자의 현재 능력을 정확히 파악하여 적절한 수준의 도전을 설계할 때, 학습자는 몰입의 영역에서 학습할 수 있습니다(Csikszentmihalyi, 1990).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 21. 몰입 촉진 설계 원칙 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">몰입 촉진 수업 설계 원칙</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">몰입 촉진 수업 설계 원칙</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>원칙</th>
+            <th>구체 방법</th>
+            <th>연결 이론</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>명확한 목표</strong></td>
+            <td>수업 목표 구체 제시, 진행 파악 가능</td>
+            <td>Gagné 9사태 ②</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>즉각적 피드백</strong></td>
+            <td>연습 즉시 피드백, 동료 피드백 구조화</td>
+            <td>Gagné 9사태 ⑦</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>점진적 도전</strong></td>
+            <td>능력 성장에 따라 난이도 단계적 상승</td>
+            <td>가녜 학습 위계(5장)</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>ZPD 연결</strong></td>
+            <td>현재 수준을 약간 초과하는 도전 설계 (도전-능력 균형)</td>
+            <td>Vygotsky ZPD(3장)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <aside class="notes">몰입 촉진 수업 설계 원칙을 설명합니다. 명확한 목표: 몰입 상태에서는 무엇을 해야 하는지가 항상 명확하게 느껴집니다 — 가녜 9사태 ②수행 목표 제시와 연결됩니다. 즉각적 피드백: 자신의 행동 결과를 즉시 알 수 있을 때 몰입이 유지됩니다 — 가녜 9사태 ⑦피드백과 연결됩니다. 점진적 도전: 학습자의 능력 성장에 따라 도전 수준도 함께 높아져야 몰입 상태가 유지됩니다 — 가녜 학습 위계 분석(5장)과 연결됩니다. ZPD 연결: 비고츠키의 최근접 발달 영역은 몰입 이론의 도전-능력 균형과 개념적으로 비교할 수 있으나 동일한 이론은 아닙니다. 두 개념 모두 학습자 수준에 맞는 도전 설계의 중요성을 강조합니다(Csikszentmihalyi, 1990; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 22. 이론 통합 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">ARCS · SDT · 몰입 이론의 통합적 이해</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">ARCS · SDT · 몰입 이론의 통합적 이해</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>이론</th>
+            <th>핵심 접근</th>
+            <th>교사 실천</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>ARCS</strong></td>
+            <td>처방적 — A·R·C·S 의도적 설계</td>
+            <td>동기 진단 후 맞춤 전략 선택</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>SDT</strong></td>
+            <td>욕구 기반 — 자율·유능·관계 충족</td>
+            <td>선택권·성공 경험·관계 형성</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>몰입 이론</strong></td>
+            <td>균형 기반 — 도전·능력 조율</td>
+            <td>ZPD 수준 과제·즉각 피드백</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--summary" style="margin-top:24px; font-size:36px;">
+        세 관점의 <strong>통합적 이해</strong>가 동기 유발을 기법 모음이 아닌 교육적 실천으로 만든다
+      </div>
+    </div>
+    <aside class="notes">세 이론의 통합적 이해를 설명합니다. ARCS(처방적): 동기의 여러 구성 요소를 수업 전반에 걸쳐 의도적으로 설계합니다. SDT(욕구 기반): 자율성, 유능감, 관계성의 기본 심리 욕구를 충족시키는 수업 환경을 조성합니다. 몰입 이론(균형 기반): 도전과 능력의 균형을 통해 몰입 상태를 유도합니다. 이 세 관점의 통합적 이해가 동기 유발 전략을 단편적 기법의 모음이 아닌 학습자 이해에 기반한 교육적 실천으로 이끄는 토대가 됩니다(Keller, 2010; Deci &amp; Ryan, 1985; Csikszentmihalyi, 1990; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 23. 참고문헌 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-text">
+    <div class="header-bar">
+      <span class="chapter-chip">07</span>
+      <span class="header-title">참고문헌</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">참고문헌</h2>
+      <ul>
+        <li>류지헌, 김민정, 임태형 (2023). <em>수업역량 강화를 위한 교육방법 및 교육공학</em> (1판 2쇄). 학지사.</li>
+        <li>Keller, J. M. (1987). Development and use of the ARCS model of instructional design. <em>Journal of Instructional Development</em>, <em>10</em>(3), 2–10.</li>
+        <li>Keller, J. M. (2010). <em>Motivational Design for Learning and Performance: The ARCS Model Approach</em>. Springer.</li>
+        <li>Deci, E. L., &amp; Ryan, R. M. (1985). <em>Intrinsic Motivation and Self-Determination in Human Behavior</em>. Plenum Press.</li>
+        <li>Ryan, R. M., &amp; Deci, E. L. (2000). Self-determination theory and the facilitation of intrinsic motivation, social development, and well-being. <em>American Psychologist</em>, <em>55</em>(1), 68–78.</li>
+        <li>Csikszentmihalyi, M. (1990). <em>Flow: The Psychology of Optimal Experience</em>. Harper &amp; Row.</li>
+        <li>Kuhl, J. (1987). Action control: The maintenance of motivational states. In F. Halisch &amp; J. Kuhl (Eds.), <em>Motivation, Intention, and Volition</em> (pp. 279–291). Springer.</li>
+        <li>김주현 (2017). <em>ARCS 모델을 적용한 민요 수업이 중학생의 학습동기에 미치는 영향</em>. 이화여자대학교 교육대학원 석사학위논문.</li>
+      </ul>
+    </div>
+    <aside class="notes">이 장에서 인용한 주요 참고문헌입니다. 주교재 류지헌, 김민정, 임태형(2023)과 함께 Keller(1987; 2010), Deci &amp; Ryan(1985), Ryan &amp; Deci(2000), Csikszentmihalyi(1990), Kuhl(1987), 김주현(2017) 총 8편입니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 24. CLOSING ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-closing">
+    <div class="body-area">
+      <ul class="closing-list">
+        <li>ARCS는 동기를 <strong>수업 설계 변수</strong>로 만들었다</li>
+        <li>SDT는 <strong>왜</strong> 동기가 작동하는지, 몰입 이론은 <strong>언제</strong> 최적 상태가 되는지를 설명한다</li>
+      </ul>
+      <div class="closing-quote">
+        8장에서는 <em>평가 도구 설계</em>로<br>학습 성취를 측정하는 방법을 다룬다
+      </div>
+      <div class="closing-meta">교육방법 및 교육공학 · 7장</div>
+    </div>
+    <aside class="notes">7장의 핵심 메시지를 정리합니다. ARCS는 분산된 동기 이론들을 처방적 설계 모형으로 통합하여 동기를 수업 설계 변수로 만들었습니다. SDT는 자율성·유능감·관계성이라는 기본 심리 욕구 충족이 왜 동기를 강화하는지를 설명하고, 몰입 이론은 도전-능력 균형이라는 조건에서 동기의 최적 상태가 언제 형성되는지를 설명합니다. 8장에서는 학습 성취를 측정하는 평가 도구 설계를 다룹니다.</aside>
+  </section>
+
+</div>
+</div>
+<script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+<script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    transition: 'fade',
+    transitionSpeed: 'default',
+    backgroundTransition: 'fade',
+    width: 1920,
+    height: 1080,
+    margin: 0,
+    minScale: 0.2,
+    maxScale: 2.0,
+    controls: true,
+    progress: true,
+    center: false,
+    plugins: [ RevealNotes ]
+  });
+</script>
+</body>
+</html>

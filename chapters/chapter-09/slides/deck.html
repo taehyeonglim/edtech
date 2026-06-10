@@ -1,0 +1,1306 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="임태형">
+<title>교육방법 및 교육공학 — 9주차 AI 디지털교과서의 시대: 학습분석학과 생성형 AI의 교육적 적용</title>
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reset.css">
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css">
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/white.css" id="theme">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* ───── ppt-korea-policy-navy (PI 정책 2026-05-26) ───── */
+:root {
+  --bg:           #FFFFFF;
+  --surface:      #E8F1FB;
+  --text:         #1A1A1A;
+  --text-muted:   #5C6470;
+  --navy:         #0B2C5C;
+  --blue:         #1B66C9;
+  --red:          #E03B3B;
+  --green:        #1F9D57;
+  --border:       #C5D2E3;
+  --grid:         #E3EAF3;
+  --margin-x:     72px;
+  --header-h:    130px;
+  --content-top: 36px;
+  --content-bot: 44px;
+  --chip-size:    72px;
+}
+
+html, body { background: var(--bg); }
+.reveal {
+  font-family: 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+.reveal .slides { text-align: left; }
+.reveal section { padding: 0; }
+.reveal section, .reveal section.present { background: var(--bg); }
+
+.reveal section img,
+.reveal section table {
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  max-width: 100%;
+}
+
+/* ─── 헤더바 ─── */
+.header-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--margin-x);
+  z-index: 5;
+}
+.header-bar .chapter-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  padding: 8px 18px;
+  border-radius: 2px;
+  margin-right: 24px;
+  font-variant-numeric: tabular-nums;
+}
+.header-bar .header-title {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.header-bar .header-meta {
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  letter-spacing: 0.04em;
+}
+
+/* ─── 본문 영역 ─── */
+.body-area {
+  position: absolute;
+  top: calc(var(--header-h) + var(--content-top));
+  left: var(--margin-x);
+  right: var(--margin-x);
+  height: calc(100% - var(--header-h) - var(--content-top) - var(--content-bot));
+}
+
+/* ─── 번호 칩 ─── */
+.num-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--chip-size);
+  height: var(--chip-size);
+  background: var(--blue);
+  color: #fff;
+  font-size: 44px;
+  font-weight: 700;
+  border-radius: 2px;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+.num-chip.navy { background: var(--navy); }
+
+/* ─── 헤딩 / 본문 / 캡션 ─── */
+.slide-heading {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 4px solid var(--navy);
+  padding-bottom: 12px;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.015em;
+}
+.body-text {
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text);
+}
+.body-text strong { font-weight: 700; color: var(--blue); }
+.body-text em { font-style: normal; color: var(--navy); font-weight: 700; }
+
+/* ─── KRDS 박스 콜아웃 ─── */
+.callout {
+  padding: 22px 26px;
+  margin: 16px 0;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--navy);
+  border-radius: 2px;
+  background: var(--surface);
+}
+.callout--info { background: var(--surface); border-left: 5px solid var(--blue); }
+.callout--summary {
+  background: var(--surface);
+  border-top: 4px solid var(--navy);
+  border-bottom: 4px solid var(--navy);
+  padding-top: 28px;
+  position: relative;
+}
+.callout--summary::before {
+  content: "핵심";
+  position: absolute;
+  top: -14px; left: 26px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+
+/* ─── 번호 매긴 섹션 ─── */
+.num-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.num-section:last-child { margin-bottom: 0; }
+.num-section .num-chip { width: 56px; height: 56px; font-size: 32px; }
+.num-section .text {
+  flex: 1;
+  font-size: 40px;
+  line-height: 1.45;
+  color: var(--text);
+}
+.num-section .text strong { color: var(--navy); font-weight: 700; }
+.num-section .text .label {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+/* ─── 1. layout-cover ─── */
+section.layout-cover {
+  padding: 0;
+  position: relative;
+  height: 100%;
+  background: #fff !important;
+}
+section.layout-cover::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--navy);
+}
+section.layout-cover::after {
+  content: "";
+  position: absolute;
+  bottom: 60px;
+  left: var(--margin-x);
+  right: var(--margin-x);
+  height: 1px;
+  background: var(--border);
+}
+section.layout-cover .cover-content {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: auto;
+}
+section.layout-cover .cover-eyebrow {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 28px;
+}
+section.layout-cover .cover-title {
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1.08;
+  color: var(--navy);
+  letter-spacing: -0.03em;
+  margin: 0 0 24px 0;
+}
+section.layout-cover .cover-rule {
+  width: 96px;
+  height: 5px;
+  background: var(--blue);
+  margin: 28px auto;
+}
+section.layout-cover .cover-subtitle {
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+section.layout-cover .cover-photo {
+  position: absolute;
+  right: 80px;
+  top: 200px;
+  width: 400px;
+  height: 266px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  z-index: 3;
+}
+section.layout-cover .cover-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+section.layout-cover .cover-photo .photo-credit {
+  position: absolute;
+  bottom: 0; right: 0;
+  font-size: 12px;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  padding: 2px 6px;
+}
+
+/* ─── 2. layout-section ─── */
+section.layout-section {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  background: var(--navy) !important;
+  color: #fff;
+  position: relative;
+}
+section.layout-section::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 12px;
+  background: var(--blue);
+}
+section.layout-section .section-inner { padding: 0 96px 0 88px; }
+section.layout-section .section-num {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.18em;
+  margin-bottom: 32px;
+}
+section.layout-section .section-title {
+  font-size: 100px;
+  font-weight: 900;
+  line-height: 1.12;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+section.layout-section .section-blurb {
+  font-size: 32px;
+  font-weight: 500;
+  color: #B7C8DD;
+  margin-top: 28px;
+  line-height: 1.5;
+  max-width: 1400px;
+}
+
+/* ─── 3. layout-text ─── */
+section.layout-text { padding: 0; }
+section.layout-text .body-area { display: flex; flex-direction: column; }
+section.layout-text .body-area ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+section.layout-text .body-area ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 18px;
+  font-size: 34px;
+  line-height: 1.5;
+  color: var(--text);
+}
+section.layout-text .body-area ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 2px;
+  color: var(--blue);
+  font-size: 14px;
+}
+section.layout-text .body-area ul li em { font-style: italic; color: var(--navy); }
+
+/* ─── 4. layout-image ─── */
+section.layout-image { padding: 0; height: 100%; }
+section.layout-image .body-area {
+  display: flex;
+  gap: 56px;
+  align-items: center;
+}
+section.layout-image .body-area .copy {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 40px; line-height: 1.5;
+  align-self: stretch;
+}
+section.layout-image .body-area .copy ul {
+  list-style: none; padding-left: 0; margin: 0;
+}
+section.layout-image .body-area .copy ul li {
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 14px;
+}
+section.layout-image .body-area .copy ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--blue);
+  font-size: 22px;
+  line-height: 1.4;
+}
+section.layout-image .body-area .copy p { margin: 14px 0; }
+section.layout-image .body-area figure {
+  margin: 0;
+  flex: 1 1 0;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section.layout-image .body-area figure img {
+  width: 100%;
+  height: auto;
+  max-height: 580px;
+  display: block;
+  background: var(--bg);
+  object-fit: contain;
+}
+section.layout-image .body-area figcaption {
+  margin-top: 14px;
+  font-size: 24px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ─── 5. layout-table ─── */
+section.layout-table { padding: 0; }
+section.layout-table .body-area .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 38px;
+  line-height: 1.4;
+}
+section.layout-table .data-table th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 32px;
+  border-right: 1px solid var(--border);
+}
+section.layout-table .data-table th:last-child { border-right: none; }
+section.layout-table .data-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  vertical-align: top;
+  background: #fff;
+}
+section.layout-table .data-table td:last-child { border-right: none; }
+section.layout-table .data-table tr:nth-child(even) td { background: var(--surface); }
+section.layout-table .data-table td.num {
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+}
+section.layout-table .body-area .callout {
+  margin-top: 24px;
+  font-size: 38px;
+}
+
+/* ─── 6. layout-flex-2col ─── */
+section.layout-flex-2col { padding: 0; }
+section.layout-flex-2col .body-area { display: flex; flex-direction: column; }
+section.layout-flex-2col .cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  flex: 1;
+  align-items: stretch;
+}
+section.layout-flex-2col .col-card {
+  border: 2px solid var(--border);
+  background: var(--bg);
+  padding: 26px 30px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+}
+section.layout-flex-2col .col-card.primary {
+  border-color: var(--navy);
+  background: var(--surface);
+}
+section.layout-flex-2col .col-card.muted {
+  border-color: var(--text-muted);
+  border-style: dashed;
+}
+section.layout-flex-2col .col-card .col-title {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 16px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--navy);
+}
+section.layout-flex-2col .col-card.muted .col-title {
+  color: var(--text-muted);
+  border-bottom-color: var(--text-muted);
+}
+section.layout-flex-2col .col-card ul {
+  list-style: none; padding: 0; margin: 0;
+  font-size: 38px;
+  line-height: 1.45;
+}
+section.layout-flex-2col .col-card ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+section.layout-flex-2col .col-card ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--blue);
+  font-size: 14px;
+  line-height: 1.8;
+}
+section.layout-flex-2col .col-card.muted ul li::before { color: var(--text-muted); }
+section.layout-flex-2col .col-card ul li strong { color: var(--navy); font-weight: 700; }
+section.layout-flex-2col .col-card figure {
+  flex: 1;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+section.layout-flex-2col .col-card figure img {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+  display: block;
+}
+section.layout-flex-2col .col-card figcaption {
+  font-size: 22px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ─── 7. layout-flow-cards ─── */
+section.layout-flow-cards { padding: 0; }
+section.layout-flow-cards .body-area { display: flex; flex-direction: column; }
+section.layout-flow-cards .flow-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 30px;
+}
+section.layout-flow-cards .flow-row.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1200px;
+}
+section.layout-flow-cards .flow-row.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+section.layout-flow-cards .flow-card {
+  background: var(--bg);
+  border-top: 6px solid var(--blue);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 22px 22px 26px;
+  position: relative;
+  min-height: 260px;
+}
+section.layout-flow-cards .flow-card .step-key {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--navy);
+  margin: 10px 0 14px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+section.layout-flow-cards .flow-card .step-desc {
+  font-size: 28px;
+  color: var(--text);
+  line-height: 1.45;
+}
+section.layout-flow-cards .flow-card .step-desc strong { color: var(--blue); font-weight: 700; }
+section.layout-flow-cards .flow-card::after {
+  content: "▶";
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--blue);
+  font-size: 38px;
+  z-index: 2;
+}
+section.layout-flow-cards .flow-card:last-child::after { display: none; }
+
+/* ─── 8. layout-closing ─── */
+section.layout-closing { padding: 0; position: relative; }
+section.layout-closing .body-area {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section.layout-closing .closing-quote {
+  font-size: 68px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 0 36px;
+}
+section.layout-closing .closing-quote em {
+  font-style: normal;
+  color: var(--blue);
+  font-weight: 900;
+}
+section.layout-closing .closing-meta {
+  font-size: 32px;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+section.layout-closing .closing-list {
+  list-style: none;
+  padding: 0; margin: 0 0 32px;
+  text-align: center;
+}
+section.layout-closing .closing-list li {
+  font-size: 44px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.6;
+}
+section.layout-closing .closing-list li strong { color: var(--blue); }
+
+/* ─── Reveal.js UI ─── */
+.reveal .slide-number {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-muted);
+  bottom: 18px; right: 32px;
+}
+.reveal aside.notes { display: none; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- ━━━━━━━━━━━━━━━━ 1. COVER ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-cover">
+    <div class="cover-content">
+      <div class="cover-eyebrow">교육방법 및 교육공학 · CHAPTER 09</div>
+      <h1 class="cover-title">AI 디지털교과서의<br>시대</h1>
+      <div class="cover-rule"></div>
+      <div class="cover-subtitle">학습분석학과 생성형 AI의 교육적 적용</div>
+    </div>
+    <div class="cover-photo">
+      <img src="../images/img-s01-cover-bg.png" alt="AI 보조교사 대시보드·AI 튜터 챗봇·학생 태블릿이 어우러진 미래 교실 타이틀 배경">
+      <div class="photo-credit">AI-generated · gpt-image-gen</div>
+    </div>
+    <aside class="notes">9장은 AI 디지털교과서(AIDT)의 교육적 원리와 가능성, 그리고 한계를 다룹니다. 7장에서 학습 동기를, 8장에서 멀티미디어 설계 원리를 다뤘다면, 9장은 이 원리들이 실제 AI 기반 교육 도구로 구현될 때 교사가 가져야 할 전문적 이해와 비판적 안목을 다룹니다. AIDT의 두 핵심 기술인 학습분석학(LA) 기반 AI 보조교사와 LLM 기반 AI 튜터의 원리와 한계를 정확하게 파악하는 것이 이 장의 목표입니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 2. 학습목표 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">9장 학습 목표</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">9장 학습 목표</h2>
+        <div class="num-section">
+          <span class="num-chip">01</span>
+          <div class="text">
+            <span class="label">AIDT 핵심 기술</span>
+            AIDT의 두 핵심 기능(AI 보조교사·AI 튜터)의 기저 기술을 구분한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">02</span>
+          <div class="text">
+            <span class="label">EDM과 LA</span>
+            교육적 데이터 마이닝(EDM)과 학습분석학(LA)의 개념과 차이를 설명한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">03</span>
+          <div class="text">
+            <span class="label">AI 보조교사 구조</span>
+            AI 보조교사의 대시보드 구조와 교사 의사결정에서의 역할을 분석한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">04</span>
+          <div class="text">
+            <span class="label">AI 튜터 비판적 평가</span>
+            생성형 AI 기반 AI 튜터의 교육적 활용 가능성과 우려를 비판적으로 평가한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">05</span>
+          <div class="text">
+            <span class="label">교사 전문성</span>
+            AIDT 시대에 교사 전문성이 가져야 할 비판적 성찰 틀을 적용한다.
+          </div>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s02-objectives.png" alt="5가지 학습목표를 아이콘으로 시각화한 목표 맵">
+        <figcaption>그림 9-0 · 9장 학습목표 맵</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">9장의 다섯 가지 학습목표를 안내합니다. AIDT 두 핵심 기능의 기저 기술 구분, EDM과 LA의 개념 차이, AI 보조교사 대시보드 구조, 생성형 AI 기반 AI 튜터의 가능성과 우려 비판적 평가, AIDT 시대 교사 전문성 성찰 틀 적용이 핵심 내용입니다. 이 목표들은 교사가 AIDT를 단순한 사용자가 아닌 비판적 평가자로서 교실에 도입하는 전문적 역량을 기르는 데 초점을 맞춥니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 3. SECTION 1 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 01</div>
+      <h2 class="section-title">AI 디지털교과서의<br>정책적 등장과<br>개념</h2>
+      <p class="section-blurb">안내 질문: AI 디지털교과서(AIDT)가 기존 전자교과서와 근본적으로 다른 이유는 무엇인가?</p>
+    </div>
+    <aside class="notes">1절에서는 AIDT 도입의 정책적 배경, AIDT의 두 가지 핵심 기능, 그리고 AIDT가 바꾸는 수업의 풍경을 다룹니다. 핵심은 AIDT가 기존 전자교과서와 달리 학습 데이터를 실시간 분석하여 개인 맞춤형 교육을 실현하는 지능형 도구라는 것입니다. 2022 개정 교육과정이 지향하는 맞춤형 교육의 핵심 수단으로 자리매김한 AIDT의 구조적 특징을 이해하는 것이 출발점입니다(교육부, 2023; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 4. AIDT 도입 배경 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">AI 디지털교과서(AIDT) 도입의 배경</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">AI 디지털교과서(AIDT) 도입의 배경</h2>
+        <ul>
+          <li><strong>2023년</strong> 교육부 「디지털 기반 교육혁신 방안」 발표 <em>(교육부, 2023)</em></li>
+          <li><strong>2025년</strong>부터 수학·영어·정보 교과 단계적 도입 시작</li>
+          <li>배경 문제: <strong>일제식 수업</strong> → 다양한 수준 학생 → 학습 격차 심화</li>
+        </ul>
+        <div class="callout callout--info" style="margin-top:20px; font-size:44px;">
+          AIDT = 개별 학습 데이터 실시간 분석 → <strong>개인 맞춤형 교육</strong> 실현<br>
+          <span style="font-size:44px; color:var(--text-muted);">— 교육부 (2023)</span>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s04-aidt-background.png" alt="교육부 정책 문서·단계적 도입 일정표·교실 학습 격차 개념이 포함된 AIDT 도입 배경 인포그래픽">
+        <figcaption>그림 9-1 · AIDT 도입 배경 (교육부, 2023)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">AIDT 도입의 정책적 배경을 설명합니다. 2023년 2월 교육부는 「디지털 기반 교육혁신 방안」을 발표하며 2025년부터 수학, 영어, 정보 교과를 시작으로 AIDT의 단계적 도입을 공식화하였습니다. AIDT 도입의 핵심 문제의식은 대규모 학급에서 다양한 학습 수준의 학생들을 단일한 수업 속도로 가르치는 일제식 수업 방식이 학습 격차를 좁히기보다 심화시킨다는 데 있습니다. AIDT는 개별 학습자의 학습 데이터를 실시간으로 분석하고 맞춤형 학습 경험을 제공하는 기술적 해법으로 제시됩니다(교육부, 2023; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 5. AIDT 두 기능 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">AIDT의 두 가지 핵심 기능</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">AIDT의 두 가지 핵심 기능</h2>
+        <ul>
+          <li><strong>AI 보조교사</strong> (학습분석학 기반): 교사 대시보드 → 학급 학습 수준 진단·처방 지원</li>
+          <li><strong>AI 튜터(챗봇)</strong> (대화형 AI 기반): 학생 즉시 질문 → 맞춤 설명·예시 제공</li>
+        </ul>
+        <div class="callout callout--summary" style="margin-top:24px; font-size:44px;">
+          두 기능의 <strong>협력</strong> → 교사와 학생 모두에게 AI가 보조 역할 수행
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s05-aidt-functions.png" alt="AIDT 두 기능 구조도: AI 보조교사(학습분석학)와 AI 튜터(생성형 AI) 분리 경로">
+        <figcaption>그림 9-2 · AIDT 두 핵심 기능 구조 (류지헌 외, 2023)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">AIDT의 두 가지 핵심 기능을 설명합니다. AI 보조교사 기능은 학생의 문제 정답률, 문항별 소요 시간, 오답 패턴 등을 분석하여 학급 전체와 개별 학생의 학업 수준을 교사에게 시각화합니다. AI 보조교사의 기저 기술은 학습분석학(LA)입니다. AI 튜터 기능은 학생이 이해하지 못한 개념에 대해 즉각적인 설명을 제공합니다. AI 튜터의 기저 기술은 ChatGPT, Gemini, Claude와 같은 LLM 기반 생성형 AI입니다. 두 기능은 서로 다른 기술적 원리에 기반하므로, 교사는 각 기능의 특성과 한계를 별도로 이해해야 합니다(교육부, 2023; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 6. AIDT가 바꾸는 수업의 풍경 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">AIDT가 바꾸는 수업의 풍경</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">AIDT가 바꾸는 수업의 풍경</h2>
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">교사 관점</div>
+          <ul>
+            <li>대시보드로 <strong>학급 학습 현황</strong> 파악</li>
+            <li>취약 학생·개념 즉시 확인</li>
+            <li>다음 수업 설계에 데이터 반영</li>
+            <li>처방 판단: <strong>교사의 전문적 역할</strong></li>
+          </ul>
+        </div>
+        <div class="col-card">
+          <div class="col-title">학생 관점</div>
+          <ul>
+            <li>AI 튜터에게 모르는 개념 <strong>즉시 질문</strong></li>
+            <li>심리적 장벽 없이 자기주도 해결</li>
+            <li>개별화된 설명·추가 문제 제공</li>
+            <li>교사 1명이 30명을 동시에 개별 지도하기 어려운 <strong>한계 보완</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">AIDT가 실제 교실에서 어떻게 작동하는지를 교사와 학생의 관점에서 설명합니다. 교사는 대시보드를 통해 지난 수업에서 학생들의 문항별 정답률 데이터를 확인하고, 전체 학생의 절반이 특정 개념을 이해하지 못하고 있음을 데이터로 파악할 수 있습니다. 학생 입장에서는 진단 평가 결과를 확인하고, 이해하지 못한 부분을 AI 튜터에게 질문하여 개념 재설명과 예시 문제를 받을 수 있습니다. 이 구조가 실제로 효과를 발휘하기 위해서는 AI가 제공하는 분석과 답변이 충분히 신뢰할 수 있어야 하며, 교사가 이 기술의 원리와 한계를 정확하게 이해하고 있어야 합니다(류지헌, 김민정, 임태형, 2023; 교육부, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 7. SECTION 2 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 02</div>
+      <h2 class="section-title">빅데이터 시대와<br>교육적<br>데이터 분석</h2>
+      <p class="section-blurb">안내 질문: 무어의 법칙과 빅데이터 시대의 도래가 교육에 어떤 새로운 가능성을 열었는가?</p>
+    </div>
+    <aside class="notes">2절에서는 무어의 법칙과 빅데이터 시대의 도래, 그리고 교육적 데이터 마이닝(EDM)의 개념을 다룹니다. 핵심은 컴퓨팅 성능의 기하급수적 성장과 웹·모바일 혁명이 만든 데이터 환경이 교육 분야에도 데이터 기반 의사결정을 가능하게 했다는 것입니다. EDM이 방대한 교육 데이터에서 의미 있는 패턴을 탐색하는 기반이 된다는 것을 이해하는 것이 이 절의 출발점입니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 8. 무어의 법칙 + 빅데이터 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">무어의 법칙과 빅데이터 시대의 도래</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">무어의 법칙과 빅데이터 시대의 도래</h2>
+        <ul>
+          <li><strong>무어의 법칙</strong> (1965): 트랜지스터 수 1~2년마다 2배 → 컴퓨팅 성능 <strong>기하급수적</strong> 향상</li>
+          <li>웹 2.0 + 모바일 혁명 → 모든 행동이 데이터로 기록 → <strong>빅데이터</strong> 시대</li>
+          <li>머니볼 사례: 데이터 기반 의사결정의 대중적 증명 → 교육도 예외 없음</li>
+        </ul>
+        <div class="callout callout--info" style="margin-top:20px; font-size:44px;">
+          데이터 분석 → 예측과 최적화 가능 → <strong>교육 데이터 분석</strong>의 가능성 개방
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s08-moores-law.png" alt="무어의 법칙 기하급수적 성장 곡선 그래프와 빅데이터 시대 아이콘 조합">
+        <figcaption>그림 9-3 · 무어의 법칙과 빅데이터 시대 (류지헌 외, 2023)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">AIDT의 기술적 가능성이 형성된 배경을 설명합니다. 1965년 무어의 법칙은 반도체 트랜지스터 수가 약 1~2년마다 두 배씩 증가한다는 경험적 관찰로, 컴퓨팅 성능의 기하급수적 성장을 예고했습니다. 웹 2.0 혁명과 모바일 혁명이 더해지면서 사람들이 클릭하고, 검색하고, 구매하고, 소통하는 모든 행동이 데이터로 기록되는 빅데이터 시대가 열렸습니다. 영화 《머니볼》이 보여주듯 오클랜드 어슬레틱스의 데이터 기반 의사결정 사례는 데이터 분석의 가능성을 대중에게 강렬하게 각인시켰습니다. 교육 분야도 이 흐름에서 예외가 아니며, 학습 과정에서 생성되는 방대한 데이터를 교육에 활용하는 EDM과 LA가 등장했습니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 9. EDM 개념 표 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">교육적 데이터 마이닝(EDM): 개념과 데이터 유형</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">교육적 데이터 마이닝(EDM): 개념과 데이터 유형</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>데이터 유형</th>
+            <th>예시</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>행동 데이터</strong></td>
+            <td>LMS 로그인·자료 접근 횟수·제출 이력</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>성취 데이터</strong></td>
+            <td>시험 점수·과제 성적</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>미시적 데이터</strong></td>
+            <td>문항 정답률·응답 시간·재시도 횟수</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--info" style="margin-top:22px; font-size:44px;">
+        EDM = 교육 현장 대용량 데이터에서 <strong>교육적으로 의미 있는 패턴</strong>을 탐색·정제·가공 <em>(Baker, 2010)</em><br>
+        <span style="font-size:44px;">"어떤 학습 경로가 높은 성취와 관련이 있는가?" — EDM의 핵심 질문</span>
+      </div>
+    </div>
+    <aside class="notes">교육적 데이터 마이닝(EDM)의 개념과 데이터 유형을 설명합니다. EDM은 교육 현장에서 생성되는 대용량 데이터에서 교육적으로 의미 있는 패턴을 탐색, 정제, 가공하는 분야입니다(Baker, 2010). '마이닝(mining)'이라는 단어가 암시하듯, 방대한 원석 데이터 속에서 가치 있는 정보를 캐내는 과정입니다. 교육 현장 데이터는 LMS 행동 데이터, 시험 성적 같은 성취 데이터, AIDT 맥락의 미시적 학습 행동 데이터(문항 정답률·응답 시간·재시도 횟수)로 구분됩니다. EDM은 기존 통계 방법과 달리 머신러닝, 클러스터링, 분류 알고리즘 등 데이터 과학 기법을 교육 데이터에 적용합니다(Baker, 2010; Siemens &amp; Baker, 2012).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 10. SECTION 3 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 03</div>
+      <h2 class="section-title">학습분석학과<br>AI 보조교사</h2>
+      <p class="section-blurb">안내 질문: 학습분석학(LA)과 교육적 데이터 마이닝(EDM)은 어떤 점에서 구별되는가?</p>
+    </div>
+    <aside class="notes">3절에서는 학습분석학(LA)의 개념과 예측·처방 기능, AI 보조교사의 대시보드 구조, 그리고 학습분석학 적용의 기대와 한계를 다룹니다. EDM이 데이터에서 패턴을 발견하는 데 초점을 맞춘다면, LA는 발견된 패턴을 교육적 의사결정과 행동으로 연결하는 데 초점을 맞춥니다. 처방을 내리는 주체가 여전히 교사라는 점이 핵심입니다(Siemens &amp; Long, 2011; Baker, 2010).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 11. 학습분석학 개념 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">학습분석학(LA)의 개념과 예측·처방 기능</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">학습분석학(LA)의 개념과 예측·처방 기능</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>분석 유형</th>
+            <th>의미</th>
+            <th>예시</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>기술적 분석</strong></td>
+            <td>현재 수준 파악</td>
+            <td>"이 학생의 정답률은?"</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>예측적 분석</strong></td>
+            <td>미래 결과 예측</td>
+            <td>"이대로라면 어떻게 될까?"</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>처방적 분석</strong></td>
+            <td>교육적 개입 제안</td>
+            <td>"지금 어떤 지원이 필요한가?"</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--summary" style="margin-top:22px; font-size:44px;">
+        EDM이 패턴을 <strong>발견</strong>한다면, LA는 그것을 <strong>교육적 행동</strong>으로 연결한다 <em>(Siemens &amp; Long, 2011; Siemens &amp; Baker, 2012)</em>
+      </div>
+    </div>
+    <aside class="notes">학습분석학(LA)의 개념과 예측·처방 기능을 설명합니다. SoLAR(학습분석학 연구협회)는 학습분석학을 "학습자와 그 맥락에 관한 데이터를 측정·수집·분석·보고하여, 학습과 학습 환경을 이해하고 최적화하는 것"으로 정의합니다(Siemens &amp; Long, 2011). 학습분석학의 핵심 가치는 세 가지 분석 유형에 있습니다. 기술적 분석은 현재 상태를, 예측적 분석은 미래 결과를, 처방적 분석은 필요한 개입을 다룹니다. 대학 맥락의 사례로 애리조나주립대학교 eAdvisor 시스템은 학위 이수 진행도를 추적하고 필요한 시점에 상담 및 개입을 연결하는 데이터 기반 advising 도구입니다. EDM이 패턴 발견에 초점을 맞춘다면, LA는 그 패턴을 교육적 행동으로 연결하는 데 초점을 맞춥니다(Siemens &amp; Long, 2011; Siemens &amp; Baker, 2012).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 12. AI 보조교사 구조 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">AI 보조교사의 작동 구조</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">AI 보조교사의 작동 구조</h2>
+        <p class="body-text">학습 데이터 수집 → <strong>분석 모델</strong> 처리 → <strong>대시보드</strong> 시각화 → <strong>교사 처방</strong></p>
+        <div class="callout callout--info" style="margin-top:24px; font-size:44px;">
+          처방을 내리는 주체는 여전히 <strong>교사</strong><br>
+          AI는 정보를 제공하고, <strong>판단은 교사</strong>가 내린다
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s12-dashboard.png" alt="AI 보조교사 4단계 구조도: 학습 데이터 수집→분석 모델→대시보드 시각화→교사 처방">
+        <figcaption>그림 9-4 · AI 보조교사 작동 구조 (류지헌 외, 2023)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">AIDT의 AI 보조교사 작동 구조를 설명합니다. AI 보조교사는 대학의 중도탈락 예측 모델과 유사한 원리를 초·중등 학교 수업 맥락의 미시적 데이터에 적용한 것입니다. 문항별 정답률, 오답 유형, 문제 해결 소요 시간 등의 데이터가 실시간으로 수집·분석됩니다. 이 분석 결과는 교사에게 대시보드(dashboard) 형태로 시각화되어, 학급 전체 학습 현황, 특정 개념 이해에 어려움을 겪는 학생 목록, 오답이 집중되는 패턴 등을 한눈에 확인할 수 있게 합니다. 중요한 점은 처방을 내리는 주체는 여전히 교사라는 것입니다. AI는 데이터를 분석하고 시각화하여 정보를 제공하지만, 어떤 학생에게 어떤 방식으로 개입할지를 판단하는 것은 교사의 전문적 역할입니다(Siemens &amp; Long, 2011; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 13. 학습분석학 기대와 한계 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">학습분석학 적용의 기대와 한계</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">학습분석학 적용의 기대와 한계</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>기대 효과</strong></td>
+            <td>학습 격차 조기 발견 · 선제적 개입 · 개인 맞춤형 지원</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>핵심 한계</strong></td>
+            <td>모델 정확도 · 출판사별 성능 차이 · 오판이 학생에게 미치는 영향</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>전제 조건</strong></td>
+            <td>투명한 원리 공개 · 독립적 성능 검증 · 교사 전문 판단 우선 보장</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--info" style="margin-top:22px; font-size:44px;">
+        AI의 판단이 틀렸을 때, 학생에게 미치는 영향은 무엇인가? — <strong>비판적 안목</strong> 필요
+      </div>
+    </div>
+    <aside class="notes">학습분석학 적용의 기대 효과와 한계를 설명합니다. 기대 효과 면에서 학습분석학은 학습 격차를 조기에 발견하고 선제적 개입을 가능하게 합니다. 그러나 교사들이 가져야 할 비판적 안목은 분석 모델의 성능 신뢰성 문제입니다. "어떤 학생이 진도를 따라오지 못하고 있다"는 AI의 판단은 얼마나 정확한가? 이 판단이 틀렸을 때 학생에게 미치는 영향은 무엇인가? 또한 출판사마다 사용하는 데이터와 모델이 달라 동일한 학생에 대해 서로 다른 진단 결과가 나올 수 있습니다. 학습분석학의 기대 효과가 실현되려면 기술의 투명한 원리 공개, 독립적 성능 검증, 오류 시 교사의 전문적 판단이 데이터보다 우선될 수 있는 시스템 설계가 전제되어야 합니다(Siemens &amp; Long, 2011; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 14. SECTION 4 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 04</div>
+      <h2 class="section-title">생성형 AI와<br>AI 튜터</h2>
+      <p class="section-blurb">안내 질문: AI 튜터가 제공하는 교육적 기회와 위험을 교사는 어떻게 균형 있게 인식해야 하는가?</p>
+    </div>
+    <aside class="notes">4절에서는 LLM과 생성형 AI의 등장, AI 튜터의 교육적 활용, 그리고 생성형 AI 활용의 세 가지 교육적 우려를 다룹니다. 핵심은 AI 튜터가 자기주도학습을 지원하는 교육적 가능성과 함께 환각, 과의존, 표절이라는 세 가지 우려를 동시에 가지고 있으며, 교사가 이 두 측면을 균형 있게 직시해야 한다는 것입니다(Brown et al., 2020; 서울특별시교육청, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 15. LLM 등장 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">대규모 언어모델(LLM)과 생성형 AI의 등장</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">대규모 언어모델(LLM)과 생성형 AI의 등장</h2>
+        <ul>
+          <li><strong>LLM</strong>: 인터넷의 방대한 텍스트를 학습 → 언어 이해·생성 신경망 <em>(Brown et al., 2020)</em></li>
+          <li>주요 서비스: <strong>ChatGPT · Gemini · Claude</strong></li>
+          <li><strong>검색 엔진 vs 생성형 AI</strong>: 정보 반환 vs <strong>새로운 맥락 텍스트 생성</strong></li>
+        </ul>
+        <div class="callout callout--info" style="margin-top:20px; font-size:44px;">
+          "왜 물은 100°C에서 끓는가?" → <strong>맥락에 맞는 설명 텍스트를 새롭게 구성</strong>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s15-llm-emergence.png" alt="LLM 기반 ChatGPT·Gemini·Claude 아이콘과 검색 vs 생성 비교 개념도">
+        <figcaption>그림 9-5 · LLM과 생성형 AI (Brown et al., 2020)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">대규모 언어모델(LLM)과 생성형 AI의 등장을 설명합니다. LLM은 인터넷의 방대한 텍스트 데이터를 학습하여 인간의 언어를 이해하고 생성하는 능력을 갖춘 신경망 모델입니다. OpenAI의 ChatGPT, Google의 Gemini, Anthropic의 Claude가 대표적인 상용 LLM 기반 생성형 AI 서비스입니다. 생성형 AI는 단순히 정보를 검색하고 제공하는 기존 검색 엔진과 근본적으로 다릅니다. "물의 끓는 점이 무엇인가?"라는 질문에 100°C라는 정보를 반환하는 것이 검색 엔진의 방식이라면, "왜 물은 100°C에서 끓는가?"라는 질문에 맥락에 맞는 설명 텍스트를 새롭게 구성하여 답하는 것이 생성형 AI의 방식입니다(Brown et al., 2020; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 16. AI 튜터 교육적 활용 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">AI 튜터의 교육적 활용과 자기주도학습 지원</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">AI 튜터의 교육적 활용과 자기주도학습 지원</h2>
+      <p class="body-text" style="font-size:44px; margin-bottom:18px;">AI 튜터 = 대화형 AI 기술을 교육 목적에 맞게 적용하여 탑재</p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>교육적 의의</th>
+            <th>내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>자기주도학습</strong></td>
+            <td>심리적 장벽 제거 · 24시간 즉시 질문 가능</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>개별화 보완</strong></td>
+            <td>교사 1명이 30명을 동시에 개별적으로 설명하기 어려운 물리적 한계 보완</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>제도적 허용</strong></td>
+            <td>서울시교육청 등 학교급별 생성형 AI 활용 지침 마련 <em>(서울특별시교육청, 2023)</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <aside class="notes">AI 튜터의 교육적 활용과 자기주도학습 지원을 설명합니다. AIDT의 AI 튜터는 대화형 AI 기술을 교육 목적에 맞게 적용하는 구조입니다. 학생은 이해하지 못한 개념에 대해 AI 튜터에게 직접 질문하고, 개념 설명, 유사 예시, 추가 문제를 즉각적으로 받을 수 있습니다. 자기주도학습 지원이 핵심 교육적 의의입니다. 이는 교사에게 직접 질문하기 어려운 심리적 장벽을 낮추고, 24시간 언제든 학습의 주도권을 갖고 모르는 것을 즉시 해결할 수 있는 환경을 제공합니다. 서울시교육청을 포함한 여러 교육청은 2023년 이후 학교급별 생성형 AI 활용 지침을 마련하여 교육 목적의 생성형 AI 사용을 공식 허용하고 있습니다(Brown et al., 2020; 서울특별시교육청, 2023; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 17. 생성형 AI 세 가지 우려 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">생성형 AI 활용의 세 가지 교육적 우려</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">생성형 AI 활용의 세 가지 교육적 우려</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>우려</th>
+            <th>내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>환각(hallucination)</strong></td>
+            <td>사실에 근거하지 않은 그럴듯한 내용 생성 → 초등생 오개념 형성 위험</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>과의존</strong></td>
+            <td>즉각 답 구하는 습관 → 깊은 사고력·문제해결력 발달 저해</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>표절·학문적 정직성</strong></td>
+            <td>AI 생성 결과물 제출 허용 기준·교육 필요</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--info" style="margin-top:22px; font-size:44px;">
+        가능성과 우려를 <strong>동시에</strong> 직시하는 것이 교사의 비판적 전문성
+      </div>
+    </div>
+    <aside class="notes">생성형 AI 활용의 세 가지 교육적 우려를 설명합니다. 가장 중요한 문제는 환각(hallucination) 현상입니다. LLM은 사실에 근거하지 않은 그럴듯한 내용을 생성하는 오류를 범할 수 있으며, AI 튜터가 잘못된 개념 설명을 제공했을 때 이를 비판적으로 검토할 능력이 부족한 초등학생이 그것을 사실로 받아들일 위험이 있습니다. 두 번째는 학생의 과의존 문제입니다. 스스로 생각하지 않고 AI에 즉각적으로 답을 구하는 습관이 형성될 경우 깊은 사고력과 문제 해결 능력의 발달이 저해될 수 있습니다. 세 번째는 표절과 학문적 정직성 문제입니다. AI가 생성한 글을 자신의 작업물로 제출하는 것이 어디까지 허용되는가에 대한 명확한 기준과 교육이 필요합니다(Brown et al., 2020; 서울특별시교육청, 2023; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 18. SECTION 5 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 05</div>
+      <h2 class="section-title">AIDT 시대의<br>교사 전문성과<br>윤리적 성찰</h2>
+      <p class="section-blurb">안내 질문: AIDT 시대에 교사 전문성이 '오히려' 더 중요해지는 이유는 무엇인가?</p>
+    </div>
+    <aside class="notes">5절에서는 AIDT를 바라보는 교사의 비판적 성찰 여섯 가지 질문과 기술과 교사 전문성의 공존을 다룹니다. AI 디지털교과서 시대가 본격화될수록 교사는 기술의 단순한 사용자를 넘어 기술의 교육적 적절성을 판단하는 비판적 평가자가 되어야 합니다. AI가 대체할 수 없는 교육의 인간적 차원, 즉 공감·신뢰·도덕 판단·학습자의 전인적 성장에 대한 헌신이 교사 전문성의 핵심임을 이해하는 것이 이 절의 목표입니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 19a. 여섯 가지 성찰 질문 (1/2) ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">AIDT를 바라보는 교사의 비판적 성찰: 여섯 가지 질문</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">AIDT를 바라보는 교사의 비판적 성찰 (1/2)</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>성찰 질문</th>
+            <th>핵심</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>성능 투명성</strong></td>
+            <td>진단 결과 신뢰도·오류 유형을 교사가 파악할 수 있는가?</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>윤리적 가이드라인</strong></td>
+            <td>데이터 수집·저장·활용 기준을 알고 지키는가?</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>기술적 지속가능성</strong></td>
+            <td>오류 발생 시 수업은 여전히 가능한가?</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <aside class="notes">AIDT를 교실에서 활용하는 교사가 지속적으로 자문해야 할 여섯 가지 성찰 질문을 설명합니다. 첫째, AIDT 성능의 투명성: AI가 제공하는 학습 진단 결과를 얼마나 신뢰할 수 있는가? 둘째, 윤리적 가이드라인의 준수: 학생과 교사의 학습 데이터가 어떻게 수집·저장·활용되는지에 관한 가이드라인이 존재하는가? 셋째, 기술적 지속가능성: AIDT 시스템 오류 시 교사는 어떻게 대처할 것인가? (류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 19b. 여섯 가지 성찰 질문 (2/2) ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">AIDT를 바라보는 교사의 비판적 성찰: 여섯 가지 질문</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">AIDT를 바라보는 교사의 비판적 성찰 (2/2)</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>성찰 질문</th>
+            <th>핵심</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>학습자 중심</strong></td>
+            <td>교사의 인격적 이해가 모든 결정의 중심인가?</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>데이터 보안</strong></td>
+            <td>학생 학습 데이터가 안전하게 관리되는가?</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>연구·개선 참여</strong></td>
+            <td>피드백 구조에 교사가 적극적으로 참여하는가?</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <aside class="notes">넷째, 학습자 중심 접근: AI의 처방이 아니라 학생 전체를 인격적으로 이해하는 교사의 관점이 중심인가? 다섯째, 데이터 보안과 보호: 학생들의 학습 데이터는 안전하게 관리되고 있는가? 여섯째, 지속적 연구와 개선 참여: 교사가 현장 경험과 의견을 제공하는 피드백 구조에 적극 참여하는가? (류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 20. 기술과 교사 협력 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">기술과 교사 전문성의 공존: 대체가 아닌 협력</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">기술과 교사 전문성의 공존</h2>
+        <ul>
+          <li><strong>AI</strong>: 대규모 데이터 처리 · 개인화 정보 제공 · 24시간 설명 지원</li>
+          <li><strong>교사</strong>: 공감 · 신뢰 · 도덕 판단 · <strong>학습자의 전인적 성장에 대한 헌신</strong></li>
+        </ul>
+        <div class="callout callout--summary" style="margin-top:24px; font-size:44px;">
+          AI는 처리 능력에서, 교사는 <strong>교육의 인간적 차원</strong>에서 앞선다<br>
+          — 대체가 아닌 <strong>협력</strong>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s20-teacher-ai.png" alt="교사와 AI가 학생을 중심으로 협력하는 미래 교실 구조 개념도">
+        <figcaption>그림 9-6 · 교사와 AI의 협력 구조 (류지헌 외, 2023)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">기술과 교사 전문성의 공존을 설명합니다. AI 디지털교과서의 등장과 함께 교사의 역할이 AI로 대체될 것이라는 우려가 종종 제기됩니다. 그러나 AIDT의 두 핵심 기술을 정확하게 이해하면 이 우려가 기술의 본질을 오해한 데서 비롯됨을 알 수 있습니다. 학습분석학 기반 AI 보조교사는 데이터를 분석하고 시각화하지만, 정보를 해석하고 교육적 처방을 내리는 것은 교사입니다. 생성형 AI 기반 AI 튜터는 개념 설명을 지원하지만, 정서적·관계적 지원과 학습 공동체 형성은 교사가 중심적으로 담당해야 할 영역입니다. AI는 대규모 데이터 처리에서, 교사는 공감·신뢰·도덕 판단·학습자 전인적 성장에 대한 헌신이라는 교육의 인간적 차원에서 앞섭니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 21. 통합 이해 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">AIDT 시대의 통합적 이해: 기술·분석·교사의 삼각 협력</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">AIDT 시대의 통합적 이해</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>구성 요소</th>
+            <th>기술 기반</th>
+            <th>교육적 가치</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>AI 보조교사</strong></td>
+            <td>학습분석학(LA)</td>
+            <td>데이터 기반 교사 의사결정 지원</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>AI 튜터</strong></td>
+            <td>LLM · 생성형 AI</td>
+            <td>자기주도학습 환경 구현</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>교사 전문성</strong></td>
+            <td>판단 · 공감 · 윤리</td>
+            <td>기술이 대체할 수 없는 인간적 교육</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--summary" style="margin-top:20px; font-size:44px;">
+        <strong>2022 개정 교육과정 + AIDT + 교사 전문성 = 맞춤형 교육 실현의 지원</strong>
+      </div>
+    </div>
+    <aside class="notes">9장의 세 가지 구성 요소를 통합하여 설명합니다. AI 보조교사는 학습분석학(LA)을 기반으로 데이터 기반 교사 의사결정을 지원합니다. AI 튜터는 LLM과 생성형 AI를 기반으로 자기주도학습 환경을 구현합니다. 교사 전문성은 판단·공감·윤리를 통해 기술이 대체할 수 없는 인간적 교육을 담당합니다. AIDT 시대의 교사 전문성은 기술의 가능성과 한계를 동시에 이해하고, AI가 제공하는 정보를 비판적으로 활용하면서, AI가 할 수 없는 교육의 본질적 역할에 더욱 집중하는 것을 의미합니다. 2022 개정 교육과정이 지향하는 맞춤형 교육은 AI 기술만으로 실현되는 것이 아니라, 기술을 교육적으로 사용할 줄 아는 전문적 교사와 기술의 협력을 통해 가능해집니다(류지헌, 김민정, 임태형, 2023; 교육부, 2023; Siemens &amp; Long, 2011; Brown et al., 2020).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 22. 참고문헌 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-text">
+    <div class="header-bar">
+      <span class="chapter-chip">09</span>
+      <span class="header-title">참고문헌</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">참고문헌</h2>
+      <ul>
+        <li>류지헌, 김민정, 임태형 (2023). <em>수업역량 강화를 위한 교육방법 및 교육공학</em> (1판 2쇄). 학지사.</li>
+        <li>교육부 (2023, 2월). <em>디지털 기반 교육혁신 방안</em>. 교육부.</li>
+        <li>서울특별시교육청 (2023). <em>학교급별 생성형 AI 활용 지침</em>. 서울특별시교육청.</li>
+        <li>Baker, R. S. J. d. (2010). Data mining for education. In B. McGaw, P. Peterson, &amp; E. Baker (Eds.), <em>International Encyclopedia of Education</em> (Vol. 7, pp. 112–118). Elsevier.</li>
+        <li>Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J. D., et al. (2020). Language models are few-shot learners. <em>Advances in Neural Information Processing Systems</em>, <em>33</em>, 1877–1901.</li>
+        <li>Siemens, G., &amp; Long, P. (2011). Penetrating the fog: Analytics in learning and education. <em>EDUCAUSE Review</em>, <em>46</em>(5), 30–40.</li>
+        <li>Siemens, G., &amp; Baker, R. S. J. d. (2012). Learning analytics and educational data mining: Towards communication and collaboration. <em>Proceedings of the 2nd International Conference on Learning Analytics and Knowledge</em>, 252–254.</li>
+      </ul>
+    </div>
+    <aside class="notes">이 장에서 인용한 주요 참고문헌입니다. 주교재 류지헌, 김민정, 임태형(2023)과 함께 교육부(2023), 서울특별시교육청(2023), Baker(2010), Brown et al.(2020), Siemens &amp; Long(2011), Siemens &amp; Baker(2012) 총 7편입니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 23. CLOSING ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-closing">
+    <div class="body-area">
+      <ul class="closing-list">
+        <li>AIDT는 기술이 아니라 <strong>교육 철학의 질문</strong>이다</li>
+        <li>"AI가 무엇을 할 수 있는가"보다 <strong>"교사가 무엇을 해야 하는가"</strong>가 더 중요하다</li>
+      </ul>
+      <div class="closing-quote">
+        10장에서는 이 강의에서 배운 이론들이<br>실제 <em>수업 설계와 평가</em>에 어떻게 통합되는지를 다룬다
+      </div>
+      <div class="closing-meta">교육방법 및 교육공학 · 9장</div>
+    </div>
+    <aside class="notes">9장의 핵심 메시지를 정리합니다. AIDT는 기술 도구가 아니라 교육 철학의 질문을 제기하는 계기입니다. "AI가 무엇을 할 수 있는가"보다 "교사가 무엇을 해야 하는가"가 더 중요한 질문입니다. AIDT 시대의 교사 전문성은 기술의 가능성과 한계를 동시에 이해하고, AI가 제공하는 정보를 비판적으로 활용하면서, AI가 할 수 없는 교육의 본질적 역할, 즉 학습자의 전인적 성장에 더욱 집중하는 것입니다. 10장에서는 이 강의에서 배운 이론들이 실제 수업 설계와 평가에 어떻게 통합되는지를 살펴봅니다.</aside>
+  </section>
+
+</div>
+</div>
+<script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+<script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    transition: 'fade',
+    transitionSpeed: 'default',
+    backgroundTransition: 'fade',
+    width: 1920,
+    height: 1080,
+    margin: 0,
+    minScale: 0.2,
+    maxScale: 2.0,
+    controls: true,
+    progress: true,
+    center: false,
+    plugins: [ RevealNotes ]
+  });
+</script>
+</body>
+</html>

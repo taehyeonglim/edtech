@@ -1,0 +1,1359 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="임태형">
+<title>교육방법 및 교육공학 — 2주차 교육과 기술의 관계</title>
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reset.css">
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css">
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/white.css" id="theme">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* ───── ppt-korea-policy-navy (PI 정책 2026-05-26) ───── */
+:root {
+  --bg:           #FFFFFF;
+  --surface:      #E8F1FB;
+  --text:         #1A1A1A;
+  --text-muted:   #5C6470;
+  --navy:         #0B2C5C;
+  --blue:         #1B66C9;
+  --red:          #E03B3B;
+  --green:        #1F9D57;
+  --border:       #C5D2E3;
+  --grid:         #E3EAF3;
+  --margin-x:     72px;
+  --header-h:    130px;
+  --content-top: 36px;
+  --content-bot: 44px;
+  --chip-size:    72px;
+}
+
+html, body { background: var(--bg); }
+.reveal {
+  font-family: 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+.reveal .slides { text-align: left; }
+.reveal section { padding: 0; }
+.reveal section, .reveal section.present { background: var(--bg); }
+
+.reveal section img,
+.reveal section table {
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  max-width: 100%;
+}
+
+/* ─── 헤더바 ─── */
+.header-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--margin-x);
+  z-index: 5;
+}
+.header-bar .chapter-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  padding: 8px 18px;
+  border-radius: 2px;
+  margin-right: 24px;
+  font-variant-numeric: tabular-nums;
+}
+.header-bar .header-title {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.header-bar .header-meta {
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  letter-spacing: 0.04em;
+}
+
+/* ─── 본문 영역 ─── */
+.body-area {
+  position: absolute;
+  top: calc(var(--header-h) + var(--content-top));
+  left: var(--margin-x);
+  right: var(--margin-x);
+  height: calc(100% - var(--header-h) - var(--content-top) - var(--content-bot));
+}
+
+/* ─── 번호 칩 ─── */
+.num-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--chip-size);
+  height: var(--chip-size);
+  background: var(--blue);
+  color: #fff;
+  font-size: 44px;
+  font-weight: 700;
+  border-radius: 2px;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+.num-chip.navy { background: var(--navy); }
+
+/* ─── 헤딩 / 본문 / 캡션 ─── */
+.slide-heading {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 4px solid var(--navy);
+  padding-bottom: 12px;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.015em;
+}
+.slide-subheading {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+.body-text {
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text);
+}
+.body-text strong { font-weight: 700; color: var(--blue); }
+.body-text em { font-style: normal; color: var(--navy); font-weight: 700; }
+.body-text .up { color: var(--green); font-weight: 700; }
+.body-text .down { color: var(--red); font-weight: 700; }
+.caption {
+  font-size: 24px;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-top: 12px;
+}
+.caption.with-rule {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 20px;
+}
+
+/* ─── KRDS 박스 콜아웃 ─── */
+.callout {
+  padding: 22px 26px;
+  margin: 16px 0;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--navy);
+  border-radius: 2px;
+  background: var(--surface);
+}
+.callout--info { background: var(--surface); border-left: 5px solid var(--blue); }
+.callout--summary {
+  background: var(--surface);
+  border-top: 4px solid var(--navy);
+  border-bottom: 4px solid var(--navy);
+  padding-top: 28px;
+  position: relative;
+}
+.callout--summary::before {
+  content: "핵심";
+  position: absolute;
+  top: -14px; left: 26px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+.callout--warning {
+  background: #fff;
+  border-left: 5px solid var(--red);
+  color: var(--text);
+}
+
+/* ─── 번호 매긴 섹션 ─── */
+.num-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+.num-section:last-child { margin-bottom: 0; }
+.num-section .num-chip { width: 56px; height: 56px; font-size: 32px; }
+.num-section .text {
+  flex: 1;
+  font-size: 40px;
+  line-height: 1.3;
+  color: var(--text);
+}
+.num-section .text strong { color: var(--navy); font-weight: 700; }
+.num-section .text .label {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+  letter-spacing: -0.005em;
+}
+
+/* ─── 1. layout-cover ─── */
+section.layout-cover {
+  padding: 0;
+  position: relative;
+  height: 100%;
+  background: #fff !important;
+}
+section.layout-cover::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--navy);
+}
+section.layout-cover::after {
+  content: "";
+  position: absolute;
+  bottom: 60px;
+  left: var(--margin-x);
+  right: var(--margin-x);
+  height: 1px;
+  background: var(--border);
+}
+section.layout-cover .cover-content {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: auto;
+}
+section.layout-cover .cover-eyebrow {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 28px;
+}
+section.layout-cover .cover-title {
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1.08;
+  color: var(--navy);
+  letter-spacing: -0.03em;
+  margin: 0 0 24px 0;
+}
+section.layout-cover .cover-rule {
+  width: 96px;
+  height: 5px;
+  background: var(--blue);
+  margin: 28px auto;
+}
+section.layout-cover .cover-subtitle {
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+section.layout-cover .cover-photo {
+  position: absolute;
+  right: 80px;
+  top: 200px;
+  width: 400px;
+  height: 266px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  z-index: 3;
+}
+section.layout-cover .cover-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+section.layout-cover .cover-photo .photo-credit {
+  position: absolute;
+  bottom: 0; right: 0;
+  font-size: 12px;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  padding: 2px 6px;
+  letter-spacing: 0;
+}
+
+/* ─── 2. layout-section ─── */
+section.layout-section {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  background: var(--navy) !important;
+  color: #fff;
+  position: relative;
+}
+section.layout-section::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 12px;
+  background: var(--blue);
+}
+section.layout-section .section-inner { padding: 0 96px 0 88px; }
+section.layout-section .section-num {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.18em;
+  margin-bottom: 32px;
+}
+section.layout-section .section-title {
+  font-size: 100px;
+  font-weight: 900;
+  line-height: 1.12;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+section.layout-section .section-blurb {
+  font-size: 32px;
+  font-weight: 500;
+  color: #B7C8DD;
+  margin-top: 28px;
+  line-height: 1.5;
+  max-width: 1400px;
+}
+
+/* ─── 3. layout-text ─── */
+section.layout-text { padding: 0; }
+section.layout-text .body-area { display: flex; flex-direction: column; }
+
+/* ─── 4. layout-image ─── */
+section.layout-image { padding: 0; height: 100%; }
+section.layout-image .body-area {
+  display: flex;
+  gap: 56px;
+  height: calc(1080px - var(--header-h) - var(--content-top) - var(--content-bot));
+  align-items: center;
+}
+section.layout-image .body-area .copy {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 40px; line-height: 1.5;
+  align-self: stretch;
+}
+section.layout-image .body-area .copy ul {
+  list-style: none; padding-left: 0; margin: 0;
+}
+section.layout-image .body-area .copy ul li {
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 14px;
+}
+section.layout-image .body-area .copy ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--blue);
+  font-size: 22px;
+  line-height: 1.4;
+}
+section.layout-image .body-area .copy p { margin: 14px 0; }
+section.layout-image .body-area figure {
+  margin: 0;
+  flex: 1 1 0;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section.layout-image .body-area figure svg.diagram,
+section.layout-image .body-area figure img {
+  width: 100%;
+  height: auto;
+  max-height: 580px;
+  display: block;
+  background: var(--bg);
+  object-fit: contain;
+}
+section.layout-image .body-area figcaption {
+  margin-top: 14px;
+  font-size: 24px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* layout-image-wide */
+section.layout-image-wide { padding: 0; }
+section.layout-image-wide .body-area {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+section.layout-image-wide .body-area figure {
+  margin: 0; width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section.layout-image-wide .body-area figure svg.diagram,
+section.layout-image-wide .body-area figure img {
+  max-width: 100%;
+  max-height: 680px;
+  width: auto;
+  height: auto;
+  background: var(--bg);
+  object-fit: contain;
+}
+section.layout-image-wide .body-area figcaption {
+  margin-top: 14px;
+  font-size: 28px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ─── 5. layout-table ─── */
+section.layout-table { padding: 0; }
+section.layout-table .body-area .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 38px;
+  line-height: 1.4;
+}
+section.layout-table .data-table th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 32px;
+  border-right: 1px solid var(--border);
+}
+section.layout-table .data-table th:last-child { border-right: none; }
+section.layout-table .data-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  vertical-align: top;
+  background: #fff;
+}
+section.layout-table .data-table td:last-child { border-right: none; }
+section.layout-table .data-table tr:nth-child(even) td { background: var(--surface); }
+section.layout-table .data-table td.num {
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+}
+section.layout-table .data-table caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 28px;
+  color: var(--blue);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+
+/* ─── 6. layout-flex-2col ─── */
+section.layout-flex-2col { padding: 0; }
+section.layout-flex-2col .body-area { display: flex; flex-direction: column; }
+section.layout-flex-2col .cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  flex: 1;
+  align-items: stretch;
+}
+section.layout-flex-2col .col-card {
+  border: 2px solid var(--border);
+  background: var(--bg);
+  padding: 26px 30px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+}
+section.layout-flex-2col .col-card.primary {
+  border-color: var(--navy);
+  background: var(--surface);
+}
+section.layout-flex-2col .col-card.muted {
+  border-color: var(--text-muted);
+  border-style: dashed;
+}
+section.layout-flex-2col .col-card .col-title {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 16px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--navy);
+}
+section.layout-flex-2col .col-card.muted .col-title {
+  color: var(--text-muted);
+  border-bottom-color: var(--text-muted);
+}
+section.layout-flex-2col .col-card ul {
+  list-style: none; padding: 0; margin: 0;
+  font-size: 38px;
+  line-height: 1.45;
+}
+section.layout-flex-2col .col-card ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+section.layout-flex-2col .col-card ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--blue);
+  font-size: 14px;
+  line-height: 1.8;
+}
+section.layout-flex-2col .col-card.muted ul li::before { color: var(--text-muted); }
+section.layout-flex-2col .col-card ul li strong { color: var(--navy); font-weight: 700; }
+/* 이미지를 포함하는 col-card */
+section.layout-flex-2col .col-card figure {
+  flex: 1;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+section.layout-flex-2col .col-card figure img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  display: block;
+}
+section.layout-flex-2col .col-card figcaption {
+  font-size: 22px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ─── 7. layout-flow-cards ─── */
+section.layout-flow-cards { padding: 0; }
+section.layout-flow-cards .body-area { display: flex; flex-direction: column; }
+section.layout-flow-cards .flow-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 30px;
+}
+section.layout-flow-cards .flow-row.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1200px;
+}
+section.layout-flow-cards .flow-card {
+  background: var(--bg);
+  border-top: 6px solid var(--blue);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 22px 22px 26px;
+  position: relative;
+  min-height: 320px;
+}
+section.layout-flow-cards .flow-card .step-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+}
+section.layout-flow-cards .flow-card .step-key {
+  font-size: 44px;
+  font-weight: 900;
+  color: var(--navy);
+  margin: 10px 0 14px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+section.layout-flow-cards .flow-card .step-desc {
+  font-size: 28px;
+  color: var(--text);
+  line-height: 1.45;
+}
+section.layout-flow-cards .flow-card::after {
+  content: "▶";
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--blue);
+  font-size: 38px;
+  z-index: 2;
+}
+section.layout-flow-cards .flow-card:last-child::after { display: none; }
+
+/* ─── 8. layout-closing ─── */
+section.layout-closing { padding: 0; position: relative; }
+section.layout-closing .body-area {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section.layout-closing .closing-quote {
+  font-size: 68px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 0 36px;
+}
+section.layout-closing .closing-quote em {
+  font-style: normal;
+  color: var(--blue);
+  font-weight: 900;
+}
+section.layout-closing .closing-meta {
+  font-size: 32px;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+
+/* ─── Reveal.js UI ─── */
+.reveal .slide-number {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-muted);
+  bottom: 18px; right: 32px;
+}
+.reveal aside.notes { display: none; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- ━━━━━━━━━━━━━━━━ 1. COVER ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-cover">
+    <div class="cover-content">
+      <div class="cover-eyebrow">교육방법 및 교육공학 · CHAPTER 02</div>
+      <h1 class="cover-title">교육과 기술의<br>관계</h1>
+      <div class="cover-rule"></div>
+      <div class="cover-subtitle">역사의 흐름에서 읽는 교육의 변화: 1945~현재</div>
+    </div>
+    <div class="cover-photo">
+      <img src="../images/img-s01-title.png" alt="1940년대 컴퓨터에서 2026년 AI까지 기술과 교육의 역사적 여정">
+      <div class="photo-credit">AI-generated · gpt-image-gen</div>
+    </div>
+    <aside class="notes">인류의 역사는 전쟁과 투쟁의 역사입니다. 전쟁은 과학기술을 비약적으로 발전시키고, 기술이 사회를 바꾸면 교육도 그 변화를 뒤따릅니다. 이 장은 1945년부터 2026년까지 약 80년의 시간을 종단하며, 과학기술과 교육이 어떻게 서로를 밀고 당겼는지를 추적합니다. 예비교사가 AI·디지털 교육을 공교육의 필수 소양으로 다루어야 하는 이유를 역사의 흐름 속에서 스스로 설명할 수 있어야 하기 때문입니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 2. 학습목표 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">02</span>
+      <span class="header-title">2장 학습 목표</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">2장 학습 목표</h2>
+        <div class="num-section">
+          <span class="num-chip">01</span>
+          <div class="text">
+            <span class="label">역사적 흐름</span>
+            1945년부터 현재까지 기술과 교육의 <strong>상호작용</strong>을 연대순으로 설명할 수 있다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">02</span>
+          <div class="text">
+            <span class="label">경제학적 근거</span>
+            기술-교육 경주 이론(Goldin &amp; Katz)이 AI·디지털 소양 교육 필요성에 주는 <strong>근거</strong>를 말할 수 있다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">03</span>
+          <div class="text">
+            <span class="label">AI 역사</span>
+            기호주의 vs 연결주의, 딥러닝 혁명, 생성형 AI 등 <strong>AI 역사의 핵심 전환점</strong>을 연대순으로 설명할 수 있다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">04</span>
+          <div class="text">
+            <span class="label">교사의 자리</span>
+            디지털 전환 시대에 예비교사가 <strong>먼저 이해하는 교사</strong>가 되어야 하는 이유를 논거와 함께 제시할 수 있다.
+          </div>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s02-objectives.png" alt="네 가지 학습목표를 시계·그래프·뇌·교사 아이콘과 함께 나열한 2×2 카드형 레이아웃">
+        <figcaption>네 학습목표를 아이콘과 함께 배치한 카드 레이아웃</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">이 장의 네 가지 학습목표는 서로 이어져 있습니다. 역사적 흐름(목표1)을 이해해야 경제학적 근거(목표2)가 더 선명해지고, AI 역사의 전환점(목표3)을 알아야 교사의 자리(목표4)를 설득력 있게 설명할 수 있습니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 3. SECTION 1 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">제 1 절 · SECTION 01</div>
+      <h2 class="section-title">기술은 어떻게<br>교육을 바꾸는가</h2>
+      <p class="section-blurb">전쟁과 기술의 연쇄, 기술-교육 상호작용의 논리, 그리고 이 장의 핵심 질문을 정리한다.</p>
+    </div>
+    <aside class="notes">1절에서는 이 장 전체를 관통하는 핵심 논리를 먼저 제시합니다. 기술이 교육을 일방적으로 바꾸는 것이 아니라, 둘 사이에는 복잡한 상호작용이 존재합니다. 그 논리를 이해한 다음 역사를 따라가면 훨씬 선명하게 보입니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 4. 1945~2026 타임라인 개관 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flow-cards">
+    <div class="header-bar">
+      <span class="chapter-chip">1.0</span>
+      <span class="header-title">1945~2026: 기술과 교육의 80년 여정 개관</span>
+      <span class="header-meta">제 1 절</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">80년의 여정을 네 구간으로 읽는다</h2>
+      <div class="flow-row">
+        <div class="flow-card">
+          <div class="step-num">1945 – 1960</div>
+          <div class="step-key">기초의<br>시대</div>
+          <div class="step-desc">컴퓨터 탄생·AI 명명 — 전쟁이 낳은 계산 기계와 <strong>인공지능의 꿈</strong></div>
+        </div>
+        <div class="flow-card">
+          <div class="step-num">1970 – 1990</div>
+          <div class="step-key">연결의<br>시대</div>
+          <div class="step-desc">개인 컴퓨터·인터넷 개방·역전파 — <strong>지식 분산</strong>과 연결주의의 부활</div>
+        </div>
+        <div class="flow-card">
+          <div class="step-num">2000 – 2019</div>
+          <div class="step-key">전환의<br>시대</div>
+          <div class="step-desc">디지털 네이티브·딥러닝 혁명·4차 산업혁명 — <strong>교육 불평등</strong>의 가시화</div>
+        </div>
+        <div class="flow-card">
+          <div class="step-num">2020 – 현재</div>
+          <div class="step-key">재정의의<br>시대</div>
+          <div class="step-desc">코로나·생성형 AI — 교사의 역할을 <strong>근본부터 다시</strong> 묻다</div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">이 장 전체의 지도입니다. 80년의 역사를 네 구간으로 나누어 큰 그림부터 그린 뒤, 각 절에서 세부 사건들을 살펴봅니다. 각 구간마다 기술 변화가 어떤 교육적 질문을 만들어냈는지를 함께 생각해보세요.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 5. 전쟁과 기술의 연쇄 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">1.1</span>
+      <span class="header-title">전쟁이 기술을 가속시키고, 기술이 교육을 바꾼다</span>
+      <span class="header-meta">제 1 절 · 항 1</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">전쟁 → 기술 → 교육의 연쇄</h2>
+        <ul>
+          <li>2차 세계대전: 핵물리·전자공학·암호학의 동시 급속 발전 → 거대한 실험실</li>
+          <li><strong>ENIAC(1945)</strong>: 탄도 계산용 최초 범용 전자식 컴퓨터 (진공관 18,000개)</li>
+          <li><strong>스푸트니크 쇼크(1957)</strong>: 과학·수학 교육에 대한 국가적 투자·교육과정 개혁 촉발</li>
+        </ul>
+        <div class="callout callout--info" style="margin-top:20px;">
+          전쟁의 필요는 인류가 상상하기 어려웠을 속도로 기술 발전을 가속했다.
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s05-war-tech.png" alt="전쟁·ENIAC·학교 교육과정 개혁 세 단계 연쇄 다이어그램">
+        <figcaption>전쟁 → 기술 가속 → 교육 개혁의 연쇄 구조</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">제2차 세계대전은 핵물리학, 전자공학, 암호학, 항공공학을 동시에 급속히 발전시킨 거대한 실험실이었습니다. ENIAC은 방 하나를 가득 채울 만한 크기에 약 18,000개의 진공관을 탑재한 거대한 기계였습니다. 소련의 스푸트니크 쇼크(1957)는 미국 교육에 대한 전면적 재검토를 촉발했고, 과학·수학 교육에 대한 국가적 투자와 교육과정 개혁이 뒤따랐습니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 6. 기술-교육 경주 (그림 2-1) ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">1.2</span>
+      <span class="header-title">기술-교육의 경주: 격차는 언제 벌어지는가</span>
+      <span class="header-meta">제 1 절 · 항 2</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">기술-교육 경주</h2>
+        <div class="callout callout--summary">
+          기술 발전이 교육의 공급 속도를 <strong>앞지를 때</strong>, 불평등이 심화된다.
+          <span style="display:block; text-align:right; font-size:26px; margin-top:8px; color:var(--text-muted);">— Goldin &amp; Katz, 2008</span>
+        </div>
+        <ul style="margin-top:16px;">
+          <li>기술 ↑ → 고숙련 노동력 수요 ↑ → 교육 공급이 따라가지 못할 때 <strong>격차 확대</strong></li>
+          <li>생성형 AI 시대: 교육의 <strong>적응 속도</strong>가 사회 전체의 향방을 결정</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="../images/img-s06-fig2-1.png" alt="기술 발전 속도 대비 교육 공급 능력 비교 경주 도표">
+        <figcaption>[그림 2-1] 기술 곡선이 교육 곡선을 앞설 때 불평등이 벌어진다.</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">경제학자 클로디아 골딘과 로렌스 캐츠(2008)의 '기술과 교육의 경주' 개념입니다. 기술이 발전하면 새로운 역량을 갖춘 노동력에 대한 수요가 증가하고, 교육은 그 수요를 공급하는 역할을 맡습니다. 교육의 공급 속도가 기술 발전의 속도를 따라가지 못할 때 불평등이 심화됩니다. 예비교사는 이 경주의 맨 앞줄에 서 있는 사람들입니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 7. 이 장의 핵심 질문 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flow-cards">
+    <div class="header-bar">
+      <span class="chapter-chip">1.3</span>
+      <span class="header-title">이 장이 던지는 두 가지 핵심 질문</span>
+      <span class="header-meta">제 1 절 · 항 3</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">이 장을 관통하는 두 가지 질문</h2>
+      <div class="flow-row cols-2">
+        <div class="flow-card">
+          <div class="step-num">질문 01 · 역사적 상호작용</div>
+          <div class="step-key">기술과 교육은<br>어떻게 상호작용해 왔는가</div>
+          <div class="step-desc">현대사 속에서 과학기술의 발전이 교육에 어떤 의미를 부여해 왔는지를 연대순으로 추적한다.</div>
+        </div>
+        <div class="flow-card">
+          <div class="step-num">질문 02 · 역사적 근거</div>
+          <div class="step-key">AI·디지털 교육을<br>필수 소양으로 다루는 근거는</div>
+          <div class="step-desc">역사적 흐름의 관점에서 AI·디지털 교육이 공교육의 핵심이 되어야 하는 경제학적·사회적 근거를 설명한다.</div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">이 두 질문에 답하기 위해 이 장은 1945년을 출발점으로 현재까지의 여정을 추적합니다. 컴퓨터의 탄생, 인공지능의 기원, 인터넷의 등장, 딥러닝의 혁명, 코로나19의 충격, 그리고 생성형 AI의 부상까지 살펴봅니다. 이 역사적 서사는 단순한 연대기가 아니라, 교사가 왜 기술에 대해 이해해야 하는지를 보여주는 논거입니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 8. SECTION 2 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">제 2 절 · SECTION 02</div>
+      <h2 class="section-title">컴퓨터와 인공지능의<br>기원: 1940~1960년대</h2>
+      <p class="section-blurb">현대 AI는 어떤 전쟁의 유산에서 비롯되었는가?</p>
+    </div>
+    <aside class="notes">2절에서는 현대 컴퓨터과학과 인공지능의 기원을 추적합니다. ENIAC의 탄생, 다트머스 학술대회, 그리고 AI의 첫 번째 겨울까지 — 1940~1960년대의 사건들이 오늘날 AI 시대의 씨앗이 됩니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 9. ENIAC + 튜링 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">2.1</span>
+      <span class="header-title">ENIAC(1945): 계산의 기계화, 컴퓨터과학의 출발</span>
+      <span class="header-meta">제 2 절 · 항 1</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">ENIAC(1945)과 앨런 튜링</h2>
+      <div class="cols">
+        <div class="col-card">
+          <div class="col-title">ENIAC 1945 — 계산의 기계화</div>
+          <ul>
+            <li>미국 육군 탄도연구소: 포병 사격표 계산 목적</li>
+            <li>진공관 18,000개·방 한 칸 크기의 거대 기계</li>
+            <li>수학적 추상과 물리적 기계의 결합 — <strong>현대 컴퓨터과학의 씨앗</strong></li>
+          </ul>
+          <figure>
+            <img src="../images/img-s09-eniac.png" alt="ENIAC 컴퓨터 레트로 일러스트">
+            <figcaption>ENIAC, 1945 · 미국 육군 탄도연구소</figcaption>
+          </figure>
+        </div>
+        <div class="col-card primary">
+          <div class="col-title">앨런 튜링 — 지능의 수학화</div>
+          <ul>
+            <li>에니그마 암호 해독(1939)으로 2차 대전 단축에 기여</li>
+            <li><strong>폰 노이만·튜링</strong>: 전쟁의 압박이 당대 최고 과학자를 결집</li>
+            <li>수학적 추상으로 현대 컴퓨터과학의 토대 마련</li>
+          </ul>
+          <figure>
+            <img src="../images/img-s09-turing.png" alt="앨런 튜링 초상 사진">
+            <figcaption>앨런 튜링 (1912–1954) · 사진: Elliott &amp; Fry (PD, Wikimedia)</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">1945년, ENIAC이 작동을 시작했습니다. 오늘날의 기준으로 보면 제한적인 성능이지만, 당시의 ENIAC은 인간이 수천 시간을 들여야 할 계산을 단 몇 초 만에 처리했습니다. 폰 노이만은 헝가리계 유대인 출신으로 미국에서 활동했고, 튜링은 영국에서 암호해독과 계산이론에 기여했습니다. 튜링은 에니그마 암호 해독에 결정적으로 기여했습니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 10. 다트머스 1956 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">2.2</span>
+      <span class="header-title">다트머스 학술대회(1956): 'AI'라는 이름의 탄생</span>
+      <span class="header-meta">제 2 절 · 항 2</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">인공지능의 탄생</h2>
+        <ul>
+          <li><strong>튜링 테스트(1950)</strong>: 인간 판정자가 대화 상대가 기계인지 인간인지 구분하지 못하는지를 묻는 사고실험</li>
+          <li>매카시·민스키·로체스터·섀넌: <strong>'인공지능(Artificial Intelligence)'</strong> 1955년 제안 · 1956년 다트머스 워크숍에서 분야 명칭 정립</li>
+          <li><strong>퍼셉트론(1958, 로젠블랫)</strong>: 신경망의 수학적 구현 → AI의 봄</li>
+          <li>섀넌 정보이론: 디지털 정보의 수학적 기초</li>
+        </ul>
+        <div class="callout callout--info" style="margin-top:20px;">
+          '기계가 생각할 수 있는가' — 이 질문이 <strong>인공지능 연구의 철학적 토대</strong>가 되었다.
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s10-dartmouth.png" alt="1956년 다트머스 학술대회 — 칠판에 Artificial Intelligence, 학자들 토론 장면">
+        <figcaption>[그림] 1956 다트머스 학술대회 — AI라는 이름의 탄생</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">전후 과학계에는 인간의 지능을 기계로 재현할 수 있다는 낙관적 분위기가 팽배했습니다. 1955년 매카시, 민스키, 로체스터, 섀넌이 록펠러 재단에 연구 제안서를 제출하고, 이듬해 다트머스에서 열린 학술대회에서 '인공지능(Artificial Intelligence)'이라는 연구 분야 명칭이 자리 잡았습니다. 1958년 로젠블랫이 개발한 퍼셉트론은 인간의 뇌가 작동하는 방식을 수식으로 모델링할 수 있다는 발견으로 당시 과학계를 흥분시켰습니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 11. 기호주의 vs 연결주의 표 2-1 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">2.3</span>
+      <span class="header-title">기호주의 vs 연결주의: Perceptrons(1969)와 연결주의 연구의 위축</span>
+      <span class="header-meta">제 2 절 · 항 3</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">두 AI 패러다임의 충돌</h2>
+      <table class="data-table">
+        <caption>[표 2-1] 기호주의 대 연결주의: 두 AI 패러다임의 비교</caption>
+        <thead>
+          <tr>
+            <th style="width:12em">구분</th>
+            <th>기호주의 (Symbolism)</th>
+            <th>연결주의 (Connectionism)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num">핵심 아이디어</td>
+            <td>논리·규칙으로 지능 구현</td>
+            <td>신경망 모방, 학습으로 지능 창발</td>
+          </tr>
+          <tr>
+            <td class="num">대표 인물</td>
+            <td>매카시, 민스키</td>
+            <td>로젠블랫, (훗날) 힌튼·르쿤·벤지오</td>
+          </tr>
+          <tr>
+            <td class="num">1969년 결과</td>
+            <td>민스키·페퍼트의 수학적 반박으로 <strong>일시 우세</strong></td>
+            <td>연구 급격히 위축 — 1970년대 중반 <strong>첫 번째 AI 겨울</strong></td>
+          </tr>
+          <tr>
+            <td class="num">훗날의 역사</td>
+            <td>전문가 시스템으로 명맥 유지</td>
+            <td>딥러닝으로 <strong>재부상·주류화</strong> (2012)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="color:var(--navy); margin-top:24px; font-weight:600;">→ 1970년대 중반 AI 겨울 — 그러나 연결주의는 사라지지 않았다. 딥러닝은 연결주의의 계보를 잇는다.</p>
+    </div>
+    <aside class="notes">1969년, 마빈 민스키와 시모어 페퍼트는 로젠블랫의 퍼셉트론 모델이 수학적으로 해결할 수 없는 문제들이 있음을 지적했습니다. 학계는 민스키의 견해를 지지했고, 인공신경망 연구는 급격히 위축되었습니다. 1970년대 중반 Lighthill 보고서와 연구비 축소로 첫 번째 AI의 겨울이 본격화됩니다. 기호주의의 일시적 우세였지만, 연결주의는 긴 침묵 속에서도 사라지지 않았습니다. 훗날 딥러닝은 연결주의의 계보를 잇습니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 12. SECTION 3 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">제 3 절 · SECTION 03</div>
+      <h2 class="section-title">개인 컴퓨터, 인터넷,<br>연결의 시대: 1970~1990년대</h2>
+      <p class="section-blurb">컴퓨터가 개인의 도구가 되면서 교육은 어떻게 바뀌었는가?</p>
+    </div>
+    <aside class="notes">3절에서는 컴퓨터가 기관의 전유물에서 개인의 도구로 전환되는 과정을 살펴봅니다. 토플러의 예언, IBM PC의 등장, 힌튼의 역전파, 인터넷의 개방 — 이 시기의 변화가 오늘날 디지털 학습 환경의 토대를 만들었습니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 13. IBM PC + 제3의 물결 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">3.1</span>
+      <span class="header-title">개인 컴퓨터(1981)와 정보사회의 예고</span>
+      <span class="header-meta">제 3 절 · 항 1</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">PC 혁명과 토플러의 예언</h2>
+      <div class="cols">
+        <div class="col-card">
+          <div class="col-title">IBM PC 5150 (1981)</div>
+          <ul>
+            <li>빌 게이츠(MS 창업 1975) → <strong>IBM PC 5150</strong>: 컴퓨터가 개인의 도구로</li>
+            <li>정보 접근의 민주화를 향한 첫걸음</li>
+            <li>교육 현장: <strong>컴퓨터 보조 학습(CAL)</strong> 관심 증가</li>
+          </ul>
+          <figure>
+            <img src="../images/img-s13-ibm-pc.png" alt="1981년 IBM PC 5150 레트로 일러스트">
+            <figcaption>IBM PC 5150, 1981 — 개인 컴퓨터 시대의 개막</figcaption>
+          </figure>
+        </div>
+        <div class="col-card primary">
+          <div class="col-title">제3의 물결 — 정보혁명 예고</div>
+          <ul>
+            <li>토플러 『미래의 충격(1970)』: 기술 변화가 적응 능력을 초과 → <strong>사회적 충격</strong></li>
+            <li>『<strong>제3의 물결(1980)</strong>』: 농업혁명·산업혁명에 이어 정보혁명 선언</li>
+            <li>당대의 대담한 예언 — 이후 역사 속에서 타당성이 입증됨</li>
+          </ul>
+          <figure>
+            <img src="../images/img-s13-third-wave.png" alt="정보혁명 물결 그래픽 — 제3의 물결">
+            <figcaption>토플러의 『제3의 물결』(1980) — 정보혁명의 예언</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">미래학자 앨빈 토플러는 1970년의 『미래의 충격』에서 기술 변화의 속도가 인간의 적응 능력을 초과할 때 사회 전반에 충격이 발생한다고 경고했습니다. 1981년 IBM PC 5150은 ENIAC이 방 하나를 채우던 거대한 기계였다면, 책상 위에 올려놓을 수 있는 개인의 도구였습니다. 이후 교육 현장에서도 컴퓨터 보조 학습(CAL)에 대한 관심이 높아지기 시작했습니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 14. 힌튼 + 역전파 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">3.2</span>
+      <span class="header-title">역전파(1986): 연결주의의 조용한 부활</span>
+      <span class="header-meta">제 3 절 · 항 2</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">딥러닝 3인방과 역전파 알고리즘</h2>
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">제프리 힌튼 — 딥러닝의 아버지</div>
+          <ul>
+            <li>AI 암흑기에도 <strong>인공신경망 연구</strong>를 포기하지 않은 3인방</li>
+            <li>힌튼·르쿤·벤지오: <strong>2018년 ACM 튜링상</strong> 공동 수상</li>
+            <li>힌튼은 존 홉필드와 함께 <strong>2024년 노벨 물리학상</strong> 수상</li>
+          </ul>
+          <figure>
+            <img src="../images/img-s14-hinton.png" alt="제프리 힌튼 초상 사진" style="max-height:235px">
+            <figcaption>제프리 힌튼 (Geoffrey Hinton) · 사진: Arthur Petron, CC BY-SA 4.0</figcaption>
+          </figure>
+        </div>
+        <div class="col-card">
+          <div class="col-title">역전파 (1986) — 연결주의의 부활</div>
+          <ul>
+            <li>Rumelhart, Hinton &amp; Williams (1986): 신경망이 <strong>오류를 스스로 수정</strong>하며 학습하는 알고리즘</li>
+            <li>2006: Deep Belief Nets 탄생 → <strong>딥러닝의 씨앗</strong></li>
+            <li>당시 연산 능력의 한계로 가능성이 충분히 구현되지 못함</li>
+          </ul>
+          <figure>
+            <img src="../images/img-s14-backprop.png" alt="역전파 알고리즘 신경망 다이어그램">
+            <figcaption>역전파 알고리즘 — 오류가 역방향으로 전파되며 학습</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">AI의 겨울을 버텨낸 연결주의는 1980년대에 조용히 부활의 기반을 다지고 있었습니다. 1986년 Rumelhart, Hinton, Williams 연구팀은 역전파 알고리즘을 발표했습니다. 신경망이 자신의 오류를 스스로 수정하며 학습할 수 있게 해주는 핵심 알고리즘입니다. 힌튼, 르쿤, 벤지오 — 훗날 '딥러닝 3인방'으로 불리는 이들의 끈질긴 연구는 2018년 ACM 튜링상 공동 수상으로 인정받게 됩니다. 힌튼은 이후 존 홉필드와 함께 2024년 노벨 물리학상을 수상했습니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 15. 인터넷 개방 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">3.3</span>
+      <span class="header-title">인터넷의 개방(1990년대): 지식의 민주화</span>
+      <span class="header-meta">제 3 절 · 항 3</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">인터넷 개방과 학습 환경의 재편</h2>
+        <ul>
+          <li>팀 버너스-리(1989): <strong>WWW</strong> 개념 제안 → 1990년대 인터넷 민간 개방</li>
+          <li>지식이 기관·교사에서 <strong>학습자</strong>에게로 분산</li>
+          <li>"교사는 정보 전달자인가, <strong>의미 변환 안내자</strong>인가?" — 교육학의 핵심 질문 부상</li>
+        </ul>
+        <div class="callout callout--info" style="margin-top:20px;">
+          인터넷의 등장은 교사의 역할에 대한 근본적 질문을 교육학의 중심으로 끌어올렸다.
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s15-internet.png" alt="인터넷 개방으로 지식이 중앙 기관에서 개인 학습자들에게 분산되는 방사형 개념도">
+        <figcaption>중앙 기관 → 학습자로의 지식 분산 — WWW 1990s</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">1989년 팀 버너스-리가 월드와이드웹(WWW) 개념을 제안하고, 1990년대 초반 인터넷이 민간에 개방되면서 세상은 다시 한번 뒤바뀌기 시작했습니다. 지식과 정보가 특정 기관이나 교사에게 집중되어 있던 구조가 서서히 해체되기 시작했습니다. 학습자는 스스로 정보를 탐색할 수 있게 되었고, 교사의 역할에도 새로운 질문이 제기되었습니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 16. SECTION 4 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">제 4 절 · SECTION 04</div>
+      <h2 class="section-title">디지털 전환과<br>교육의 도전: 2000~2010년대</h2>
+      <p class="section-blurb">디지털 전환은 교육 불평등을 어떻게 심화시키는가?</p>
+    </div>
+    <aside class="notes">4절에서는 2000년대 디지털 전환 시기를 살펴봅니다. 디지털 네이티브의 등장, 기술-교육 경주와 불평등의 심화, 그리고 딥러닝 혁명과 4차 산업혁명의 선언까지 — 이 시기의 변화가 오늘날 교육 정책의 배경을 이룹니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 17. 디지털 네이티브 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">4.1</span>
+      <span class="header-title">디지털 네이티브(Prensky, 2001): 새로운 학습자 — 논쟁적 개념</span>
+      <span class="header-meta">제 4 절 · 항 1</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">디지털 네이티브와 교육의 간극</h2>
+        <ul>
+          <li>Prensky가 주장한 디지털 네이티브론: 디지털 기술과 <strong>함께 태어난</strong> 새로운 세대가 학교에 들어오다</li>
+          <li>멀티태스킹·즉각 피드백·그래픽 정보 처리에 익숙 — 단, 개인차·계층차 큼; 세대 일반화에 한계</li>
+          <li>학교 수업은 여전히 <strong>선형·텍스트 중심</strong> → 교육과 학습자의 간극 가시화</li>
+        </ul>
+        <div class="callout callout--warning" style="margin-top:20px;">
+          디지털 네이티브 개념은 교육공학 분야에서 '어떻게 디지털 학습자에게 맞는 수업을 설계할 것인가'라는 질문을 촉발하는 기점이 되었다. (논쟁적 개념 — Bennett et al., 2008)
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s17-digital-native.png" alt="디지털 기기를 능숙하게 다루는 학습자와 전통 교실 방식 사이 간극 대비 일러스트">
+        <figcaption>디지털 네이티브 vs 전통 교실 — 교육과 학습자의 간극</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">2001년 마크 프렌스키는 "디지털 네이티브(Digital Natives)"라는 개념을 제안했습니다. 디지털 기술과 함께 태어나고 자란 새로운 세대가 학교에 들어오면서 교육 현장에 충격이 발생하고 있다는 진단이었습니다. 디지털 네이티브들은 멀티태스킹, 그래픽 중심의 정보 처리, 즉각적인 피드백에 익숙한 반면, 학교의 수업 방식은 여전히 선형적이고 텍스트 중심적이었습니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 18. 불평등의 심화 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">4.2</span>
+      <span class="header-title">기술-교육 경주와 불평등의 심화 (Goldin &amp; Katz, 2008)</span>
+      <span class="header-meta">제 4 절 · 항 2</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">불평등의 경제학적 구조</h2>
+        <ul>
+          <li>1980년대 이후: 기술 혁신 속도 &gt; 교육 적응 속도 → <strong>소득 불평등 심화</strong></li>
+          <li>AI·디지털 소양을 <strong>모든 학생에게 공평하게</strong> 제공해야 하는 경제학적 근거</li>
+          <li>기술 수혜의 공평한 분배 = 교육의 <strong>핵심 사회적 역할</strong></li>
+        </ul>
+        <div class="callout callout--summary" style="margin-top:20px;">
+          교육이 기술을 따라잡은 시기에는 불평등이 완화되었고, 뒤처진 시기에는 심화되었다.
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s18-inequality.png" alt="기술 발전 곡선과 교육 공급 곡선 격차 시계열 그래프">
+        <figcaption>기술-교육 경주의 격차: 1940~현재 시계열 (Goldin &amp; Katz, 2008 이론을 바탕으로 한 저자 재구성)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">2008년 클로디아 골딘과 로렌스 캐츠는 기술 발전이 교육 불평등에 미치는 영향을 분석한 저서를 출간했습니다. 1980년대 이후 기술 혁신의 속도가 교육 시스템의 적응 속도를 초과하면서 고숙련 노동력에 대한 수요는 늘었지만, 교육을 통한 공급은 이를 따라가지 못했습니다. AI·디지털 소양을 공교육의 필수 요소로 주장하는 현재의 정책 방향이 경제학적 근거가 있음을 이 연구는 보여줍니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 19. 딥러닝 혁명 + 알파고 (그림 2-2) ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">4.3</span>
+      <span class="header-title">딥러닝 혁명(2012)과 알파고(2016): 바둑에서 세계 정상급 기사를 꺾다</span>
+      <span class="header-meta">제 4 절 · 항 3</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">딥러닝 혁명과 4차 산업혁명</h2>
+        <ul>
+          <li><strong>ImageNet(2012)</strong>: 힌튼 팀 압도적 우승 → 딥러닝 혁명 선언, 전 세계 투자 쏟아짐</li>
+          <li><strong>알파고 대 이세돌(2016.3)</strong>: 바둑과 같은 복잡한 탐색 과제에서 세계 최고 수준의 기사를 4-1로 꺾다</li>
+          <li>다보스 <strong>4차 산업혁명</strong> 선언(2016.1) → 한국 사회에서 'AI 교육' 관심 급증</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="../images/img-s19-fig2-2.png" alt="AI 발전의 주요 전환점 타임라인 — 퍼셉트론(1958)에서 ChatGPT(2022)까지">
+        <figcaption>[그림 2-2] AI 발전의 주요 전환점: 1958~2022</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">2012년은 AI 역사에서 결정적 전환점입니다. ImageNet 대회에서 힌튼 팀(SuperVision)이 압도적인 성적으로 우승했습니다. 전 세계 AI 연구자들은 딥러닝의 잠재력에 눈을 뜨기 시작했고, 기업들의 투자가 쏟아졌습니다. 2016년 3월, 알파고가 이세돌을 상대로 거둔 승리는 AI가 복잡한 탐색 과제에서 인간 최고 수준까지 진입했음을 전 세계에 각인시켰습니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 20. SECTION 5 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">제 5 절 · SECTION 05</div>
+      <h2 class="section-title">생성형 AI 시대와<br>교육의 재정의: 2020년대 이후</h2>
+      <p class="section-blurb">AI가 일상이 된 지금, 교사의 역할은 어떻게 달라져야 하는가?</p>
+    </div>
+    <aside class="notes">5절에서는 2020년대 이후 현재까지를 살펴봅니다. 코로나19의 충격, ChatGPT의 등장, 그리고 이 역사에서 예비교사가 배워야 할 것까지 — 우리가 지금 서 있는 자리를 역사 속에서 이해합니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 21. 코로나 + AI 디지털교과서 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">5.1</span>
+      <span class="header-title">코로나19(2020): 에듀테크의 전 지구적 강제 실험</span>
+      <span class="header-meta">제 5 절 · 항 1</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">팬데믹이 촉발한 디지털 교육의 전환</h2>
+      <div class="cols">
+        <div class="col-card">
+          <div class="col-title">코로나19 — 원격 수업 전환</div>
+          <ul>
+            <li>전 세계 학교 <strong>원격 수업</strong>으로 전환 — 에듀테크가 주요 교육 매체로</li>
+            <li>디지털 기기·인터넷 격차 → <strong>학습 격차</strong>로 직결</li>
+            <li>교사의 디지털 역량이 수업 질에 <strong>직접적 영향</strong></li>
+          </ul>
+          <figure>
+            <img src="../images/img-s21-covid.png" alt="학생이 노트북으로 원격 수업에 참여하는 장면">
+            <figcaption>코로나19 원격 수업 — 에듀테크의 첫 전 지구적 실험</figcaption>
+          </figure>
+        </div>
+        <div class="col-card primary">
+          <div class="col-title">한국의 정책적 응답</div>
+          <ul>
+            <li><strong>AI 디지털교과서</strong>(2025년 단계적 도입 → 법 개정으로 교육자료·학습지원 소프트웨어로 재분류)</li>
+            <li>2022 개정 교육과정: <strong>디지털 기초소양</strong>을 모든 교과 학습의 기반이 되는 기초소양으로 강화</li>
+            <li>팬데믹 경험과 4차 산업혁명 맥락이 결합된 정책적 응답</li>
+          </ul>
+          <figure>
+            <img src="../images/img-s21-ai-textbook.png" alt="태블릿에 AI 디지털교과서 맞춤형 학습 경로 대시보드">
+            <figcaption>AI 디지털교과서 — 개인별 맞춤형 학습 경로</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">2020년 코로나19 팬데믹은 전 세계 교육 시스템을 강제 실험대에 올렸습니다. 이것은 에듀테크가 보조 수단을 넘어 주요 교육 매체로 작동하는 첫 번째 전 지구적 실험이었습니다. 디지털 기기와 인터넷 접근성의 격차가 학습 격차로 직결됨이 드러났습니다. 2022 개정 교육과정은 '디지털 기초소양'을 핵심역량과 구별되는 별도 항목으로 설정하여, 모든 교과 학습과 평생학습의 기반이 되는 기초소양으로 강화하였습니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 22. ChatGPT + 교사 역할 재정의 (그림 2-3) ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">5.2</span>
+      <span class="header-title">ChatGPT(2022): 생성형 AI 시대, 교사의 역할을 묻다</span>
+      <span class="header-meta">제 5 절 · 항 2</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">교사의 역할 재정의</h2>
+        <ul>
+          <li><strong>ChatGPT(2022.11)</strong>: 출시 5일 만에 100만 사용자 → 생성형 AI의 대중화</li>
+          <li>AI가 글쓰기·코딩·번역 수행 → "학교에서 <strong>무엇을</strong> 가르쳐야 하는가?"</li>
+          <li>교사 역할 재정의: 정보 전달 ❌ → <strong>동기 이해·비판적 사고 촉진·의미 있는 경험 설계</strong> ✅</li>
+        </ul>
+        <div class="callout callout--info" style="margin-top:20px;">
+          2020년 AI 교육정책 방향 발표 → 2023년 디지털 기반 교육혁신·AI 디지털교과서 추진 → 2025년 일부 학년·교과 도입 → 2026년 AI 교육자료 및 <strong>AI 교육 필수화 추진</strong>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s22-fig2-3.png" alt="생성형 AI 시대 교사의 역할 재정의 다이어그램 — AI 보완 역할과 교사 고유 역할 전환">
+        <figcaption>[그림 2-3] ChatGPT 2022: 교사 역할의 고차원 전환</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">2022년 11월 ChatGPT가 공개되었습니다. 생성형 AI의 등장은 교육에 근본적인 질문을 던집니다. 글쓰기, 수학 풀이, 코딩, 외국어 번역 등 기존의 많은 학업 과제를 AI가 대신 수행할 수 있다면, 학교에서 무엇을 가르쳐야 하는가? 정보를 전달하고 정답을 확인하는 역할은 AI가 더 효율적으로 수행할 수 있습니다. 교사는 그보다 더 깊은 차원에서 역할을 수행해야 합니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 23. CLOSING — 먼저 이해하는 교사 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-closing">
+    <div class="body-area">
+      <p class="closing-quote">
+        기술은 항상 <em>먼저</em> 변했다.<br>
+        교사는 <em>먼저 이해하는</em> 사람이어야 한다.
+      </p>
+      <div class="closing-meta">교육방법 및 교육공학 · 2주차 · 임태형 · 전남대학교</div>
+    </div>
+    <aside class="notes">이 장이 추적한 1945년부터 현재까지의 역사는 하나의 일관된 메시지를 전달합니다. 기술은 항상 먼저 변했고, 교육은 그 변화를 따라잡거나 선도하거나 혹은 뒤처지는 방식으로 대응해 왔습니다. 딥러닝이 2012년에 새로운 전환점을 열었을 때, 한국 교육에서 AI 교육이 정책으로 구체화된 것은 2020년대였습니다. 예비교사가 이 역사에서 배워야 할 것은, 반응하는 교사가 아니라 먼저 이해하는 교사가 되어야 한다는 것입니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 24a. 참고문헌 — 핵심 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-text">
+    <div class="header-bar">
+      <span class="chapter-chip">참고 1</span>
+      <span class="header-title">참고문헌 — 핵심 문헌 (Core References)</span>
+      <span class="header-meta">교육방법 및 교육공학 · 제2장</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">참고문헌 (핵심)</h2>
+      <table class="data-table" style="font-size:32px; line-height:1.5;">
+        <thead><tr><th style="width:20em">저자(연도)</th><th>제목 · 출처</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Goldin, C., &amp; Katz, L. F. (2008)</td>
+            <td><em>The Race between Education and Technology</em>. Harvard University Press.</td>
+          </tr>
+          <tr>
+            <td>Prensky, M. (2001)</td>
+            <td>Digital Natives, Digital Immigrants. <em>On the Horizon, 9</em>(5), 1–6.</td>
+          </tr>
+          <tr>
+            <td>Toffler, A. (1980)</td>
+            <td><em>The Third Wave</em>. Bantam Books.</td>
+          </tr>
+          <tr>
+            <td>Schwab, K. (2016)</td>
+            <td><em>The Fourth Industrial Revolution</em>. World Economic Forum.</td>
+          </tr>
+          <tr>
+            <td>Rumelhart, D. E., Hinton, G. E., &amp; Williams, R. J. (1986)</td>
+            <td>Learning representations by back-propagating errors. <em>Nature, 323</em>, 533–536.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <aside class="notes">이 장의 핵심 5개 문헌입니다. 골딘·캐츠의 기술-교육 경주 이론, 프렌스키의 디지털 네이티브 개념, 토플러의 제3의 물결, 슈밥의 4차 산업혁명, 그리고 Rumelhart·Hinton·Williams의 역전파 논문입니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 24b. 참고문헌 — 보충 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-text">
+    <div class="header-bar">
+      <span class="chapter-chip">참고 2</span>
+      <span class="header-title">참고문헌 — 보충 문헌 (Supplementary References)</span>
+      <span class="header-meta">교육방법 및 교육공학 · 제2장</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">참고문헌 (보충)</h2>
+      <table class="data-table" style="font-size:32px; line-height:1.5;">
+        <thead><tr><th style="width:20em">저자(연도)</th><th>제목 · 출처</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Toffler, A. (1970)</td>
+            <td><em>Future Shock</em>. Random House.</td>
+          </tr>
+          <tr>
+            <td>Minsky, M., &amp; Papert, S. (1969)</td>
+            <td><em>Perceptrons: An Introduction to Computational Geometry</em>. MIT Press.</td>
+          </tr>
+          <tr>
+            <td>교육부 (2022, 12월 22일)</td>
+            <td>2022 개정 교육과정 확정·발표. 교육부.</td>
+          </tr>
+          <tr>
+            <td>교육부 (2023, 2월)</td>
+            <td>디지털 기반 교육혁신 방안. 교육부.</td>
+          </tr>
+          <tr>
+            <td>류지헌, 김민정, 임태형 (2023)</td>
+            <td>『수업역량 강화를 위한 교육방법 및 교육공학』 (1판 2쇄). 학지사.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <aside class="notes">이 장의 보충 5개 문헌입니다. 토플러의 미래의 충격, 민스키·페퍼트의 퍼셉트론 비판, 교육부의 교육과정 및 정책 문서, 그리고 주교재입니다. 모두 이 강의 전반에 걸쳐 반복 인용되는 자료들입니다.</aside>
+  </section>
+
+</div>
+</div>
+
+<script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+<script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    width: 1920, height: 1080,
+    margin: 0.0, minScale: 0.2, maxScale: 2.0,
+    controls: true, progress: true,
+    slideNumber: 'c/t',
+    transition: 'fade', transitionSpeed: 'fast',
+    backgroundTransition: 'none',
+    center: false,
+    plugins: [ RevealNotes ],
+  });
+</script>
+</body>
+</html>

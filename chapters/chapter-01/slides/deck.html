@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>교육방법 및 교육공학 — 1주차 도입/개관</title>
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reset.css">
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css">
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/white.css" id="theme">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* ───────────────── ppt-korea-policy-navy + inline-SVG (PI 정책 2026-05-26) ─────────────────
+   디자인 팩: epoko77-ai/design-diversity / ppt-korea-policy-navy
+   이미지 정책: 다이어그램은 모두 inline SVG (외부 이미지 X), 표지 사진만 1장.
+*/
+:root {
+  --bg:           #FFFFFF;
+  --surface:      #E8F1FB;
+  --text:         #1A1A1A;
+  --text-muted:   #5C6470;
+  --navy:         #0B2C5C;
+  --blue:         #1B66C9;
+  --red:          #E03B3B;
+  --green:        #1F9D57;
+  --border:       #C5D2E3;
+  --grid:         #E3EAF3;
+  --margin-x:     72px;
+  --header-h:    130px;
+  --content-top: 36px;
+  --content-bot: 44px;
+  --chip-size:    72px;
+}
+
+html, body { background: var(--bg); }
+.reveal {
+  font-family: 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+.reveal .slides { text-align: left; }
+.reveal section { padding: 0; }
+.reveal section, .reveal section.present { background: var(--bg); }
+
+/* ─── Reveal.js theme reset: white.css 의 section img / table 기본 스타일 무력화
+       (4px dark border + 15px margin + shadow + bg 가 KRDS 디자인 시스템과 충돌)        */
+.reveal section img,
+.reveal section table {
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  max-width: 100%;
+}
+
+/* ─── 헤더바 (본문 슬라이드 공통, 12% 높이 네이비) ─── */
+.header-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--margin-x);
+  z-index: 5;
+}
+.header-bar .chapter-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  padding: 8px 18px;
+  border-radius: 2px;
+  margin-right: 24px;
+  font-variant-numeric: tabular-nums;
+}
+.header-bar .header-title {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.header-bar .header-meta {
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  letter-spacing: 0.04em;
+}
+
+/* ─── 슬라이드 본문 영역 (헤더 아래) ─── */
+.body-area {
+  position: absolute;
+  top: calc(var(--header-h) + var(--content-top));
+  left: var(--margin-x);
+  right: var(--margin-x);
+  /* ⚠ Reveal.js transform:scale(...) 적용된 section 안에서 top+bottom 으로 implicit height
+     가 flex/grid 컨테이너로 전달 안 되는 webkit 케이스 존재 — 명시적 height 박음 */
+  height: calc(100% - var(--header-h) - var(--content-top) - var(--content-bot));
+}
+
+/* ─── 번호 칩 시스템 ─── */
+.num-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--chip-size);
+  height: var(--chip-size);
+  background: var(--blue);
+  color: #fff;
+  font-size: 44px;
+  font-weight: 700;
+  border-radius: 2px;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+.num-chip.navy { background: var(--navy); }
+
+/* ─── 헤딩 / 본문 / 캡션 ─── */
+.slide-heading {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 4px solid var(--navy);
+  padding-bottom: 12px;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.015em;
+}
+.slide-subheading {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0;
+  margin-bottom: 18px;
+}
+.body-text {
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text);
+}
+.body-text strong { font-weight: 700; color: var(--blue); }
+.body-text em { font-style: normal; color: var(--navy); font-weight: 700; }
+.body-text .up { color: var(--green); font-weight: 700; }
+.body-text .down { color: var(--red); font-weight: 700; }
+.caption {
+  font-size: 24px;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-top: 12px;
+}
+.caption.with-rule {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 20px;
+}
+
+/* ─── KRDS 박스 콜아웃 3종 ─── */
+.callout {
+  padding: 22px 26px;
+  margin: 16px 0;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--navy);
+  border-radius: 2px;
+  background: var(--surface);
+}
+.callout--info { background: var(--surface); border-left: 5px solid var(--blue); }
+.callout--summary {
+  background: var(--surface);
+  border-top: 4px solid var(--navy);
+  border-bottom: 4px solid var(--navy);
+  padding-top: 28px;
+  position: relative;
+}
+.callout--summary::before {
+  content: "요약";
+  position: absolute;
+  top: -14px; left: 26px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+.callout--warning {
+  background: #fff;
+  border-left: 5px solid var(--red);
+  color: var(--text);
+}
+
+/* ─── 번호 매긴 섹션 (본문 텍스트 슬라이드) ─── */
+.num-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.num-section:last-child { margin-bottom: 0; }
+.num-section .num-chip {
+  width: 56px; height: 56px;
+  font-size: 32px;
+}
+.num-section .text {
+  flex: 1;
+  font-size: 40px;
+  line-height: 1.45;
+  color: var(--text);
+}
+.num-section .text strong { color: var(--navy); font-weight: 700; }
+.num-section .text .label {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+  letter-spacing: -0.005em;
+}
+
+/* ─── 1. layout-cover (표지) ─── */
+section.layout-cover {
+  padding: 0;
+  position: relative;
+  height: 100%;
+  background: #fff !important;
+  /* flex 정렬 폐기 — 자식 절대좌표로 정확한 캔버스 중앙 보장 */
+}
+section.layout-cover::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--navy);
+}
+section.layout-cover::after {
+  content: "";
+  position: absolute;
+  bottom: 60px;
+  left: var(--margin-x);
+  right: var(--margin-x);
+  height: 1px;
+  background: var(--border);
+}
+section.layout-cover .cover-content {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: auto;
+}
+section.layout-cover .cover-eyebrow {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 28px;
+}
+section.layout-cover .cover-title {
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1.08;
+  color: var(--navy);
+  letter-spacing: -0.03em;
+  margin: 0 0 24px 0;
+}
+section.layout-cover .cover-rule {
+  width: 96px;
+  height: 5px;
+  background: var(--blue);
+  margin: 28px auto;
+}
+section.layout-cover .cover-subtitle {
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+/* 표지 우상단 한국 교실 사진 (ornament) */
+section.layout-cover .cover-photo {
+  position: absolute;
+  right: 80px;
+  top: 200px;
+  width: 360px;
+  height: 240px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  z-index: 3;
+}
+section.layout-cover .cover-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+section.layout-cover .cover-photo .photo-credit {
+  position: absolute;
+  bottom: 0; right: 0;
+  font-size: 12px;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  padding: 2px 6px;
+  letter-spacing: 0;
+}
+
+/* ─── 2. layout-section (절·장 구분) ─── */
+section.layout-section {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  background: var(--navy) !important;
+  color: #fff;
+  position: relative;
+}
+section.layout-section::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 12px;
+  background: var(--blue);
+}
+section.layout-section .section-inner {
+  padding: 0 96px 0 88px;
+}
+section.layout-section .section-num {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.18em;
+  margin-bottom: 32px;
+}
+section.layout-section .section-title {
+  font-size: 100px;
+  font-weight: 900;
+  line-height: 1.12;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+section.layout-section .section-blurb {
+  font-size: 32px;
+  font-weight: 500;
+  color: #B7C8DD;
+  margin-top: 28px;
+  line-height: 1.5;
+  max-width: 1400px;
+}
+
+/* ─── 3. layout-text (본문 — 번호 매긴 섹션) ─── */
+section.layout-text { padding: 0; }
+section.layout-text .body-area {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── 4. layout-image (본문 — 좌 텍스트 + 우 SVG/이미지) ─── */
+section.layout-image {
+  padding: 0;
+  height: 100%;   /* ⚠ 필수 — body-area 의 height: calc(100% - ...) 가 부모 100% 인식하려면 명시. layout-cover/section 과 동일. */
+}
+section.layout-image .body-area {
+  display: flex;
+  gap: 56px;
+  align-items: center;    /* 자식들 부모 세로 가운데 — figure 자체가 contents-based height 라도 가운데 위치 보장 */
+}
+section.layout-image .body-area .copy {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 40px; line-height: 1.5;
+  align-self: stretch;    /* copy 만 stretch — 텍스트 영역 풀높이로 자연 흐름 */
+}
+section.layout-image .body-area .copy ul {
+  list-style: none; padding-left: 0; margin: 0;
+}
+section.layout-image .body-area .copy ul li {
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 14px;
+}
+section.layout-image .body-area .copy ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--blue);
+  font-size: 22px;
+  line-height: 1.4;
+}
+section.layout-image .body-area .copy p { margin: 14px 0; }
+section.layout-image .body-area figure {
+  margin: 0;
+  flex: 1 1 0;
+  min-width: 0;
+  /* round2 표준: figure 자체를 flex column + 세로 중앙 정렬 (ch-02~10 baked-in 패턴과 통일) */
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Selector parity: figure 안 매체 종류(svg/img) 모두 동일 규칙 적용 */
+section.layout-image .body-area figure svg.diagram,
+section.layout-image .body-area figure img {
+  width: 100%;
+  height: auto;
+  max-height: 580px;
+  display: block;
+  background: var(--bg);
+  object-fit: contain;
+}
+section.layout-image .body-area figcaption {
+  margin-top: 14px;
+  font-size: 24px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* layout-image-wide: 다이어그램/이미지 풀폭 */
+section.layout-image-wide { padding: 0; }
+section.layout-image-wide .body-area {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* heading/callout 위, figure 가 남은 공간에서 세로 중앙 */
+}
+section.layout-image-wide .body-area figure {
+  margin: 0; width: 100%;
+  flex: 1;                         /* 남은 세로 공간 다 차지 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;         /* PI 정책: 이미지는 항상 세로 중앙 */
+  align-items: center;
+}
+section.layout-image-wide .body-area figure svg.diagram,
+section.layout-image-wide .body-area figure img {
+  max-width: 100%;
+  max-height: 680px;
+  width: auto;
+  height: auto;
+  background: var(--bg);
+  object-fit: contain;
+}
+section.layout-image-wide .body-area figcaption {
+  margin-top: 14px;
+  font-size: 28px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* SVG 다이어그램 공통 폰트 */
+svg.diagram { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; }
+svg.diagram text { dominant-baseline: middle; }
+
+/* ─── 5. layout-table (비교표) ─── */
+section.layout-table { padding: 0; }
+section.layout-table .body-area .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 38px;
+  line-height: 1.4;
+}
+section.layout-table .data-table th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 32px;
+  letter-spacing: 0;
+  border-right: 1px solid var(--border);
+}
+section.layout-table .data-table th:last-child { border-right: none; }
+section.layout-table .data-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  vertical-align: top;
+  background: #fff;
+}
+section.layout-table .data-table td:last-child { border-right: none; }
+section.layout-table .data-table tr:nth-child(even) td { background: var(--surface); }
+section.layout-table .data-table td.num {
+  font-weight: 700;
+  color: var(--navy);
+  width: 9em;
+  white-space: nowrap;
+}
+section.layout-table .data-table caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 28px;
+  color: var(--blue);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+
+/* ─── 6. layout-flex-2col (좌우 비교용) ─── */
+section.layout-flex-2col { padding: 0; }
+section.layout-flex-2col .body-area {
+  display: flex;
+  flex-direction: column;
+}
+section.layout-flex-2col .cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  flex: 1;
+  align-content: stretch;
+}
+section.layout-flex-2col .col-card {
+  border: 2px solid var(--border);
+  background: var(--bg);
+  padding: 26px 30px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+}
+section.layout-flex-2col .col-card.primary {
+  border-color: var(--navy);
+  background: var(--surface);
+}
+section.layout-flex-2col .col-card.muted {
+  border-color: var(--text-muted);
+  border-style: dashed;
+}
+section.layout-flex-2col .col-card .col-title {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 16px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--navy);
+}
+section.layout-flex-2col .col-card.muted .col-title {
+  color: var(--text-muted);
+  border-bottom-color: var(--text-muted);
+}
+section.layout-flex-2col .col-card ul {
+  list-style: none; padding: 0; margin: 0;
+  font-size: 38px;
+  line-height: 1.45;
+}
+section.layout-flex-2col .col-card ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+section.layout-flex-2col .col-card ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--blue);
+  font-size: 14px;
+  line-height: 1.8;
+}
+section.layout-flex-2col .col-card.muted ul li::before { color: var(--text-muted); }
+section.layout-flex-2col .col-card ul li strong { color: var(--navy); font-weight: 700; }
+
+/* ─── 7. layout-flow-cards (가로 4단계 흐름) ─── */
+section.layout-flow-cards { padding: 0; }
+section.layout-flow-cards .body-area {
+  display: flex;
+  flex-direction: column;
+  /* layout-text 와 정렬 일치 — 슬라이드 헤딩이 항상 본문 영역 최상단부터 시작 */
+}
+section.layout-flow-cards .flow-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 30px;
+}
+section.layout-flow-cards .flow-card {
+  background: var(--bg);
+  border-top: 6px solid var(--blue);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 22px 22px 26px;
+  position: relative;
+  min-height: 320px;
+}
+section.layout-flow-cards .flow-card .step-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+}
+section.layout-flow-cards .flow-card .step-key {
+  font-size: 44px;
+  font-weight: 900;
+  color: var(--navy);
+  margin: 10px 0 14px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+section.layout-flow-cards .flow-card .step-desc {
+  font-size: 28px;
+  color: var(--text);
+  line-height: 1.45;
+}
+section.layout-flow-cards .flow-card::after {
+  content: "▶";
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--blue);
+  font-size: 38px;
+  z-index: 2;
+}
+section.layout-flow-cards .flow-card:last-child::after { display: none; }
+
+/* ─── 8. layout-closing (마무리 — 단순 텍스트 강조) ─── */
+section.layout-closing { padding: 0; position: relative; height: 100%; }
+/* body-area 를 슬라이드 전체로 확장 (헤더 무시) — 정확한 캔버스 중앙 정렬 */
+section.layout-closing .body-area {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section.layout-closing .closing-quote {
+  font-size: 68px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 0 36px;
+}
+section.layout-closing .closing-quote em {
+  font-style: normal;
+  color: var(--blue);
+  font-weight: 900;
+}
+section.layout-closing .closing-meta {
+  font-size: 32px;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.06em;
+  margin-top: 0;
+}
+
+/* ─── Reveal.js 페이지 번호 / 컨트롤 ─── */
+.reveal .slide-number {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-muted);
+  bottom: 18px; right: 32px;
+}
+.reveal aside.notes { display: none; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- ━━━━━━━━━━━━━━━━ 1. COVER ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-cover">
+    <div class="cover-content">
+      <div class="cover-eyebrow">교육방법 및 교육공학 · CHAPTER 01</div>
+      <h1 class="cover-title">수업을 설계하는<br>교사의 눈</h1>
+      <div class="cover-rule"></div>
+      <div class="cover-subtitle">1주차 · 오리엔테이션</div>
+    </div>
+    <div class="cover-photo" style="position:absolute; left:1451px; top:470px; width:366px; height:246px; margin:0; transform:none">
+      <img src="../images/img-s01-classroom.png" alt="한국 교실 — 교사가 앞에서 강의하고 학생들이 정면을 바라보는 장면">
+      <div class="photo-credit">AI-generated · codex image_gen.imagegen</div>
+    </div>
+    <aside class="notes">한 학기 동안 함께 공부할 '교육방법 및 교육공학'입니다. 오늘 1주차는 과목의 윤곽을 함께 그려봅니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 2. 학습목표 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-text">
+    <div class="header-bar">
+      <span class="chapter-chip">01</span>
+      <span class="header-title">1장 학습 목표</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">1장 학습 목표</h2>
+      <div class="num-section">
+        <span class="num-chip">01</span>
+        <div class="text">
+          <span class="label">개념 구분</span>
+          교육방법과 <strong>교육공학</strong>의 정의를 구분해 설명할 수 있다.
+        </div>
+      </div>
+      <div class="num-section">
+        <span class="num-chip">02</span>
+        <div class="text">
+          <span class="label">필요성 이해</span>
+          예비교사에게 이 학문이 필요한 이유 <strong>세 가지</strong>를 자기 언어로 정리할 수 있다.
+        </div>
+      </div>
+      <div class="num-section">
+        <span class="num-chip">03</span>
+        <div class="text">
+          <span class="label">학기 여정 조망</span>
+          <strong>4부 12장</strong>의 핵심 질문을 자신의 교사 정체성과 연결할 수 있다.
+        </div>
+      </div>
+      <div class="num-section">
+        <span class="num-chip">04</span>
+        <div class="text">
+          <span class="label">학습 전략 수립</span>
+          한 학기 운영 방식과 평가 철학을 이해하고 학습 전략을 세울 수 있다.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 3. SECTION 1 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">제 1 절 · SECTION 01</div>
+      <h2 class="section-title">교육방법 및 교육공학이란<br>무엇인가</h2>
+      <p class="section-blurb">두 학문의 정의와 접점, 그리고 이 과목이 다루는 범위를 정리한다.</p>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 4. 1.1 교육방법의 의미 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-text">
+    <div class="header-bar">
+      <span class="chapter-chip">1.1</span>
+      <span class="header-title">교육방법의 의미</span>
+      <span class="header-meta">제 1 절 · 항 1</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">교육방법의 의미</h2>
+      <p class="body-text">
+        <strong>교육방법(教育方法)</strong>은 학습자가 정해진 목표에 도달하도록 교사가 <em>의도적으로 선택하는</em> 교수 절차와 활동의 총체이다.
+      </p>
+      <div class="callout callout--summary">
+        교육방법은 '<strong>무엇을 가르치는가</strong>'(내용)와 '<strong>왜 가르치는가</strong>'(목적) 사이를 잇는 <em>실천의 다리</em>다.
+      </div>
+      <div class="num-section">
+        <span class="num-chip navy">①</span>
+        <div class="text"><span class="label">전통 관점</span>가르치는 기술과 절차에 초점</div>
+      </div>
+      <div class="num-section">
+        <span class="num-chip navy">②</span>
+        <div class="text"><span class="label">현대 관점</span>학습자의 인지·정의·사회적 성장을 함께 설계</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 5. 1.2 교육공학의 정의 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">1.2</span>
+      <span class="header-title">교육공학의 정의</span>
+      <span class="header-meta">제 1 절 · 항 2</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">교육공학의 정의</h2>
+        <p class="body-text"><strong>AECT(2008)</strong>: 적절한 기술적 과정과 자원을 <em>창출·사용·관리</em>함으로써 학습을 촉진하고 수행을 향상시키는 연구·실천 분야.</p>
+        <ul>
+          <li>창출 — 매체·환경의 개발</li>
+          <li>사용 — 교수 상황에서의 활용</li>
+          <li>관리 — 자원·프로젝트의 운영</li>
+        </ul>
+        <p class="body-text"><strong>Seels &amp; Richey(1994)</strong>: 설계·개발·활용·관리·평가의 다섯 영역.</p>
+      </div>
+      <figure>
+        <img src="../images/img-s05-radial-fig.png" alt="교육공학 5개 영역 방사형 다이어그램"
+             onerror="this.parentElement.classList.add('image-pending')">
+        <figcaption>[그림 1-1] 중심에 교육공학, 다섯 영역이 방사형으로 뻗는다.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 6. 1.3 두 개념의 접점 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">1.3</span>
+      <span class="header-title">두 개념의 접점과 이 과목의 범위</span>
+      <span class="header-meta">제 1 절 · 항 3</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">두 개념이 만나는 자리</h2>
+        <p class="body-text">두 학문은 <strong>학습자의 성장</strong>이라는 같은 지점을 향한다.</p>
+        <ul>
+          <li>교육방법 — 교사의 의사결정 중심</li>
+          <li>교육공학 — 학습 환경·도구·자원 중심</li>
+          <li>교차 — <strong>학습자 성장</strong>·수업 설계·실천</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="../images/img-s06-venn-fig.png" alt="교육방법·교육공학 접점 벤다이어그램"
+             onerror="this.parentElement.classList.add('image-pending')">
+        <figcaption>두 영역이 만나는 자리에 '학습자 성장'이 놓인다.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 7. SECTION 2 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">제 2 절 · SECTION 02</div>
+      <h2 class="section-title">예비교사에게 이 학문이<br>필요한 이유</h2>
+      <p class="section-blurb">수업 설계·매체 활용·디지털 전환 시대의 교사상을 세 항으로 나누어 살핀다.</p>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 8. 2.1 수업 설계 역량 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-text">
+    <div class="header-bar">
+      <span class="chapter-chip">2.1</span>
+      <span class="header-title">수업 설계 역량의 본질</span>
+      <span class="header-meta">제 2 절 · 항 1</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">수업 설계 역량의 본질</h2>
+      <p class="body-text">
+        수업 설계는 단순히 '<em>가르칠 순서를 짜는 일</em>'이 아니다. 학습자가 어디서 출발하고 무엇에 부딪히며 어떤 지점에서 의미를 발견하게 할지를 <strong>구조적으로 예측하고 배치하는 일</strong>이다.
+      </p>
+      <div class="num-section">
+        <span class="num-chip">01</span>
+        <div class="text"><span class="label">학습 목표</span>도달할 자리에 대한 진술</div>
+      </div>
+      <div class="num-section">
+        <span class="num-chip">02</span>
+        <div class="text"><span class="label">학습자 분석</span>출발선과 사전 경험의 이해</div>
+      </div>
+      <div class="num-section">
+        <span class="num-chip">03</span>
+        <div class="text"><span class="label">활동 설계</span>의미가 일어날 만한 장면의 배치</div>
+      </div>
+      <div class="num-section">
+        <span class="num-chip">04</span>
+        <div class="text"><span class="label">평가</span>목표 도달의 증거 수집</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 9. 2.2 매체 개발 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">2.2</span>
+      <span class="header-title">매체 개발 및 활용 역량</span>
+      <span class="header-meta">제 2 절 · 항 2</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">매체 개발 및 활용</h2>
+        <p class="body-text"><strong>Mayer(2001) 멀티미디어 원리</strong>: '단어+그림'은 '단어만'보다 학습 효과가 크다.</p>
+        <ul>
+          <li>분할 원리 — 한 번에 너무 많이 담지 않는다</li>
+          <li>모달리티 원리 — 시각·청각을 함께 쓴다</li>
+          <li>공간 근접성 — 관련 요소를 가까이 둔다</li>
+        </ul>
+        <div class="callout callout--info">
+          매체 선택은 <strong>기술 우월성</strong>이 아닌 <em>학습 목표 적합성</em>으로 결정한다.
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s09-matrix-fig.png" alt="매체 선택 2x2 매트릭스"
+             onerror="this.parentElement.classList.add('image-pending')">
+        <figcaption>상호작용성 × 표현 풍부도 두 축으로 매체를 배치한다.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 10. 2.3 디지털 전환 시대 (text+flex 2col) ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">2.3</span>
+      <span class="header-title">디지털 전환 시대의 교사상</span>
+      <span class="header-meta">제 2 절 · 항 3</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">디지털 전환 시대의 교사상</h2>
+      <p class="body-text" style="margin-bottom:24px;">
+        AI·디지털은 <strong>정형화된 작업</strong>을 보완한다. 그 자리에서 교사는 <em>경험을 설계하고 사고를 촉진하는 역할</em>로 이동한다.
+      </p>
+      <div class="cols">
+        <div class="col-card muted">
+          <div class="col-title">AI · 디지털이 잘하는 것</div>
+          <ul>
+            <li>반복·계산·검색</li>
+            <li>방대한 자료 <strong>요약</strong></li>
+            <li>개별 피드백 <strong>보조</strong></li>
+            <li>학습 데이터 <strong>분석</strong></li>
+          </ul>
+        </div>
+        <div class="col-card primary">
+          <div class="col-title">교사가 고유하게 잘하는 것</div>
+          <ul>
+            <li><strong>의미 부여</strong> · 맥락 해석</li>
+            <li><strong>좋은 질문</strong> 던지기</li>
+            <li>학습자와의 <strong>관계</strong></li>
+            <li>윤리적 <strong>판단</strong>과 책임</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 11. SECTION 3 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">제 3 절 · SECTION 03</div>
+      <h2 class="section-title">이 책의 구성과<br>한 학기 학습 여정</h2>
+      <p class="section-blurb">4부 12장 체계, 각 부의 핵심 질문, 평가 철학을 함께 살핀다.</p>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 12. 3.1 4부 12장 (HTML 표) ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">3.1</span>
+      <span class="header-title">4부 12장 학습 체계</span>
+      <span class="header-meta">제 3 절 · 항 1</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">4부 12장 학습 체계</h2>
+      <table class="data-table">
+        <caption>[표 1-1] 한 학기의 지도</caption>
+        <thead>
+          <tr><th style="width:9em">부</th><th style="width:18em">부 제목</th><th style="width:9em">장 범위</th><th>핵심 키워드</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">제 1 부</td><td><strong>이론적 기초</strong></td><td>1 – 3장</td><td>교육공학의 정의 · 학습이론 · 매체이론</td></tr>
+          <tr><td class="num">제 2 부</td><td><strong>수업 설계의 실제</strong></td><td>4 – 6장</td><td>체제적 설계 · 수업 절차 · 협동학습</td></tr>
+          <tr><td class="num">제 3 부</td><td><strong>학습자 동기와 매체</strong></td><td>7 – 9장</td><td>동기 유발 · 멀티미디어 설계 · 디지털 교과서</td></tr>
+          <tr><td class="num">제 4 부</td><td><strong>현장과 미래</strong></td><td>10 – 12장</td><td>AI와 교육 · 평가 · 교사 전문성</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 13. 3.2 핵심 질문 (4단계 흐름 카드) ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flow-cards">
+    <div class="header-bar">
+      <span class="chapter-chip">3.2</span>
+      <span class="header-title">각 부를 관통하는 질문</span>
+      <span class="header-meta">제 3 절 · 항 2</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">각 부를 관통하는 네 질문</h2>
+      <div class="flow-row">
+        <div class="flow-card">
+          <div class="step-num">STEP 01 · 제1부</div>
+          <div class="step-key">왜<br>가르치는가</div>
+          <div class="step-desc">교육공학의 정의·학습이론을 통해 <strong>의도와 목적</strong>을 정한다.</div>
+        </div>
+        <div class="flow-card">
+          <div class="step-num">STEP 02 · 제2부</div>
+          <div class="step-key">어떻게<br>설계하는가</div>
+          <div class="step-desc">체제적 절차로 <strong>수업의 뼈대</strong>를 세운다.</div>
+        </div>
+        <div class="flow-card">
+          <div class="step-num">STEP 03 · 제3부</div>
+          <div class="step-key">무엇으로<br>매개하는가</div>
+          <div class="step-desc">동기 유발과 매체로 <strong>학습 환경</strong>을 짓는다.</div>
+        </div>
+        <div class="flow-card">
+          <div class="step-num">STEP 04 · 제4부</div>
+          <div class="step-key">어떻게<br>실천하는가</div>
+          <div class="step-desc">AI·평가·전문성으로 <strong>교사의 자리</strong>를 다듬는다.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 14. 3.3 평가 (도넛 차트) ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">3.3</span>
+      <span class="header-title">수업 운영과 평가 철학</span>
+      <span class="header-meta">제 3 절 · 항 3</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">수업 운영과 평가</h2>
+        <div class="callout callout--summary">
+          평가는 <strong>도달 여부의 확인</strong>이 아니라 <em>학습 과정을 비추는 거울</em>이다.
+        </div>
+        <ul>
+          <li>출석 — <strong class="up">20%</strong> · 함께 자리한 시간</li>
+          <li>패들릿 활동 — <strong class="up">60%</strong> · 매주의 사고 흔적</li>
+          <li>성찰 에세이 — <strong class="up">10%</strong> · 자신의 변화 기록</li>
+          <li>참여 성실도 — <strong class="up">10%</strong> · 동료와의 상호 작용</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="../images/img-s14-donut-fig.png" alt="평가 4항목 도넛 차트"
+             onerror="this.parentElement.classList.add('image-pending')">
+        <figcaption>매주의 사고 흔적이 가장 큰 비중을 차지한다.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 15. SECTION 4 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">제 4 절 · SECTION 04</div>
+      <h2 class="section-title">앞으로 열릴<br>학습의 지평</h2>
+      <p class="section-blurb">2022 개정 교육과정, AI·디지털 시대의 교사, 한 학기 끝의 성찰.</p>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 16. 4.1 2022 개정 교육과정 (flex 2col 매핑) ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">4.1</span>
+      <span class="header-title">2022 개정 교육과정과의 연계</span>
+      <span class="header-meta">제 4 절 · 항 1</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">2022 개정 교육과정 — 인간상과 교수방법</h2>
+      <p class="body-text" style="margin-bottom:24px;">
+        새 교육과정은 <strong>추구하는 인간상</strong> 네 모습을 제시한다. 각 인간상은 어떤 교수 방법으로 길러질 수 있을까?
+      </p>
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">추구하는 인간상</div>
+          <ul>
+            <li><strong>자기주도적</strong>인 사람</li>
+            <li><strong>창의적</strong>인 사람</li>
+            <li><strong>교양 있는</strong> 사람</li>
+            <li><strong>더불어 사는</strong> 사람</li>
+          </ul>
+        </div>
+        <div class="col-card">
+          <div class="col-title">대응되는 교수 방법</div>
+          <ul>
+            <li>자기조절학습 · 프로젝트 학습</li>
+            <li>문제기반학습 · 디자인 사고</li>
+            <li>주제통합학습 · 토의·토론</li>
+            <li>협동학습 · 시민교육 프로젝트</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 17. 4.2 AI·디지털 전환 (SVG shift) ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image-wide">
+    <div class="header-bar">
+      <span class="chapter-chip">4.2</span>
+      <span class="header-title">AI·디지털 교육의 부상</span>
+      <span class="header-meta">제 4 절 · 항 2</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">AI·디지털 교육의 부상</h2>
+      <div class="callout callout--warning" style="max-width:1400px; margin: 0 auto 24px;">
+        '<strong>AI가 교사를 대체할까?</strong>'는 잘못 던진 질문이다. 더 옳은 질문은 '<em>AI와 함께 일하는 교사는 어떻게 다른가</em>'이다.
+      </div>
+      <figure>
+        <img src="../images/img-s17-shift-fig.png" alt="과거 교사 → AI 전환 → 미래 교사 모형"
+             onerror="this.parentElement.classList.add('image-pending')">
+        <figcaption>[그림 1-2] 역할은 사라지지 않고 고차원으로 이동한다.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 18. 4.3 마무리 (닫는 한 문장) ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-closing">
+    <div class="header-bar">
+      <span class="chapter-chip">4.3</span>
+      <span class="header-title">한 학기의 끝에서 돌아볼 것들</span>
+      <span class="header-meta">제 4 절 · 항 3</span>
+    </div>
+    <div class="body-area">
+      <p class="closing-quote">
+        한 학기의 길은 곧<br>
+        <em>나만의 교사 철학</em>으로<br>
+        가는 길이다.
+      </p>
+      <div class="closing-meta">교육방법 및 교육공학 · 2026-2 · 임태형</div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 19. 참고문헌 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">참고</span>
+      <span class="header-title">참고문헌 References</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">참고문헌</h2>
+      <table class="data-table">
+        <thead><tr><th style="width:14em">저자(연도)</th><th>제목 · 출처</th></tr></thead>
+        <tbody>
+          <tr><td>AECT (2008)</td><td>Definition and Terminology Committee Document. AECT.</td></tr>
+          <tr><td>Mayer, R. E. (2001)</td><td>Multimedia Learning. Cambridge University Press.</td></tr>
+          <tr><td>Seels &amp; Richey (1994)</td><td>Instructional Technology: The Definition and Domains of the Field. AECT.</td></tr>
+          <tr><td>교육부 (2022)</td><td>2022 개정 교육과정 총론. 교육부 고시 제2022-33호.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+<script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    width: 1920, height: 1080,
+    margin: 0.0, minScale: 0.2, maxScale: 2.0,
+    controls: true, progress: true,
+    slideNumber: 'c/t',
+    transition: 'fade', transitionSpeed: 'fast',
+    backgroundTransition: 'none',
+    center: false,
+    plugins: [ RevealNotes ],
+  });
+</script>
+</body>
+</html>

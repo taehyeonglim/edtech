@@ -1,0 +1,1223 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="임태형">
+<title>교육방법 및 교육공학 — 6주차 협동학습 전략: 교실 공동체의 힘을 활용한 수업 설계</title>
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reset.css">
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css">
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/white.css" id="theme">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* ───── ppt-korea-policy-navy (PI 정책 2026-05-26) ───── */
+:root {
+  --bg:           #FFFFFF;
+  --surface:      #E8F1FB;
+  --text:         #1A1A1A;
+  --text-muted:   #5C6470;
+  --navy:         #0B2C5C;
+  --blue:         #1B66C9;
+  --red:          #E03B3B;
+  --green:        #1F9D57;
+  --border:       #C5D2E3;
+  --grid:         #E3EAF3;
+  --margin-x:     72px;
+  --header-h:    130px;
+  --content-top: 36px;
+  --content-bot: 44px;
+  --chip-size:    72px;
+}
+
+html, body { background: var(--bg); }
+.reveal {
+  font-family: 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+.reveal .slides { text-align: left; }
+.reveal section { padding: 0; }
+.reveal section, .reveal section.present { background: var(--bg); }
+
+.reveal section img,
+.reveal section table {
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  max-width: 100%;
+}
+
+/* ─── 헤더바 ─── */
+.header-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--margin-x);
+  z-index: 5;
+}
+.header-bar .chapter-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  padding: 8px 18px;
+  border-radius: 2px;
+  margin-right: 24px;
+  font-variant-numeric: tabular-nums;
+}
+.header-bar .header-title {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.header-bar .header-meta {
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  letter-spacing: 0.04em;
+}
+
+/* ─── 본문 영역 ─── */
+.body-area {
+  position: absolute;
+  top: calc(var(--header-h) + var(--content-top));
+  left: var(--margin-x);
+  right: var(--margin-x);
+  height: calc(100% - var(--header-h) - var(--content-top) - var(--content-bot));
+}
+
+/* ─── 번호 칩 ─── */
+.num-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--chip-size);
+  height: var(--chip-size);
+  background: var(--blue);
+  color: #fff;
+  font-size: 44px;
+  font-weight: 700;
+  border-radius: 2px;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+.num-chip.navy { background: var(--navy); }
+
+/* ─── 헤딩 / 본문 / 캡션 ─── */
+.slide-heading {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 4px solid var(--navy);
+  padding-bottom: 12px;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.015em;
+}
+.body-text {
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text);
+}
+.body-text strong { font-weight: 700; color: var(--blue); }
+.body-text em { font-style: normal; color: var(--navy); font-weight: 700; }
+
+/* ─── KRDS 박스 콜아웃 ─── */
+.callout {
+  padding: 22px 26px;
+  margin: 16px 0;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--navy);
+  border-radius: 2px;
+  background: var(--surface);
+}
+.callout--info { background: var(--surface); border-left: 5px solid var(--blue); }
+.callout--summary {
+  background: var(--surface);
+  border-top: 4px solid var(--navy);
+  border-bottom: 4px solid var(--navy);
+  padding-top: 28px;
+  position: relative;
+}
+.callout--summary::before {
+  content: "핵심";
+  position: absolute;
+  top: -14px; left: 26px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+
+/* ─── 번호 매긴 섹션 ─── */
+.num-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.num-section:last-child { margin-bottom: 0; }
+.num-section .num-chip { width: 56px; height: 56px; font-size: 32px; }
+.num-section .text {
+  flex: 1;
+  font-size: 40px;
+  line-height: 1.45;
+  color: var(--text);
+}
+.num-section .text strong { color: var(--navy); font-weight: 700; }
+.num-section .text .label {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+/* ─── 1. layout-cover ─── */
+section.layout-cover {
+  padding: 0;
+  position: relative;
+  height: 100%;
+  background: #fff !important;
+}
+section.layout-cover::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--navy);
+}
+section.layout-cover::after {
+  content: "";
+  position: absolute;
+  bottom: 60px;
+  left: var(--margin-x);
+  right: var(--margin-x);
+  height: 1px;
+  background: var(--border);
+}
+section.layout-cover .cover-content {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: auto;
+}
+section.layout-cover .cover-eyebrow {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 28px;
+}
+section.layout-cover .cover-title {
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1.08;
+  color: var(--navy);
+  letter-spacing: -0.03em;
+  margin: 0 0 24px 0;
+}
+section.layout-cover .cover-rule {
+  width: 96px;
+  height: 5px;
+  background: var(--blue);
+  margin: 28px auto;
+}
+section.layout-cover .cover-subtitle {
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+section.layout-cover .cover-photo {
+  position: absolute;
+  right: 80px;
+  top: 200px;
+  width: 400px;
+  height: 266px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  z-index: 3;
+}
+section.layout-cover .cover-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+section.layout-cover .cover-photo .photo-credit {
+  position: absolute;
+  bottom: 0; right: 0;
+  font-size: 12px;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  padding: 2px 6px;
+}
+
+/* ─── 2. layout-section ─── */
+section.layout-section {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  background: var(--navy) !important;
+  color: #fff;
+  position: relative;
+}
+section.layout-section::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 12px;
+  background: var(--blue);
+}
+section.layout-section .section-inner { padding: 0 96px 0 88px; }
+section.layout-section .section-num {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.18em;
+  margin-bottom: 32px;
+}
+section.layout-section .section-title {
+  font-size: 100px;
+  font-weight: 900;
+  line-height: 1.12;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+section.layout-section .section-blurb {
+  font-size: 32px;
+  font-weight: 500;
+  color: #B7C8DD;
+  margin-top: 28px;
+  line-height: 1.5;
+  max-width: 1400px;
+}
+
+/* ─── 3. layout-text ─── */
+section.layout-text { padding: 0; }
+section.layout-text .body-area { display: flex; flex-direction: column; }
+section.layout-text .body-area ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+section.layout-text .body-area ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 18px;
+  font-size: 34px;
+  line-height: 1.5;
+  color: var(--text);
+}
+section.layout-text .body-area ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 2px;
+  color: var(--blue);
+  font-size: 14px;
+}
+section.layout-text .body-area ul li em { font-style: italic; color: var(--navy); }
+
+/* ─── 4. layout-image ─── */
+section.layout-image { padding: 0; height: 100%; }
+section.layout-image .body-area {
+  display: flex;
+  gap: 56px;
+  align-items: center;
+}
+section.layout-image .body-area .copy {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 40px; line-height: 1.5;
+  align-self: stretch;
+}
+section.layout-image .body-area .copy ul {
+  list-style: none; padding-left: 0; margin: 0;
+}
+section.layout-image .body-area .copy ul li {
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 14px;
+}
+section.layout-image .body-area .copy ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--blue);
+  font-size: 22px;
+  line-height: 1.4;
+}
+section.layout-image .body-area .copy p { margin: 14px 0; }
+section.layout-image .body-area figure {
+  margin: 0;
+  flex: 1 1 0;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section.layout-image .body-area figure img {
+  width: 100%;
+  height: auto;
+  max-height: 580px;
+  display: block;
+  background: var(--bg);
+  object-fit: contain;
+}
+section.layout-image .body-area figcaption {
+  margin-top: 14px;
+  font-size: 24px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ─── 5. layout-table ─── */
+section.layout-table { padding: 0; }
+section.layout-table .body-area .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 38px;
+  line-height: 1.4;
+}
+section.layout-table .data-table th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 32px;
+  border-right: 1px solid var(--border);
+}
+section.layout-table .data-table th:last-child { border-right: none; }
+section.layout-table .data-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  vertical-align: top;
+  background: #fff;
+}
+section.layout-table .data-table td:last-child { border-right: none; }
+section.layout-table .data-table tr:nth-child(even) td { background: var(--surface); }
+section.layout-table .data-table td.num {
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+}
+section.layout-table .body-area .callout {
+  margin-top: 24px;
+  font-size: 38px;
+}
+
+/* ─── 6. layout-flex-2col ─── */
+section.layout-flex-2col { padding: 0; }
+section.layout-flex-2col .body-area { display: flex; flex-direction: column; }
+section.layout-flex-2col .cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  flex: 1;
+  align-items: stretch;
+}
+section.layout-flex-2col .col-card {
+  border: 2px solid var(--border);
+  background: var(--bg);
+  padding: 26px 30px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+}
+section.layout-flex-2col .col-card.primary {
+  border-color: var(--navy);
+  background: var(--surface);
+}
+section.layout-flex-2col .col-card.muted {
+  border-color: var(--text-muted);
+  border-style: dashed;
+}
+section.layout-flex-2col .col-card .col-title {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 16px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--navy);
+}
+section.layout-flex-2col .col-card.muted .col-title {
+  color: var(--text-muted);
+  border-bottom-color: var(--text-muted);
+}
+section.layout-flex-2col .col-card ul {
+  list-style: none; padding: 0; margin: 0;
+  font-size: 38px;
+  line-height: 1.45;
+}
+section.layout-flex-2col .col-card ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+section.layout-flex-2col .col-card ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--blue);
+  font-size: 14px;
+  line-height: 1.8;
+}
+section.layout-flex-2col .col-card.muted ul li::before { color: var(--text-muted); }
+section.layout-flex-2col .col-card ul li strong { color: var(--navy); font-weight: 700; }
+section.layout-flex-2col .col-card figure {
+  flex: 1;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+section.layout-flex-2col .col-card figure img {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+  display: block;
+}
+section.layout-flex-2col .col-card figcaption {
+  font-size: 22px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 10px;
+}
+section.layout-flex-2col .col-card .ordered-list {
+  list-style: none; padding: 0; margin: 0;
+  font-size: 38px;
+  line-height: 1.45;
+  counter-reset: ol-counter;
+}
+section.layout-flex-2col .col-card .ordered-list li {
+  position: relative;
+  padding-left: 44px;
+  margin-bottom: 14px;
+  color: var(--text);
+  counter-increment: ol-counter;
+}
+section.layout-flex-2col .col-card .ordered-list li::before {
+  content: counter(ol-counter);
+  position: absolute;
+  left: 0; top: 0;
+  width: 32px; height: 32px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+section.layout-flex-2col .col-card .ordered-list li strong { color: var(--navy); font-weight: 700; }
+
+/* ─── 7. layout-flow-cards ─── */
+section.layout-flow-cards { padding: 0; }
+section.layout-flow-cards .body-area { display: flex; flex-direction: column; }
+section.layout-flow-cards .flow-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 30px;
+}
+section.layout-flow-cards .flow-row.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1200px;
+}
+section.layout-flow-cards .flow-row.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+section.layout-flow-cards .flow-card {
+  background: var(--bg);
+  border-top: 6px solid var(--blue);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 22px 22px 26px;
+  position: relative;
+  min-height: 260px;
+}
+section.layout-flow-cards .flow-card .step-key {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--navy);
+  margin: 10px 0 14px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+section.layout-flow-cards .flow-card .step-desc {
+  font-size: 28px;
+  color: var(--text);
+  line-height: 1.45;
+}
+section.layout-flow-cards .flow-card .step-desc strong { color: var(--blue); font-weight: 700; }
+section.layout-flow-cards .flow-card::after {
+  content: "▶";
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--blue);
+  font-size: 38px;
+  z-index: 2;
+}
+section.layout-flow-cards .flow-card:last-child::after { display: none; }
+
+/* ─── 8. layout-closing ─── */
+section.layout-closing { padding: 0; position: relative; }
+section.layout-closing .body-area {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section.layout-closing .closing-quote {
+  font-size: 68px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 0 36px;
+}
+section.layout-closing .closing-quote em {
+  font-style: normal;
+  color: var(--blue);
+  font-weight: 900;
+}
+section.layout-closing .closing-meta {
+  font-size: 32px;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+section.layout-closing .closing-list {
+  list-style: none;
+  padding: 0; margin: 0 0 32px;
+  text-align: center;
+}
+section.layout-closing .closing-list li {
+  font-size: 44px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.6;
+}
+section.layout-closing .closing-list li strong { color: var(--blue); }
+
+/* ─── Reveal.js UI ─── */
+.reveal .slide-number {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-muted);
+  bottom: 18px; right: 32px;
+}
+.reveal aside.notes { display: none; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- ━━━━━━━━━━━━━━━━ 1. COVER ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-cover">
+    <div class="cover-content">
+      <div class="cover-eyebrow">교육방법 및 교육공학 · CHAPTER 06</div>
+      <h1 class="cover-title">협동학습<br>전략</h1>
+      <div class="cover-rule"></div>
+      <div class="cover-subtitle">교실 공동체의 힘을 활용한 수업 설계</div>
+    </div>
+    <div class="cover-photo">
+      <img src="../images/img-s01-cover-bg.png" alt="퍼즐 조각이 맞춰지는 협동 일러스트, 4명의 학생이 함께 작업하는 모습">
+      <div class="photo-credit">AI-generated · gpt-image-gen</div>
+    </div>
+    <aside class="notes">6장은 5장에서 다룬 가녜의 9사태와 블룸 분류표라는 이론적 도구 위에서, 수업 현장에서 직접 활용할 수 있는 협동학습 전략들을 다룹니다. 협동학습과 협력학습의 개념 구분, Johnson &amp; Johnson의 5요소, 직소 I·II, STAD, TGT 모형의 절차와 비교, 교사의 역할이 이 장의 핵심 내용입니다. 이 장의 내용은 Dick &amp; Carey 10단계 중 ⑥교수전략개발 단계의 구체적 전략에 해당합니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 2. 학습목표 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">06</span>
+      <span class="header-title">6장 학습 목표</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">6장 학습 목표</h2>
+        <div class="num-section">
+          <span class="num-chip">01</span>
+          <div class="text">
+            <span class="label">개념 구분</span>
+            협동학습과 협력학습의 개념적 차이를 구분한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">02</span>
+          <div class="text">
+            <span class="label">이론적 기반</span>
+            협동학습의 세 가지 이론적 기반을 설명한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">03</span>
+          <div class="text">
+            <span class="label">5가지 핵심 요소</span>
+            Johnson &amp; Johnson의 5가지 핵심 요소를 적용한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">04</span>
+          <div class="text">
+            <span class="label">직소·STAD·TGT</span>
+            직소 I·II, STAD, TGT의 절차와 특징을 비교한다.
+          </div>
+        </div>
+        <div class="num-section">
+          <span class="num-chip">05</span>
+          <div class="text">
+            <span class="label">모형 선택</span>
+            학습 목표·내용 특성에 따라 적합한 모형을 선택한다.
+          </div>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s02-objectives.png" alt="5가지 학습목표를 아이콘으로 시각화한 목표 맵">
+        <figcaption>그림 6-0 · 6장 학습목표 맵</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">6장의 다섯 가지 학습목표를 안내합니다. 협동·협력학습 구분, 이론적 기반 3가지, Johnson &amp; Johnson 5요소, 직소·STAD·TGT 절차 비교, 모형 선택 기준이 이 장의 핵심입니다. 이 내용들은 Dick &amp; Carey 10단계 ⑥교수전략개발에서 실제 선택하게 될 전략들입니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 3. SECTION 1 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 01</div>
+      <h2 class="section-title">협동학습의<br>개념과<br>이론적 배경</h2>
+      <p class="section-blurb">안내 질문: 협동학습과 협력학습의 구조적 차이가 수업 설계 선택에 어떤 영향을 미치는가?</p>
+    </div>
+    <aside class="notes">1절에서는 협동학습과 협력학습의 개념적 차이, 협동학습의 세 가지 이론적 기반(사회적 상호의존·인지발달·행동주의 보상), 그리고 협동학습의 교육적 효과와 한계를 다룹니다. 단순히 모둠을 나누는 것이 아닌 '구조'가 협동학습의 핵심임을 강조합니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 4. 협동 vs 협력 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">06</span>
+      <span class="header-title">협동학습 vs 협력학습</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">협동학습 (Cooperative Learning)</div>
+          <ul>
+            <li><strong>긍정적 상호의존성·개별 책무성</strong>을 구조화한 소집단 학습</li>
+            <li>분담형(직소): "내가 챕터 1, 너는 챕터 2"</li>
+            <li>동일내용형(STAD·TGT): 팀 보상으로 협력 유도</li>
+          </ul>
+        </div>
+        <div class="col-card">
+          <div class="col-title">협력학습 (Collaborative Learning)</div>
+          <ul>
+            <li><strong>공동 사유</strong> 중심 → 함께 의미 구성</li>
+            <li>"이 문제를 같이 고민해보자"</li>
+            <li>비구조적 문제·비판적 사고에 적합</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">협동학습과 협력학습의 구조적 차이를 설명합니다. 협동학습은 과제 분담과 전문화가 핵심이고, 협력학습은 공동 사유와 의미 구성이 핵심입니다. 이 구분은 단순한 용어 정리가 아니라 수업 설계의 실천적 출발점입니다. 학습 목표와 과제 성격에 따라 두 방식을 의도적으로 선택하거나 결합해야 합니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 5. 이론적 기반 3가지 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flow-cards">
+    <div class="header-bar">
+      <span class="chapter-chip">06</span>
+      <span class="header-title">협동학습의 세 가지 이론적 기반</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">협동학습의 세 가지 이론적 기반</h2>
+      <div class="flow-row cols-3">
+        <div class="flow-card">
+          <div class="step-key">사회적 상호의존 이론</div>
+          <div class="step-desc">Deutsch(1949) → Johnson &amp; Johnson<br><strong>긍정적 상호의존</strong> 구조 → "내 성공이 동료의 성공" → 협동 활성화</div>
+        </div>
+        <div class="flow-card">
+          <div class="step-key">인지발달 이론</div>
+          <div class="step-desc">Vygotsky ZPD + Piaget 인지 갈등<br>동료 교수·인지 재구조화로 발달 촉진 — 협력이 발달을 <strong>선도</strong>한다</div>
+        </div>
+        <div class="flow-card">
+          <div class="step-key">행동주의 보상 이론</div>
+          <div class="step-desc">Skinner 강화 원리<br>팀 보상 구조 → 개별 학습 동기 유발 — STAD <strong>향상 점수</strong> 체계의 원리</div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">협동학습의 세 가지 이론적 기반을 설명합니다. 사회적 상호의존 이론(Deutsch, 1949; Johnson &amp; Johnson)은 긍정적 상호의존 구조가 협동을 활성화한다고 봅니다. 인지발달 이론(Vygotsky ZPD, Piaget 인지 갈등)은 동료 교수와 인지 재구조화로 발달이 촉진됨을 설명합니다. 행동주의 보상 이론(Skinner)은 팀 보상 구조가 개별 동기를 유발하는 원리로, STAD의 향상 점수 체계가 이를 구현합니다(Deutsch, 1949; Johnson &amp; Johnson, 1994; Slavin, 1995; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 6. 효과와 한계 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">06</span>
+      <span class="header-title">협동학습의 교육적 효과와 한계</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">교육적 효과</div>
+          <ul>
+            <li>소극적 학습자의 참여를 자연스럽게 유도</li>
+            <li>역할 부여 → 성공 경험 축적</li>
+            <li>동료 관찰·가르치기 → 사회적 학습</li>
+          </ul>
+        </div>
+        <div class="col-card muted">
+          <div class="col-title">한계와 주의 사항</div>
+          <ul>
+            <li><strong>무임승차(free-rider)</strong> 현상</li>
+            <li>깊이 없는 정보 전달 위험</li>
+            <li>교사의 적극적 모니터링·개입 필수</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">협동학습의 교육적 효과와 한계를 설명합니다. 효과 면에서는 소극적 학습자 참여 유도, 역할 부여를 통한 성공 경험 축적, 사회적 학습이 있습니다. 그러나 부적절하게 설계된 협동학습은 무임승차 현상, 깊이 없는 전달, 특정 학습자 소외를 야기할 수 있습니다. 이 모든 한계는 교사의 적극적인 모니터링과 개입으로 보완되어야 합니다(Slavin, 1995; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 7. SECTION 2 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 02</div>
+      <h2 class="section-title">협동학습의<br>핵심 구성<br>요소</h2>
+      <p class="section-blurb">안내 질문: Johnson &amp; Johnson의 5요소 중 어느 하나가 결여되면 어떤 문제가 생기는가?</p>
+    </div>
+    <aside class="notes">2절에서는 Johnson &amp; Johnson의 협동학습 5가지 기본 요소와 집단 구성의 원칙을 다룹니다. 핵심 질문은 모둠을 나눈다고 협동학습이 되는가입니다 — 5요소 중 어느 하나라도 결여되면 효과가 현저히 저하됩니다. 반세기에 걸친 Johnson &amp; Johnson의 연구에서 도출된 이 5요소는 협동학습 설계의 체크리스트입니다(Johnson &amp; Johnson, 1994).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 8. Johnson 5요소 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">06</span>
+      <span class="header-title">Johnson &amp; Johnson의 5가지 핵심 요소</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">David W. Johnson (Minnesota)</div>
+          <figure>
+            <img src="../images/img-s08-johnson-portrait.png" alt="David W. Johnson 교수 초상 사진">
+            <figcaption>David W. Johnson · Wikimedia Commons</figcaption>
+          </figure>
+        </div>
+        <div class="col-card">
+          <div class="col-title">협동학습 5요소</div>
+          <ol class="ordered-list">
+            <li><strong>긍정적 상호의존성</strong> — 운명공동체 인식</li>
+            <li><strong>개별 책무성</strong> — 무임승차 방지</li>
+            <li><strong>촉진적 상호작용</strong> — 설명·격려</li>
+            <li><strong>사회적 기술</strong> — 소통·갈등 해결</li>
+            <li><strong>집단 과정</strong> — 협동 성찰·개선</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">Johnson &amp; Johnson(1994)이 규명한 협동학습 5요소를 설명합니다. ①긍정적 상호의존성: "내 성공이 너의 성공"이라는 운명공동체 인식. ②개별 책무성: 각 구성원의 기여가 드러나야 무임승차 방지. ③촉진적 상호작용: 서로를 돕고 격려하는 직접적 대면 상호작용. ④사회적 기술: 의사소통·신뢰·갈등 해결·리더십. ⑤집단 과정: 협동 과정을 성찰하고 개선 방법을 논의하는 메타적 활동. 어느 하나라도 결여되면 협동학습의 효과가 현저히 저하됩니다(Johnson &amp; Johnson, 1994; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 9. 집단 구성 원칙 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">06</span>
+      <span class="header-title">집단 구성의 원칙</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">집단 구성의 원칙</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>요소</th>
+            <th>권장 방식</th>
+            <th>근거</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>이질성</strong></td>
+            <td>이질적 구성 권장</td>
+            <td>동료 교수·다양한 관점 충돌 촉진</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>규모</strong></td>
+            <td>3–5명 적절</td>
+            <td>무임승차 방지·역할 다양성 확보</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>예외 (TGT)</strong></td>
+            <td>기본 팀은 이질적 구성, 토너먼트 테이블은 유사 성취 수준별 편성</td>
+            <td>수준별 공정 경쟁 보장</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--summary" style="margin-top:24px; font-size:38px;">
+        집단 구성은 수업 목표와 활동 성격에 따라 <strong>유연하게 조정</strong>해야 한다.
+      </div>
+    </div>
+    <aside class="notes">협동학습에서 집단 구성의 원칙을 설명합니다. 일반적으로 이질적 집단 구성이 권장됩니다 — 다양한 학습 수준·성별·배경의 학습자들이 섞여야 동료 교수와 다양한 관점 충돌이 촉진되기 때문입니다. 집단 규모는 3-5명이 적절하며, TGT 토너먼트 단계에서는 예외적으로 동질적 구성을 활용합니다. 활동 성격에 따라 유연하게 조정하되, 교사가 모든 집단을 효과적으로 모니터링할 수 있는 범위를 유지하는 것이 중요합니다(Slavin, 1995; Johnson &amp; Johnson, 1994; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 10. SECTION 3 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 03</div>
+      <h2 class="section-title">직소 모형:<br>과제 분담과<br>전문성 기반 학습</h2>
+      <p class="section-blurb">안내 질문: 직소 I의 '극단적 상호의존성'이 학습 참여 동기를 어떻게 내재화하는가?</p>
+    </div>
+    <aside class="notes">3절에서는 직소(Jigsaw) 모형을 다룹니다. 1971년 Elliot Aronson이 인종 통합 교육 환경에서 개발한 직소 I과, Slavin이 그 한계를 보완하여 STAD 보상 방식을 결합한 직소 II를 비교합니다. 핵심 질문은 극단적 상호의존성이 어떻게 학습 동기를 내재화하는가입니다(Aronson et al., 1978).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 11. 직소 I 절차 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">06</span>
+      <span class="header-title">직소 I의 원리와 3단계 절차</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">직소 I의 원리와 3단계 절차</h2>
+        <p class="body-text"><strong>① Home group</strong>: 이질적 소집단 → 구성원마다 서로 다른 세부 주제 배정</p>
+        <p class="body-text"><strong>② Expert group</strong>: 동일 주제 담당자들이 모여 집중 학습</p>
+        <p class="body-text"><strong>③ Home group 복귀</strong>: 전문가들이 원래 팀에서 가르치기 → 전체 완성</p>
+        <div class="callout callout--info" style="font-size:36px; margin-top:20px;">
+          <strong>극단적 상호의존성</strong> — 내가 배우지 않으면 팀 전체가 불완전해진다<br>
+          <span style="font-size:28px; color:var(--text-muted);">— Aronson et al. (1978)</span>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s11-jigsaw-flowchart.png" alt="직소 I Home group→Expert group→Home group 복귀 3단계 절차 흐름도">
+        <figcaption>그림 6-1 · 직소 모형 3단계 절차 (Aronson et al., 1978)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">직소 I의 원리와 3단계 절차를 설명합니다. 핵심 원리는 극단적 상호의존성입니다 — 자신이 맡은 세부 주제를 학습하지 않으면 팀 전체의 학습이 불완전해지는 구조이므로, 모든 구성원에게 강한 책임감이 부여됩니다. ①Home group에서 이질적 소집단의 각 구성원에게 서로 다른 세부 주제를 배정하고, ②Expert group에서 동일 주제 담당자들이 집중 학습한 후, ③Home group으로 복귀하여 전문 내용을 동료에게 가르칩니다(Aronson et al., 1978; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 12. 직소 II ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">06</span>
+      <span class="header-title">직소 II: 직소 I의 한계 보완</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="cols">
+        <div class="col-card">
+          <div class="col-title">직소 I의 두 가지 한계</div>
+          <ul>
+            <li>전체 내용 조망 어려움</li>
+            <li>팀 보상·향상점수 구조가 없어 전문가 학습 동기가 약함</li>
+          </ul>
+          <div style="margin-top:20px; padding:16px; background:var(--surface); border-left:4px solid var(--blue); font-size:36px; line-height:1.45;">
+            <strong>직소 II 개선</strong> (Slavin)<br>
+            전체 내용 먼저 읽기 → 맥락 후 전문화<br>
+            <strong>STAD 향상 점수·팀 보상</strong> 구조 도입
+          </div>
+        </div>
+        <div class="col-card primary">
+          <div class="col-title">Robert Slavin (Johns Hopkins)</div>
+          <figure>
+            <img src="../images/img-s12-slavin-portrait.png" alt="Robert Slavin 교수 초상 사진">
+            <figcaption>Robert E. Slavin · Wikimedia Commons</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">직소 I의 두 가지 한계와 Slavin의 직소 II 해결책을 설명합니다. 한계 ①: 각자 담당 세부 주제만 깊이 학습해 전체 내용 조망이 어려워집니다. 한계 ②: 팀 보상 구조가 없어 전문가 그룹 단계에서의 집중 학습 동기가 약합니다. 직소 II는 전체 내용을 먼저 읽고 개관한 후 전문화함으로써 맥락을 확보하고, STAD의 향상 점수·팀 보상 구조를 도입하여 집단적 동기를 강화합니다. 2017년 교직논술에서 출제된 내용입니다(Slavin, 1995; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 13. SECTION 4 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 04</div>
+      <h2 class="section-title">팀성취분담(STAD)과<br>팀게임<br>토너먼트(TGT)</h2>
+      <p class="section-blurb">안내 질문: STAD의 향상 점수 체계가 이질적 학습 집단에서 협동을 촉진하는 이유는 무엇인가?</p>
+    </div>
+    <aside class="notes">4절에서는 Slavin이 개발한 STAD와, DeVries &amp; Edwards가 개발하고 Slavin이 Johns Hopkins Student Team Learning 계열에서 발전시킨 TGT를 다룹니다. STAD의 핵심은 향상 점수 체계를 통해 개인 성취와 집단 성취를 연결하는 것입니다. TGT는 STAD와 유사하지만 동질적 토너먼트 경쟁 구조를 추가하여 고성취자에게도 도전감을 제공합니다(Slavin, 1978; Slavin, 1995).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 14. STAD 절차 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">06</span>
+      <span class="header-title">팀성취분담 모형(STAD)의 절차</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">팀성취분담 모형(STAD)의 절차</h2>
+        <p class="body-text"><strong>교사 강의</strong> → <strong>팀 학습</strong> → <strong>개별 시험</strong> → <strong>향상 점수 산출</strong> → <strong>팀 보상</strong></p>
+        <p class="body-text">핵심: <strong>향상 점수 체계</strong> — 이전 자신의 점수 대비 향상도로 기여</p>
+        <div class="callout callout--info" style="font-size:36px; margin-top:20px;">
+          기초 수준이 낮아도 최대 향상 점수를 얻을 수 있는 <strong>공평한 기회</strong><br>
+          <span style="font-size:28px; color:var(--text-muted);">— Slavin (1978)</span>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s14-stad-flowchart.png" alt="STAD 5단계 수평 흐름도: 교사강의→팀학습→개별시험→향상점수→팀보상">
+        <figcaption>그림 6-2 · STAD 모형 5단계 절차 (Slavin, 1978)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">STAD의 절차와 핵심 원리인 향상 점수 체계를 설명합니다. 교사 강의→팀 학습→개별 시험→향상 점수 산출→팀 보상의 5단계로 진행됩니다. 향상 점수 체계의 핵심은 자신의 이전 평균 점수 대비 향상도로 기여를 측정한다는 것입니다. 따라서 기초 수준이 낮은 학습자도 최대 향상 점수를 얻을 수 있는 공평한 기회를 갖게 되어, 이질적 집단에서도 협동이 촉진됩니다(Slavin, 1978; Slavin, 1995; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 15. TGT 절차 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-image">
+    <div class="header-bar">
+      <span class="chapter-chip">06</span>
+      <span class="header-title">팀게임토너먼트(TGT)의 절차와 수준별 경쟁 구조</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="copy">
+        <h2 class="slide-heading">팀게임토너먼트(TGT)의 절차</h2>
+        <p class="body-text"><strong>이질적 팀 구성</strong> → <strong>팀 학습</strong> → <strong>동질적 토너먼트 테이블</strong> → <strong>점수 합산</strong> → <strong>팀 보상</strong></p>
+        <p class="body-text">STAD와 차이: 비슷한 수준끼리 토너먼트 경쟁 → 고성취자에게도 <strong>도전감</strong> 제공</p>
+        <div class="callout callout--info" style="font-size:36px; margin-top:20px;">
+          토너먼트 테이블은 매 회기 후 성취에 따라 <strong>유동적으로 재조정</strong>
+        </div>
+      </div>
+      <figure>
+        <img src="../images/img-s15-tgt-flowchart.png" alt="TGT 5단계 흐름도: 이질적 팀→팀학습→동질적 토너먼트→점수합산→팀보상">
+        <figcaption>그림 6-3 · TGT 모형 5단계 절차 (Slavin, 1995)</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">TGT의 절차와 수준별 경쟁 구조를 설명합니다. STAD와 같은 이질적 팀 구성에서 출발하지만, 평가 단계에서 비슷한 수준끼리 토너먼트 테이블을 구성하여 경쟁합니다. 이 구조는 모든 수준의 학습자에게 공정한 도전감을 제공하며, 특히 고성취자가 쉬운 경쟁에서 동기를 잃는 문제를 해결합니다. 토너먼트 테이블은 매 회기 후 성취에 따라 유동적으로 재조정됩니다(Slavin, 1995; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 16. 모형 비교표 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">06</span>
+      <span class="header-title">주요 협동학습 모형 비교</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">주요 협동학습 모형 비교</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>모형</th>
+            <th>분담 방식</th>
+            <th>평가·보상</th>
+            <th>적합 상황</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>직소 I</strong></td>
+            <td>세부 주제 분담</td>
+            <td>개별 평가</td>
+            <td>병렬 세부 주제 단원</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>직소 II</strong></td>
+            <td>분담 + 전체 개관</td>
+            <td>향상 점수·팀 보상</td>
+            <td>전체 조망 + 전문화 필요</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>STAD</strong></td>
+            <td>동일 내용 팀 학습</td>
+            <td>향상 점수·팀 보상</td>
+            <td>기초 개념 숙달, 이질적 집단</td>
+          </tr>
+          <tr>
+            <td class="num"><strong>TGT</strong></td>
+            <td>동일 내용 팀 학습</td>
+            <td>게임·토너먼트(팀 보상)</td>
+            <td>게임 동기 활용, 수준별 도전</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <aside class="notes">네 가지 협동학습 모형의 핵심 특징을 비교합니다. 직소 I·II는 내용을 세부 주제로 분절할 수 있는 경우에 적합합니다. STAD는 이질적 집단에서 기초 개념 숙달에 효과적이며, 향상 점수 체계가 핵심입니다. TGT는 게임과 경쟁 요소를 활용하여 학습 동기가 낮은 학생들의 참여를 끌어올리는 데 특히 효과적입니다. 임용 시험에서는 네 모형의 절차, 평가 방식, 적합 상황을 비교하는 문항이 자주 출제됩니다(Aronson et al., 1978; Slavin, 1995; Johnson &amp; Johnson, 1994; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 17. SECTION 5 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-section">
+    <div class="section-inner">
+      <div class="section-num">SECTION 05</div>
+      <h2 class="section-title">협동학습의<br>교실 적용과<br>교사의 역할</h2>
+      <p class="section-blurb">안내 질문: 협동학습에서 교사의 역할이 '감소'가 아니라 '정교화'라고 하는 이유는 무엇인가?</p>
+    </div>
+    <aside class="notes">5절에서는 학습 목표·내용에 따른 모형 선택 기준과 협동학습에서 교사의 역할을 다룹니다. 핵심 질문은 협동학습에서 교사의 역할이 감소하는 것처럼 보이지만 실제로는 왜 더 높은 수준의 전문성이 요구되는가입니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 18. 모형 선택 기준 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-table">
+    <div class="header-bar">
+      <span class="chapter-chip">06</span>
+      <span class="header-title">학습 목표·내용에 따른 모형 선택 기준</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">학습 목표·내용에 따른 모형 선택 기준</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>판단 기준</th>
+            <th>추천 모형</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>내용이 독립 세부 주제로 분절 가능</td>
+            <td class="num"><strong>직소 I·II</strong></td>
+          </tr>
+          <tr>
+            <td>모든 학습자가 동일 내용 숙달 목표</td>
+            <td class="num"><strong>STAD</strong></td>
+          </tr>
+          <tr>
+            <td>게임 동기 활용, 수준별 도전 필요</td>
+            <td class="num"><strong>TGT</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout--summary" style="margin-top:24px; font-size:38px;">
+        어떤 모형이든 <strong>긍정적 상호의존성 + 개별 책무성</strong> 설계가 선행되어야 한다.
+      </div>
+    </div>
+    <aside class="notes">학습 목표와 내용 특성에 따른 모형 선택 기준을 설명합니다. 내용이 독립적으로 분절 가능하면 직소 I·II, 동일 내용을 모두 숙달해야 한다면 STAD, 게임과 수준별 도전이 필요하다면 TGT를 선택합니다. 어떤 모형을 선택하든 Johnson &amp; Johnson 5요소 중 가장 핵심인 긍정적 상호의존성과 개별 책무성 설계가 선행되어야 합니다(Slavin, 1995; Johnson &amp; Johnson, 1994; 류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 19. 교사의 역할 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-flex-2col">
+    <div class="header-bar">
+      <span class="chapter-chip">06</span>
+      <span class="header-title">교사의 역할: 설계자이자 조력자</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <div class="cols">
+        <div class="col-card primary">
+          <div class="col-title">활동 전 — 설계자</div>
+          <ul>
+            <li>학습 목표에 맞는 모형 선택</li>
+            <li>내용을 협동 구조로 재구성</li>
+            <li>집단 편성 및 평가 방식 결정</li>
+          </ul>
+        </div>
+        <div class="col-card">
+          <div class="col-title">활동 중·후 — 조력자</div>
+          <ul>
+            <li>소집단 순회·모니터링</li>
+            <li>소외·무임승차 개입</li>
+            <li>성찰 토의 이끌기, 성취 평가</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">협동학습에서 교사의 역할이 두 국면에서 다르게 나타남을 설명합니다. 활동 전에는 설계자로서 모형 선택, 내용 재구성, 집단 편성, 평가 방식 결정을 담당합니다. 활동 중·후에는 조력자로서 소집단 순회·모니터링, 무임승차 개입, 성찰 토의 이끌기를 담당합니다. 협동학습이 자동으로 효과를 발휘하지 않으며, 그 조건들을 의도적으로 설계하고 유지하는 것이 교사의 전문적 역할입니다(류지헌, 김민정, 임태형, 2023).</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 20. 참고문헌 ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-text">
+    <div class="header-bar">
+      <span class="chapter-chip">06</span>
+      <span class="header-title">참고문헌</span>
+      <span class="header-meta">교육방법 및 교육공학</span>
+    </div>
+    <div class="body-area">
+      <h2 class="slide-heading">참고문헌</h2>
+      <ul style="font-size:30px; line-height:1.8;">
+        <li>류지헌, 김민정, 임태형 (2023). <em>수업역량 강화를 위한 교육방법 및 교육공학</em> (1판 2쇄). 학지사.</li>
+        <li>Aronson, E., Blaney, N., Stephan, C., Sikes, J., &amp; Snapp, M. (1978). <em>The Jigsaw Classroom</em>. Sage Publications.</li>
+        <li>Slavin, R. E. (1978). Student teams and achievement divisions. <em>Journal of Research and Development in Education</em>, <em>12</em>(1), 39–49.</li>
+        <li>Slavin, R. E. (1995). <em>Cooperative Learning: Theory, Research, and Practice</em> (2nd ed.). Allyn and Bacon.</li>
+        <li>Johnson, D. W., &amp; Johnson, R. T. (1994). <em>Learning Together and Alone</em> (4th ed.). Allyn and Bacon.</li>
+        <li>Deutsch, M. (1949). A theory of cooperation and competition. <em>Human Relations</em>, <em>2</em>(2), 129–152.</li>
+        <li>Tiantong, M., &amp; Teemuangsai, S. (2013). Student Team Achievement Divisions (STAD) Technique through the Moodle to Enhance Learning Achievement. <em>International Education Studies</em>, <em>6</em>, 85–92.</li>
+      </ul>
+    </div>
+    <aside class="notes">이 장에서 인용한 주요 참고문헌입니다. 주교재 류지헌, 김민정, 임태형(2023)과 함께 Aronson et al.(1978) 직소 원전, Slavin(1978; 1995), Johnson &amp; Johnson(1994), Deutsch(1949), Tiantong &amp; Teemuangsai(2013) 총 7편입니다.</aside>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━ 21. CLOSING ━━━━━━━━━━━━━━━━ -->
+  <section class="layout-closing">
+    <div class="body-area">
+      <ul class="closing-list">
+        <li>협동학습은 <strong>구조적 설계</strong>로 교실 공동체의 힘을 이끌어낸다</li>
+        <li>직소·STAD·TGT는 도구이고, <strong>Johnson &amp; Johnson 5요소</strong>가 설계의 기준이다</li>
+      </ul>
+      <div class="closing-quote">
+        7장에서는 <em>ARCS 동기 설계</em>로<br>학습 참여 구조를 더 정교화한다
+      </div>
+      <div class="closing-meta">교육방법 및 교육공학 · 6장</div>
+    </div>
+    <aside class="notes">6장의 핵심 메시지를 정리합니다. 협동학습은 단순히 모둠을 나누는 것이 아닌 구조적 설계를 통해 교실 공동체의 힘을 이끌어냅니다. 직소·STAD·TGT는 구체적인 도구이지만, 어떤 모형을 선택하든 Johnson &amp; Johnson 5요소가 설계의 기준이 되어야 합니다. 7장에서는 ARCS 동기 설계 모형을 통해 학습자의 내적 동기를 체계적으로 설계하는 방법을 살펴봅니다.</aside>
+  </section>
+
+</div>
+</div>
+<script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+<script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    transition: 'fade',
+    transitionSpeed: 'default',
+    backgroundTransition: 'fade',
+    width: 1920,
+    height: 1080,
+    margin: 0,
+    minScale: 0.2,
+    maxScale: 2.0,
+    controls: true,
+    progress: true,
+    center: false,
+    plugins: [ RevealNotes ]
+  });
+</script>
+</body>
+</html>
