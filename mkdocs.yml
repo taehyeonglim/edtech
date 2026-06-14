@@ -38,6 +38,9 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.arithmatex: { generic: true }
 
+extra_css:
+  - stylesheets/extra.css
+
 plugins:
   - search:
       separator: '[\s　\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'

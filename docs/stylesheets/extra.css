@@ -1,0 +1,206 @@
+:root {
+  --edtech-ink: #1e293b;
+  --edtech-muted: #64748b;
+  --edtech-line: #cbd5e1;
+  --edtech-panel: #f8fafc;
+  --edtech-concept: #0f766e;
+  --edtech-evidence: #7c3aed;
+  --edtech-caution: #b45309;
+  --edtech-practice: #1d4ed8;
+}
+
+[data-md-color-scheme="slate"] {
+  --edtech-ink: #e2e8f0;
+  --edtech-muted: #94a3b8;
+  --edtech-line: #475569;
+  --edtech-panel: #0f172a;
+}
+
+.교재-highlight {
+  border-radius: 6px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  font-weight: 700;
+  padding: 0.04rem 0.28rem 0.08rem;
+}
+
+.교재-highlight.concept {
+  background: rgba(15, 118, 110, 0.12);
+  color: var(--edtech-concept);
+}
+
+.교재-highlight.evidence {
+  background: rgba(124, 58, 237, 0.12);
+  color: var(--edtech-evidence);
+}
+
+.교재-highlight.caution {
+  background: rgba(180, 83, 9, 0.14);
+  color: var(--edtech-caution);
+}
+
+.교재-highlight.practice {
+  background: rgba(29, 78, 216, 0.12);
+  color: var(--edtech-practice);
+}
+
+.media-block {
+  background: var(--edtech-panel);
+  border: 1px solid var(--edtech-line);
+  border-left: 5px solid var(--edtech-concept);
+  border-radius: 8px;
+  color: var(--edtech-ink);
+  margin: 1.25rem 0;
+  padding: 1rem;
+}
+
+.media-block[data-media-kind="video"] {
+  border-left-color: var(--edtech-evidence);
+}
+
+.media-block[data-media-kind="activity"] {
+  border-left-color: var(--edtech-practice);
+}
+
+.media-kicker {
+  color: var(--edtech-muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+}
+
+.media-title {
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+}
+
+.media-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  margin: 0.75rem 0;
+}
+
+.media-panel {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid var(--edtech-line);
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+[data-md-color-scheme="slate"] .media-panel {
+  background: rgba(15, 23, 42, 0.72);
+}
+
+.media-panel strong {
+  color: var(--edtech-concept);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.media-flow {
+  align-items: stretch;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  margin: 0.75rem 0;
+}
+
+.flow-node {
+  background: rgba(15, 118, 110, 0.1);
+  border: 1px solid rgba(15, 118, 110, 0.32);
+  border-radius: 8px;
+  font-weight: 700;
+  min-height: 4.4rem;
+  padding: 0.7rem;
+}
+
+.media-axis {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  margin: 0.75rem 0;
+}
+
+.axis-cell {
+  border: 1px solid var(--edtech-line);
+  border-radius: 8px;
+  min-height: 5.5rem;
+  padding: 0.75rem;
+}
+
+.axis-cell:nth-child(1) {
+  background: rgba(15, 118, 110, 0.1);
+}
+
+.axis-cell:nth-child(2) {
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.axis-cell:nth-child(3) {
+  background: rgba(180, 83, 9, 0.12);
+}
+
+.axis-cell:nth-child(4) {
+  background: rgba(29, 78, 216, 0.1);
+}
+
+.media-video {
+  aspect-ratio: 16 / 9;
+  background: #0f172a;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.media-video iframe {
+  border: 0;
+  height: 100%;
+  inset: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.activity-steps {
+  counter-reset: activity-step;
+  display: grid;
+  gap: 0.55rem;
+  margin: 0.75rem 0;
+  padding: 0;
+}
+
+.activity-steps li {
+  background: rgba(29, 78, 216, 0.09);
+  border: 1px solid rgba(29, 78, 216, 0.22);
+  border-radius: 8px;
+  list-style: none;
+  padding: 0.65rem 0.75rem;
+}
+
+.activity-steps li::before {
+  color: var(--edtech-practice);
+  content: counter(activity-step, decimal-leading-zero) ". ";
+  counter-increment: activity-step;
+  font-weight: 800;
+}
+
+.media-source {
+  color: var(--edtech-muted);
+  font-size: 0.78rem;
+  margin: 0.65rem 0 0;
+}
+
+@media screen and (max-width: 640px) {
+  .media-axis {
+    grid-template-columns: 1fr;
+  }
+
+  .media-block {
+    margin: 1rem 0;
+    padding: 0.85rem;
+  }
+}
