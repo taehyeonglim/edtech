@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="임태형">
+  <meta name="description" content="교육방법 및 교육공학 10강 HTML 슬라이드 · PDF 배포본">
+  <title>강의 슬라이드 · 교육방법 및 교육공학</title>
+  <style>
+    :root {
+      --navy: #0b2c5c;
+      --blue: #1b66c9;
+      --ink: #1a1a1a;
+      --muted: #5c6470;
+      --line: #c5d2e3;
+      --paper: #ffffff;
+      --soft: #eef4fb;
+      --green: #1f9d57;
+      --red: #d93535;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topnav {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      padding: 18px 0 0;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+    .topnav a { color: var(--blue); }
+    .topnav .sep { color: var(--line); font-weight: 400; }
+
+    .pagehead {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 30px 0 8px;
+      border-bottom: 2px solid var(--navy);
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .pagehead h1 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.05;
+      font-weight: 900;
+    }
+    .pagehead .count {
+      display: inline-block;
+      margin: 14px 0 18px;
+      color: var(--muted);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .course-grid {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0 64px;
+    }
+
+    .lecture-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .lecture-card {
+      display: grid;
+      grid-template-columns: 184px minmax(0, 1fr);
+      min-height: 172px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .thumb {
+      min-height: 172px;
+      background: var(--soft) center / cover;
+      border-right: 1px solid var(--line);
+    }
+
+    .lecture-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px;
+    }
+
+    .week {
+      display: inline-flex;
+      width: fit-content;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 2px;
+      padding: 5px 10px;
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .lecture-card h3 {
+      margin: 12px 0 0;
+      color: var(--ink);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      line-height: 1.28;
+    }
+
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 4px;
+      font-weight: 900;
+      border: 1px solid var(--navy);
+      color: var(--navy);
+    }
+    .button.primary { background: var(--navy); color: #fff; }
+    .button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: var(--soft);
+      color: var(--muted);
+    }
+    .footer-inner {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 26px 0;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .lecture-list { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .lecture-card { grid-template-columns: 1fr; }
+      .thumb { min-height: 180px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topnav">
+    <a href="../">← 홈</a>
+    <span class="sep">|</span>
+    <a href="../book/">📖 교재 읽기</a>
+  </nav>
+
+  <header class="pagehead">
+    <p class="eyebrow">EdTech Lecture Decks</p>
+    <h1>강의 슬라이드</h1>
+    <span class="count">10 lectures · HTML / PDF</span>
+  </header>
+
+  <section class="course-grid" aria-label="강의 슬라이드 목록">
+    <ol class="lecture-list">
+      <li class="lecture-card">
+        <div class="thumb" style="background-image: url('chapter-01/images/img-s01-classroom.png');"></div>
+        <div class="lecture-body">
+          <div><span class="week">01</span><h3>도입/개관</h3></div>
+          <div class="actions">
+            <a class="button primary" href="chapter-01/slides/deck.html">HTML</a>
+            <a class="button" href="chapter-01/slides/deck.pdf">PDF</a>
+          </div>
+        </div>
+      </li>
+      <li class="lecture-card">
+        <div class="thumb" style="background-image: url('chapter-02/images/img-s01-title.png');"></div>
+        <div class="lecture-body">
+          <div><span class="week">02</span><h3>교육과 기술의 관계</h3></div>
+          <div class="actions">
+            <a class="button primary" href="chapter-02/slides/deck.html">HTML</a>
+            <a class="button" href="chapter-02/slides/deck.pdf">PDF</a>
+          </div>
+        </div>
+      </li>
+      <li class="lecture-card">
+        <div class="thumb" style="background-image: url('chapter-03/images/img-s01-cover-bg.png');"></div>
+        <div class="lecture-body">
+          <div><span class="week">03</span><h3>2022 개정 교육과정과 AI·디지털 교육</h3></div>
+          <div class="actions">
+            <a class="button primary" href="chapter-03/slides/deck.html">HTML</a>
+            <a class="button" href="chapter-03/slides/deck.pdf">PDF</a>
+          </div>
+        </div>
+      </li>
+      <li class="lecture-card">
+        <div class="thumb" style="background-image: url('chapter-04/images/img-s01-cover-bg.png');"></div>
+        <div class="lecture-body">
+          <div><span class="week">04</span><h3>체제적 교수설계의 방법과 절차</h3></div>
+          <div class="actions">
+            <a class="button primary" href="chapter-04/slides/deck.html">HTML</a>
+            <a class="button" href="chapter-04/slides/deck.pdf">PDF</a>
+          </div>
+        </div>
+      </li>
+      <li class="lecture-card">
+        <div class="thumb" style="background-image: url('chapter-05/images/img-s01-cover-bg.png');"></div>
+        <div class="lecture-body">
+          <div><span class="week">05</span><h3>수업의 구성과 절차</h3></div>
+          <div class="actions">
+            <a class="button primary" href="chapter-05/slides/deck.html">HTML</a>
+            <a class="button" href="chapter-05/slides/deck.pdf">PDF</a>
+          </div>
+        </div>
+      </li>
+      <li class="lecture-card">
+        <div class="thumb" style="background-image: url('chapter-06/images/img-s01-cover-bg.png');"></div>
+        <div class="lecture-body">
+          <div><span class="week">06</span><h3>협동학습 전략</h3></div>
+          <div class="actions">
+            <a class="button primary" href="chapter-06/slides/deck.html">HTML</a>
+            <a class="button" href="chapter-06/slides/deck.pdf">PDF</a>
+          </div>
+        </div>
+      </li>
+      <li class="lecture-card">
+        <div class="thumb" style="background-image: url('chapter-07/images/img-s01-cover-bg.png');"></div>
+        <div class="lecture-body">
+          <div><span class="week">07</span><h3>학습 동기 유발 전략</h3></div>
+          <div class="actions">
+            <a class="button primary" href="chapter-07/slides/deck.html">HTML</a>
+            <a class="button" href="chapter-07/slides/deck.pdf">PDF</a>
+          </div>
+        </div>
+      </li>
+      <li class="lecture-card">
+        <div class="thumb" style="background-image: url('chapter-08/images/img-s01-cover-bg.png');"></div>
+        <div class="lecture-body">
+          <div><span class="week">08</span><h3>멀티미디어 설계 원리</h3></div>
+          <div class="actions">
+            <a class="button primary" href="chapter-08/slides/deck.html">HTML</a>
+            <a class="button" href="chapter-08/slides/deck.pdf">PDF</a>
+          </div>
+        </div>
+      </li>
+      <li class="lecture-card">
+        <div class="thumb" style="background-image: url('chapter-09/images/img-s01-cover-bg.png');"></div>
+        <div class="lecture-body">
+          <div><span class="week">09</span><h3>AI 디지털교과서의 시대</h3></div>
+          <div class="actions">
+            <a class="button primary" href="chapter-09/slides/deck.html">HTML</a>
+            <a class="button" href="chapter-09/slides/deck.pdf">PDF</a>
+          </div>
+        </div>
+      </li>
+      <li class="lecture-card">
+        <div class="thumb" style="background-image: url('chapter-10/images/img-s01-cover-bg.png');"></div>
+        <div class="lecture-body">
+          <div><span class="week">10</span><h3>AI와 교육이 만나는 방법</h3></div>
+          <div class="actions">
+            <a class="button primary" href="chapter-10/slides/deck.html">HTML</a>
+            <a class="button" href="chapter-10/slides/deck.pdf">PDF</a>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <footer>
+    <div class="footer-inner">교육방법 및 교육공학 · HTML/PDF 교안</div>
+  </footer>
+</body>
+</html>
