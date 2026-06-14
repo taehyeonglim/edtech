@@ -1,0 +1,66 @@
+site_name: 교육방법 및 교육공학
+site_url: https://taehyeonglim.github.io/edtech/book/
+site_author: 임태형
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+theme:
+  name: material
+  language: ko
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle: { icon: material/weather-night, name: 다크 모드로 }
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle: { icon: material/weather-sunny, name: 라이트 모드로 }
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - attr_list
+  - md_in_html
+  - tables
+  - toc: { permalink: true }
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.arithmatex: { generic: true }
+
+plugins:
+  - search:
+      separator: '[\s　\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+
+extra:
+  social:
+    - icon: material/school
+      link: https://taehyeonglim.github.io/edtech/
+
+nav:
+  - 홈: index.md
+  - 1부 교육방법·교육공학의 토대:
+      - 1장 교육방법과 교육공학의 이해: part1/ch01.md
+      - 2장 교육과 테크놀로지의 만남: part1/ch02.md
+  - 2부 교수설계의 원리와 모형:
+      - 3장 체제적 교수설계: part2/ch03.md
+      - 4장 수업의 구성과 학습의 조건: part2/ch04.md
+      - 5장 교수이론과 수업모형: part2/ch05.md
+  - 3부 수업 전략의 실제:
+      - 6장 협동학습 전략: part3/ch06.md
+      - 7장 학습동기 설계 (ARCS): part3/ch07.md
+      - 8장 질문과 탐구 중심 수업: part3/ch08.md
+  - 4부 디지털·AI 학습환경:
+      - 9장 멀티미디어 학습과 인지부하: part4/ch09.md
+      - 10장 디지털 학습환경과 미래교실: part4/ch10.md
+      - 11장 AI와 교육의 만남: part4/ch11.md

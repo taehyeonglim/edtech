@@ -106,6 +106,65 @@
       background: var(--paper);
     }
 
+    .hub {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 52px 0 12px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .hub-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 32px 30px 28px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .hub-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 26px rgba(11, 44, 92, 0.12);
+    }
+
+    .hub-card:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 3px;
+    }
+
+    .hub-icon {
+      font-size: 2.6rem;
+      line-height: 1;
+    }
+
+    .hub-card h2 {
+      margin: 6px 0 0;
+      color: var(--navy);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .hub-card p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .hub-go {
+      margin-top: auto;
+      padding-top: 12px;
+      color: var(--blue);
+      font-weight: 900;
+      letter-spacing: 0.01em;
+    }
+
     .course-grid {
       padding: 42px 0 64px;
     }
@@ -247,10 +306,17 @@
       }
     }
 
+    @media (max-width: 640px) {
+      .hub {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 620px) {
       .hero-inner,
       .course-grid,
-      .footer-inner {
+      .footer-inner,
+      .hub {
         width: min(100% - 28px, 1160px);
       }
 
@@ -288,7 +354,22 @@
     </div>
   </header>
 
-  <main>
+  <main class="hub">
+    <a class="hub-card" href="./book/">
+      <div class="hub-icon">📖</div>
+      <h2>교재 읽기</h2>
+      <p>4부 11장 전공 교재 · 좌측 목차 · 전문 검색</p>
+      <span class="hub-go">교재 열기 →</span>
+    </a>
+    <a class="hub-card" href="#lecture-heading">
+      <div class="hub-icon">🖥</div>
+      <h2>강의 슬라이드</h2>
+      <p>10강 HTML 슬라이드 · PDF 배포본</p>
+      <span class="hub-go">슬라이드 열기 →</span>
+    </a>
+  </main>
+
+  <section>
     <section class="course-grid" aria-labelledby="lecture-heading">
       <div class="section-head">
         <h2 id="lecture-heading">강의 교안</h2>
@@ -437,7 +518,7 @@
         </li>
       </ol>
     </section>
-  </main>
+  </section>
 
   <footer>
     <div class="footer-inner">교육방법 및 교육공학 · HTML/PDF 교안</div>
