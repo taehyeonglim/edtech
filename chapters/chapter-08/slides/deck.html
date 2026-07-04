@@ -414,14 +414,19 @@ section.layout-image-wide .copy strong { font-weight: 700; color: var(--blue); }
 section.layout-image-wide figure {
   flex: 1 1 0;
   margin: 0;
+  width: 100%;
   min-height: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 section.layout-image-wide figure img {
-  width: 100%;
+  max-width: 100%;
+  width: auto;
   height: auto;
-  max-height: 560px;
+  max-height: calc(100% - 48px);
   object-fit: contain;
   display: block;
 }
@@ -1330,11 +1335,11 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <li><strong>CLT + CTML</strong> = 수업 자료 설계의 인지과학적 원칙</li>
       </ul>
       <div class="closing-quote">
-        9장에서는 <em>e-러닝과 원격교육</em> 환경에서<br>이 원리들이 어떻게 적용되고 확장되는지를 다룬다
+        9장에서는 <em>AI 디지털교과서</em>, 학습분석학,<br>생성형 AI가 수업을 어떻게 바꾸는지 다룬다
       </div>
       <div class="closing-meta">교육방법 및 교육공학 · 8장</div>
     </div>
-    <aside class="notes">8장의 핵심 메시지를 정리합니다. 멀티미디어 설계 원리는 인지과학(CIP·이중부호화·CLT·CTML)이 수업 실천에 직접 연결되는 지점입니다. CLT의 세 가지 인지부하 분류 체계와 CTML의 12개 설계 원리(+ CLT 기반 확장 원리)가 결합하여 수업 자료 설계의 인지과학적 원칙을 형성합니다. 9장에서는 e-러닝과 원격교육 환경에서 이 원리들이 어떻게 적용되고 확장되는지를 살펴봅니다.</aside>
+    <aside class="notes">8장의 핵심 메시지를 정리합니다. 멀티미디어 설계 원리는 인지과학(CIP·이중부호화·CLT·CTML)이 수업 실천에 직접 연결되는 지점입니다. CLT의 세 가지 인지부하 분류 체계와 CTML의 12개 설계 원리(+ CLT 기반 확장 원리)가 결합하여 수업 자료 설계의 인지과학적 원칙을 형성합니다. 9장에서는 AI 디지털교과서, 학습분석학, 생성형 AI를 중심으로 디지털 기술이 수업 설계와 교사의 의사결정을 어떻게 바꾸는지 살펴봅니다.</aside>
   </section>
 
 </div>

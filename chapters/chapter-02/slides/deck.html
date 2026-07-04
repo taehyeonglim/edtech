@@ -477,13 +477,14 @@ section.layout-table .data-table caption {
 }
 
 /* ─── 6. layout-flex-2col ─── */
-section.layout-flex-2col { padding: 0; }
+section.layout-flex-2col { padding: 0; height: 100%; }
 section.layout-flex-2col .body-area { display: flex; flex-direction: column; }
 section.layout-flex-2col .cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 36px;
-  flex: 1;
+  flex: 1 1 0;
+  min-height: 0;
   align-items: stretch;
 }
 section.layout-flex-2col .col-card {
@@ -493,6 +494,8 @@ section.layout-flex-2col .col-card {
   border-radius: 2px;
   display: flex;
   flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
 }
 section.layout-flex-2col .col-card.primary {
   border-color: var(--navy);
@@ -537,22 +540,27 @@ section.layout-flex-2col .col-card.muted ul li::before { color: var(--text-muted
 section.layout-flex-2col .col-card ul li strong { color: var(--navy); font-weight: 700; }
 /* 이미지를 포함하는 col-card */
 section.layout-flex-2col .col-card figure {
-  flex: 1;
+  flex: 1 1 0;
   margin: 16px 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 200px;
+  min-height: 0;
+  overflow: hidden;
 }
 section.layout-flex-2col .col-card figure img {
-  width: 100%;
+  max-width: 100%;
+  width: auto;
   height: auto;
   max-height: 300px;
+  min-height: 0;
+  flex: 0 1 auto;
   object-fit: contain;
   display: block;
 }
 section.layout-flex-2col .col-card figcaption {
+  flex: 0 0 auto;
   font-size: 22px;
   color: var(--text-muted);
   text-align: center;
