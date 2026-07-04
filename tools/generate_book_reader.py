@@ -182,6 +182,60 @@ class RawHtmlValidator(HTMLParser):
                 self.errors.append(f"unsupported javascript URL on <{tag} {name}>")
 
 
+class ReaderTextExtractor(HTMLParser):
+    BLOCK_TAGS: Final[set[str]] = {
+        "blockquote",
+        "dd",
+        "dt",
+        "figcaption",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "li",
+        "p",
+        "td",
+        "th",
+    }
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.items: list[tuple[str, str]] = []
+        self._tag_stack: list[str] = []
+        self._current_tag: str | None = None
+        self._current_parts: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        lowered = tag.lower()
+        if lowered in self.BLOCK_TAGS:
+            self._flush_current()
+            self._current_tag = lowered
+            self._current_parts = []
+        elif lowered == "br" and self._current_tag:
+            self._current_parts.append(" ")
+        self._tag_stack.append(lowered)
+
+    def handle_endtag(self, tag: str) -> None:
+        lowered = tag.lower()
+        if self._current_tag == lowered:
+            self._flush_current()
+        if lowered in self._tag_stack:
+            index = len(self._tag_stack) - 1 - self._tag_stack[::-1].index(lowered)
+            del self._tag_stack[index:]
+
+    def handle_data(self, data: str) -> None:
+        if self._current_tag:
+            self._current_parts.append(data)
+
+    def _flush_current(self) -> None:
+        if not self._current_tag:
+            return
+        text = re.sub(r"\s+", " ", "".join(self._current_parts)).strip()
+        if text:
+            self.items.append((self._current_tag, text))
+        self._current_tag = None
+        self._current_parts = []
+
 def load_mkdocs_config() -> dict[str, Any]:
     with MKDOCS_CONFIG.open("r", encoding="utf-8") as handle:
         data = yaml.safe_load(handle)
@@ -351,6 +405,105 @@ def render_markdown(chapter: Chapter, extensions: list[Any], errors: list[str]) 
         errors.append(f"docs/{chapter.source_posix}: footnote definition survived rendering")
     return rendered
 
+def split_reader_text(text: str, limit: int = 520) -> list[str]:
+    if len(text) <= limit:
+        return [text]
+    sentences = re.split(r"(?<=[.!?。！？다요음가함임됨됨다)])\s+", text)
+    chunks: list[str] = []
+    current = ""
+    for sentence in sentences:
+        sentence = sentence.strip()
+        if not sentence:
+            continue
+        if current and len(current) + len(sentence) + 1 > limit:
+            chunks.append(current)
+            current = sentence
+        else:
+            current = f"{current} {sentence}".strip()
+    if current:
+        chunks.append(current)
+    final: list[str] = []
+    for chunk in chunks:
+        if len(chunk) <= limit:
+            final.append(chunk)
+            continue
+        final.extend(chunk[index : index + limit] for index in range(0, len(chunk), limit))
+    return final
+
+
+def extract_reader_items(rendered: str) -> list[tuple[str, str]]:
+    extractor = ReaderTextExtractor()
+    extractor.feed(rendered)
+    extractor._flush_current()
+    seen: set[tuple[str, str]] = set()
+    items: list[tuple[str, str]] = []
+    for tag, text in extractor.items:
+        if not text or text == "¶":
+            continue
+        text = text.replace("¶", "").strip()
+        key = (tag, text)
+        if key in seen:
+            continue
+        seen.add(key)
+        items.append((tag, text))
+    return items
+
+
+def reader_page_item_html(tag: str, text: str) -> str:
+    escaped = html.escape(text)
+    if tag in {"h1", "h2"}:
+        return f"<h3>{escaped}</h3>"
+    if tag in {"h3", "h4"}:
+        return f"<p class=\"reader-page-heading\">{escaped}</p>"
+    if tag == "li":
+        return f"<p class=\"reader-page-list\">• {escaped}</p>"
+    return f"<p>{escaped}</p>"
+
+
+def build_reader_flip_pages(chapter: Chapter, rendered: str) -> str:
+    items = extract_reader_items(rendered)
+    pages: list[list[tuple[str, str]]] = []
+    current: list[tuple[str, str]] = []
+    current_chars = 0
+    max_chars = 860
+    max_items = 5
+
+    def flush() -> None:
+        nonlocal current, current_chars
+        if current:
+            pages.append(current)
+            current = []
+            current_chars = 0
+
+    for tag, text in items:
+        parts = split_reader_text(text, 460 if tag == "li" else 620)
+        for part_index, part in enumerate(parts):
+            item_tag = tag if part_index == 0 else "p"
+            item_chars = len(part)
+            starts_section = item_tag in {"h1", "h2"} and current
+            too_full = current and (current_chars + item_chars > max_chars or len(current) >= max_items)
+            if starts_section or too_full:
+                flush()
+            current.append((item_tag, part))
+            current_chars += item_chars
+    flush()
+
+    if not pages:
+        pages = [[("h1", chapter.title), ("p", "이 장의 텍스트 본문을 책장 넘김 방식으로 읽습니다.")]]
+
+    total = len(pages)
+    sections = []
+    for index, page_items in enumerate(pages, start=1):
+        body = "\n".join(reader_page_item_html(tag, text) for tag, text in page_items)
+        sections.append(
+            f"""          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter {chapter.index:02d}</p>
+{body}
+            <p class="page-number">{index} / {total}</p>
+          </section>"""
+        )
+    return "\n".join(sections)
+
 
 def css() -> str:
     return """
@@ -391,6 +544,8 @@ h1 { margin:0; color:inherit; font-size:clamp(2rem,4.8vw,3.65rem); line-height:1
 .button.primary { background:var(--navy); color:white; }
 .reader-layout { display:grid; grid-template-columns:minmax(0,1fr) 270px; gap:24px; align-items:start; }
 .reader-content { min-width:0; user-select:text; }
+.static-content { margin-top:34px; padding-top:22px; border-top:3px double var(--line); }
+.static-content > h2:first-child { margin-top:0; color:var(--navy); }
 .reader-content, .reader-content * { overflow-wrap:anywhere; }
 .reader-content pre { overflow-x:auto; white-space:pre-wrap; }
 .reader-content code { white-space:pre-wrap; word-break:break-word; }
@@ -409,18 +564,24 @@ h1 { margin:0; color:inherit; font-size:clamp(2rem,4.8vw,3.65rem); line-height:1
 .reader-sidebar { position:sticky; top:14px; padding:16px; border:1px solid var(--line); border-radius:14px; background:var(--soft); }
 .reader-sidebar ol { margin:10px 0 0; padding-left:22px; }
 .reader-sidebar a { text-decoration:none; font-weight:800; }
-.flip-area { margin:24px 0 0; padding:18px; border:1px dashed var(--line); border-radius:16px; background:white; }
+.flip-area { margin:0 0 26px; padding:22px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(135deg,#fff,var(--ivory)); box-shadow:0 18px 38px rgba(11,44,92,.1); }
 .flip-area[hidden], .reader-controls[hidden] { display:none !important; }
-.flip-book { width:100%; max-width:100%; min-height:220px; margin:0 auto; }
-.reader-page { width:360px; min-height:480px; padding:24px; border:1px solid var(--line); background:linear-gradient(90deg,rgba(11,44,92,.05),transparent 18px),var(--paper); color:var(--ink); overflow:hidden; }
-.reader-page h3 { margin-top:0; }
+.reader-viewer-lede { margin:0 0 18px; color:var(--muted); font-weight:800; }
+.flip-book { width:100%; max-width:100%; min-height:560px; margin:0 auto; }
+.reader-page { position:relative; width:410px; height:560px; padding:34px 34px 48px; border:1px solid var(--line); background:linear-gradient(90deg,rgba(11,44,92,.07),transparent 20px),linear-gradient(180deg,#fffdf8,#fffaf0); color:var(--ink); overflow:hidden; box-shadow:inset 14px 0 22px rgba(11,44,92,.06); }
+.reader-page h3 { margin:.4rem 0 .8rem; font-size:1.18rem; line-height:1.28; color:var(--navy); }
+.reader-page p { margin:.55rem 0; font-size:.95rem; line-height:1.58; }
+.reader-page .page-kicker { margin:0 0 .7rem; color:var(--gold); font-size:.75rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+.reader-page .reader-page-heading { color:var(--navy); font-weight:900; }
+.reader-page .reader-page-list { padding-left:.2rem; }
+.reader-page .page-number { position:absolute; right:24px; bottom:16px; color:var(--muted); font-size:.82rem; font-weight:900; }
 .reader-controls { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; align-items:center; }
 .reader-status { color:var(--muted); font-weight:800; }
 footer { border-top:1px solid var(--line); background:var(--soft); color:var(--muted); }
 footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; } }
 @media (max-width:900px) { .gateway, .reader-layout { grid-template-columns:1fr; } .reader-sidebar { position:static; } .reader-panel { padding:22px; } }
-@media (max-width:640px) { .wrap { width:min(100% - 24px,1120px); } .chapter-grid { grid-template-columns:1fr; } .reader-page { width:280px; min-height:400px; padding:18px; } .button { flex:1 1 160px; } }
+@media (max-width:640px) { .wrap { width:min(100% - 24px,1120px); } .chapter-grid { grid-template-columns:1fr; } .flip-book { min-height:480px; } .reader-page { width:280px; height:480px; padding:24px 22px 42px; } .reader-page p { font-size:.88rem; line-height:1.5; } .button { flex:1 1 160px; } }
 """.strip()
 
 
@@ -477,7 +638,7 @@ def script() -> str:
       if (isRootReader && chapter) {
         status.textContent = "현재 페이지 " + pageLabel(chapter);
       } else {
-        status.textContent = "미리보기 " + (flipIndex + 1) + " / " + Math.max(1, pages.length);
+        status.textContent = "책장 " + (flipIndex + 1) + " / " + Math.max(1, pages.length);
       }
     }
 
@@ -664,20 +825,23 @@ def build_chapter(chapter: Chapter, chapters: list[Chapter], rendered: str) -> s
     next_chapter = next((item for item in chapters if item.index == chapter.index + 1), None)
     prev_link = f"<a class=\"button\" href=\"../{prev_chapter.slug}/\">이전 장</a>" if prev_chapter else ""
     next_link = f"<a class=\"button\" href=\"../{next_chapter.slug}/\">다음 장</a>" if next_chapter else ""
+    flip_pages = build_reader_flip_pages(chapter, rendered)
     body = f"""  <nav class=\"topnav wrap\" aria-label=\"상위 경로\"><a href=\"../\">책 넘김 목차</a><span aria-hidden=\"true\">|</span><a href=\"../../book/\">교재 선택</a><span aria-hidden=\"true\">|</span><a href=\"{chapter.text_href_from_reader_chapter}\">텍스트 장</a></nav>
-  <header class=\"hero wrap\"><p class=\"eyebrow\">교육방법 및 교육공학 · Chapter {chapter.index:02d}</p><h1>{html.escape(chapter.title)}</h1><p class=\"lead\">전체 본문은 정적 HTML로 먼저 렌더링되어 텍스트 선택·복사와 링크 이동이 JavaScript 없이도 작동합니다.</p></header>
+  <header class=\"hero wrap\"><p class=\"eyebrow\">교육방법 및 교육공학 · Chapter {chapter.index:02d}</p><h1>{html.escape(chapter.title)}</h1><p class=\"lead\">책장 넘김 뷰어가 장 본문을 여러 쪽으로 나누어 보여 주고, 전체 텍스트 본문은 같은 페이지 아래에 보존됩니다.</p></header>
   <main class=\"reader-panel wrap reader-layout\" aria-label=\"{chapter.index:02d}장 리더\" data-reader-chapter=\"{chapter.slug}\">
-    <article class=\"reader-content\" id=\"content\">
+    <article class=\"reader-content\">
       <div class=\"button-row\"><a class=\"button primary\" href=\"{chapter.text_href_from_reader_chapter}\">텍스트 장 읽기</a><a class=\"button\" href=\"../\">책 넘김 목차</a>{prev_link}{next_link}</div>
-{rendered}
-      <section class=\"flip-area reader-enhancement\" data-reader-enhancement aria-label=\"책 넘김 미리보기\">
-        <h2>책 넘김 미리보기</h2>
-        <p class=\"notice\">본문 일부를 카드처럼 넘기며 장의 흐름을 확인할 수 있습니다. 전체 본문은 위 장 콘텐츠에서 선택하거나 복사해서 이용할 수 있습니다.</p>
+      <section class=\"flip-area reader-enhancement\" data-reader-enhancement aria-label=\"책장 넘김 뷰어\">
+        <h2>책장 넘김 뷰어</h2>
+        <p class=\"reader-viewer-lede\">이 장의 본문을 자동으로 여러 종이 페이지로 나눠 넘겨 봅니다. 전체 검색·복사·각주는 아래 전체 텍스트 본문에서 그대로 사용할 수 있습니다.</p>
         <div class=\"flip-book\" data-flip-book>
-          <section class="reader-page" data-reader-page><h3>{html.escape(chapter.title)}</h3><p>본문을 카드처럼 넘기며 읽기 흐름을 확인합니다.</p><p><a href="{chapter.text_href_from_reader_chapter}">텍스트 장으로 이동</a></p></section>
-          <section class=\"reader-page\" data-reader-page><h3>읽기 경로</h3><p><a href=\"{chapter.text_href_from_reader_chapter}\">텍스트 장으로 이동</a></p><p><a href=\"../\">책 넘김 목차로 이동</a></p></section>
+{flip_pages}
         </div>
         <div class=\"reader-controls\" data-reader-controls hidden><button class=\"button\" type=\"button\" data-page-prev>이전 페이지</button><button class=\"button\" type=\"button\" data-page-next>다음 페이지</button><span class=\"reader-status\" data-reader-status aria-live=\"polite\"></span></div>
+      </section>
+      <section class=\"static-content\" id=\"content\" aria-label=\"전체 텍스트 본문\">
+        <h2>전체 텍스트 본문</h2>
+{rendered}
       </section>
     </article>
     <aside class=\"reader-sidebar\" aria-label=\"책 넘김 장 목록\">
@@ -741,6 +905,12 @@ def validate_outputs(outputs: dict[Path, str], chapters: list[Chapter], errors: 
         for marker in ("data-reader-chapter", "data-reader-data", "data-reader-enhancement", "data-flip-book", "data-reader-page", "data-reader-controls", "ArrowLeft", "ArrowRight", "prefers-reduced-motion: reduce", "URLSearchParams", "window.location.hash"):
             if marker not in chapter_text:
                 errors.append(f"book-reader/{chapter.slug}/index.html missing reader UX hook {marker}")
+        if "책장 넘김 뷰어" not in chapter_text:
+            errors.append(f"book-reader/{chapter.slug}/index.html missing full book-flip viewer label")
+        if "책 넘김 미리보기" in chapter_text:
+            errors.append(f"book-reader/{chapter.slug}/index.html still exposes preview-only copy")
+        if chapter_text.count("data-reader-page") < 6:
+            errors.append(f"book-reader/{chapter.slug}/index.html must generate multiple body reader pages, not a two-card preview")
     index_text = outputs[READER_DIR / "index.html"]
     for marker in ("data-reader-root", "data-reader-data", "data-reader-enhancement", "data-flip-book", "data-reader-controls", "assets/vendor/page-flip/page-flip.browser.js", "#ch03", "?chapter=ch03"):
         if marker not in index_text:

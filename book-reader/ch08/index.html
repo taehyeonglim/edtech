@@ -43,6 +43,8 @@ h1 { margin:0; color:inherit; font-size:clamp(2rem,4.8vw,3.65rem); line-height:1
 .button.primary { background:var(--navy); color:white; }
 .reader-layout { display:grid; grid-template-columns:minmax(0,1fr) 270px; gap:24px; align-items:start; }
 .reader-content { min-width:0; user-select:text; }
+.static-content { margin-top:34px; padding-top:22px; border-top:3px double var(--line); }
+.static-content > h2:first-child { margin-top:0; color:var(--navy); }
 .reader-content, .reader-content * { overflow-wrap:anywhere; }
 .reader-content pre { overflow-x:auto; white-space:pre-wrap; }
 .reader-content code { white-space:pre-wrap; word-break:break-word; }
@@ -61,26 +63,243 @@ h1 { margin:0; color:inherit; font-size:clamp(2rem,4.8vw,3.65rem); line-height:1
 .reader-sidebar { position:sticky; top:14px; padding:16px; border:1px solid var(--line); border-radius:14px; background:var(--soft); }
 .reader-sidebar ol { margin:10px 0 0; padding-left:22px; }
 .reader-sidebar a { text-decoration:none; font-weight:800; }
-.flip-area { margin:24px 0 0; padding:18px; border:1px dashed var(--line); border-radius:16px; background:white; }
+.flip-area { margin:0 0 26px; padding:22px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(135deg,#fff,var(--ivory)); box-shadow:0 18px 38px rgba(11,44,92,.1); }
 .flip-area[hidden], .reader-controls[hidden] { display:none !important; }
-.flip-book { width:100%; max-width:100%; min-height:220px; margin:0 auto; }
-.reader-page { width:360px; min-height:480px; padding:24px; border:1px solid var(--line); background:linear-gradient(90deg,rgba(11,44,92,.05),transparent 18px),var(--paper); color:var(--ink); overflow:hidden; }
-.reader-page h3 { margin-top:0; }
+.reader-viewer-lede { margin:0 0 18px; color:var(--muted); font-weight:800; }
+.flip-book { width:100%; max-width:100%; min-height:560px; margin:0 auto; }
+.reader-page { position:relative; width:410px; height:560px; padding:34px 34px 48px; border:1px solid var(--line); background:linear-gradient(90deg,rgba(11,44,92,.07),transparent 20px),linear-gradient(180deg,#fffdf8,#fffaf0); color:var(--ink); overflow:hidden; box-shadow:inset 14px 0 22px rgba(11,44,92,.06); }
+.reader-page h3 { margin:.4rem 0 .8rem; font-size:1.18rem; line-height:1.28; color:var(--navy); }
+.reader-page p { margin:.55rem 0; font-size:.95rem; line-height:1.58; }
+.reader-page .page-kicker { margin:0 0 .7rem; color:var(--gold); font-size:.75rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+.reader-page .reader-page-heading { color:var(--navy); font-weight:900; }
+.reader-page .reader-page-list { padding-left:.2rem; }
+.reader-page .page-number { position:absolute; right:24px; bottom:16px; color:var(--muted); font-size:.82rem; font-weight:900; }
 .reader-controls { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; align-items:center; }
 .reader-status { color:var(--muted); font-weight:800; }
 footer { border-top:1px solid var(--line); background:var(--soft); color:var(--muted); }
 footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; } }
 @media (max-width:900px) { .gateway, .reader-layout { grid-template-columns:1fr; } .reader-sidebar { position:static; } .reader-panel { padding:22px; } }
-@media (max-width:640px) { .wrap { width:min(100% - 24px,1120px); } .chapter-grid { grid-template-columns:1fr; } .reader-page { width:280px; min-height:400px; padding:18px; } .button { flex:1 1 160px; } }</style>
+@media (max-width:640px) { .wrap { width:min(100% - 24px,1120px); } .chapter-grid { grid-template-columns:1fr; } .flip-book { min-height:480px; } .reader-page { width:280px; height:480px; padding:24px 22px 42px; } .reader-page p { font-size:.88rem; line-height:1.5; } .button { flex:1 1 160px; } }</style>
   <script src="../../assets/vendor/page-flip/page-flip.browser.js" defer></script>
 </head>
 <body>
   <nav class="topnav wrap" aria-label="상위 경로"><a href="../">책 넘김 목차</a><span aria-hidden="true">|</span><a href="../../book/">교재 선택</a><span aria-hidden="true">|</span><a href="../../book/part3/ch08/">텍스트 장</a></nav>
-  <header class="hero wrap"><p class="eyebrow">교육방법 및 교육공학 · Chapter 08</p><h1>8장 질문과 탐구 중심 수업</h1><p class="lead">전체 본문은 정적 HTML로 먼저 렌더링되어 텍스트 선택·복사와 링크 이동이 JavaScript 없이도 작동합니다.</p></header>
+  <header class="hero wrap"><p class="eyebrow">교육방법 및 교육공학 · Chapter 08</p><h1>8장 질문과 탐구 중심 수업</h1><p class="lead">책장 넘김 뷰어가 장 본문을 여러 쪽으로 나누어 보여 주고, 전체 텍스트 본문은 같은 페이지 아래에 보존됩니다.</p></header>
   <main class="reader-panel wrap reader-layout" aria-label="08장 리더" data-reader-chapter="ch08">
-    <article class="reader-content" id="content">
+    <article class="reader-content">
       <div class="button-row"><a class="button primary" href="../../book/part3/ch08/">텍스트 장 읽기</a><a class="button" href="../">책 넘김 목차</a><a class="button" href="../ch07/">이전 장</a><a class="button" href="../ch09/">다음 장</a></div>
+      <section class="flip-area reader-enhancement" data-reader-enhancement aria-label="책장 넘김 뷰어">
+        <h2>책장 넘김 뷰어</h2>
+        <p class="reader-viewer-lede">이 장의 본문을 자동으로 여러 종이 페이지로 나눠 넘겨 봅니다. 전체 검색·복사·각주는 아래 전체 텍스트 본문에서 그대로 사용할 수 있습니다.</p>
+        <div class="flip-book" data-flip-book>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>8장 질문과 탐구 중심 수업</h3>
+            <p class="page-number">1 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>학습 목표</h3>
+<p>이 장을 학습한 뒤에는 다음을 설명할 수 있어야 한다.</p>
+<p class="reader-page-list">• 질문, 대화, 토의, 탐구가 각각 어떤 수업 기능을 갖는지 구분할 수 있다.</p>
+<p class="reader-page-list">• 교사 질문을 학습자의 사고와 증거 사용을 돕는 설계 요소로 바꾸어 설명할 수 있다.</p>
+<p class="reader-page-list">• 대화적 교수와 탐색적 대화가 수업 담화의 질을 왜 중요하게 보는지 설명할 수 있다.</p>
+            <p class="page-number">2 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<p class="reader-page-list">• 하브루타식 짝 토의와 일반 토의법을 과장 없이 수업 전략으로 설계할 수 있다.</p>
+<p class="reader-page-list">• 탐구 중심 수업에서 질문, 증거, 설명, 대안 검토, 의사소통을 연결할 수 있다.</p>
+            <p class="page-number">3 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>웹 학습 보조</h3>
+<p>탐구 흐름도</p>
+<p>질문에서 설명 수정까지</p>
+<p>출처: 이 장 본문과 NRC 탐구 수업 논의를 바탕으로 재구성한 자체 도식.</p>
+<p>대화 설계 활동</p>
+            <p class="page-number">4 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<p>질문 하나를 활동으로 바꾸기</p>
+<p class="reader-page-list">• 핵심 질문을 제시하고 모든 학생이 먼저 개인 답을 쓴다.</p>
+<p class="reader-page-list">• 짝과 근거 문장을 비교하고 한 가지 반례를 찾는다.</p>
+<p class="reader-page-list">• 전체 공유 뒤 수정한 설명과 남은 질문을 제출한다.</p>
+<p>출처: 이 장의 질문, 대화적 교수, 하브루타식 짝 토의 절을 바탕으로 만든 자체 활동.</p>
+            <p class="page-number">5 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<p>핵심 관점 질문 중심 수업은 질문 수가 많다는 뜻이 아니라 사고와 근거 사용이 설계되었다는 뜻이다. 근거 읽기 대화적 교수와 탐구 수업 논의는 발언량보다 발언 구조와 증거 연결을 중시한다. 수업 적용 질문 뒤에는 개인 사고, 짝 검토, 전체 공유, 설명 수정을 순서로 둔다.</p>
+            <p class="page-number">6 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>1. 질문 중심 수업의 의미</h3>
+<p>질문 중심 수업은 교사가 질문을 많이 던지는 수업과 같지 않다. 핵심은 질문이 학습 목표와 연결되어 학습자가 생각을 드러내고, 근거를 찾고, 자신의 설명을 수정하게 하는가에 있다. Dillon은 질문과 질문하기가 형식적 교육과 비형식적 교육 모두에서 중요한 역할을 하며, 질문을 묻는 사람과 답하는 사람 양쪽의 관점에서 보아야 한다고 설명한다.4 따라서 좋은 질문은 정답 확인 도구이기 전에 사고를 조직하는 도구다.</p>
+<p>질문은 수업의 단계마다 다르게 작동한다. 도입에서는 경험과 선지식을 불러내고, 전개에서는 비교와 설명을 요구하며, 정리에서는 학습자가 자신의 이해를 재구성하도록 돕는다. Walsh와 Sattes의 Quality Questioning은 질문 준비에서 출발해 모든 학습자가 생각하고 응답하도록 참여시키며, 피드백과 대화를 통해 사고를 심화하는 실천을 강조한다.9 이 관점에서 질문 설계는 교사의 즉흥적 말솜씨가 아니라 수업 설계의 일부다.</p>
+<p>수업 질문을 설계할 때에는 세 가지를 먼저 정해야 한다. 첫째, 이 질문이 확인하려는 사고는 기억, 해석, 적용, 분석, 평가, 창안 중 어디에 가까운가. 둘째, 학습자가 답할 때 사용할 자료와 근거는 무엇인가. 셋째, 답한 뒤 교사와 동료가 어떤 후속 질문으로 사고를 확장할 것인가. 질문이 이 세 조건을 갖추면 &quot;아는 사람만 말하는 시간&quot;이 아니라 &quot;모든 학습자가 생각을 준비하는 시간&quot;이 된다.</p>
+<p>질문을 활동으로 바꾸기</p>
+            <p class="page-number">7 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<p>질문을 제시한 뒤 곧바로 손든 학생을 지명하면 참여는 빠르게 보이지만 사고의 폭은 좁아질 수 있다. 개별 사고, 짝 설명, 전체 공유의 순서를 두면 같은 질문도 읽기, 말하기, 듣기, 수정하기를 포함한 활동이 된다.</p>
+            <p class="page-number">8 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>2. 대화적 교수와 수업 담화</h3>
+<p>대화적 교수는 말하기를 수업의 부수적 장식이 아니라 학습을 진전시키는 핵심 매체로 본다. Alexander의 대화적 교수 논의는 교실 담화를 통해 흥미를 끌고, 사고를 자극하며, 이해를 진전시키고, 논증을 구성하고 평가하도록 돕는 데 초점을 둔다.1 여기서 대화는 단순한 자유 발언이 아니다. 학습자가 서로의 말에 응답하고, 이유를 요구하며, 더 나은 설명을 함께 만들어 가는 규칙 있는 상호작용이다.</p>
+<p>Mercer와 Littleton은 교실에서 이루어지는 말의 질이 아동의 사고와 학습 발달과 관련된다고 설명하며, 지식의 공동 구성이 대화를 통해 이루어지는 과정을 강조한다.7 이 주장은 교사가 발언량만 늘리면 학습이 좋아진다는 뜻이 아니다. 중요한 것은 발언의 구조다. 학생들은 자신의 생각을 말하고, 다른 생각을 듣고, 근거를 비교하고, 합의되지 않은 지점을 다시 묻는 방식으로 사고를 외부화한다.</p>
+<p>대화적 수업을 설계할 때 교사는 최소한의 담화 규칙을 명확히 해야 한다. 예를 들어 &quot;주장에는 근거를 붙인다&quot;, &quot;동의하지 않을 때는 사람보다 생각을 검토한다&quot;, &quot;이전 발언을 이어 받아 말한다&quot;, &quot;확신이 낮은 생각도 임시 설명으로 제안할 수 있다&quot;와 같은 규칙이 필요하다. 이런 규칙은 수업 분위기를 부드럽게 만들기 위한 예절만이 아니라 학습자의 추론을 공개적으로 다루기 위한 조건이다.</p>
+            <p class="page-number">9 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>3. 토의법: 말하게 하는 것이 아니라 탐색하게 하기</h3>
+<p>토의법은 학습자가 주제에 대해 의견을 교환하는 방법이지만, 수업에서의 토의는 일상 대화와 다르다. Brookfield와 Preskill은 토의를 시작하고 유지하며 다양한 관점과 목소리를 이끌어 내는 여러 절차와 기법을 제시한다.3 따라서 토의 수업의 성패는 &quot;토론해 보자&quot;라는 지시가 아니라, 자료 준비, 역할, 발언 순서, 기록 방식, 정리 기준을 얼마나 구체적으로 설계했는가에 달려 있다.</p>
+<p>토의 주제는 너무 넓으면 감상 나열로 흐르고, 너무 좁으면 정답 확인으로 끝난다. 좋은 토의 주제는 학습 내용과 연결되어 있으면서도 여러 해석 가능성을 남긴다. 예를 들어 &quot;이 정책은 좋은가&quot;보다 &quot;이 정책이 해결하려는 문제는 무엇이며, 어떤 근거로 효과를 판단할 수 있는가&quot;가 더 수업용 질문에 가깝다. 전자는 찬반을 빠르게 가르지만, 후자는 문제 정의, 근거, 평가 기준을 함께 묻게 한다.</p>
+<p>토의 수업에는 역할도 필요하다. 진행자는 질문을 유지하고, 근거 확인자는 자료와 발언의 연결을 점검하며, 연결자는 이전 발언과 새 발언의 관계를 정리하고, 기록자는 논점의 변화를 남긴다. 역할은 학생을 통제하기 위한 장치가 아니라 대화의 기능을 분산하는 장치다. 역할을 바꾸어 가며 운영하면 학습자는 말하기뿐 아니라 듣기, 요약하기, 근거 요구하기, 관점 연결하기를 학습한다.</p>
+            <p class="page-number">10 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>4. 하브루타식 짝 토의의 활용과 한계</h3>
+<p>하브루타는 보통 두 사람이 텍스트를 중심으로 함께 읽고 묻고 논의하는 유대교 학습 전통과 연결되어 소개된다. Kent는 하브루타를 고전 유대 텍스트를 둘러싼 짝 학습과 집중 대화의 실천으로 분석하고, 듣기와 말하기, 궁금해하기와 초점 맞추기, 지지하기와 도전하기라는 세 쌍의 핵심 실천을 제안한다.6 이 장에서 하브루타를 다루는 이유는 특정 문화 전통을 수업 기법으로 단순화하기 위해서가 아니라, 텍스트 기반 짝 토의가 어떤 상호작용 원리를 가질 수 있는지 보기 위해서다.</p>
+<p>하브루타식 활동을 일반 교실에 적용할 때에는 &quot;짝을 지어 토론하면 효과가 있다&quot;라고 말하지 않는 편이 더 정확하다. 공개적으로 확인한 Kent의 논문 정보는 하브루타 상호작용을 분석하고 이론화한 것이지, 모든 교과와 연령에서의 보편적 학업 효과를 입증한 실험 연구로 확인된 것은 아니다.6 따라서 교사는 하브루타를 효과 보장 기법이 아니라 텍스트를 함께 해석하는 짝 토의 구조로 사용해야 한다.</p>
+<p>실천 절차는 단순하게 시작할 수 있다. 먼저 짧은 텍스트나 사례를 제시하고, 각자 이해한 핵심 문장과 이해되지 않는 지점을 표시한다. 그다음 짝과 서로의 질문을 읽고, 한 질문을 골라 근거가 되는 문장과 연결한다. 마지막으로 &quot;내 해석&quot;, &quot;상대의 도전&quot;, &quot;수정한 해석&quot;을 기록한다. 이 과정에서 교사는 학생이 상대를 설득했는가보다 텍스트와 근거로 돌아갔는가, 질문이 더 정교해졌는가를 본다.</p>
+            <p class="page-number">11 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>5. 탐구 중심 수업의 구조</h3>
+<p>탐구 중심 수업은 학생에게 모든 것을 맡기는 방임형 수업이 아니다. National Research Council의 Inquiry and the National Science Education Standards는 탐구를 질문 제기, 이미 알려진 정보 검토, 조사 계획, 증거 검토, 자료 수집과 해석, 설명과 예측 제안, 결과 의사소통, 가정 확인, 논리적 사고, 대안 설명 고려를 포함하는 다면적 활동으로 설명한다.8 이 정의는 탐구가 활동량보다 사고의 구조와 관련됨을 보여 준다.</p>
+<p>같은 자료는 탐구 수업에서도 단순 활동지가 될 수 있고, 실제 탐구의 출발점이 될 수도 있다. 차이는 질문과 증거의 관계에 있다. NRC는 교실 탐구의 핵심 특징으로 과학적으로 다룰 수 있는 질문, 증거의 우선성, 증거에 근거한 설명 구성, 대안 설명과의 비교, 설명의 의사소통과 정당화를 제시한다.8 교사는 이 다섯 요소를 수업 단계로 번역해야 한다.</p>
+<p>탐구 중심 수업의 일반 절차는 다음과 같이 구성할 수 있다. 첫째, 현상이나 사례를 제시하여 탐구 가능한 질문을 만든다. 둘째, 학생이 기존 지식과 자료를 검토하여 임시 설명을 세운다. 셋째, 관찰, 조사, 실험, 문헌 분석 등 가능한 방법으로 증거를 모은다. 넷째, 증거와 설명의 연결을 점검하고 대안 설명을 비교한다. 다섯째, 결과를 발표하고, 다른 학습자의 질문을 반영해 설명을 수정한다. 이 절차는 과학 수업에 특히 적합하지만, 사회과의 자료 해석, 국어과의 텍스트 해석, 도덕과의 사례 판단에도 변형해 적용할 수 있다.</p>
+            <p class="page-number">12 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>6. 문제기반학습과 탐구 수업의 접점</h3>
+<p>문제기반학습은 탐구 중심 수업과 겹치는 부분이 많지만 완전히 같은 말은 아니다. Hmelo-Silver는 PBL에서 학생들이 협력 집단으로 문제를 해결하기 위해 무엇을 배워야 하는지 확인하고, 자기주도학습을 수행한 뒤, 새 지식을 문제에 적용하고 학습 과정과 전략을 성찰한다고 설명한다.5 이 설명은 PBL이 문제 제시, 학습 필요 확인, 자기주도학습, 적용, 성찰을 포함하는 구조임을 보여 준다.</p>
+<p>Barrows는 문제기반학습이라는 용어가 하나의 특정 방법만을 가리키지 않으며, 설계 방식과 교사의 기술에 따라 의미와 질이 달라질 수 있다고 지적한다.2 이 경고는 탐구 수업에도 그대로 적용된다. &quot;문제&quot;, &quot;탐구&quot;, &quot;토의&quot;라는 이름을 붙였다고 해서 학습이 자동으로 깊어지지 않는다. 교사는 문제의 난이도, 자료의 접근성, 협력 구조, 교사 지원의 시점, 평가 기준을 함께 설계해야 한다.</p>
+<p>따라서 질문과 탐구 중심 수업에서 교사의 역할은 지식을 숨기는 것이 아니라 학습자가 지식을 필요로 하도록 조건을 만드는 것이다. 처음에는 질문을 좁혀 주고, 필요한 자료를 제공하며, 근거와 설명을 연결하는 언어를 모델링해야 한다. 학습자가 익숙해질수록 질문 생성, 조사 계획, 대안 비교, 결과 정당화의 책임을 점진적으로 넘길 수 있다.</p>
+            <p class="page-number">13 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>7. 수업 설계 체크리스트</h3>
+<p>질문과 탐구 중심 수업을 준비할 때에는 다음 순서로 점검한다.</p>
+<p class="reader-page-list">• 학습 목표가 단순 기억인지, 설명과 근거 사용인지, 관점 전환인지 확인한다.</p>
+<p class="reader-page-list">• 핵심 질문을 하나 정하고, 그 질문에 답하는 데 필요한 자료와 증거를 준비한다.</p>
+<p class="reader-page-list">• 학생이 혼자 생각할 시간, 짝과 검토할 시간, 전체에서 공유할 시간을 구분한다.</p>
+            <p class="page-number">14 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<p class="reader-page-list">• 토의 규칙과 역할을 정해 발언량보다 사고의 질을 관리한다.</p>
+<p class="reader-page-list">• 교사의 후속 질문을 미리 준비한다. &quot;왜 그렇게 생각했는가&quot;, &quot;어떤 근거가 있는가&quot;, &quot;다른 설명은 가능한가&quot;, &quot;이 설명을 어떤 조건에서 수정해야 하는가&quot;가 기본형이다.</p>
+<p class="reader-page-list">• 산출물은 정답만이 아니라 질문의 변화, 근거의 사용, 설명의 수정 과정을 포함하게 한다.</p>
+<p>이 체크리스트의 목적은 수업을 복잡하게 만드는 것이 아니다. 질문, 토의, 탐구는 겉보기에는 유연해 보이지만 실제로는 구조가 없으면 소수 학생의 발언, 피상적 찬반, 근거 없는 의견으로 흐르기 쉽다. 좋은 구조는 학생의 사고를 대신하지 않는다. 오히려 학생이 더 오래, 더 깊게 생각할 수 있는 시간을 확보한다.</p>
+            <p class="page-number">15 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>요약</h3>
+<p>질문과 탐구 중심 수업은 교사의 질문, 학생의 대화, 자료 기반 토의, 탐구 활동을 하나의 학습 흐름으로 조직하는 접근이다. 질문은 정답 확인을 넘어 사고와 근거 사용을 돕는 설계 요소가 되어야 한다. 대화적 교수는 수업 담화의 질을 중시하며, 학습자는 말하고 듣고 수정하는 과정에서 생각을 외부화한다. 토의법은 자료, 역할, 규칙, 정리 기준이 있을 때 학습 활동으로 기능한다. 하브루타식 짝 토의는 텍스트 기반 상호 해석 전략으로 조심스럽게 활용할 수 있으나, 보편적 효과를 과장해서는 안 된다. 탐구 중심 수업은 질문, 증거, 설명, 대안 검토, 의사소통을 연결하며, PBL과 만날 때에는 문제의 질과 교사 지원의 구조가 중요하다.</p>
+            <p class="page-number">16 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>도입 사례</h3>
+<p>창작 시나리오. 중학교 3학년 사회 수업에서 한 교사는 &quot;지역 축제 예산을 늘려야 하는가&quot;라는 질문으로 토의를 시작하려 했다. 처음 질문은 찬반을 빠르게 나누었지만, 학생들은 자신의 경험만 말하고 근거 자료를 거의 사용하지 않았다. 교사는 질문을 &quot;지역 축제가 해결하려는 문제는 무엇이며, 어떤 자료로 예산 확대의 효과를 판단할 수 있는가&quot;로 바꾸고, 먼저 각자 자료에서 근거 문장을 표시하게 했다. 이후 짝과 반례를 찾고, 모둠에서 대안 설명을 비교한 뒤, 전체 토의에서 처음 주장과 수정한 주장을 함께 제출하게 했다. 이 사례는 질문 중심 수업이 발언량을 늘리는 일이 아니라 질문, 증거, 설명, 수정의 구조를 설계하는 일임을 보여 준다.</p>
+            <p class="page-number">17 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>핵심 용어</h3>
+<p class="reader-page-list">• 질문 중심 수업: 질문을 통해 학습자가 선지식, 자료, 근거, 설명을 드러내고 수정하도록 수업 활동을 조직하는 접근이다.</p>
+<p class="reader-page-list">• 대화적 교수: 교실 담화를 통해 사고를 자극하고, 이유와 근거를 주고받으며 공동으로 이해를 발전시키는 교수 관점이다.</p>
+<p class="reader-page-list">• 탐색적 대화: 서로의 생각을 검토하고 이유를 요구하며 대안 설명을 비교하는 규칙 있는 학습 대화다.</p>
+<p class="reader-page-list">• 하브루타식 짝 토의: 텍스트나 사례를 중심으로 두 학습자가 질문, 해석, 도전, 수정을 주고받는 짝 토의 구조다.</p>
+            <p class="page-number">18 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<p class="reader-page-list">• 탐구 중심 수업: 탐구 가능한 질문, 증거 수집과 해석, 설명 구성, 대안 검토, 의사소통을 연결하는 수업 구조다.</p>
+            <p class="page-number">19 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>이론과 연구 확장</h3>
+<p class="reader-page-heading">질문은 정답 확인보다 사고 조직에 가깝다</p>
+<p>Dillon은 질문과 질문하기가 형식·비형식 교육 모두에서 중요한 역할을 하며, 질문하는 사람과 답하는 사람의 관점을 함께 보아야 한다고 설명한다.4 Walsh와 Sattes도 좋은 질문을 준비하고 모든 학습자가 생각과 응답에 참여하도록 하는 절차를 강조한다.9 그러므로 교사의 질문은 손든 학생의 정답을 빠르게 확인하는 장치에 머물러서는 안 된다. 개인 사고 시간, 근거 표시, 짝 설명, 후속 질문을 포함할 때 질문은 사고를 조직하는 활동이 된다.</p>
+<p class="reader-page-heading">대화적 교수와 담화 규칙</p>
+<p>대화적 교수는 말하기를 수업 장식이 아니라 학습을 진전시키는 매체로 본다.1 Mercer와 Littleton은 교실 대화의 질이 아동의 사고와 학습 발달과 관련된다고 설명하며, 지식의 공동 구성을 강조한다.7 그러나 발언량이 많다고 곧바로 좋은 담화가 되는 것은 아니다. 교사는 주장에 근거 붙이기, 이전 발언 이어받기, 사람보다 생각 검토하기, 불확실한 설명도 임시로 제안하기 같은 규칙을 명시해야 한다.</p>
+            <p class="page-number">20 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<p class="reader-page-heading">토의와 하브루타식 짝 활동의 균형</p>
+<p>Brookfield와 Preskill은 토의를 시작하고 유지하며 다양한 관점을 끌어내는 절차와 기법을 제시한다.3 하브루타에 관한 Kent의 논의는 텍스트 기반 짝 학습에서 듣기와 말하기, 궁금해하기와 초점 맞추기, 지지하기와 도전하기가 함께 작동함을 보여 준다.6 다만 하브루타를 보편적 효과가 입증된 만능 기법처럼 말해서는 안 된다. 교사는 문화적 맥락을 존중하면서, 텍스트와 근거로 돌아가 해석을 수정하는 짝 토의 구조로 조심스럽게 활용해야 한다.</p>
+<p class="reader-page-heading">탐구 수업은 방임이 아니라 증거 구조화다</p>
+<p>National Research Council은 탐구를 질문 제기, 정보 검토, 조사 계획, 증거 검토, 설명과 예측, 결과 의사소통과 대안 설명 고려를 포함하는 활동으로 설명한다.8 Hmelo-Silver의 PBL 논의도 문제 해결, 학습 필요 확인, 자기주도학습, 적용, 성찰을 함께 제시한다.5 따라서 탐구 수업에서 교사는 지식을 숨기는 사람이 아니라 질문을 좁히고, 자료 접근을 돕고, 증거와 설명의 연결을 모델링하는 사람이다.</p>
+            <p class="page-number">21 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>토론 질문</h3>
+<p class="reader-page-list">• 도입 사례에서 처음 질문과 수정된 질문은 학생의 사고와 증거 사용을 어떻게 다르게 요구하는가?</p>
+<p class="reader-page-list">• 대화적 교수에서 발언량보다 발언 구조가 중요하다는 말은 실제 수업 운영에서 어떤 의미를 갖는가?</p>
+<p class="reader-page-list">• 하브루타식 짝 토의를 일반 교실에 적용할 때 문화적 전통을 존중하면서도 과장된 효과 주장을 피하려면 무엇을 조심해야 할까?</p>
+<p class="reader-page-list">• 탐구 수업에서 학생 질문이 너무 넓거나 자료로 답하기 어려울 때, 교사는 어느 정도까지 질문을 좁혀 주어야 할까?</p>
+            <p class="page-number">22 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>형성 평가</h3>
+<p>질문 중심 수업과 교사의 단순 정답 확인 질문을 구분하여 설명하시오. 예시 답안: 질문 중심 수업은 질문 뒤에 개인 사고, 근거 탐색, 대화, 설명 수정이 이어지도록 설계하지만, 단순 정답 확인 질문은 이미 정해진 답을 빠르게 확인하는 데 그친다. 채점 기준: 사고 과정, 근거 사용, 수정 또는 후속 활동 중 두 가지 이상을 포함하면 적절하다.</p>
+<p>대화적 교수에서 필요한 담화 규칙 두 가지를 쓰시오. 예시 답안: 주장에는 근거를 붙이고, 반대할 때는 사람보다 생각을 검토한다. 해설: 담화 규칙은 예절만이 아니라 학습자의 추론을 공개적으로 다루기 위한 조건이다.</p>
+<p>하브루타식 짝 토의를 설계할 때 가장 적절한 절차는 무엇인가? ① 짝을 정한 뒤 자유롭게 대화하게 하고 결과 기록은 생략한다. ② 텍스트를 읽고 각자의 질문을 표시한 뒤, 근거 문장을 바탕으로 해석과 도전을 주고받게 한다. ③ 교사가 정답을 설명한 뒤 학생에게 같은 내용을 암송하게 한다. ④ 토의 시간을 모두 찬반 투표에 사용한다. 정답: ② 해설: 하브루타식 활동은 텍스트 기반 질문, 상호 도전, 해석 수정이 핵심이며 자유 대화만으로 충분하지 않다.</p>
+<p>탐구 중심 수업의 핵심 요소 세 가지를 쓰시오. 예시 답안: 탐구 가능한 질문, 증거에 근거한 설명 구성, 대안 설명과의 비교를 들 수 있다. 루브릭: 질문, 증거, 설명, 대안 검토, 의사소통 중 세 가지 이상을 정확히 제시하면 우수하다.</p>
+            <p class="page-number">23 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<p>다음 상황에서 교사가 제공해야 할 지원을 제안하시오. &quot;학생들이 흥미로운 주제를 골랐지만 질문이 너무 넓어 자료로 답하기 어렵다.&quot; 예시 답안: 교사는 질문의 범위, 대상, 시간, 비교 기준을 좁히도록 도와야 한다. 예를 들어 &quot;지역 축제는 좋은가&quot;를 &quot;최근 3년 방문객 자료와 주민 설문으로 축제 예산 확대의 효과를 어떻게 판단할 수 있는가&quot;로 바꿀 수 있다. 채점 기준: 질문 범위 축소와 자료·근거로 답할 수 있게 만드는 지원을 모두 포함하면 적절하다.</p>
+            <p class="page-number">24 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<h3>참고문헌</h3>
+<p>Alexander, R. (2020). A Dialogic Teaching Companion. Routledge. Publisher metadata verified at https://www.routledge.com/A-Dialogic-Teaching-Companion/Alexander/p/book/9781138570351. ↩↩</p>
+<p>Barrows, H. S. (1986). A taxonomy of problem-based learning methods. Medical Education, 20(6), 481-486. https://doi.org/10.1111/j.1365-2923.1986.tb01386.x. ↩</p>
+<p>Brookfield, S. D., &amp; Preskill, S. (1999). Discussion as a Way of Teaching: Tools and Techniques for Democratic Classrooms. Jossey-Bass. ERIC metadata verified at https://eric.ed.gov/?id=ED431724. ↩↩</p>
+<p>Dillon, J. T. (1988). Questioning and Teaching: A Manual of Practice. Teachers College Press. ERIC metadata verified at https://eric.ed.gov/?id=ED296994. ↩↩</p>
+            <p class="page-number">25 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<p>Hmelo-Silver, C. E. (2004). Problem-based learning: What and how do students learn? Educational Psychology Review, 16, 235-266. https://doi.org/10.1023/B:EDPR.0000034022.16470.f3. ↩↩</p>
+<p>Kent, O. (2010). A theory of &quot;Havruta&quot; learning. Journal of Jewish Education, 76(3), 215-245. https://doi.org/10.1080/15244113.2010.501499. ERIC metadata verified at https://eric.ed.gov/?id=EJ897310. ↩↩↩</p>
+<p>Mercer, N., &amp; Littleton, K. (2007). Dialogue and the Development of Children&#x27;s Thinking: A Sociocultural Approach. Routledge. Open Research Online metadata verified at https://oro.open.ac.uk/6519/. ↩↩</p>
+<p>National Research Council. (2000). Inquiry and the National Science Education Standards: A Guide for Teaching and Learning. National Academy Press. https://doi.org/10.17226/9596. ↩↩↩</p>
+            <p class="page-number">26 / 27</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 08</p>
+<p>Walsh, J. A., &amp; Sattes, B. D. (2016). Quality Questioning: Research-Based Practice to Engage Every Learner (2nd ed.). Corwin Press. Google Books metadata verified at https://books.google.com/books/about/Quality_Questioning.html?id=5R5uDQAAQBAJ. ↩↩</p>
+            <p class="page-number">27 / 27</p>
+          </section>
+        </div>
+        <div class="reader-controls" data-reader-controls hidden><button class="button" type="button" data-page-prev>이전 페이지</button><button class="button" type="button" data-page-next>다음 페이지</button><span class="reader-status" data-reader-status aria-live="polite"></span></div>
+      </section>
+      <section class="static-content" id="content" aria-label="전체 텍스트 본문">
+        <h2>전체 텍스트 본문</h2>
 <h1 id="8">8장 질문과 탐구 중심 수업<a class="headerlink" href="#8" title="Permanent link">&para;</a></h1>
 <h2 id="_1">학습 목표<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>이 장을 학습한 뒤에는 다음을 설명할 수 있어야 한다.</p>
@@ -250,14 +469,6 @@ footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
 </li>
 </ol>
 </div>
-      <section class="flip-area reader-enhancement" data-reader-enhancement aria-label="책 넘김 미리보기">
-        <h2>책 넘김 미리보기</h2>
-        <p class="notice">본문 일부를 카드처럼 넘기며 장의 흐름을 확인할 수 있습니다. 전체 본문은 위 장 콘텐츠에서 선택하거나 복사해서 이용할 수 있습니다.</p>
-        <div class="flip-book" data-flip-book>
-          <section class="reader-page" data-reader-page><h3>8장 질문과 탐구 중심 수업</h3><p>본문을 카드처럼 넘기며 읽기 흐름을 확인합니다.</p><p><a href="../../book/part3/ch08/">텍스트 장으로 이동</a></p></section>
-          <section class="reader-page" data-reader-page><h3>읽기 경로</h3><p><a href="../../book/part3/ch08/">텍스트 장으로 이동</a></p><p><a href="../">책 넘김 목차로 이동</a></p></section>
-        </div>
-        <div class="reader-controls" data-reader-controls hidden><button class="button" type="button" data-page-prev>이전 페이지</button><button class="button" type="button" data-page-next>다음 페이지</button><span class="reader-status" data-reader-status aria-live="polite"></span></div>
       </section>
     </article>
     <aside class="reader-sidebar" aria-label="책 넘김 장 목록">
@@ -330,7 +541,7 @@ footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
       if (isRootReader && chapter) {
         status.textContent = "현재 페이지 " + pageLabel(chapter);
       } else {
-        status.textContent = "미리보기 " + (flipIndex + 1) + " / " + Math.max(1, pages.length);
+        status.textContent = "책장 " + (flipIndex + 1) + " / " + Math.max(1, pages.length);
       }
     }
 

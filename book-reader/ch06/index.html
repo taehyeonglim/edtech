@@ -43,6 +43,8 @@ h1 { margin:0; color:inherit; font-size:clamp(2rem,4.8vw,3.65rem); line-height:1
 .button.primary { background:var(--navy); color:white; }
 .reader-layout { display:grid; grid-template-columns:minmax(0,1fr) 270px; gap:24px; align-items:start; }
 .reader-content { min-width:0; user-select:text; }
+.static-content { margin-top:34px; padding-top:22px; border-top:3px double var(--line); }
+.static-content > h2:first-child { margin-top:0; color:var(--navy); }
 .reader-content, .reader-content * { overflow-wrap:anywhere; }
 .reader-content pre { overflow-x:auto; white-space:pre-wrap; }
 .reader-content code { white-space:pre-wrap; word-break:break-word; }
@@ -61,26 +63,246 @@ h1 { margin:0; color:inherit; font-size:clamp(2rem,4.8vw,3.65rem); line-height:1
 .reader-sidebar { position:sticky; top:14px; padding:16px; border:1px solid var(--line); border-radius:14px; background:var(--soft); }
 .reader-sidebar ol { margin:10px 0 0; padding-left:22px; }
 .reader-sidebar a { text-decoration:none; font-weight:800; }
-.flip-area { margin:24px 0 0; padding:18px; border:1px dashed var(--line); border-radius:16px; background:white; }
+.flip-area { margin:0 0 26px; padding:22px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(135deg,#fff,var(--ivory)); box-shadow:0 18px 38px rgba(11,44,92,.1); }
 .flip-area[hidden], .reader-controls[hidden] { display:none !important; }
-.flip-book { width:100%; max-width:100%; min-height:220px; margin:0 auto; }
-.reader-page { width:360px; min-height:480px; padding:24px; border:1px solid var(--line); background:linear-gradient(90deg,rgba(11,44,92,.05),transparent 18px),var(--paper); color:var(--ink); overflow:hidden; }
-.reader-page h3 { margin-top:0; }
+.reader-viewer-lede { margin:0 0 18px; color:var(--muted); font-weight:800; }
+.flip-book { width:100%; max-width:100%; min-height:560px; margin:0 auto; }
+.reader-page { position:relative; width:410px; height:560px; padding:34px 34px 48px; border:1px solid var(--line); background:linear-gradient(90deg,rgba(11,44,92,.07),transparent 20px),linear-gradient(180deg,#fffdf8,#fffaf0); color:var(--ink); overflow:hidden; box-shadow:inset 14px 0 22px rgba(11,44,92,.06); }
+.reader-page h3 { margin:.4rem 0 .8rem; font-size:1.18rem; line-height:1.28; color:var(--navy); }
+.reader-page p { margin:.55rem 0; font-size:.95rem; line-height:1.58; }
+.reader-page .page-kicker { margin:0 0 .7rem; color:var(--gold); font-size:.75rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+.reader-page .reader-page-heading { color:var(--navy); font-weight:900; }
+.reader-page .reader-page-list { padding-left:.2rem; }
+.reader-page .page-number { position:absolute; right:24px; bottom:16px; color:var(--muted); font-size:.82rem; font-weight:900; }
 .reader-controls { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; align-items:center; }
 .reader-status { color:var(--muted); font-weight:800; }
 footer { border-top:1px solid var(--line); background:var(--soft); color:var(--muted); }
 footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; } }
 @media (max-width:900px) { .gateway, .reader-layout { grid-template-columns:1fr; } .reader-sidebar { position:static; } .reader-panel { padding:22px; } }
-@media (max-width:640px) { .wrap { width:min(100% - 24px,1120px); } .chapter-grid { grid-template-columns:1fr; } .reader-page { width:280px; min-height:400px; padding:18px; } .button { flex:1 1 160px; } }</style>
+@media (max-width:640px) { .wrap { width:min(100% - 24px,1120px); } .chapter-grid { grid-template-columns:1fr; } .flip-book { min-height:480px; } .reader-page { width:280px; height:480px; padding:24px 22px 42px; } .reader-page p { font-size:.88rem; line-height:1.5; } .button { flex:1 1 160px; } }</style>
   <script src="../../assets/vendor/page-flip/page-flip.browser.js" defer></script>
 </head>
 <body>
   <nav class="topnav wrap" aria-label="상위 경로"><a href="../">책 넘김 목차</a><span aria-hidden="true">|</span><a href="../../book/">교재 선택</a><span aria-hidden="true">|</span><a href="../../book/part3/ch06/">텍스트 장</a></nav>
-  <header class="hero wrap"><p class="eyebrow">교육방법 및 교육공학 · Chapter 06</p><h1>6장 협동학습 전략</h1><p class="lead">전체 본문은 정적 HTML로 먼저 렌더링되어 텍스트 선택·복사와 링크 이동이 JavaScript 없이도 작동합니다.</p></header>
+  <header class="hero wrap"><p class="eyebrow">교육방법 및 교육공학 · Chapter 06</p><h1>6장 협동학습 전략</h1><p class="lead">책장 넘김 뷰어가 장 본문을 여러 쪽으로 나누어 보여 주고, 전체 텍스트 본문은 같은 페이지 아래에 보존됩니다.</p></header>
   <main class="reader-panel wrap reader-layout" aria-label="06장 리더" data-reader-chapter="ch06">
-    <article class="reader-content" id="content">
+    <article class="reader-content">
       <div class="button-row"><a class="button primary" href="../../book/part3/ch06/">텍스트 장 읽기</a><a class="button" href="../">책 넘김 목차</a><a class="button" href="../ch05/">이전 장</a><a class="button" href="../ch07/">다음 장</a></div>
+      <section class="flip-area reader-enhancement" data-reader-enhancement aria-label="책장 넘김 뷰어">
+        <h2>책장 넘김 뷰어</h2>
+        <p class="reader-viewer-lede">이 장의 본문을 자동으로 여러 종이 페이지로 나눠 넘겨 봅니다. 전체 검색·복사·각주는 아래 전체 텍스트 본문에서 그대로 사용할 수 있습니다.</p>
+        <div class="flip-book" data-flip-book>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>6장 협동학습 전략</h3>
+            <p class="page-number">1 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>학습 목표</h3>
+<p>이 장을 학습한 뒤에는 다음을 설명할 수 있어야 한다.</p>
+<p class="reader-page-list">• 협동학습을 단순한 모둠 활동과 구분하고, 사회적 상호의존성 관점에서 핵심 조건을 설명할 수 있다.</p>
+<p class="reader-page-list">• 긍정적 상호의존성, 개별 책무성, 촉진적 상호작용, 사회적 기술, 집단 과정의 의미를 수업 설계 언어로 풀어낼 수 있다.</p>
+<p class="reader-page-list">• Jigsaw, STAD, TGT의 절차와 평가 구조를 비교하여 학습 목표에 맞는 모형을 선택할 수 있다.</p>
+            <p class="page-number">2 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<p class="reader-page-list">• 협동학습에서 무임승차, 불균등 참여, 피상적 설명을 줄이기 위한 교사의 개입 방안을 설계할 수 있다.</p>
+            <p class="page-number">3 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>웹 학습 보조</h3>
+<p>구조 도식</p>
+<p>협동학습의 다섯 조건</p>
+<p>출처: 이 장 본문과 Johnson &amp; Johnson 계열 협동학습 논의를 바탕으로 만든 자체 도식.</p>
+<p>모형 비교 활동</p>
+            <p class="page-number">4 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<p>Jigsaw, STAD, TGT 선택 질문</p>
+<p class="reader-page-list">• 내용을 부분 전문성으로 나눌 수 있으면 Jigsaw를 검토한다.</p>
+<p class="reader-page-list">• 모든 학생의 공통 이해와 개인 향상 점검이 필요하면 STAD를 검토한다.</p>
+<p class="reader-page-list">• 반복 연습과 게임형 참여가 목표를 흐리지 않으면 TGT를 검토한다.</p>
+<p>출처: 이 장의 Jigsaw, STAD, TGT 비교 절을 바탕으로 만든 자체 활동.</p>
+            <p class="page-number">5 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<p>핵심 관점 협동학습은 모둠 편성이 아니라 상호의존성과 책무성을 함께 설계하는 구조다. 주의할 오해 집단 산출물 하나만 평가하면 무임승차와 피상적 참여를 놓치기 쉽다. 수업 적용 활동 전에는 역할과 평가 증거를, 활동 후에는 개인 정리와 집단 성찰을 남긴다.</p>
+            <p class="page-number">6 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>1. 협동학습을 설계한다는 것</h3>
+<p>협동학습은 학습자들을 한 모둠에 앉히는 활동명이 아니다. 이 장에서 협동학습은 학습자들이 공동 목표를 향해 상호 의존하면서도 각자의 학습 책임을 드러내도록 구조화한 수업 방법을 뜻한다. Slavin은 학생 팀 학습을 설명하면서 다양한 수행 수준의 학생들이 작은 집단에서 공동 목표를 향해 함께 일하고, 한 학생의 성공이 다른 학생의 성공을 돕는 구조를 협동학습의 핵심으로 제시했다.3</p>
+<p>이 정의는 교사에게 중요한 경고를 준다. &quot;모둠별로 해결해 보세요&quot;라는 지시만으로는 협동학습이 만들어지지 않는다. 모둠 활동이 학습으로 이어지려면 학생들이 왜 서로 도와야 하는지, 각자가 무엇을 책임져야 하는지, 결과를 어떻게 확인할 것인지가 수업 구조 안에 들어 있어야 한다. 그렇지 않으면 활동적인 학생 몇 명이 과제를 떠안고, 조용한 학생은 관찰자로 남으며, 교사는 분주한 교실을 학습이 일어나는 교실로 오해할 수 있다.</p>
+<p>협동학습의 이론적 배경으로 자주 언급되는 사회적 상호의존성 이론은 사람들의 목표가 서로 어떻게 연결되어 있는지가 상호작용의 성격을 바꾼다고 본다. Johnson과 Johnson은 이 이론이 협동학습의 토대가 되며, 이론·연구·실천의 순환 속에서 공식 협동학습, 비공식 협동학습, 협동 기본 집단 같은 교실 절차가 발전해 왔다고 설명한다.1 따라서 협동학습을 설계한다는 것은 &quot;함께 하라&quot;는 태도 교육이 아니라, 목표와 보상, 역할, 평가, 상호작용을 학습이 일어나도록 배열하는 일이다.</p>
+<p>협동학습의 최소 조건</p>
+            <p class="page-number">7 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<p>이 장에서는 협동학습을 모둠 편성 방식이 아니라 학습 구조로 다룬다. 공개 본문에서는 확인한 문헌으로 뒷받침되는 범위 안에서만 효과와 절차를 설명하며, 특정 모형의 효과 크기나 우월성을 숫자로 단정하지 않는다.</p>
+            <p class="page-number">8 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>2. 협동학습의 다섯 가지 기본 요소</h3>
+<p>Johnson과 Johnson 계열의 협동학습 논의는 효과적인 협동을 위해 다섯 요소를 구조화해야 한다고 본다. Cooperative Learning Institute의 설명도 같은 틀을 제시한다. 물리적으로 같은 공간에 앉히거나 &quot;한 팀&quot;이라고 부르는 것만으로는 충분하지 않고, 긍정적 상호의존성, 개인 및 집단 책무성, 촉진적 상호작용, 사회적 기술, 집단 과정이 함께 설계되어야 한다.2</p>
+<p>첫째, 긍정적 상호의존성은 구성원들이 서로의 성공과 연결되어 있다고 느끼는 상태다. 이 요소가 없으면 학생들은 모둠 안에 있어도 각자 따로 공부하거나, 성취가 높은 학생이 빠르게 끝낸 뒤 다른 구성원을 기다리는 방식으로 흘러가기 쉽다. 긍정적 상호의존성은 공동 산출물, 역할 분담, 자원 분배, 팀 목표, 상호 보상 같은 장치로 만들 수 있다. 중요한 점은 한 학생의 노력과 이해가 다른 학생의 학습에 실제로 필요하도록 과제를 설계하는 것이다.</p>
+<p>둘째, 개별 책무성은 각 학생의 학습과 기여가 확인되는 구조다. Slavin은 STAD, TGT, Jigsaw II, TAI와 같은 학생 팀 학습 방법이 개인 점수를 팀 점수로 연결하기 때문에 집단 협동과 개별 책무성을 함께 강조한다고 설명했다.3 이 원리는 무임승차를 줄이는 핵심 장치다. 모든 결과가 집단 산출물 하나로만 평가되면 교사는 누가 무엇을 이해했는지 알기 어렵고, 학생도 자신의 학습 책임을 흐릴 수 있다.</p>
+            <p class="page-number">9 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<p>셋째, 촉진적 상호작용은 구성원들이 서로 설명하고, 질문하고, 격려하며, 이해를 확인하는 상호작용을 말한다. 협동학습에서 학생들은 단지 답을 나누는 것이 아니라 왜 그런 답이 나왔는지 설명해야 한다. 설명을 들은 학생은 다시 자신의 말로 정리하거나 반례를 제시하면서 이해를 조정한다. 이 상호작용을 위해 교사는 &quot;서로 도와라&quot;보다 구체적인 언어를 제공해야 한다. 예를 들어 &quot;근거를 하나 더 말해 보라&quot;, &quot;친구의 설명을 다른 예로 바꾸어 말하라&quot;, &quot;아직 이해되지 않은 부분을 질문하라&quot;와 같은 대화 규칙이 필요하다.</p>
+<p>넷째, 사회적 기술은 협동의 전제 조건이면서 학습 대상이다. 학생들은 경청, 차례 지키기, 도움 요청, 갈등 조정, 의사결정, 리더십을 자동으로 수행하지 않는다. 협동학습이 반복적으로 실패하는 교실에서는 학업 과제 이전에 협동 기술이 명시적으로 가르쳐지지 않은 경우가 많다. 사회적 기술을 수업 목표의 일부로 다루면 교사는 활동 중 관찰할 행동을 더 분명히 정할 수 있다.</p>
+<p>다섯째, 집단 과정은 모둠이 자신의 협동 방식을 되돌아보고 다음 활동을 개선하는 절차다. 활동 직후 짧은 성찰을 통해 &quot;오늘 우리 모둠에서 학습에 도움이 된 행동은 무엇이었는가&quot;, &quot;다음 시간에 바꿀 한 가지는 무엇인가&quot;를 기록하게 하면 협동은 일회성 분위기가 아니라 누적되는 역량이 된다. Cooperative Learning Institute는 짧은 협동 토의에서도 교사가 긍정적 목표 상호의존, 개별 책무성, 집단 과정을 의도적으로 확인해야 한다고 설명한다.2</p>
+            <p class="page-number">10 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>3. Jigsaw: 부분 전문성과 전체 이해의 결합</h3>
+<p>Jigsaw는 협동학습을 대표하는 과제 분담형 모형이다. 공식 Jigsaw Classroom 사이트는 이 방법이 1970년대 초 Elliot Aronson과 학생들에 의해 개발되었고, 1971년 텍사스 오스틴의 인종 통합 학교 맥락에서 처음 사용되었다고 설명한다.4 Aronson과 동료들의 1978년 저서 The Jigsaw Classroom은 해당 방법의 고전적 출처로 확인된다.5</p>
+<p>Jigsaw의 수업 구조는 퍼즐 은유로 이해할 수 있다. 전체 내용을 몇 개의 부분으로 나누고, 각 학생은 한 부분을 맡아 전문가가 된다. 같은 부분을 맡은 학생들은 전문가 집단에서 핵심 내용을 확인하고 설명을 준비한다. 이후 원래 모둠으로 돌아와 각자의 부분을 가르치고, 모둠은 서로의 설명을 결합하여 전체 내용을 완성한다. 공식 Jigsaw Classroom의 절차도 이질적 집단 편성, 수업 내용의 여러 구획 분할, 개인별 구획 배정, 전문가 집단 논의, 원래 집단 복귀와 설명, 교사의 순회 관찰, 최종 퀴즈를 포함한다.4</p>
+<p>Jigsaw의 강점은 긍정적 상호의존성을 눈에 보이게 만든다는 데 있다. 각 학생의 부분이 빠지면 전체 이해가 불완전해지므로, 학생들은 서로의 설명을 들어야 한다. 동시에 각 학생은 자신의 부분을 동료에게 설명해야 하므로 역할이 분명하다. 그러나 이 장치는 내용이 잘 분절될 때 특히 잘 작동한다. 역사 인물의 생애, 생태계 구성 요소, 문학 작품의 관점 비교처럼 부분을 나눈 뒤 다시 통합할 수 있는 주제에는 적합하지만, 순차적 절차를 모두가 충분히 연습해야 하는 기능 학습에는 신중히 적용해야 한다.</p>
+            <p class="page-number">11 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<p>Jigsaw를 설계할 때 교사는 세 가지를 점검해야 한다. 첫째, 각 부분의 난이도와 분량이 지나치게 다르지 않아야 한다. 둘째, 전문가 집단에서 학생들이 단순히 문장을 베끼지 않고 핵심 개념, 예시, 오개념을 함께 정리하도록 활동지를 설계해야 한다. 셋째, 원래 모둠 복귀 뒤에는 전체 내용을 확인하는 개별 점검이 필요하다. 공식 절차가 마지막 퀴즈를 포함하는 이유도 활동이 친밀한 공유로 끝나는 것이 아니라 각자의 이해로 이어져야 하기 때문이다.4</p>
+            <p class="page-number">12 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>4. STAD: 팀 학습과 개인 향상 점수</h3>
+<p>STAD(Student Teams-Achievement Divisions)는 Robert E. Slavin이 개발한 학생 팀 학습 방법의 대표 모형이다. ERIC의 1978년 논문 기록은 이 논문이 STAD라는 구조화된 교실 팀 기법을 설명한다고 제시한다.6 Slavin의 1982년 교사용 연구 종합 자료는 STAD를 Johns Hopkins의 학생 팀 학습 프로그램 일부로 설명하고, 학생들이 4-5명 규모의 이질적 팀에서 교사의 새 내용 제시, 팀 학습, 개별 퀴즈, 팀 점수 산출을 거친다고 제시한다.3</p>
+<p>STAD의 핵심은 집단 보상과 개인 학습 책임을 결합하는 데 있다. 학생들은 팀 안에서 서로 설명하고 연습하지만, 퀴즈는 개인이 도움 없이 치른다. 이후 개인의 점수는 단순 원점수가 아니라 자신의 과거 평균 또는 기준과 비교한 향상 정도로 팀 점수에 반영된다.3 이 구조에서는 이미 높은 성취를 보이는 학생만 팀에 기여하는 것이 아니라, 각 학생이 자기 기준에서 성장할 때 팀에 의미 있는 기여를 할 수 있다.</p>
+<p>STAD는 모든 학생이 같은 핵심 내용을 학습해야 하는 수업에 알맞다. 예를 들어 수학의 분수 연산, 과학 개념 확인, 외국어 어휘와 문법, 사회과 핵심 개념처럼 공통 목표가 분명하고 개별 점검이 가능한 내용에서 사용하기 쉽다. 반대로 산출물의 창의성이나 해석의 다양성이 더 중요한 과제에서는 STAD의 퀴즈와 향상 점수 체계가 과제의 본질을 좁힐 수 있다.</p>
+            <p class="page-number">13 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<p>교사가 STAD를 사용할 때에는 팀 점수를 &quot;친구를 대신해 풀어 주기&quot;의 보상으로 이해하지 않도록 안내해야 한다. 팀 학습 시간의 목표는 정답 전달이 아니라 모든 구성원이 스스로 풀 수 있을 만큼 이해하도록 돕는 것이다. 따라서 팀 학습 관찰 기준도 &quot;누가 답을 빨리 냈는가&quot;보다 &quot;누가 친구의 설명을 확인했는가&quot;, &quot;틀린 이유를 함께 찾았는가&quot;, &quot;퀴즈 전에 각자 말로 절차를 설명했는가&quot;로 두는 편이 적절하다.</p>
+            <p class="page-number">14 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>5. TGT: 게임과 토너먼트가 들어간 팀 학습</h3>
+<p>TGT(Teams-Games-Tournament)는 STAD와 유사한 팀 학습 구조를 사용하되, 개별 퀴즈 대신 학업 게임과 토너먼트를 활용한다. ERIC 기록에 따르면 Edwards와 DeVries의 1974년 보고서는 TGT와 두 가지 변형이 학생 태도, 성취, 교실 과정에 미친 영향을 검토한 연구 보고서다.7 Slavin의 교사용 자료는 TGT가 STAD와 같은 팀, 수업 형식, 학습지를 사용하지만 학생들이 주간 토너먼트에서 학업 게임을 통해 개인 숙달을 보인다고 설명한다.3</p>
+<p>TGT의 특징은 경쟁을 협동학습 밖으로 배제하지 않고, 팀 내 협동을 촉진하는 방향으로 제한적으로 배치한다는 점이다. 학생들은 이질적 팀에서 함께 공부하지만, 토너먼트에서는 과거 수행 수준이 비슷한 다른 팀 학생들과 겨룬다. Slavin의 설명에 따르면 토너먼트 테이블은 매주 조정될 수 있으며, 이 구조는 서로 다른 수행 수준의 학생들이 공정한 경쟁 속에서 팀에 기여할 수 있도록 설계된다.3</p>
+<p>TGT는 반복 연습이 필요하고 게임 형식이 학습 내용을 흐리지 않는 경우에 유용하다. 용어 확인, 계산 절차, 사실 지식, 개념 판별처럼 즉각적 피드백이 가능한 내용에서는 게임이 참여를 높일 수 있다. 그러나 경쟁이 과열되면 학생들은 설명과 이해보다 승패에 주의를 빼앗길 수 있다. 따라서 교사는 게임 규칙을 간단히 유지하고, 라운드 후에는 &quot;왜 그 답이 맞는가&quot;를 짧게 확인하게 하며, 팀 점수보다 학습 설명의 질을 계속 관찰해야 한다.</p>
+            <p class="page-number">15 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>6. 모형 선택과 교실 실행 원리</h3>
+<p>Jigsaw, STAD, TGT는 모두 협동학습이지만 서로 다른 문제를 해결한다. Jigsaw는 내용의 부분 전문성과 상호 설명을 강조한다. STAD는 공통 학습 목표, 팀 연습, 개인 향상 점수를 결합한다. TGT는 STAD의 구조에 학업 게임과 수준이 비슷한 학생 간 토너먼트를 더한다. Slavin의 1995년 저서는 협동학습의 이론, 연구, 실제를 종합하고, Jigsaw II, STAD, TGT 같은 협동학습 방법을 함께 다루는 주요 자료로 확인된다.8</p>
+<p>모형 선택의 첫 질문은 학습 내용의 구조다. 내용이 독립적인 부분으로 나뉘고 다시 통합되어야 한다면 Jigsaw가 유리하다. 모든 학생이 같은 개념이나 기능을 익혀야 하고 개별 점검이 가능하다면 STAD가 더 자연스럽다. 같은 공통 목표를 다루되 반복 연습과 참여 촉진이 중요하고 게임 규칙을 안정적으로 운영할 수 있다면 TGT를 고려할 수 있다.</p>
+<p>둘째 질문은 평가 증거다. 협동학습에서 평가는 집단 산출물만 보아서는 부족하다. Slavin은 협동학습 연구를 검토하면서 협동학습이 잠재력을 충분히 발휘하려면 더 많은 연구가 필요하다고 신중하게 결론짓지만, 학생 팀 학습 논의에서는 집단 목표와 개별 책무성을 함께 다루는 구조가 중요하다는 점을 반복해서 강조한다.9 교실 설계에서는 이 원리를 &quot;모둠 결과와 개인 이해를 모두 확인한다&quot;는 규칙으로 바꿀 수 있다.</p>
+            <p class="page-number">16 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<p>셋째 질문은 교사의 개입 방식이다. 협동학습은 교사의 역할을 줄이는 방법이 아니라 교사의 역할을 바꾸는 방법이다. 교사는 활동 전에는 목표, 과제, 역할, 자료, 시간, 평가를 설계한다. 활동 중에는 순회하며 설명의 질, 참여 균형, 소외 학생, 갈등 신호를 관찰한다. 활동 후에는 개별 이해와 집단 과정을 함께 확인한다. Jigsaw Classroom의 절차에서도 교사는 집단 사이를 이동하며 과정을 관찰하고 문제가 생기면 적절히 개입하도록 안내된다.4</p>
+<p>넷째 질문은 활동의 종료 방식이다. 협동학습은 발표나 산출물 제출로 끝나기 쉽지만, 학습을 남기려면 개인 정리와 집단 성찰이 필요하다. 개인 정리는 &quot;오늘 내가 혼자 설명할 수 있는 핵심 개념&quot;을 확인하고, 집단 성찰은 &quot;우리 모둠의 협동이 학습에 기여한 방식&quot;을 확인한다. 이 두 절차가 반복될 때 학생들은 협동을 단순한 과제 수행 전략이 아니라 학습을 조직하는 방법으로 익히게 된다.</p>
+            <p class="page-number">17 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>요약</h3>
+<p>협동학습은 학생을 모둠으로 나누는 일이 아니라 긍정적 상호의존성과 개별 책무성이 함께 작동하도록 학습 구조를 설계하는 일이다. Johnson과 Johnson 계열의 논의는 긍정적 상호의존성, 개인 및 집단 책무성, 촉진적 상호작용, 사회적 기술, 집단 과정을 핵심 요소로 제시한다. Jigsaw는 부분 전문성과 상호 설명을 통해 전체 이해를 만들고, STAD는 팀 학습과 개인 향상 점수를 결합하며, TGT는 학업 게임과 토너먼트를 통해 팀 학습의 참여를 높인다. 어떤 모형을 쓰든 교사는 과제 구조, 평가 증거, 사회적 기술, 활동 후 성찰을 함께 설계해야 한다.</p>
+            <p class="page-number">18 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>도입 사례</h3>
+<p>창작 시나리오. 중학교 2학년 과학 수업에서 한 교사는 &quot;식물의 광합성 조건을 설명하고 실험 결과를 해석한다&quot;는 목표로 모둠 활동을 준비했다. 처음 수업안은 네 명이 한 장의 활동지를 함께 채우는 방식이었지만, 예비 검토에서 한 학생이 계산을 맡고 다른 학생은 필기만 하게 될 위험이 보였다. 교사는 자료 카드, 변수 설명, 그래프 해석, 발표 정리의 역할을 나누고, 전문가 집단에서 같은 역할 학생들이 먼저 핵심을 확인한 뒤 원래 모둠으로 돌아오게 했다. 마지막에는 모둠 산출물과 별도로 각 학생이 &quot;빛의 세기와 광합성량의 관계&quot;를 혼자 설명하는 짧은 퀴즈를 작성했다. 이 사례는 협동학습이 친밀한 분위기 조성이 아니라 상호의존성과 개별 책무성을 함께 설계하는 일임을 보여 준다.</p>
+            <p class="page-number">19 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>핵심 용어</h3>
+<p class="reader-page-list">• 긍정적 상호의존성: 구성원 각자의 노력과 이해가 공동 목표 달성에 실제로 필요하도록 목표, 역할, 자원, 보상을 연결한 상태다.</p>
+<p class="reader-page-list">• 개별 책무성: 집단 활동 속에서도 각 학생의 이해와 기여를 확인할 수 있도록 개인 점검, 설명, 성찰을 포함하는 구조다.</p>
+<p class="reader-page-list">• 촉진적 상호작용: 학생들이 답만 나누지 않고 설명, 질문, 격려, 근거 확인을 통해 서로의 학습을 돕는 대화 과정이다.</p>
+<p class="reader-page-list">• Jigsaw: 학습 내용을 부분으로 나누어 각 학생이 한 부분의 전문가가 된 뒤 원래 모둠에서 전체 이해를 완성하는 협동학습 모형이다.</p>
+            <p class="page-number">20 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<p class="reader-page-list">• STAD: 이질적 팀의 학습, 개인 퀴즈, 개인 향상 점수의 팀 반영을 통해 공동 목표와 개인 책임을 결합하는 학생 팀 학습 모형이다.</p>
+            <p class="page-number">21 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>이론과 연구 확장</h3>
+<p class="reader-page-heading">사회적 상호의존성과 협동학습의 최소 조건</p>
+<p>사회적 상호의존성 이론은 학습자들의 목표가 어떻게 연결되는지가 상호작용의 질을 바꾼다고 본다.1 이 관점에서 협동학습의 핵심은 &quot;함께 앉기&quot;가 아니라 서로의 성공이 연결되도록 과제와 평가를 설계하는 것이다. Cooperative Learning Institute가 제시하는 다섯 요소도 긍정적 상호의존성, 책무성, 촉진적 상호작용, 사회적 기술, 집단 과정을 함께 요구한다.2 따라서 교사는 모둠 활동 전 역할표와 자료 배분만이 아니라 개인 이해 확인과 활동 후 집단 성찰까지 계획해야 한다.</p>
+<p class="reader-page-heading">Jigsaw의 강점과 적용 조건</p>
+<p>Jigsaw는 각 학생이 한 부분의 전문가가 되어 원래 모둠의 전체 이해에 기여하도록 만든다.4 Aronson과 동료들의 고전적 논의는 이 방법이 단순 분업을 넘어 서로에게 필요한 존재가 되도록 수업 구조를 바꾸려는 시도였음을 보여 준다.5 다만 모든 내용이 Jigsaw에 적합한 것은 아니다. 부분을 나눈 뒤 다시 통합할 수 있는 개념, 관점, 사례에는 적절하지만, 모든 학생이 같은 절차를 충분히 반복해야 하는 기능 학습에서는 개인 연습과 점검을 더 강화해야 한다.</p>
+            <p class="page-number">22 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<p class="reader-page-heading">STAD와 TGT에서 평가 구조가 갖는 의미</p>
+<p>STAD와 TGT는 모두 팀 학습을 사용하지만, 개인 수행을 팀 결과와 연결하는 방식이 다르다. Slavin은 학생 팀 학습에서 집단 목표와 개인 책무성을 결합하는 구조를 강조했고, STAD에서는 개인 향상 점수가 팀 점수에 반영된다고 설명했다.3 TGT는 학업 게임과 수준이 비슷한 학생 간 토너먼트를 사용해 참여를 높이지만, 게임이 학습 설명을 대체하지 않도록 관리해야 한다.7 교사는 승패나 점수보다 &quot;왜 그렇게 풀었는가&quot;를 설명하게 하여 평가 구조가 이해를 촉진하도록 해야 한다.</p>
+            <p class="page-number">23 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>토론 질문</h3>
+<p class="reader-page-list">• 도입 사례의 교사가 단순 모둠 활동을 협동학습으로 바꾸기 위해 추가한 설계 요소는 무엇이며, 그중 가장 중요한 요소는 무엇이라고 보는가?</p>
+<p class="reader-page-list">• Jigsaw, STAD, TGT 중 하나를 선택해 자신이 가르칠 수 있는 단원에 적용한다면, 학습 내용의 구조와 평가 증거는 어떻게 맞추어야 할까?</p>
+<p class="reader-page-list">• 협동학습에서 말수가 적은 학생의 참여를 높이는 개입이 오히려 부담이나 낙인으로 작용하지 않게 하려면 어떤 절차가 필요할까?</p>
+<p class="reader-page-list">• 집단 점수와 개인 점수를 함께 사용할 때 공정성을 확보하기 위한 기준을 어떻게 설명할 수 있을까?</p>
+            <p class="page-number">24 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>형성 평가</h3>
+<p>협동학습을 단순한 모둠 활동과 구분하는 핵심 조건 두 가지를 쓰시오. 예시 답안: 긍정적 상호의존성과 개별 책무성이 필요하다. 학생들이 서로의 성공에 실제로 기여해야 하며, 각자의 이해와 기여도 따로 확인되어야 한다. 채점 기준: 상호의존성과 개인 책임을 모두 언급하고, 단순 좌석 배치와의 차이를 설명하면 적절하다.</p>
+<p>Jigsaw가 특히 적합한 학습 내용의 조건을 설명하시오. 예시 답안: 내용을 여러 부분으로 나눈 뒤 각 부분을 다시 통합해야 전체 이해가 완성되는 주제에 적합하다. 해설: Jigsaw는 부분 전문성과 원래 모둠의 상호 설명이 핵심이므로, 분절과 통합이 가능한 내용에서 장점이 크다.</p>
+<p>STAD에서 개인 향상 점수를 사용하는 이유로 가장 적절한 것은 무엇인가? ① 이미 성취가 높은 학생만 팀에 기여하게 하려는 것이다. ② 개인의 성장과 팀 목표를 연결하여 개별 책무성을 높이려는 것이다. ③ 집단 산출물 평가를 완전히 없애려는 것이다. ④ 게임 경쟁을 협동학습의 핵심으로 만들려는 것이다. 정답: ② 해설: STAD는 개인 퀴즈와 향상 점수를 통해 각 학생이 자신의 기준에서 성장하며 팀에 기여하도록 설계한다.</p>
+<p>TGT를 사용할 때 교사가 주의해야 할 점을 한 가지 쓰고 이유를 설명하시오. 예시 답안: 경쟁이 과열되어 학생들이 개념 설명보다 승패에 집중하지 않도록 해야 한다. 라운드 뒤 정답의 이유를 설명하게 하면 게임을 학습으로 연결할 수 있다. 루브릭: 경쟁 관리, 설명 확인, 학습 목표 유지 중 두 가지 이상을 연결하면 우수하다.</p>
+            <p class="page-number">25 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<p>협동학습 활동 후 집단 과정 성찰 질문을 두 가지 제안하시오. 예시 답안: &quot;오늘 우리 모둠에서 친구의 이해를 도운 행동은 무엇인가?&quot;, &quot;다음 활동에서 더 균형 있게 참여하려면 무엇을 바꾸어야 하는가?&quot; 채점 기준: 협동 행동을 구체적으로 돌아보고 다음 개선과 연결하는 질문이면 적절하다.</p>
+            <p class="page-number">26 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<h3>참고문헌</h3>
+<p>Johnson, D. W., &amp; Johnson, R. T. (2009). An educational psychology success story: Social interdependence theory and cooperative learning. Educational Researcher, 38(5), 365-379. https://doi.org/10.3102/0013189X09339057 ↩↩</p>
+<p>Cooperative Learning Institute. (n.d.). What is cooperative learning? https://www.co-operation.org/what-is-cooperative-learning ↩↩↩</p>
+<p>Slavin, R. E. (1982). Cooperative Learning: Student Teams. What Research Says to the Teacher. National Education Association. ERIC ED222489. https://eric.ed.gov/?id=ED222489 ↩↩↩↩↩↩↩</p>
+<p>The Jigsaw Classroom. (n.d.). The Jigsaw Classroom. Social Psychology Network. https://www.jigsaw.org/ ↩↩↩↩↩</p>
+            <p class="page-number">27 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<p>Aronson, E., Blaney, N., Stephin, C., Sikes, J., &amp; Snapp, M. (1978). The Jigsaw Classroom. Beverly Hills, CA: Sage Publishing Company. Metadata verified at https://www.jigsaw.org/information/ ↩↩</p>
+<p>Slavin, R. E. (1978). Student teams and achievement divisions. Journal of Research and Development in Education, 12(1), 39-49. ERIC EJ199082. https://eric.ed.gov/?id=EJ199082 ↩</p>
+<p>Edwards, K. J., &amp; DeVries, D. L. (1974). The Effects of Teams-Games-Tournament and Two Instructional Variations on Classroom Process, Student Attitudes, and Student Achievement. Report Number 172. Johns Hopkins University, Center for the Study of Social Organization of Schools. ERIC ED093883. https://eric.ed.gov/?id=ED093883 ↩↩</p>
+            <p class="page-number">28 / 29</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 06</p>
+<p>Slavin, R. E. (1995). Cooperative Learning: Theory, Research, and Practice (2nd ed.). Boston, MA: Allyn and Bacon. ISBN 0205156304. Google Books metadata verified at https://books.google.com/books/about/Cooperative_Learning.html?id=GWnuAAAAMAAJ. ↩</p>
+<p>Slavin, R. E., &amp; others. (1996). Research on cooperative learning and achievement: What we know, what we need to know. Contemporary Educational Psychology, 21(1), 43-69. ERIC EJ526831. https://eric.ed.gov/?id=EJ526831 ↩</p>
+            <p class="page-number">29 / 29</p>
+          </section>
+        </div>
+        <div class="reader-controls" data-reader-controls hidden><button class="button" type="button" data-page-prev>이전 페이지</button><button class="button" type="button" data-page-next>다음 페이지</button><span class="reader-status" data-reader-status aria-live="polite"></span></div>
+      </section>
+      <section class="static-content" id="content" aria-label="전체 텍스트 본문">
+        <h2>전체 텍스트 본문</h2>
 <h1 id="6">6장 협동학습 전략<a class="headerlink" href="#6" title="Permanent link">&para;</a></h1>
 <h2 id="_1">학습 목표<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>이 장을 학습한 뒤에는 다음을 설명할 수 있어야 한다.</p>
@@ -243,14 +465,6 @@ footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
 </li>
 </ol>
 </div>
-      <section class="flip-area reader-enhancement" data-reader-enhancement aria-label="책 넘김 미리보기">
-        <h2>책 넘김 미리보기</h2>
-        <p class="notice">본문 일부를 카드처럼 넘기며 장의 흐름을 확인할 수 있습니다. 전체 본문은 위 장 콘텐츠에서 선택하거나 복사해서 이용할 수 있습니다.</p>
-        <div class="flip-book" data-flip-book>
-          <section class="reader-page" data-reader-page><h3>6장 협동학습 전략</h3><p>본문을 카드처럼 넘기며 읽기 흐름을 확인합니다.</p><p><a href="../../book/part3/ch06/">텍스트 장으로 이동</a></p></section>
-          <section class="reader-page" data-reader-page><h3>읽기 경로</h3><p><a href="../../book/part3/ch06/">텍스트 장으로 이동</a></p><p><a href="../">책 넘김 목차로 이동</a></p></section>
-        </div>
-        <div class="reader-controls" data-reader-controls hidden><button class="button" type="button" data-page-prev>이전 페이지</button><button class="button" type="button" data-page-next>다음 페이지</button><span class="reader-status" data-reader-status aria-live="polite"></span></div>
       </section>
     </article>
     <aside class="reader-sidebar" aria-label="책 넘김 장 목록">
@@ -323,7 +537,7 @@ footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
       if (isRootReader && chapter) {
         status.textContent = "현재 페이지 " + pageLabel(chapter);
       } else {
-        status.textContent = "미리보기 " + (flipIndex + 1) + " / " + Math.max(1, pages.length);
+        status.textContent = "책장 " + (flipIndex + 1) + " / " + Math.max(1, pages.length);
       }
     }
 

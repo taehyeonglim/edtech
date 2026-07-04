@@ -73,6 +73,8 @@ READER_UX_HOOKS: Final[tuple[str, ...]] = (
     "isRootReader",
     "flipIndex",
     "pageFlip.flip(flipIndex)",
+    "책장 넘김 뷰어",
+    "static-content",
 )
 
 
@@ -301,6 +303,14 @@ def check_reader_routes(chapters: list[dict[str, Any]]) -> list[str]:
         for marker in ("data-reader-chapter", "data-reader-data", "data-reader-enhancement", "data-flip-book", "data-reader-page", "data-reader-controls"):
             if marker not in chapter_text:
                 errors.append(f"book-reader/{slug}/index.html missing G003 chapter reader hook: {marker}")
+        if "책장 넘김 뷰어" not in chapter_text:
+            errors.append(f"book-reader/{slug}/index.html missing full book-flip viewer label")
+        if "책 넘김 미리보기" in chapter_text:
+            errors.append(f"book-reader/{slug}/index.html still exposes preview-only copy")
+        if chapter_text.count("data-reader-page") < 6:
+            errors.append(f"book-reader/{slug}/index.html must generate multiple body reader pages, not a two-card preview")
+        if "static-content" not in chapter_text or "전체 텍스트 본문" not in chapter_text:
+            errors.append(f"book-reader/{slug}/index.html missing preserved full static text body below viewer")
         if row["textHrefFromReader"] not in chapter_text:
             errors.append(f"book-reader/{slug}/index.html missing exact text-mode link: {row['textHrefFromReader']}")
         if not re.search(r"<article\b[^>]*class=\"reader-content\"[^>]*>", chapter_text):

@@ -43,6 +43,8 @@ h1 { margin:0; color:inherit; font-size:clamp(2rem,4.8vw,3.65rem); line-height:1
 .button.primary { background:var(--navy); color:white; }
 .reader-layout { display:grid; grid-template-columns:minmax(0,1fr) 270px; gap:24px; align-items:start; }
 .reader-content { min-width:0; user-select:text; }
+.static-content { margin-top:34px; padding-top:22px; border-top:3px double var(--line); }
+.static-content > h2:first-child { margin-top:0; color:var(--navy); }
 .reader-content, .reader-content * { overflow-wrap:anywhere; }
 .reader-content pre { overflow-x:auto; white-space:pre-wrap; }
 .reader-content code { white-space:pre-wrap; word-break:break-word; }
@@ -61,26 +63,263 @@ h1 { margin:0; color:inherit; font-size:clamp(2rem,4.8vw,3.65rem); line-height:1
 .reader-sidebar { position:sticky; top:14px; padding:16px; border:1px solid var(--line); border-radius:14px; background:var(--soft); }
 .reader-sidebar ol { margin:10px 0 0; padding-left:22px; }
 .reader-sidebar a { text-decoration:none; font-weight:800; }
-.flip-area { margin:24px 0 0; padding:18px; border:1px dashed var(--line); border-radius:16px; background:white; }
+.flip-area { margin:0 0 26px; padding:22px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(135deg,#fff,var(--ivory)); box-shadow:0 18px 38px rgba(11,44,92,.1); }
 .flip-area[hidden], .reader-controls[hidden] { display:none !important; }
-.flip-book { width:100%; max-width:100%; min-height:220px; margin:0 auto; }
-.reader-page { width:360px; min-height:480px; padding:24px; border:1px solid var(--line); background:linear-gradient(90deg,rgba(11,44,92,.05),transparent 18px),var(--paper); color:var(--ink); overflow:hidden; }
-.reader-page h3 { margin-top:0; }
+.reader-viewer-lede { margin:0 0 18px; color:var(--muted); font-weight:800; }
+.flip-book { width:100%; max-width:100%; min-height:560px; margin:0 auto; }
+.reader-page { position:relative; width:410px; height:560px; padding:34px 34px 48px; border:1px solid var(--line); background:linear-gradient(90deg,rgba(11,44,92,.07),transparent 20px),linear-gradient(180deg,#fffdf8,#fffaf0); color:var(--ink); overflow:hidden; box-shadow:inset 14px 0 22px rgba(11,44,92,.06); }
+.reader-page h3 { margin:.4rem 0 .8rem; font-size:1.18rem; line-height:1.28; color:var(--navy); }
+.reader-page p { margin:.55rem 0; font-size:.95rem; line-height:1.58; }
+.reader-page .page-kicker { margin:0 0 .7rem; color:var(--gold); font-size:.75rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+.reader-page .reader-page-heading { color:var(--navy); font-weight:900; }
+.reader-page .reader-page-list { padding-left:.2rem; }
+.reader-page .page-number { position:absolute; right:24px; bottom:16px; color:var(--muted); font-size:.82rem; font-weight:900; }
 .reader-controls { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; align-items:center; }
 .reader-status { color:var(--muted); font-weight:800; }
 footer { border-top:1px solid var(--line); background:var(--soft); color:var(--muted); }
 footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; } }
 @media (max-width:900px) { .gateway, .reader-layout { grid-template-columns:1fr; } .reader-sidebar { position:static; } .reader-panel { padding:22px; } }
-@media (max-width:640px) { .wrap { width:min(100% - 24px,1120px); } .chapter-grid { grid-template-columns:1fr; } .reader-page { width:280px; min-height:400px; padding:18px; } .button { flex:1 1 160px; } }</style>
+@media (max-width:640px) { .wrap { width:min(100% - 24px,1120px); } .chapter-grid { grid-template-columns:1fr; } .flip-book { min-height:480px; } .reader-page { width:280px; height:480px; padding:24px 22px 42px; } .reader-page p { font-size:.88rem; line-height:1.5; } .button { flex:1 1 160px; } }</style>
   <script src="../../assets/vendor/page-flip/page-flip.browser.js" defer></script>
 </head>
 <body>
   <nav class="topnav wrap" aria-label="상위 경로"><a href="../">책 넘김 목차</a><span aria-hidden="true">|</span><a href="../../book/">교재 선택</a><span aria-hidden="true">|</span><a href="../../book/part2/ch05/">텍스트 장</a></nav>
-  <header class="hero wrap"><p class="eyebrow">교육방법 및 교육공학 · Chapter 05</p><h1>5장 교수이론과 수업모형</h1><p class="lead">전체 본문은 정적 HTML로 먼저 렌더링되어 텍스트 선택·복사와 링크 이동이 JavaScript 없이도 작동합니다.</p></header>
+  <header class="hero wrap"><p class="eyebrow">교육방법 및 교육공학 · Chapter 05</p><h1>5장 교수이론과 수업모형</h1><p class="lead">책장 넘김 뷰어가 장 본문을 여러 쪽으로 나누어 보여 주고, 전체 텍스트 본문은 같은 페이지 아래에 보존됩니다.</p></header>
   <main class="reader-panel wrap reader-layout" aria-label="05장 리더" data-reader-chapter="ch05">
-    <article class="reader-content" id="content">
+    <article class="reader-content">
       <div class="button-row"><a class="button primary" href="../../book/part2/ch05/">텍스트 장 읽기</a><a class="button" href="../">책 넘김 목차</a><a class="button" href="../ch04/">이전 장</a><a class="button" href="../ch06/">다음 장</a></div>
+      <section class="flip-area reader-enhancement" data-reader-enhancement aria-label="책장 넘김 뷰어">
+        <h2>책장 넘김 뷰어</h2>
+        <p class="reader-viewer-lede">이 장의 본문을 자동으로 여러 종이 페이지로 나눠 넘겨 봅니다. 전체 검색·복사·각주는 아래 전체 텍스트 본문에서 그대로 사용할 수 있습니다.</p>
+        <div class="flip-book" data-flip-book>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>5장 교수이론과 수업모형</h3>
+            <p class="page-number">1 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>학습 목표</h3>
+<p>이 장을 학습한 뒤에는 다음을 설명할 수 있어야 한다.</p>
+<p class="reader-page-list">• 문제기반학습과 탐구학습이 공통으로 요구하는 문제, 질문, 자료, 안내의 조건을 설명할 수 있다.</p>
+<p class="reader-page-list">• 자기주도학습과 자기조절학습을 구분하고, 두 관점이 수업 설계에서 어떻게 만나는지 말할 수 있다.</p>
+<p class="reader-page-list">• 정착수업과 목표기반시나리오가 맥락과 목표를 활용하여 학습 활동을 조직하는 방식을 설명할 수 있다.</p>
+            <p class="page-number">2 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<p class="reader-page-list">• 인지적 도제와 인지적 융통성 이론을 활용하여 복잡한 사고를 가르칠 때 필요한 지원과 사례 배치를 점검할 수 있다.</p>
+            <p class="page-number">3 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>웹 학습 보조</h3>
+<p>모형 선택 지도</p>
+<p>수업모형을 목표와 조건에 맞추기</p>
+<p>출처: 이 장의 교수이론과 수업모형 비교를 바탕으로 만든 자체 도식.</p>
+<p>모형 적용 활동</p>
+            <p class="page-number">4 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<p>모형 이름보다 설계 조건 쓰기</p>
+<p class="reader-page-list">• 목표 수행이 문제 해결, 탐구, 설명, 절차 숙달 중 어디에 가까운지 표시한다.</p>
+<p class="reader-page-list">• 학습자가 스스로 해야 할 일과 교사가 안내해야 할 일을 나눈다.</p>
+<p class="reader-page-list">• 평가가 산출물, 과정 기록, 설명, 성찰 중 무엇을 볼지 정한다.</p>
+<p>출처: 이 장의 모형 선택 원리를 바탕으로 만든 자체 활동.</p>
+            <p class="page-number">5 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<p>핵심 관점 수업모형은 처방전이 아니라 학습자가 무엇을 하며 배우는지 보는 렌즈다. 근거 읽기 PBL, 탐구, 자기조절, 정착수업, 인지적 도제는 필요한 문제, 자료, 안내, 평가 조건이 다르다. 수업 적용 모형을 고를 때 목표의 성격, 학습자 준비도, 평가 증거를 먼저 맞춘다.</p>
+            <p class="page-number">6 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>1. 교수이론과 수업모형을 읽는 관점</h3>
+<p>교수이론과 수업모형은 수업을 대신 설계해 주는 처방전이 아니다. 이 장에서 다루는 문제기반학습, 탐구학습, 자기주도학습, 자기조절학습, 정착수업, 목표기반시나리오, 인지적 도제, 인지적 융통성은 모두 &quot;학습자가 무엇을 하면서 배우는가&quot;에 대한 서로 다른 강조점을 가진다. 어떤 모형은 문제를, 어떤 모형은 질문을, 어떤 모형은 목표와 역할을, 어떤 모형은 전문가의 사고 과정과 복잡한 사례를 앞세운다.</p>
+<p>따라서 예비교사는 모형의 이름을 암기하기보다 세 가지 질문을 반복해야 한다. 첫째, 이 모형은 어떤 종류의 학습 결과에 잘 맞는가? 둘째, 학습자가 막힐 때 교사는 어떤 안내를 제공해야 하는가? 셋째, 이 모형이 요구하는 시간, 자료, 평가 조건을 실제 교실에서 감당할 수 있는가? 같은 구성주의 계열의 모형이라도 문제의 구조, 교사의 역할, 학습자 자율성, 평가 증거는 다르게 설계된다.</p>
+<p>모형 적용의 주의점</p>
+<p>이 장의 모형들은 특정 수업을 자동으로 성공시키는 방법 목록이 아니다. 본문에서는 검증된 문헌에 근거해 각 모형의 설계 논리와 제한 조건을 설명하며, 문헌으로 확인하지 못한 효과 주장은 넣지 않는다.</p>
+            <p class="page-number">7 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>2. 문제와 탐구를 중심에 두는 수업</h3>
+<p>문제기반학습은 학습자가 복잡한 문제를 다루면서 무엇을 더 알아야 하는지 찾고, 필요한 지식을 학습한 뒤, 다시 문제 해결에 적용하도록 조직하는 수업 접근이다. Barrows와 Tamblyn의 1980년 저서는 의학교육 맥락에서 문제 해결을 통해 장래에 사용할 수 있는 지식과 임상적 문제 해결 능력을 기르려는 접근으로 문제기반학습을 제시하였다.1 Hmelo-Silver는 문제기반학습을 하나의 정답이 없는 복잡한 문제를 중심으로, 학습자가 협력 집단 안에서 학습 필요를 확인하고 자기주도학습을 거쳐 새 지식을 문제에 적용하며 성찰하는 방식으로 설명한다.2</p>
+<p>이 설명에서 중요한 것은 &quot;문제&quot;가 단순 연습문제가 아니라는 점이다. 문제기반학습의 문제는 이미 배운 공식을 대입하는 문항이 아니라, 학습자가 상황을 해석하고, 모르는 것을 드러내고, 필요한 자료를 찾게 만드는 출발점이다. 교사는 정답을 빠르게 알려 주는 사람이 아니라 문제를 명료화하고, 자료 탐색을 돕고, 토의가 목표에서 벗어나지 않도록 조정하는 촉진자에 가깝다.2</p>
+<p>문제기반학습을 설계할 때에는 문제 상황, 학습 자원, 집단 활동, 개별 학습, 공유와 성찰의 흐름이 연결되어야 한다. 예를 들어 과학 수업에서 &quot;우리 학교 주변 하천의 수질을 설명하라&quot;는 문제를 제시한다면, 학생은 수질 지표, 오염원, 표본 수집, 자료 해석, 해결 방안 제안을 함께 다루어야 한다. 이때 평가는 최종 답안만이 아니라 문제 정의, 자료 선택, 근거 사용, 협력 과정, 성찰을 함께 보아야 한다.</p>
+            <p class="page-number">8 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<p>탐구학습은 학습자가 질문을 만들고, 자료를 수집하거나 분석하며, 근거에 비추어 설명을 구성하는 과정을 중시한다. National Research Council의 Inquiry and the National Science Education Standards는 탐구를 과학자가 자연 세계를 연구하는 다양한 방식이자, 학생이 과학 지식과 지식 산출 방법을 이해하는 방식으로 설명한다.3 이 문헌은 탐구 수업에서 교사가 언제, 얼마나 구조화와 안내를 제공할지 판단해야 한다는 점도 강조한다.3</p>
+<p>탐구학습은 &quot;학생에게 맡겨 두는 수업&quot;과 다르다. 질문이 너무 넓으면 학습자는 무엇을 해야 할지 모른다. 자료가 너무 빈약하면 설명은 추측으로 흐른다. 반대로 절차가 너무 촘촘하면 탐구는 지시 수행이 된다. 좋은 탐구 수업은 질문의 폭, 자료의 신뢰성, 도구 사용, 중간 점검, 설명의 근거 기준을 설계한다. Bruner의 1961년 논문은 발견을 통한 학습의 교육적 가능성을 논의한 고전으로 자주 언급되지만,4 오늘의 교실 설계에서는 발견 그 자체보다 적절한 안내와 증거 사용의 질을 함께 보아야 한다.</p>
+            <p class="page-number">9 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>3. 자기주도성과 자기조절을 기르는 수업</h3>
+<p>자기주도학습은 학습자가 자신의 학습 목표, 자원, 활동, 평가를 일정 정도 스스로 계획하고 실행하는 능력과 관련된다. Knowles의 Self-Directed Learning은 학습자를 위한 부분, 교사를 위한 부분, 학습 자원 부분으로 구성되며, 학습 계약, 자기평가, 목표 진술, 자원 활용 같은 절차를 포함한다.5 이 관점에서 교사의 역할은 모든 내용을 전달하는 사람이라기보다, 학습자가 계획을 세우고 자원을 찾고 결과를 점검하도록 돕는 촉진자에 가깝다.</p>
+<p>다만 자기주도학습을 학생에게 모든 책임을 넘기는 방식으로 이해하면 곤란하다. 학습자가 목표를 정할 경험이 부족하거나, 자료의 질을 판단할 기준이 없거나, 시간을 관리하는 방법을 모르면 자율성은 오히려 방임이 된다. 따라서 학교 수업에서 자기주도학습은 안내된 자율성으로 설계되어야 한다. 목표 선택지를 제공하고, 탐색할 자료 범위를 좁혀 주며, 중간 산출물을 제출하게 하고, 자기평가 기준을 함께 만드는 방식이 필요하다.</p>
+<p>자기조절학습은 학습자가 자신의 인지, 동기, 행동을 목표 달성을 위해 조절하는 과정에 더 초점을 둔다. Zimmerman의 2002년 논문은 자기조절학습을 이론적으로 개관하면서, 학습자의 자기조절이 개인차를 보완하고 학습 전략을 안내하는 문제와 관련된다고 설명한다.6 자기주도학습이 학습의 주도권과 계획의 문제를 넓게 다룬다면, 자기조절학습은 목표 설정, 전략 사용, 자기점검, 피드백 반영처럼 학습 과정 안에서 일어나는 조절을 더 세밀하게 본다.</p>
+            <p class="page-number">10 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<p>예비교사가 수업을 설계할 때 두 관점은 함께 작동한다. 프로젝트 주제를 선택하게 하는 것은 자기주도성을 넓히는 장치가 될 수 있다. 그러나 그 프로젝트를 끝까지 수행하려면 학습자는 일정표를 세우고, 자료를 평가하고, 초안을 점검하고, 피드백을 반영해야 한다. 이것이 자기조절의 문제다. 따라서 &quot;자율 프로젝트&quot;라는 이름만 붙이는 것으로 충분하지 않다. 목표표, 진행 점검표, 전략 선택 활동, 자기평가와 동료 피드백이 수업 구조 안에 들어와야 한다.</p>
+            <p class="page-number">11 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>4. 시나리오와 맥락으로 지식을 묶는 수업</h3>
+<p>정착수업은 학습을 풍부한 맥락에 정착시키려는 접근이다. Cognition and Technology Group at Vanderbilt의 1990년 논문은 정착수업을 비디오디스크 기반 문제 해결 환경에 수업을 정착시키는 방식으로 설명하며, 상황인지 관점과 연결한다.7 여기서 &quot;정착&quot;은 단순히 재미있는 영상을 보여 주는 일이 아니다. 학습자가 함께 참조할 수 있는 공통의 사례, 자료, 문제 상황을 마련하여 개념과 절차가 실제 문제 해결 맥락 안에서 쓰이도록 하는 일이다.</p>
+<p>정착수업을 설계하려면 앵커가 충분히 정보 풍부해야 한다. 앵커가 너무 얇으면 학생은 다시 교사의 설명에만 의존한다. 앵커가 너무 복잡하면 핵심 학습 목표가 흐려진다. 예를 들어 수학 수업에서 지역 축제 예산과 동선 자료를 앵커로 삼는다면, 학생은 비율, 거리, 비용, 제약 조건을 함께 검토할 수 있다. 이때 앵커는 배경 장식이 아니라 질문 생성, 자료 분석, 해결안 비교의 기준점이 된다.</p>
+<p>목표기반시나리오는 학습자가 의미 있는 목표를 달성하려고 활동하는 구조를 앞세운다. Schank의 1992년 기술보고서는 목표기반시나리오가 학습자로 하여금 잘 정의된 목표를 추구하게 하고, 그 목표 달성에 필요한 기능과 사례를 배우도록 조직한다고 설명한다.8 이 관점에서 중요한 설계 질문은 &quot;학습자가 왜 이 지식을 배워야 하는가&quot;에 대한 답을 수업 상황 안에 넣는 것이다.</p>
+            <p class="page-number">12 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<p>목표기반시나리오의 예로는 &quot;학교 안전 캠페인 기획자&quot;, &quot;지역 박물관 전시 해설자&quot;, &quot;가상의 창업 팀 데이터 분석가&quot; 같은 역할을 들 수 있다. 학생은 역할 안에서 산출물을 만들어야 하며, 그 산출물을 만들기 위해 교과 지식과 기능을 사용한다. 그러나 역할극이 곧 목표기반시나리오는 아니다. 목표, 역할, 필요한 지식, 의사결정 지점, 피드백, 최종 산출물이 서로 맞아야 한다.</p>
+            <p class="page-number">13 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>5. 전문가의 사고를 보이게 하는 수업</h3>
+<p>인지적 도제는 전통적 도제의 장점을 읽기, 쓰기, 수학 문제 해결 같은 인지적 과제에 맞게 재구성하려는 접근이다. Collins, Brown, Newman의 인지적 도제 논의는 학교 지식이 실제 사용 맥락에서 분리될 때 학생이 전문가의 사고 과정을 보기 어렵다는 문제에서 출발한다.9 이후 Collins, Brown, Holum의 글은 인지적 도제 환경의 방법 요소로 모델링, 코칭, 스캐폴딩, 명료화, 성찰, 탐색을 정리한다.10</p>
+<p>모델링은 교사가 전문가의 수행을 보여 주는 것이다. 여기서 보여 준다는 말은 정답 과정만 칠판에 쓰는 일이 아니다. 문제를 읽고 무엇을 먼저 볼지, 어떤 단서를 의심할지, 어떤 전략을 버릴지까지 드러내야 한다. 코칭은 학생이 수행하는 동안 관찰하고 필요한 피드백을 제공하는 일이다. 스캐폴딩은 학생 혼자 하기 어려운 부분에 임시 지원을 제공하고, 점차 그 지원을 줄이는 일이다.</p>
+<p>명료화와 성찰은 사고를 말로 드러내고 비교하게 만든다. 학생은 자신의 풀이 이유를 설명하고, 친구나 전문가의 풀이와 비교하며, 차이를 근거로 수정한다. 탐색은 지원이 줄어든 뒤 학생이 스스로 문제를 설정하거나 해결 경로를 찾아보는 단계다. 따라서 인지적 도제 수업은 &quot;시범 뒤 따라 하기&quot;에서 끝나지 않는다. 전문가 사고의 가시화, 안내된 수행, 점진적 독립, 비교와 성찰이 함께 있어야 한다.</p>
+            <p class="page-number">14 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>6. 복잡한 지식을 여러 사례로 다루는 수업</h3>
+<p>인지적 융통성 이론은 복잡하고 비구조화된 지식 영역에서 단순화된 설명만으로는 전이가 어렵다는 문제의식에서 출발한다. Spiro와 동료들의 1988년 ERIC 기록은 이 이론이 고급 지식 습득, 비구조화 영역, 과도한 단순화로 인한 오개념, 여러 표상, 지식 요소 사이의 다양한 연결, 적용 사례의 중심성을 강조한다고 요약한다.11</p>
+<p>이 관점은 특히 하나의 원리가 늘 같은 방식으로 적용되지 않는 영역에서 중요하다. 역사적 사건 해석, 문학 작품 분석, 윤리적 판단, 임상 추론, 복잡한 과학 개념은 하나의 정의나 절차만으로 충분하지 않다. 학습자는 여러 사례를 오가며 관점, 조건, 예외, 연결을 재구성해야 한다. 인지적 융통성은 이미 완성된 도식을 그대로 꺼내 쓰는 능력보다, 상황에 맞게 지식을 다시 조직하는 능력에 가깝다.</p>
+<p>수업 설계에서는 사례의 수와 배열이 중요하다. 한 사례만 깊이 다루면 학생은 그 사례의 표면 특징을 일반 원리로 오해할 수 있다. 반대로 많은 사례를 빠르게 나열하면 연결이 약해진다. 교사는 서로 다른 사례를 비교하게 하고, 같은 개념이 어떤 조건에서는 다르게 나타나는지 묻고, 학습자가 설명을 수정하도록 해야 한다. 하이퍼텍스트나 디지털 자료는 이런 다중 경로 탐색을 지원할 수 있지만, 기술 자체가 인지적 융통성을 보장하지는 않는다.</p>
+            <p class="page-number">15 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>7. 수업모형 선택을 위한 통합 점검</h3>
+<p>이 장의 모형들은 서로 배타적이지 않다. 문제기반학습 안에는 자기주도학습과 자기조절학습이 들어갈 수 있고, 정착수업은 인지적 도제나 목표기반시나리오와 결합될 수 있다. 탐구학습에서도 교사는 모델링과 스캐폴딩을 제공할 수 있다. 중요한 것은 여러 이름을 한 수업에 붙이는 일이 아니라, 목표와 조건에 맞게 설계 요소를 조합하는 일이다.</p>
+<p>수업모형을 선택할 때에는 먼저 목표의 성격을 보아야 한다. 사실 기억이 핵심인 짧은 수업에 복잡한 시나리오를 억지로 붙이면 비효율적일 수 있다. 반대로 실제 문제 해결, 설명 구성, 판단, 전이가 중요한 목표라면 문제, 탐구, 맥락, 사례 비교가 필요할 수 있다. 둘째, 학습자의 준비도를 보아야 한다. 자율성이 필요한 모형일수록 목표 설정, 자료 탐색, 시간 관리, 협력 규칙을 지원해야 한다. 셋째, 평가를 보아야 한다. 모형이 복잡한 수행을 요구한다면 평가는 단답형 지식 확인만으로 충분하지 않다.</p>
+<p>예비교사에게 가장 현실적인 출발점은 작은 설계 단위에서 모형의 핵심 원리를 적용해 보는 것이다. 한 차시 전체를 문제기반학습으로 바꾸기 어렵다면, 도입 문제를 통해 학습 필요를 드러내고, 짧은 자기조절 점검표를 붙이며, 마지막에 다른 사례로 전이를 확인할 수 있다. 중요한 것은 모형의 이름이 아니라 학습자가 더 깊이 사고하도록 만드는 조건을 의도적으로 설계하는 것이다.</p>
+            <p class="page-number">16 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>도입 사례</h3>
+<p>창작 시나리오. 고등학교 통합사회 수업을 준비하는 예비교사 서연은 &quot;지역의 교통 약자를 위한 이동권 개선 방안을 제안한다&quot;라는 프로젝트를 구상했다. 처음에는 문제기반학습이라고 이름 붙였지만, 실제 수업안을 보니 학생들이 무엇을 조사해야 하는지, 자료의 신뢰성을 어떻게 판단해야 하는지, 중간 피드백은 언제 받는지 분명하지 않았다. 서연은 문제 상황을 더 좁히고, 버스 정류장 접근성 지도, 인터뷰 질문 예시, 정책 제안서 루브릭을 제공했다. 또한 모둠별 역할과 자기조절 점검표를 넣어 학생 자율성을 방임이 아니라 안내된 수행으로 바꾸었다.</p>
+            <p class="page-number">17 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>핵심 용어</h3>
+<p class="reader-page-list">• 문제기반학습: 복잡한 문제를 출발점으로 학습 필요를 확인하고 지식을 탐색·적용·성찰하는 수업 접근.</p>
+<p class="reader-page-list">• 탐구학습: 질문, 자료 수집과 분석, 근거에 기반한 설명 구성을 중심으로 하는 학습 접근.</p>
+<p class="reader-page-list">• 자기조절학습: 학습자가 목표 달성을 위해 인지, 동기, 행동을 계획·점검·조정하는 과정.</p>
+<p class="reader-page-list">• 정착수업: 풍부한 공통 맥락이나 앵커를 중심으로 지식과 문제 해결을 연결하는 수업 접근.</p>
+            <p class="page-number">18 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<p class="reader-page-list">• 인지적 도제: 전문가의 사고 과정을 보이게 하고, 코칭과 스캐폴딩을 통해 학습자의 독립 수행을 돕는 접근.</p>
+            <p class="page-number">19 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>이론과 연구 확장</h3>
+<p class="reader-page-heading">문제와 탐구는 안내의 질로 성패가 갈린다</p>
+<p>문제기반학습은 복잡한 문제를 통해 학습 필요를 드러내고 새 지식을 적용하게 하지만, 학습자를 혼자 내버려 두는 방식은 아니다.2 탐구학습도 질문, 자료, 근거, 설명의 질을 요구하며 교사의 구조화와 안내가 필요하다.3 따라서 예비교사는 문제나 질문을 제시한 뒤 &quot;학생 주도&quot;라고 말하는 데서 멈추지 말고, 자료 범위, 중간 점검, 피드백, 평가 기준을 함께 설계해야 한다.</p>
+<p class="reader-page-heading">자기주도성과 자기조절은 역할이 다르지만 함께 필요하다</p>
+<p>Knowles의 자기주도학습 논의는 학습자가 목표, 자원, 활동, 평가에 참여하는 절차를 강조한다.5 Zimmerman의 자기조절학습 논의는 목표 설정, 전략 사용, 자기점검, 피드백 반영처럼 학습 과정의 조절을 더 세밀하게 본다.6 학교 수업에서 학생에게 주제 선택권을 주었다면, 동시에 일정 관리표, 자료 평가 기준, 성찰 질문을 제공해야 자율성이 실제 학습으로 이어진다.</p>
+            <p class="page-number">20 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<p class="reader-page-heading">맥락과 역할은 지식 사용의 이유를 만든다</p>
+<p>정착수업은 학습을 풍부한 문제 맥락에 정착시켜 학생들이 자료와 상황을 함께 참조하도록 한다.7 목표기반시나리오는 학습자가 의미 있는 목표와 역할을 수행하면서 필요한 지식과 기능을 배우도록 조직한다.8 그러나 흥미로운 이야기나 역할극만으로는 충분하지 않다. 앵커, 역할, 의사결정 지점, 피드백, 최종 산출물이 학습 목표와 연결되어야 한다.</p>
+<p class="reader-page-heading">전문가 사고와 복잡한 사례는 전이를 돕는다</p>
+<p>인지적 도제는 모델링, 코칭, 스캐폴딩, 명료화, 성찰, 탐색을 통해 전문가 사고를 드러내고 학습자가 점차 독립하도록 돕는다.10 인지적 융통성 이론은 복잡하고 비구조화된 지식 영역에서 여러 사례와 표상을 오가며 지식을 재구성해야 함을 강조한다.11 문학 작품 해석이나 윤리적 판단처럼 하나의 절차가 항상 통하지 않는 과제에서는 다양한 사례 비교와 사고 과정의 언어화가 중요하다.</p>
+            <p class="page-number">21 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>토론 질문</h3>
+<p class="reader-page-list">• 문제기반학습에서 &quot;좋은 문제&quot;와 단순한 긴 서술형 문제는 어떤 점에서 다른가?</p>
+<p class="reader-page-list">• 자기주도학습을 방임으로 만들지 않기 위해 교사는 어떤 최소 지원을 제공해야 하는가?</p>
+<p class="reader-page-list">• 정착수업이나 목표기반시나리오를 적용할 때 흥미로운 맥락이 학습 목표를 가리는 상황을 어떻게 막을 수 있는가?</p>
+<p class="reader-page-list">• 인지적 도제에서 교사의 사고 과정을 드러내는 일이 학생에게 어떤 도움을 주며, 어떤 위험을 가질 수 있는가?</p>
+            <p class="page-number">22 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>형성 평가</h3>
+<p>문제기반학습 수업 문제의 조건을 두 가지 이상 쓰시오. 예시 답안: 하나의 정답으로 닫히지 않고, 학습자가 모르는 것을 찾게 하며, 자료 탐색과 근거 있는 해결안을 요구해야 한다. 채점 기준: 복잡성, 학습 필요 유발, 자료·근거 활용 중 두 가지 이상을 포함하면 적절하다.</p>
+<p>자기주도학습과 자기조절학습의 차이를 설명하시오. 예시 답안: 자기주도학습은 목표와 자원, 활동 선택에 대한 학습자의 주도성을 넓게 다루고, 자기조절학습은 목표 달성을 위한 전략 사용, 점검, 피드백 반영 과정을 세밀하게 다룬다. 해설: 두 개념은 겹치지만 하나는 학습 운영의 주도권, 다른 하나는 과정 조절에 더 초점을 둔다.</p>
+<p>정착수업에서 앵커가 배경 장식에 머물지 않으려면 어떤 조건이 필요한가? 예시 답안: 앵커 안에 문제 해결에 필요한 정보와 제약이 포함되어야 하며, 학생 활동과 평가가 그 앵커를 계속 참조해야 한다. 해설: 앵커는 흥미 유발 자료가 아니라 공동 문제 해결의 기준점이어야 한다.</p>
+<p>인지적 도제의 방법 요소 중 두 가지를 고르고 교실 활동 예를 쓰시오. 예시 답안: 모델링-교사가 글의 주장 찾기 과정을 소리 내어 보여 준다. 코칭-학생 토론 중 근거가 약한 부분을 질문으로 되묻는다. 루브릭: 요소 이름과 활동 예가 서로 맞고, 전문가 사고 또는 지원 감소와 연결되면 우수하다.</p>
+            <p class="page-number">23 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<p>인지적 융통성 이론 관점에서 하나의 사례만 반복해서 가르칠 때 생길 수 있는 문제를 설명하시오. 예시 답안: 학생이 그 사례의 표면 특징을 일반 원리로 오해하여 다른 조건의 사례에 지식을 전이하지 못할 수 있다. 해설: 복잡한 영역에서는 여러 사례와 표상을 비교하며 지식을 재구성해야 한다.</p>
+            <p class="page-number">24 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>요약</h3>
+<p>문제기반학습은 복잡한 문제를 중심으로 학습 필요 확인, 자기주도학습, 적용과 성찰을 조직한다. 탐구학습은 질문, 자료, 근거, 설명 구성의 과정을 중시하며, 방임이 아니라 적절한 안내를 요구한다. 자기주도학습은 학습 목표와 자원, 평가를 학습자가 계획하고 실행하는 능력과 관련되고, 자기조절학습은 목표 달성을 위한 인지, 동기, 행동의 조절을 강조한다. 정착수업은 공통의 풍부한 맥락에 학습을 정착시키고, 목표기반시나리오는 의미 있는 목표와 역할을 통해 지식 사용의 이유를 만든다. 인지적 도제는 전문가 사고를 보이게 하고 점진적으로 지원을 줄이며, 인지적 융통성 이론은 복잡한 영역에서 여러 표상과 사례를 오가며 지식을 재구성하게 한다.</p>
+            <p class="page-number">25 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>생각해보기</h3>
+<p class="reader-page-list">• 내가 설계할 수업 목표 하나를 고르고, 이 장의 모형 중 가장 적절한 것과 적절하지 않은 것을 각각 하나씩 골라 이유를 설명해 보자.</p>
+<p class="reader-page-list">• 문제기반학습이나 탐구학습을 적용할 때 학습자에게 제공해야 할 최소한의 안내는 무엇인가?</p>
+<p class="reader-page-list">• 인지적 도제의 여섯 방법 요소 중 내가 가장 자주 놓치는 것은 무엇이며, 다음 수업에서 어떻게 보완할 수 있을까?</p>
+<p class="reader-page-list">• 하나의 개념을 여러 사례로 가르쳐야 하는 주제를 찾아보고, 사례 간 비교 질문 세 가지를 만들어 보자.</p>
+            <p class="page-number">26 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<h3>참고문헌</h3>
+<p>Barrows, H. S., &amp; Tamblyn, R. M. (1980). Problem-Based Learning: An Approach to Medical Education. Springer Publishing Company. Metadata verified through Google Books at https://books.google.com/books/about/Problem_Based_Learning.html?id=9u-5DJuQq2UC. ↩</p>
+<p>Hmelo-Silver, C. E. (2004). Problem-based learning: What and how do students learn? Educational Psychology Review, 16, 235-266. https://doi.org/10.1023/B:EDPR.0000034022.16470.f3. Publisher metadata verified at https://link.springer.com/article/10.1023/B:EDPR.0000034022.16470.f3. ↩↩↩</p>
+<p>National Research Council. (2000). Inquiry and the National Science Education Standards: A Guide for Teaching and Learning. Washington, DC: The National Academies Press. https://doi.org/10.17226/9596. Publisher metadata verified at https://www.nationalacademies.org/publications/9596. ↩↩↩</p>
+            <p class="page-number">27 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<p>Bruner, J. S. (1961). The act of discovery. Harvard Educational Review, 31, 21-32. Metadata verified through Semantic Scholar at https://www.semanticscholar.org/paper/The-act-of-discovery.-Bruner/6a42018b90ff4ce38915c341c11f471f8e8d165f. ↩</p>
+<p>Knowles, M. S. (1975). Self-Directed Learning: A Guide for Learners and Teachers. Association Press. ERIC metadata verified at https://eric.ed.gov/?id=ED114653; Internet Archive metadata inspected at https://archive.org/details/selfdirectedlear0000know. ↩↩</p>
+<p>Zimmerman, B. J. (2002). Becoming a self-regulated learner: An overview. Theory Into Practice, 41(2), 64-72. ERIC metadata verified at https://eric.ed.gov/?id=EJ656632. ↩↩</p>
+            <p class="page-number">28 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<p>Cognition and Technology Group at Vanderbilt. (1990). Anchored instruction and its relationship to situated cognition. Educational Researcher, 19(6), 2-10. https://doi.org/10.3102/0013189X019006002. Publisher metadata verified at https://journals.sagepub.com/doi/10.3102/0013189X019006002. ↩↩</p>
+<p>Schank, R. C. (1992). Goal-Based Scenarios (Technical Report No. 36). Institute for the Learning Sciences, Northwestern University. Text and metadata inspected through the University of Southampton Web Archive at https://web-archive.southampton.ac.uk/cogprints.org/624/1/V11ANSEK.html. ↩↩</p>
+            <p class="page-number">29 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<p>Collins, A., Brown, J. S., &amp; Newman, S. E. (1989). Cognitive apprenticeship: Teaching the craft of reading, writing, and mathematics. In L. B. Resnick (Ed.), Knowing, Learning, and Instruction: Essays in Honor of Robert Glaser. Lawrence Erlbaum Associates. Bibliographic entry verified through American Federation of Teachers reference metadata at https://www.aft.org/ae/winter1991/collins_brown_holum; ERIC technical report lead inspected at https://eric.ed.gov/?id=ED284181. ↩</p>
+<p>Collins, A., Brown, J. S., &amp; Holum, A. (1991). Cognitive apprenticeship. American Educator, 15(3). Public article inspected at https://www.aft.org/ae/winter1991/collins_brown_holum. ↩↩</p>
+            <p class="page-number">30 / 31</p>
+          </section>
+          <section class="reader-page" data-reader-page>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 05</p>
+<p>Spiro, R. J., Coulson, R. L., Feltovich, P. J., &amp; Anderson, D. K. (1988). Cognitive Flexibility Theory: Advanced Knowledge Acquisition in Ill-Structured Domains (Technical Report No. 441). Center for the Study of Reading, University of Illinois at Urbana-Champaign. ERIC metadata verified at https://eric.ed.gov/?id=ED302821. ↩↩</p>
+            <p class="page-number">31 / 31</p>
+          </section>
+        </div>
+        <div class="reader-controls" data-reader-controls hidden><button class="button" type="button" data-page-prev>이전 페이지</button><button class="button" type="button" data-page-next>다음 페이지</button><span class="reader-status" data-reader-status aria-live="polite"></span></div>
+      </section>
+      <section class="static-content" id="content" aria-label="전체 텍스트 본문">
+        <h2>전체 텍스트 본문</h2>
 <h1 id="5">5장 교수이론과 수업모형<a class="headerlink" href="#5" title="Permanent link">&para;</a></h1>
 <h2 id="_1">학습 목표<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>이 장을 학습한 뒤에는 다음을 설명할 수 있어야 한다.</p>
@@ -252,14 +491,6 @@ footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
 </li>
 </ol>
 </div>
-      <section class="flip-area reader-enhancement" data-reader-enhancement aria-label="책 넘김 미리보기">
-        <h2>책 넘김 미리보기</h2>
-        <p class="notice">본문 일부를 카드처럼 넘기며 장의 흐름을 확인할 수 있습니다. 전체 본문은 위 장 콘텐츠에서 선택하거나 복사해서 이용할 수 있습니다.</p>
-        <div class="flip-book" data-flip-book>
-          <section class="reader-page" data-reader-page><h3>5장 교수이론과 수업모형</h3><p>본문을 카드처럼 넘기며 읽기 흐름을 확인합니다.</p><p><a href="../../book/part2/ch05/">텍스트 장으로 이동</a></p></section>
-          <section class="reader-page" data-reader-page><h3>읽기 경로</h3><p><a href="../../book/part2/ch05/">텍스트 장으로 이동</a></p><p><a href="../">책 넘김 목차로 이동</a></p></section>
-        </div>
-        <div class="reader-controls" data-reader-controls hidden><button class="button" type="button" data-page-prev>이전 페이지</button><button class="button" type="button" data-page-next>다음 페이지</button><span class="reader-status" data-reader-status aria-live="polite"></span></div>
       </section>
     </article>
     <aside class="reader-sidebar" aria-label="책 넘김 장 목록">
@@ -332,7 +563,7 @@ footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
       if (isRootReader && chapter) {
         status.textContent = "현재 페이지 " + pageLabel(chapter);
       } else {
-        status.textContent = "미리보기 " + (flipIndex + 1) + " / " + Math.max(1, pages.length);
+        status.textContent = "책장 " + (flipIndex + 1) + " / " + Math.max(1, pages.length);
       }
     }
 
