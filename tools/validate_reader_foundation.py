@@ -70,6 +70,9 @@ READER_UX_HOOKS: Final[tuple[str, ...]] = (
     "window.location.hash",
     "?chapter=ch03",
     "#ch03",
+    "isRootReader",
+    "flipIndex",
+    "pageFlip.flip(flipIndex)",
 )
 
 

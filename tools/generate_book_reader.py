@@ -459,11 +459,27 @@ def script() -> str:
     var controls = document.querySelector("[data-reader-controls]");
     var status = document.querySelector("[data-reader-status]");
     var chapters = data && data.chapters ? data.chapters : [];
+    var pages = Array.prototype.slice.call(document.querySelectorAll("[data-reader-page]"));
+    var isRootReader = data && data.page === "reader-root";
     var selected = chapterFromUrl(data);
     var currentSlug = data && data.current ? String(data.current).toLowerCase() : "";
     var current = currentSlug ? chapters.find(function (chapter) { return chapter.slug === currentSlug; }) : null;
     var activeIndex = selected ? chapters.findIndex(function (chapter) { return chapter.slug === selected.slug; }) : (current ? chapters.findIndex(function (chapter) { return chapter.slug === current.slug; }) : 0);
     if (activeIndex < 0) activeIndex = 0;
+    var flipIndex = isRootReader ? activeIndex : 0;
+
+    function pageLabel(chapter) {
+      return chapter.index.toString().padStart(2, "0");
+    }
+
+    function updateStatus(chapter) {
+      if (!status) return;
+      if (isRootReader && chapter) {
+        status.textContent = "현재 페이지 " + pageLabel(chapter);
+      } else {
+        status.textContent = "미리보기 " + (flipIndex + 1) + " / " + Math.max(1, pages.length);
+      }
+    }
 
     function setSelected(chapter, pushHash) {
       if (!chapter) return;
@@ -475,19 +491,23 @@ def script() -> str:
       var source = document.querySelector("[data-preview-source]");
       var reader = document.querySelector("[data-preview-reader]");
       var text = document.querySelector("[data-preview-text]");
-      if (title) title.textContent = chapter.index.toString().padStart(2, "0") + ". " + chapter.title;
+      if (title) title.textContent = pageLabel(chapter) + ". " + chapter.title;
       if (source) source.textContent = "선택한 장의 텍스트 장을 함께 제공합니다.";
       if (reader) reader.setAttribute("href", chapter.readerHref || chapter.readerRoute || chapter.slug + "/");
       if (text) text.setAttribute("href", chapter.textHref || "../book/" + chapter.textRoute.replace(/^book\\//, ""));
-      if (status) status.textContent = "현재 페이지 " + chapter.index.toString().padStart(2, "0");
-      if (pushHash && window.history && window.location.hash !== "#" + chapter.slug) {
+      updateStatus(chapter);
+      if (isRootReader && pushHash && window.history && window.location.hash !== "#" + chapter.slug) {
         window.history.replaceState(null, "", "#" + chapter.slug);
       }
     }
 
+    function clampIndex(index, max) {
+      return Math.max(0, Math.min(Math.max(0, max - 1), index));
+    }
+
     setSelected(chapters[activeIndex], false);
 
-    if (!holder || reducedMotion || !window.St || !window.St.PageFlip) {
+    if (!holder || reducedMotion || !window.St || !window.St.PageFlip || pages.length === 0) {
       if (controls) controls.hidden = true;
       return;
     }
@@ -508,17 +528,39 @@ def script() -> str:
       showCover: false,
       mobileScrollSupport: true
     });
-    pageFlip.loadFromHTML(document.querySelectorAll("[data-reader-page]"));
-    if (typeof pageFlip.flip === "function" && activeIndex > 0) pageFlip.flip(activeIndex);
+    pageFlip.loadFromHTML(pages);
+    if (typeof pageFlip.flip === "function" && flipIndex > 0) pageFlip.flip(flipIndex);
     if (controls) controls.hidden = false;
+
+    function flipTo(index, pushHash) {
+      if (isRootReader) {
+        activeIndex = clampIndex(index, chapters.length);
+        flipIndex = clampIndex(activeIndex, pages.length);
+        setSelected(chapters[activeIndex], pushHash);
+        if (typeof pageFlip.flip === "function") pageFlip.flip(flipIndex);
+      } else {
+        flipIndex = clampIndex(index, pages.length);
+        updateStatus(chapters[activeIndex]);
+        if (typeof pageFlip.flip === "function") pageFlip.flip(flipIndex);
+      }
+    }
+
+    if (isRootReader) {
+      document.querySelectorAll("[data-chapter-link]").forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          var slug = link.getAttribute("data-chapter-link");
+          var index = chapters.findIndex(function (chapter) { return chapter.slug === slug; });
+          if (index < 0) return;
+          event.preventDefault();
+          flipTo(index, true);
+        });
+      });
+    }
 
     var prev = document.querySelector("[data-page-prev]");
     var next = document.querySelector("[data-page-next]");
     function move(delta) {
-      activeIndex = Math.max(0, Math.min(chapters.length - 1, activeIndex + delta));
-      setSelected(chapters[activeIndex], true);
-      if (delta < 0 && pageFlip.flipPrev) pageFlip.flipPrev();
-      if (delta > 0 && pageFlip.flipNext) pageFlip.flipNext();
+      flipTo((isRootReader ? activeIndex : flipIndex) + delta, true);
     }
     if (prev) prev.addEventListener("click", function () { move(-1); });
     if (next) next.addEventListener("click", function () { move(1); });
@@ -590,7 +632,7 @@ def build_index(chapters: list[Chapter]) -> str:
   <main class=\"reader-panel wrap gateway\" aria-label=\"책 넘김 목차\" data-reader-root>
     <section aria-labelledby=\"toc-title\">
       <h2 id=\"toc-title\">장 선택</h2>
-      <p class="notice">텍스트 교재와 책 넘김 모드를 함께 탐색할 수 있습니다. URL은 <code>#ch03</code> 또는 <code>?chapter=ch03</code> 형식을 지원합니다.</p>
+      <p class="notice">목록에서 장을 선택하면 오른쪽 책장이 해당 장으로 넘어갑니다. 장 본문으로 들어가려면 미리보기의 리더 장 열기 또는 텍스트 장 열기 버튼을 사용하세요. URL은 <code>#ch03</code> 또는 <code>?chapter=ch03</code> 형식을 지원합니다.</p>
       <ol class=\"chapter-grid\">
 {cards}
       </ol>
