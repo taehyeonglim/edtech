@@ -73,6 +73,10 @@ READER_UX_HOOKS: Final[tuple[str, ...]] = (
     "isRootReader",
     "flipIndex",
     "pageFlip.flip(flipIndex)",
+    "usePortrait",
+    "showCover: !isRootReader",
+    "data-reader-cover",
+    "reader-stage",
     "책장 넘김 뷰어",
     "static-content",
 )
@@ -300,7 +304,7 @@ def check_reader_routes(chapters: list[dict[str, Any]]) -> list[str]:
         chapter_text = read_text(chapter_path)
         if "Generated reader output; do not edit generated output." in chapter_text:
             errors.append(f"book-reader/{slug}/index.html must not expose generated-file provenance")
-        for marker in ("data-reader-chapter", "data-reader-data", "data-reader-enhancement", "data-flip-book", "data-reader-page", "data-reader-controls"):
+        for marker in ("data-reader-chapter", "data-reader-data", "data-reader-enhancement", "data-flip-book", "data-reader-page", "data-reader-cover", "reader-stage", "data-reader-controls"):
             if marker not in chapter_text:
                 errors.append(f"book-reader/{slug}/index.html missing G003 chapter reader hook: {marker}")
         if "책장 넘김 뷰어" not in chapter_text:

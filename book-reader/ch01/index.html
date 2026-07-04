@@ -42,8 +42,10 @@ h1 { margin:0; color:inherit; font-size:clamp(2rem,4.8vw,3.65rem); line-height:1
 .button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 16px; border:1px solid var(--navy); border-radius:5px; background:#fff; color:var(--navy); font:inherit; font-weight:900; text-decoration:none; cursor:pointer; }
 .button.primary { background:var(--navy); color:white; }
 .reader-layout { display:grid; grid-template-columns:minmax(0,1fr) 270px; gap:24px; align-items:start; }
+.reader-chrome, .reader-stage { grid-column:1 / -1; }
+.reader-chrome { margin:0 0 8px; }
 .reader-content { min-width:0; user-select:text; }
-.static-content { margin-top:34px; padding-top:22px; border-top:3px double var(--line); }
+.static-content { margin-top:10px; padding-top:22px; border-top:3px double var(--line); }
 .static-content > h2:first-child { margin-top:0; color:var(--navy); }
 .reader-content, .reader-content * { overflow-wrap:anywhere; }
 .reader-content pre { overflow-x:auto; white-space:pre-wrap; }
@@ -63,36 +65,51 @@ h1 { margin:0; color:inherit; font-size:clamp(2rem,4.8vw,3.65rem); line-height:1
 .reader-sidebar { position:sticky; top:14px; padding:16px; border:1px solid var(--line); border-radius:14px; background:var(--soft); }
 .reader-sidebar ol { margin:10px 0 0; padding-left:22px; }
 .reader-sidebar a { text-decoration:none; font-weight:800; }
-.flip-area { margin:0 0 26px; padding:22px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(135deg,#fff,var(--ivory)); box-shadow:0 18px 38px rgba(11,44,92,.1); }
+.flip-area { position:relative; margin:0 0 26px; padding:clamp(18px,2.4vw,34px); border:1px solid var(--line); border-radius:22px; background:radial-gradient(circle at 50% 10%,rgba(255,255,255,.92),rgba(255,248,232,.7) 42%,rgba(11,44,92,.08)),linear-gradient(135deg,#fff,var(--ivory)); box-shadow:0 26px 62px rgba(11,44,92,.16); overflow:hidden; }
+.flip-area::before { content:""; position:absolute; left:6%; right:6%; bottom:18px; height:36px; border-radius:50%; background:radial-gradient(ellipse at center,rgba(11,44,92,.22),transparent 68%); filter:blur(12px); pointer-events:none; }
+.flip-area > * { position:relative; z-index:1; }
 .flip-area[hidden], .reader-controls[hidden] { display:none !important; }
-.reader-viewer-lede { margin:0 0 18px; color:var(--muted); font-weight:800; }
-.flip-book { width:100%; max-width:100%; min-height:560px; margin:0 auto; }
-.reader-page { position:relative; width:410px; height:560px; padding:34px 34px 48px; border:1px solid var(--line); background:linear-gradient(90deg,rgba(11,44,92,.07),transparent 20px),linear-gradient(180deg,#fffdf8,#fffaf0); color:var(--ink); overflow:hidden; box-shadow:inset 14px 0 22px rgba(11,44,92,.06); }
-.reader-page h3 { margin:.4rem 0 .8rem; font-size:1.18rem; line-height:1.28; color:var(--navy); }
-.reader-page p { margin:.55rem 0; font-size:.95rem; line-height:1.58; }
+.reader-viewer-lede { max-width:840px; margin:0 0 18px; color:var(--muted); font-weight:800; }
+.flip-book { width:100%; max-width:1040px; min-height:600px; margin:18px auto 0; perspective:2200px; filter:drop-shadow(0 22px 28px rgba(11,44,92,.18)); }
+.reader-page { position:relative; width:420px; height:560px; padding:36px 38px 54px; border:1px solid #d8c9a7; background:linear-gradient(90deg,rgba(11,44,92,.08),transparent 28px),linear-gradient(180deg,#fffef9,#fff7e8); color:var(--ink); overflow:hidden; box-shadow:inset 22px 0 30px rgba(11,44,92,.07),inset -10px 0 22px rgba(184,137,47,.08); }
+.reader-page::after { content:""; position:absolute; top:0; bottom:0; right:0; width:34px; background:linear-gradient(90deg,transparent,rgba(11,44,92,.08)); pointer-events:none; }
+.reader-cover { display:flex; flex-direction:column; justify-content:center; background:radial-gradient(circle at 26% 18%,rgba(255,248,232,.16),transparent 26%),linear-gradient(135deg,#0b2c5c,#113d78 58%,#071f42); color:#fff8e8; border-color:#09264f; box-shadow:inset 18px 0 34px rgba(255,255,255,.08),inset -22px 0 36px rgba(0,0,0,.24); }
+.reader-cover::after { background:linear-gradient(90deg,transparent,rgba(0,0,0,.22)); }
+.reader-cover h3 { color:#fff8e8; font-size:clamp(1.9rem,3vw,2.55rem); line-height:1.16; }
+.reader-cover p { color:rgba(255,248,232,.9); font-weight:800; }
+.reader-cover .page-kicker { color:#d8c89d; }
+.reader-page h3 { margin:.4rem 0 .8rem; font-size:1.24rem; line-height:1.28; color:var(--navy); }
+.reader-page p { margin:.55rem 0; font-size:.98rem; line-height:1.62; }
 .reader-page .page-kicker { margin:0 0 .7rem; color:var(--gold); font-size:.75rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
 .reader-page .reader-page-heading { color:var(--navy); font-weight:900; }
 .reader-page .reader-page-list { padding-left:.2rem; }
 .reader-page .page-number { position:absolute; right:24px; bottom:16px; color:var(--muted); font-size:.82rem; font-weight:900; }
-.reader-controls { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; align-items:center; }
-.reader-status { color:var(--muted); font-weight:800; }
+.reader-cover .page-number { color:rgba(255,248,232,.78); }
+.reader-controls { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; align-items:center; justify-content:center; }
+.reader-status { color:var(--muted); font-weight:900; }
 footer { border-top:1px solid var(--line); background:var(--soft); color:var(--muted); }
 footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; } }
-@media (max-width:900px) { .gateway, .reader-layout { grid-template-columns:1fr; } .reader-sidebar { position:static; } .reader-panel { padding:22px; } }
-@media (max-width:640px) { .wrap { width:min(100% - 24px,1120px); } .chapter-grid { grid-template-columns:1fr; } .flip-book { min-height:480px; } .reader-page { width:280px; height:480px; padding:24px 22px 42px; } .reader-page p { font-size:.88rem; line-height:1.5; } .button { flex:1 1 160px; } }</style>
+@media (max-width:900px) { .gateway, .reader-layout { grid-template-columns:1fr; } .reader-sidebar { position:static; } .reader-panel { padding:22px; } .reader-stage, .reader-chrome { grid-column:1; } .flip-book { min-height:540px; } .reader-page { width:330px; height:520px; padding:30px 28px 48px; } .reader-page p { font-size:.9rem; line-height:1.52; } }
+@media (max-width:640px) { .wrap { width:min(100% - 24px,1120px); } .chapter-grid { grid-template-columns:1fr; } .flip-area { padding:16px 10px 18px; } .flip-book { min-height:500px; } .reader-page { width:300px; height:500px; padding:26px 22px 44px; } .button { flex:1 1 160px; } }</style>
   <script src="../../assets/vendor/page-flip/page-flip.browser.js" defer></script>
 </head>
 <body>
   <nav class="topnav wrap" aria-label="상위 경로"><a href="../">책 넘김 목차</a><span aria-hidden="true">|</span><a href="../../book/">교재 선택</a><span aria-hidden="true">|</span><a href="../../book/part1/ch01/">텍스트 장</a></nav>
-  <header class="hero wrap"><p class="eyebrow">교육방법 및 교육공학 · Chapter 01</p><h1>1장 교육방법과 교육공학의 이해</h1><p class="lead">책장 넘김 뷰어가 장 본문을 여러 쪽으로 나누어 보여 주고, 전체 텍스트 본문은 같은 페이지 아래에 보존됩니다.</p></header>
+  <header class="hero wrap"><p class="eyebrow">교육방법 및 교육공학 · Chapter 01</p><h1>1장 교육방법과 교육공학의 이해</h1><p class="lead">큰 화면에서는 실제 책처럼 양면으로 펼쳐 넘기고, 좁은 화면에서는 한 장씩 넘깁니다. 전체 텍스트 본문은 같은 페이지 아래에 보존됩니다.</p></header>
   <main class="reader-panel wrap reader-layout" aria-label="01장 리더" data-reader-chapter="ch01">
-    <article class="reader-content">
-      <div class="button-row"><a class="button primary" href="../../book/part1/ch01/">텍스트 장 읽기</a><a class="button" href="../">책 넘김 목차</a><a class="button" href="../ch02/">다음 장</a></div>
-      <section class="flip-area reader-enhancement" data-reader-enhancement aria-label="책장 넘김 뷰어">
-        <h2>책장 넘김 뷰어</h2>
-        <p class="reader-viewer-lede">이 장의 본문을 자동으로 여러 종이 페이지로 나눠 넘겨 봅니다. 전체 검색·복사·각주는 아래 전체 텍스트 본문에서 그대로 사용할 수 있습니다.</p>
-        <div class="flip-book" data-flip-book>
+    <div class="button-row reader-chrome"><a class="button primary" href="../../book/part1/ch01/">텍스트 장 읽기</a><a class="button" href="../">책 넘김 목차</a><a class="button" href="../ch02/">다음 장</a></div>
+    <section class="flip-area reader-enhancement reader-stage" data-reader-enhancement aria-label="책장 넘김 뷰어">
+      <h2>책장 넘김 뷰어</h2>
+      <p class="reader-viewer-lede">본문을 종이 페이지로 나누어 큰 화면에서는 표지와 양면 펼침으로 보여 줍니다. 전체 검색·복사·각주는 아래 전체 텍스트 본문에서 그대로 사용할 수 있습니다.</p>
+      <div class="flip-book" data-flip-book>
+          <section class="reader-page reader-cover" data-reader-page data-reader-cover>
+            <p class="page-kicker">교육방법 및 교육공학 · Chapter 01</p>
+            <h3>1장 교육방법과 교육공학의 이해</h3>
+            <p>큰 화면에서는 양면 펼침으로, 작은 화면에서는 한 장씩 넘기는 책장 뷰어입니다.</p>
+            <p>전체 검색·복사·각주 확인을 위해 같은 본문은 아래 정적 텍스트로도 보존됩니다.</p>
+            <p class="page-number">표지</p>
+          </section>
           <section class="reader-page" data-reader-page>
             <p class="page-kicker">교육방법 및 교육공학 · Chapter 01</p>
 <h3>1장 교육방법과 교육공학의 이해</h3>
@@ -265,9 +282,10 @@ footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
 <p>교육부. (2022. 12. 22.). [교육부 고시 제2022-33호] 초중등학교 교육과정 총론 및 각론 고시. https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=141&amp;boardSeq=93458&amp;lev=0&amp;page=1&amp;s=moe&amp;searchType=null&amp;statusYN=W. ↩↩</p>
             <p class="page-number">24 / 24</p>
           </section>
-        </div>
-        <div class="reader-controls" data-reader-controls hidden><button class="button" type="button" data-page-prev>이전 페이지</button><button class="button" type="button" data-page-next>다음 페이지</button><span class="reader-status" data-reader-status aria-live="polite"></span></div>
-      </section>
+      </div>
+      <div class="reader-controls" data-reader-controls hidden><button class="button" type="button" data-page-prev>이전 페이지</button><button class="button" type="button" data-page-next>다음 페이지</button><span class="reader-status" data-reader-status aria-live="polite"></span></div>
+    </section>
+    <article class="reader-content">
       <section class="static-content" id="content" aria-label="전체 텍스트 본문">
         <h2>전체 텍스트 본문</h2>
 <h1 id="1">1장 교육방법과 교육공학의 이해<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
@@ -475,6 +493,7 @@ footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
     var activeIndex = selected ? chapters.findIndex(function (chapter) { return chapter.slug === selected.slug; }) : (current ? chapters.findIndex(function (chapter) { return chapter.slug === current.slug; }) : 0);
     if (activeIndex < 0) activeIndex = 0;
     var flipIndex = isRootReader ? activeIndex : 0;
+    var wideSpread = !isRootReader && window.matchMedia && window.matchMedia("(min-width: 920px)").matches;
 
     function pageLabel(chapter) {
       return chapter.index.toString().padStart(2, "0");
@@ -485,7 +504,13 @@ footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
       if (isRootReader && chapter) {
         status.textContent = "현재 페이지 " + pageLabel(chapter);
       } else {
-        status.textContent = "책장 " + (flipIndex + 1) + " / " + Math.max(1, pages.length);
+        var contentTotal = Math.max(1, pages.length - 1);
+        var currentPage = pages[flipIndex];
+        if (currentPage && currentPage.hasAttribute("data-reader-cover")) {
+          status.textContent = "표지 / 본문 " + contentTotal + "쪽";
+        } else {
+          status.textContent = "본문 " + Math.max(1, flipIndex) + " / " + contentTotal;
+        }
       }
     }
 
@@ -525,18 +550,34 @@ footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
     });
 
     var pageFlip = new window.St.PageFlip(holder, {
-      width: 360,
-      height: 480,
+      width: wideSpread ? 420 : 320,
+      height: wideSpread ? 560 : 500,
       size: "stretch",
-      minWidth: 280,
-      maxWidth: 720,
-      minHeight: 360,
-      maxHeight: 860,
-      maxShadowOpacity: 0.16,
-      showCover: false,
+      minWidth: wideSpread ? 340 : 280,
+      maxWidth: wideSpread ? 520 : 720,
+      minHeight: wideSpread ? 454 : 360,
+      maxHeight: wideSpread ? 694 : 860,
+      maxShadowOpacity: wideSpread ? 0.28 : 0.16,
+      drawShadow: true,
+      flippingTime: 900,
+      usePortrait: !wideSpread,
+      showCover: !isRootReader,
       mobileScrollSupport: true
     });
     pageFlip.loadFromHTML(pages);
+    if (typeof pageFlip.on === "function") {
+      pageFlip.on("flip", function (event) {
+        if (event && typeof event.data === "number") {
+          flipIndex = clampIndex(event.data, pages.length);
+          if (isRootReader) {
+            activeIndex = clampIndex(flipIndex, chapters.length);
+            setSelected(chapters[activeIndex], true);
+          } else {
+            updateStatus(chapters[activeIndex]);
+          }
+        }
+      });
+    }
     if (typeof pageFlip.flip === "function" && flipIndex > 0) pageFlip.flip(flipIndex);
     if (controls) controls.hidden = false;
 
@@ -568,7 +609,19 @@ footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
     var prev = document.querySelector("[data-page-prev]");
     var next = document.querySelector("[data-page-next]");
     function move(delta) {
-      flipTo((isRootReader ? activeIndex : flipIndex) + delta, true);
+      if (isRootReader) {
+        flipTo(activeIndex + delta, true);
+        return;
+      }
+      if (delta > 0 && typeof pageFlip.flipNext === "function") {
+        pageFlip.flipNext();
+        return;
+      }
+      if (delta < 0 && typeof pageFlip.flipPrev === "function") {
+        pageFlip.flipPrev();
+        return;
+      }
+      flipTo(flipIndex + delta, true);
     }
     if (prev) prev.addEventListener("click", function () { move(-1); });
     if (next) next.addEventListener("click", function () { move(1); });
