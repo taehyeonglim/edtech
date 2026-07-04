@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="임태형">
+  <meta name="description" content="교육방법 및 교육공학 교재 읽기 방식 선택">
+  <title>교재 선택 · 교육방법 및 교육공학</title>
+  <style>
+    :root { --navy:#0b2c5c; --blue:#1b66c9; --ink:#1a1a1a; --muted:#5c6470; --line:#c5d2e3; --paper:#ffffff; --soft:#eef4fb; --ivory:#fff8e8; --gold:#b8892f; }
+    * { box-sizing: border-box; }
+    body { margin: 0; overflow-x: hidden; background: linear-gradient(180deg, var(--navy) 0 250px, var(--ivory) 250px, var(--paper) 68%); color: var(--ink); font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif; line-height: 1.58; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .wrap { width: min(1060px, calc(100% - 40px)); margin: 0 auto; }
+    .topnav { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; padding: 20px 0 0; font-size: .95rem; font-weight: 900; }
+    .topnav a { color: var(--ivory); }
+    .hero { padding: 54px 0 30px; color: var(--ivory); }
+    .eyebrow { margin: 0 0 12px; color: #d8c89d; font-size: .95rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(2.2rem, 6vw, 4.2rem); line-height: 1.04; font-weight: 900; letter-spacing: -.035em; }
+    .lead { max-width: 790px; margin: 18px 0 0; color: #f4eddc; font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 700; }
+    .choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; padding: 0 0 18px; }
+    .choice-card { display: flex; min-height: 270px; flex-direction: column; gap: 14px; padding: 30px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.96); box-shadow: 0 18px 44px rgba(11,44,92,.13); transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease; }
+    .choice-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 22px 52px rgba(11,44,92,.18); }
+    .choice-card h2 { margin: 0; color: var(--navy); font-size: clamp(1.55rem, 3vw, 2.1rem); line-height: 1.16; }
+    .choice-card p { margin: 0; color: var(--muted); font-weight: 700; }
+    .badge { align-self: flex-start; padding: 5px 10px; border-radius: 999px; background: var(--soft); color: var(--navy); font-size: .84rem; font-weight: 900; letter-spacing: .06em; }
+    .go { margin-top: auto; color: var(--blue); font-weight: 900; }
+    .note { margin: 18px auto 58px; padding: 18px 20px; border-left: 6px solid var(--blue); background: var(--soft); color: var(--muted); font-weight: 700; }
+    footer { border-top: 1px solid var(--line); background: var(--soft); color: var(--muted); }
+    .footer-inner { padding: 24px 0; font-size: .95rem; font-weight: 700; }
+    @media (prefers-reduced-motion: reduce) { * { transition-duration: .001ms !important; } }
+    @media (max-width: 760px) { .wrap { width: min(100% - 24px, 1060px); } .choice-grid { grid-template-columns: 1fr; } .choice-card { min-height: 0; padding: 24px; } }
+  </style>
+</head>
+<body>
+  <nav class="topnav wrap" aria-label="상위 경로">
+    <a href="../">홈</a>
+  </nav>
+
+  <header class="hero wrap">
+    <p class="eyebrow">교육방법 및 교육공학 교재</p>
+    <h1>대학 교재 읽기 방식 선택</h1>
+    <p class="lead">같은 canonical 교재를 두 가지 읽기 경로로 제공합니다. 텍스트 모드는 가장 안정적인 기본 경로이고, 책 넘김 모드는 JavaScript가 가능할 때만 더해지는 향상된 독서 경험입니다.</p>
+  </header>
+
+  <main>
+    <section class="choice-grid wrap" aria-label="교재 읽기 방식">
+      <a class="choice-card" href="text/">
+        <span class="badge">TEXT MODE</span>
+        <h2>텍스트 교재</h2>
+        <p>11개 장의 표준 텍스트 색인입니다. 복사, 검색, 보조기술, 느린 네트워크 환경에 우선 접근할 수 있습니다.</p>
+        <span class="go">텍스트 목차로 이동</span>
+      </a>
+      <a class="choice-card" href="../book-reader/">
+        <span class="badge">READER MODE</span>
+        <h2>책 넘김 리더</h2>
+        <p>동일한 장 데이터를 활용하는 navy/ivory 책 넘김 게이트웨이입니다. 정적 링크는 유지되고 효과는 점진적으로 향상됩니다.</p>
+        <span class="go">책 넘김 리더로 이동</span>
+      </a>
+    </section>
+
+    <p class="note wrap">두 경로는 동등한 진입점입니다. 텍스트 모드는 접근성과 안정성, 책 넘김 모드는 독서 몰입감을 우선합니다.</p>
+  </main>
+
+  <footer>
+    <div class="footer-inner wrap">교육방법 및 교육공학 · 교재</div>
+  </footer>
+</body>
+</html>

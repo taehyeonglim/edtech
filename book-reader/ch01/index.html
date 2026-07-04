@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="임태형">
+  <meta name="description" content="교육방법 및 교육공학 책 넘김 모드 01장">
+  <title>1장 교육방법과 교육공학의 이해 · 책 넘김 모드</title>
+  <style>:root { --navy:#0b2c5c; --blue:#1b66c9; --ink:#1a1a1a; --muted:#5c6470; --line:#c5d2e3; --paper:#fffdf8; --ivory:#fff8e8; --soft:#eef4fb; --gold:#b8892f; --shadow:rgba(11,44,92,.14); }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; overflow-x:hidden; background:linear-gradient(180deg,var(--navy) 0 240px,var(--ivory) 240px,#fff 68%); color:var(--ink); font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif; line-height:1.72; }
+body::before { content:""; position:fixed; inset:0; pointer-events:none; background:radial-gradient(circle at 12% 0,rgba(255,248,232,.22),transparent 32rem),linear-gradient(90deg,rgba(11,44,92,.08),transparent 18%,transparent 82%,rgba(11,44,92,.08)); }
+a { color:var(--blue); text-underline-offset:.18em; }
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
+.wrap { width:min(1120px,calc(100% - 40px)); margin:0 auto; position:relative; }
+.topnav { display:flex; gap:12px; flex-wrap:wrap; padding:20px 0 0; font-weight:900; font-size:.95rem; }
+.topnav a { color:#fff8e8; text-decoration:none; }
+.topnav span { color:rgba(255,248,232,.55); }
+.hero { padding:44px 0 28px; color:#fff8e8; }
+.eyebrow { margin:0 0 10px; color:#d8c89d; font-size:.92rem; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+h1 { margin:0; color:inherit; font-size:clamp(2rem,4.8vw,3.65rem); line-height:1.08; font-weight:900; letter-spacing:-.03em; }
+.lead { max-width:850px; margin:16px 0 0; color:#f4eddc; font-weight:700; font-size:1.05rem; }
+.reader-panel { margin:0 auto 64px; padding:28px; border:1px solid var(--line); border-radius:20px; background:rgba(255,253,248,.96); box-shadow:0 22px 54px var(--shadow); }
+.reader-panel h2, .reader-panel h3 { color:var(--navy); }
+.reader-panel > h2:first-child { margin-top:0; }
+.gateway { display:grid; grid-template-columns:minmax(0,.92fr) minmax(300px,1.08fr); gap:24px; align-items:start; }
+.reader-enhancement { display:none; }
+.reader-enhancement[data-enhanced="true"] { display:block; }
+.preview-card { padding:22px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(145deg,#fff,var(--ivory)); box-shadow:inset 6px 0 0 rgba(184,137,47,.35); }
+.preview-kicker { margin:0 0 8px; color:var(--muted); font-weight:900; letter-spacing:.09em; text-transform:uppercase; }
+.preview-title { margin:0 0 8px; color:var(--navy); font-size:clamp(1.45rem,3vw,2rem); line-height:1.18; }
+.preview-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+.chapter-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:22px 0 0; padding:0; list-style:none; }
+.chapter-card { display:block; min-height:104px; padding:18px; border:1px solid var(--line); border-radius:12px; background:var(--paper); color:inherit; text-decoration:none; transition:border-color .18s ease, transform .18s ease, box-shadow .18s ease; }
+.chapter-card:hover, .chapter-card[aria-current="page"] { border-color:var(--gold); transform:translateY(-2px); box-shadow:0 12px 28px rgba(11,44,92,.13); }
+.num { display:inline-flex; margin-bottom:8px; padding:4px 9px; background:var(--navy); color:white; border-radius:2px; font-weight:900; letter-spacing:.08em; }
+.title { display:block; color:var(--navy); font-size:1.05rem; font-weight:900; }
+.source-note { display:block; color:var(--muted); font-size:.9rem; overflow-wrap:anywhere; }
+.notice, .admonition { margin:20px 0; padding:16px 18px; border-left:6px solid var(--blue); background:var(--soft); color:var(--muted); font-weight:700; }
+.button-row { display:flex; flex-wrap:wrap; gap:10px; margin:22px 0; }
+.button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 16px; border:1px solid var(--navy); border-radius:5px; background:#fff; color:var(--navy); font:inherit; font-weight:900; text-decoration:none; cursor:pointer; }
+.button.primary { background:var(--navy); color:white; }
+.reader-layout { display:grid; grid-template-columns:minmax(0,1fr) 270px; gap:24px; align-items:start; }
+.reader-content { min-width:0; user-select:text; }
+.reader-content, .reader-content * { overflow-wrap:anywhere; }
+.reader-content pre { overflow-x:auto; white-space:pre-wrap; }
+.reader-content code { white-space:pre-wrap; word-break:break-word; }
+.reader-content h1, .reader-content h2, .reader-content h3 { color:var(--navy); line-height:1.25; }
+.reader-content img, .reader-content video, .reader-content iframe { max-width:100%; border:0; }
+.reader-content iframe { width:100%; aspect-ratio:16/9; }
+.reader-content table { display:block; width:100%; max-width:100%; overflow-x:auto; border-collapse:collapse; margin:18px 0; }
+.reader-content th, .reader-content td { border:1px solid var(--line); padding:10px 12px; vertical-align:top; }
+.reader-content th { background:var(--soft); color:var(--navy); }
+.media-block { margin:24px 0; padding:18px; border:1px solid var(--line); border-radius:14px; background:var(--paper); }
+.media-kicker { margin:0 0 4px; color:var(--blue); font-weight:900; }
+.media-title { margin:0 0 14px; color:var(--navy); font-size:1.16rem; font-weight:900; }
+.media-grid, .media-flow, .media-axis { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; }
+.media-panel, .flow-node, .axis-cell { padding:12px; border:1px solid var(--line); border-radius:10px; background:white; }
+.media-source { color:var(--muted); font-size:.92rem; }
+.reader-sidebar { position:sticky; top:14px; padding:16px; border:1px solid var(--line); border-radius:14px; background:var(--soft); }
+.reader-sidebar ol { margin:10px 0 0; padding-left:22px; }
+.reader-sidebar a { text-decoration:none; font-weight:800; }
+.flip-area { margin:24px 0 0; padding:18px; border:1px dashed var(--line); border-radius:16px; background:white; }
+.flip-area[hidden], .reader-controls[hidden] { display:none !important; }
+.flip-book { width:100%; max-width:100%; min-height:220px; margin:0 auto; }
+.reader-page { width:360px; min-height:480px; padding:24px; border:1px solid var(--line); background:linear-gradient(90deg,rgba(11,44,92,.05),transparent 18px),var(--paper); color:var(--ink); overflow:hidden; }
+.reader-page h3 { margin-top:0; }
+.reader-controls { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; align-items:center; }
+.reader-status { color:var(--muted); font-weight:800; }
+footer { border-top:1px solid var(--line); background:var(--soft); color:var(--muted); }
+footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; } }
+@media (max-width:900px) { .gateway, .reader-layout { grid-template-columns:1fr; } .reader-sidebar { position:static; } .reader-panel { padding:22px; } }
+@media (max-width:640px) { .wrap { width:min(100% - 24px,1120px); } .chapter-grid { grid-template-columns:1fr; } .reader-page { width:280px; min-height:400px; padding:18px; } .button { flex:1 1 160px; } }</style>
+  <script src="../../assets/vendor/page-flip/page-flip.browser.js" defer></script>
+</head>
+<body>
+  <nav class="topnav wrap" aria-label="상위 경로"><a href="../">책 넘김 목차</a><span aria-hidden="true">|</span><a href="../../book/">교재 선택</a><span aria-hidden="true">|</span><a href="../../book/part1/ch01/">텍스트 장</a></nav>
+  <header class="hero wrap"><p class="eyebrow">교육방법 및 교육공학 · Chapter 01</p><h1>1장 교육방법과 교육공학의 이해</h1><p class="lead">전체 본문은 정적 HTML로 먼저 렌더링되어 텍스트 선택·복사와 링크 이동이 JavaScript 없이도 작동합니다.</p></header>
+  <main class="reader-panel wrap reader-layout" aria-label="01장 리더" data-reader-chapter="ch01">
+    <article class="reader-content" id="content">
+      <div class="button-row"><a class="button primary" href="../../book/part1/ch01/">텍스트 장 읽기</a><a class="button" href="../">책 넘김 목차</a><a class="button" href="../ch02/">다음 장</a></div>
+<h1 id="1">1장 교육방법과 교육공학의 이해<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
+<h2 id="_1">학습 목표<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>이 장을 학습한 뒤에는 다음을 설명할 수 있어야 한다.</p>
+<ol>
+<li>교육방법과 교육공학을 구분하되, 실제 수업 설계에서는 두 관점이 어떻게 만나는지 설명할 수 있다.</li>
+<li>AECT의 2008년 정의 논의와 2023년 현재 정의를 구분하여 교육공학의 핵심 초점을 말할 수 있다.</li>
+<li>매체 선택과 교육과정 해석이 왜 수업 설계의 문제인지 설명할 수 있다.</li>
+<li>이 책의 11장 구조를 따라 자신의 수업 설계 역량을 어떻게 확장할지 계획할 수 있다.</li>
+</ol>
+<h2 id="_2">웹 학습 보조<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="media-block" data-media-kind="diagram">
+  <p class="media-kicker">개념 지도</p>
+  <p class="media-title">교육방법과 교육공학의 접점</p>
+  <div class="media-grid">
+    <div class="media-panel"><strong>교육방법</strong>수업 장면에서 활동, 상호작용, 피드백의 순서를 정한다.</div>
+    <div class="media-panel"><strong>교육공학</strong>목표, 자료, 매체, 평가, 윤리를 하나의 설계 체제로 본다.</div>
+    <div class="media-panel"><strong>공통 질문</strong>학습자가 무엇을 할 수 있게 되는가를 근거로 판단한다.</div>
+  </div>
+  <p class="media-source">출처: 이 장 본문과 AECT 2008/2023 정의 논의를 바탕으로 재구성한 자체 도식.</p>
+</div>
+
+<div class="media-block" data-media-kind="activity">
+  <p class="media-kicker">활동 패널</p>
+  <p class="media-title">새 도구 도입 전 3단 점검</p>
+  <ol class="activity-steps">
+    <li>학습 목표와 평가 증거를 먼저 쓴다.</li>
+    <li>도구가 줄이는 어려움과 새로 만드는 부담을 나눈다.</li>
+    <li>접근성, 개인정보, 대체 활동을 함께 확인한다.</li>
+  </ol>
+  <p class="media-source">출처: 이 장의 매체 선택 및 교육과정 해석 절을 바탕으로 만든 자체 활동.</p>
+</div>
+
+<p><span class="교재-highlight concept">핵심 관점</span> 교육방법은 활동 선택의 언어이고, 교육공학은 그 활동이 놓이는 체제를 읽는 언어다. <span class="교재-highlight evidence">근거 읽기</span> AECT의 정의는 기기 자체보다 학습 경험의 윤리적 설계와 개선을 강조한다. <span class="교재-highlight practice">수업 적용</span> 새 매체를 넣기 전에는 목표, 자료, 상호작용, 평가 증거가 같은 방향을 향하는지 먼저 확인한다.</p>
+
+<h2 id="1_1">1. 교육방법을 묻는다는 것<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h2>
+<p>교육방법은 "어떻게 가르칠 것인가"라는 질문에서 출발한다. 같은 내용을 다루더라도 강의, 토의, 협동학습, 탐구 활동, 프로젝트, 시범과 실습은 서로 다른 학습 경험을 만든다. 따라서 교육방법을 고르는 일은 유행하는 기법을 고르는 일이 아니라, 학습 목표와 학습자, 내용, 시간, 평가 조건을 함께 해석하는 전문적 판단이다.</p>
+<p>이 책에서는 교육방법을 수업 장면에서 교사와 학습자가 무엇을 어떤 순서와 상호작용으로 수행할지 결정하는 실천적 지식으로 다룬다. 좋은 방법은 고정된 목록이 아니다. 개념 이해가 중요한 수업, 절차 숙달이 중요한 수업, 태도와 관점의 전환이 중요한 수업은 서로 다른 활동과 피드백을 요구한다. 그러므로 예비교사는 특정 방법의 이름을 외우는 데서 멈추지 않고, 그 방법이 작동하는 조건과 한계를 함께 물어야 한다.</p>
+<h2 id="2">2. 교육공학의 초점<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>교육공학은 교육방법보다 좁게 "기기 활용"을 뜻하지 않는다. AECT가 후원한 2008년 정의 해설서는 교육공학을 학습 촉진, 수행 향상, 창출, 활용, 관리, 과정, 자원, 가치와 같은 핵심어를 중심으로 해설한다.<sup id="fnref:aect2008"><a class="footnote-ref" href="#fn:aect2008">1</a></sup> 이 관점에서 중요한 것은 어떤 기기가 새롭냐가 아니라, 학습 문제를 어떤 과정과 자원으로 설계하고 실행하며 개선할 것인가이다.</p>
+<p>현재 AECT가 제시하는 2023년 정의는 교육공학을 이론, 연구, 실천의 윤리적 연구와 적용으로 설명하고, 지식의 진전, 학습과 수행의 개선, 학습자의 역량 강화를 전략적 설계, 관리, 실행, 평가와 연결한다.<sup id="fnref:aect2023"><a class="footnote-ref" href="#fn:aect2023">2</a></sup> 이 정의는 교육공학의 관심이 도구 자체보다 학습 경험과 환경의 설계에 있음을 분명히 한다.</p>
+<div class="admonition note">
+<p class="admonition-title">정의 읽기</p>
+<p>이 장에서는 2008년 AECT 정의 해설서를 역사적 기준점으로, 2023년 AECT 웹페이지를 현재 정의로 구분한다. 두 출처를 섞어 하나의 문장으로 인용하지 않는다.</p>
+</div>
+<p>교육공학을 이렇게 이해하면 교사의 질문도 달라진다. "이 앱을 써 볼까?"보다 먼저 "이 학습 목표에 어떤 경험이 필요한가?", "학습자가 어려워할 지점은 어디인가?", "어떤 자료와 상호작용이 그 어려움을 줄이는가?", "실행 뒤 무엇을 근거로 수정할 것인가?"를 묻게 된다. 이 질문들은 교육방법의 선택과 교육공학의 설계 관점을 연결한다.</p>
+<h2 id="3">3. 두 관점의 접점<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>교육방법은 수업 안의 활동과 상호작용을 구체화한다. 교육공학은 그 활동이 놓이는 전체 체제를 본다. 예를 들어 토의 수업을 계획한다고 해 보자. 교육방법의 관점에서는 질문의 유형, 발언 순서, 모둠 구성, 정리 활동을 따진다. 교육공학의 관점에서는 토의 전에 제공할 자료, 온라인 게시판의 역할, 수행 증거의 수집 방식, 피드백 루프, 개인정보와 접근성 같은 윤리적 조건까지 함께 검토한다.</p>
+<p>따라서 두 관점은 경쟁 관계가 아니다. 방법은 설계 없이 지속되기 어렵고, 설계는 방법 없이 수업 장면으로 구현되기 어렵다. 예비교사에게 필요한 것은 "좋은 방법 목록"과 "좋은 기술 목록"을 따로 모으는 능력이 아니라, 학습 문제를 진단하고 적절한 활동, 자료, 매체, 평가를 한 흐름으로 배치하는 능력이다.</p>
+<h2 id="4">4. 매체는 보조물이 아니라 설계 요소다<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>수업 매체는 내용을 담는 그릇에 그치지 않는다. 같은 개념도 말, 글, 그림, 표, 시뮬레이션, 영상, 실물 조작 활동으로 제시될 때 학습자가 처리하는 정보의 양과 관계가 달라진다. Mayer의 <em>Multimedia Learning</em>은 단어와 시각 자료의 관계를 학습 설계의 주요 문제로 다루며, 2001년판 서지와 목차에서도 멀티미디어 원리가 별도 장으로 제시된다.<sup id="fnref:mayer2001"><a class="footnote-ref" href="#fn:mayer2001">3</a></sup></p>
+<p>다만 이 말은 그림이나 영상이 언제나 더 낫다는 뜻이 아니다. 매체 선택의 핵심 질문은 "무엇을 추가할 것인가"가 아니라 "이 표현이 학습 목표와 인지 처리에 어떤 도움을 주는가"이다. 장식적인 이미지, 과도한 애니메이션, 설명과 맞지 않는 영상은 오히려 학습자의 주의를 분산시킬 수 있다. 교육공학적 판단은 매체의 새로움보다 목표, 내용, 학습자, 평가 증거의 정합성을 먼저 본다.</p>
+<h2 id="5">5. 교육과정도 설계 조건이다<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>수업은 교실 안에서 이루어지지만, 교사의 설계는 교육과정 문서와 분리될 수 없다. 교육부는 2022년 12월 22일 교육부 고시 제2022-33호로 초중등학교 교육과정 총론과 각론을 고시했고, 해당 고시는 학교급별 총론, 교과 교육과정, 창의적 체험활동, 한국어 교육과정 등의 별책과 시행 일정을 제시한다.<sup id="fnref:moe2022"><a class="footnote-ref" href="#fn:moe2022">4</a></sup> 이처럼 공식 교육과정은 수업 목표와 내용 범위, 학교급별 적용 시기를 판단하는 중요한 기준이다.</p>
+<p>이 장에서 교육과정을 언급하는 이유는 정책 설명을 늘리기 위해서가 아니다. 교육방법과 교육공학을 공부하는 교사는 국가 수준 문서를 읽고, 그 요구를 실제 학습 경험으로 번역해야 한다. 같은 성취기준도 강의식 설명, 탐구 과제, 협동 활동, 디지털 산출물 제작으로 다르게 구현될 수 있다. 따라서 교육과정 해석은 수업 설계의 출발점 중 하나다.</p>
+<h2 id="6">6. 이 책의 학습 경로<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>현재 공개 교재는 4부 11장으로 구성되어 있다. 1부는 교육방법과 교육공학의 토대를 다루고, 2부는 교수설계의 원리와 모형을 다룬다. 3부는 협동학습, 동기 설계, 질문과 탐구 중심 수업을 통해 수업 전략의 실제를 탐색한다. 4부는 멀티미디어 학습, 디지털 학습환경, AI와 교육의 만남으로 이어진다.</p>
+<p>이 순서는 한 가지 관점을 반복해서 넓히도록 설계되어 있다. 먼저 수업을 바라보는 언어를 세우고, 그다음 체제적 설계와 수업 모형을 익힌 뒤, 구체적인 전략과 디지털 환경으로 확장한다. 각 장을 읽을 때에는 "이 내용이 내 수업의 어떤 의사결정을 바꾸는가"를 함께 기록해 두는 것이 좋다.</p>
+<h2 id="_3">도입 사례<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><strong>창작 시나리오.</strong> 중학교 1학년 사회 수업에서 한 예비교사는 "우리 동네의 교통 문제를 설명하고 개선안을 제안한다"는 목표를 세웠다. 처음에는 발표 자료 제작 앱을 쓰면 학생 참여가 높아질 것이라고 생각했지만, 수업안을 다시 읽어 보니 학생들이 실제로 어려워하는 부분은 앱 사용이 아니라 자료 해석과 근거 연결이었다. 그는 짧은 동네 지도 읽기, 모둠별 원인-결과 카드 분류, 개선안 초안 공유, 동료 질문, 최종 발표의 순서로 활동을 재구성했다. 발표 도구는 마지막 산출물을 정리하는 수단으로만 쓰고, 평가에서는 "자료를 근거로 주장했는가"와 "대안을 현실 조건과 연결했는가"를 확인했다. 이 사례는 교육방법과 교육공학이 분리된 선택지가 아니라, 목표·자료·상호작용·평가를 함께 맞추는 설계 판단임을 보여 준다.</p>
+<h2 id="_4">핵심 용어<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>교육방법</strong>: 수업 목표를 달성하기 위해 교사와 학습자가 수행할 활동, 상호작용, 피드백의 흐름을 정하는 실천적 지식이다.</li>
+<li><strong>교육공학</strong>: 학습과 수행을 개선하기 위해 과정과 자원을 윤리적으로 설계, 실행, 관리, 평가하는 이론·연구·실천의 영역이다.</li>
+<li><strong>매체 선택</strong>: 특정 도구의 신기함보다 학습 목표, 인지 처리, 접근성, 평가 증거와의 적합성을 기준으로 표현 방식을 고르는 판단이다.</li>
+<li><strong>교육과정 해석</strong>: 국가 수준 또는 학교 수준 교육과정의 요구를 실제 수업 목표, 활동, 자료, 평가로 번역하는 전문적 과정이다.</li>
+<li><strong>설계 정합성</strong>: 목표, 학습 활동, 자료, 매체, 피드백, 평가가 같은 학습 성과를 향해 서로 맞물려 있는 상태다.</li>
+</ul>
+<h2 id="_5">이론과 연구 확장<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="aect">AECT 정의를 수업 설계 언어로 읽기<a class="headerlink" href="#aect" title="Permanent link">&para;</a></h3>
+<p>AECT의 2008년 정의 해설은 교육공학을 단순한 기기 활용이 아니라 학습 촉진과 수행 향상을 위한 과정과 자원의 창출, 활용, 관리로 설명한다.<sup id="fnref2:aect2008"><a class="footnote-ref" href="#fn:aect2008">1</a></sup> 2023년 정의도 윤리적 연구와 적용, 전략적 설계, 관리, 실행, 평가를 강조한다.<sup id="fnref2:aect2023"><a class="footnote-ref" href="#fn:aect2023">2</a></sup> 따라서 예비교사는 "어떤 앱을 쓸 것인가"보다 "학습자의 어떤 수행을 어떻게 더 잘 관찰하고 지원할 것인가"를 먼저 질문해야 한다. 예를 들어 초등 과학 실험 수업에서 태블릿 촬영을 활용한다면, 촬영 자체가 목표가 아니라 관찰 기록, 증거 비교, 피드백 대화가 목표와 연결되어야 한다.</p>
+<h3 id="_6">멀티미디어 원리와 매체의 절제<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>Mayer의 멀티미디어 학습 연구는 말과 시각 자료의 결합이 학습에 영향을 준다는 점을 체계적으로 다룬다.<sup id="fnref2:mayer2001"><a class="footnote-ref" href="#fn:mayer2001">3</a></sup> 그러나 이 관점은 "영상이 많을수록 좋다"는 주장이 아니다. 고등학교 역사 수업에서 지도, 연표, 사료 이미지를 함께 제시할 때에는 학생이 비교해야 할 관계를 분명히 안내해야 한다. 장식 이미지나 과도한 전환 효과는 핵심 개념을 흐릴 수 있으므로, 매체는 흥미 유발 장치가 아니라 사고를 돕는 표상으로 선택되어야 한다.</p>
+<h3 id="_7">교육과정 문서와 교사의 번역 책임<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>2022 개정 교육과정 고시는 학교급별 총론과 교과 교육과정, 창의적 체험활동 등을 포함해 수업 설계의 공식 기준을 제공한다.<sup id="fnref2:moe2022"><a class="footnote-ref" href="#fn:moe2022">4</a></sup> 하지만 교육과정 문장은 교실 활동으로 자동 변환되지 않는다. 예비교사는 성취기준의 동사, 내용 요소, 기대 수행을 읽고 학생의 경험으로 번역해야 한다. 같은 성취기준도 강의, 탐구, 토의, 프로젝트로 다르게 구현될 수 있으므로, 교육과정 해석은 행정 절차가 아니라 교수설계의 핵심 출발점이다.</p>
+<h2 id="_8">토론 질문<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ol>
+<li>창작 시나리오의 교사가 발표 앱 사용을 줄이고 자료 해석 활동을 강화한 판단은 어떤 점에서 교육방법의 문제이며, 어떤 점에서 교육공학의 문제인가?</li>
+<li>예비교사로서 새 매체를 도입할 때 "학생 흥미" 외에 반드시 확인해야 할 설계 기준 세 가지를 제시하고, 그 이유를 설명해 보자.</li>
+<li>2022 개정 교육과정의 한 성취기준을 선택한다고 가정할 때, 이를 강의식 수업과 프로젝트 수업으로 각각 번역하면 평가 증거는 어떻게 달라질까?</li>
+<li>학교 현장에서 접근성이나 개인정보 조건 때문에 선호하는 디지털 도구를 쓰기 어려운 경우, 교사는 어떤 대체 설계를 마련해야 할까?</li>
+</ol>
+<h2 id="_9">형성 평가<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>교육방법과 교육공학의 관계를 가장 적절하게 설명한 것은 무엇인가?<br>
+   ① 교육방법은 낡은 개념이고 교육공학은 최신 기기 활용을 뜻한다.<br>
+   ② 교육방법은 활동과 상호작용을, 교육공학은 그 활동이 놓이는 설계 체제를 함께 본다.<br>
+   ③ 교육공학은 온라인 수업에서만 필요하고 대면 수업에는 적용되지 않는다.<br>
+   ④ 교육방법은 교사의 개성에만 의존하므로 평가와 연결할 수 없다.<br>
+<strong>정답</strong>: ②<br>
+<strong>해설</strong>: 본문은 교육방법과 교육공학을 경쟁 관계가 아니라 목표, 활동, 자료, 매체, 평가를 연결하는 상호 보완적 관점으로 설명한다.</p>
+</li>
+<li>
+<p>다음 상황에서 교사가 먼저 해야 할 일을 쓰시오. "중학교 영어 수업에서 학생들이 발표 영상을 만들면 참여가 높아질 것이라는 이유만으로 영상 제작 과제를 넣으려 한다."<br>
+<strong>예시 답안</strong>: 영상 제작 전에 학습 목표와 평가 증거를 확인하고, 영상이 말하기 연습·피드백·수정 과정에 실제로 도움이 되는지 판단해야 한다.<br>
+<strong>채점 기준</strong>: 목표 확인, 매체의 학습 기능 검토, 평가 증거와의 연결을 포함하면 충분한 답안으로 본다.</p>
+</li>
+<li>
+<p>매체 선택에서 피해야 할 판단 기준을 하나 쓰고, 더 적절한 기준으로 바꾸어 설명하시오.<br>
+<strong>예시 답안</strong>: "최신 도구인가"만으로 고르는 것은 부적절하다. 대신 그 도구가 학습자의 인지 부담을 줄이고 목표 수행을 드러내는지 확인해야 한다.<br>
+<strong>해설</strong>: 매체는 보조 장식이 아니라 설계 요소이므로 새로움보다 목표, 내용, 학습자, 평가와의 정합성이 중요하다.</p>
+</li>
+<li>
+<p>교육과정 해석이 수업 설계의 출발점인 이유를 한 문장으로 설명하시오.<br>
+<strong>예시 답안</strong>: 교육과정은 학생이 도달해야 할 성취와 내용 범위를 제시하지만, 교사가 이를 구체적 활동과 평가로 번역해야 실제 수업이 되기 때문이다.<br>
+<strong>루브릭</strong>: 교육과정의 기준 기능과 교사의 번역 책임을 모두 언급하면 우수, 둘 중 하나만 언급하면 보통으로 평가한다.</p>
+</li>
+<li>
+<p>다음 중 설계 정합성이 가장 높은 수업안은 무엇인가?<br>
+   ① 비판적 읽기가 목표인데 평가는 본문 암기 시험만 실시한다.<br>
+   ② 협동적 문제 해결이 목표인데 개별 강의만 듣고 수업을 끝낸다.<br>
+   ③ 자료 해석이 목표라서 학생이 자료를 비교하고 근거를 들어 설명하며 그 과정을 평가한다.<br>
+   ④ 디지털 역량이 목표라서 모든 수업 시간을 프로그램 설치에 사용한다.<br>
+<strong>정답</strong>: ③<br>
+<strong>해설</strong>: 목표, 활동, 수행 증거가 모두 자료 해석 능력을 향하므로 설계 정합성이 가장 높다.</p>
+</li>
+</ol>
+<h2 id="_10">요약<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>교육방법은 수업에서 어떤 활동과 상호작용을 선택할지 묻는 실천적 관점이다. 교육공학은 학습 경험과 환경을 설계, 실행, 관리, 평가하는 체제적 관점이다. AECT의 2008년 정의 해설과 2023년 현재 정의는 교육공학이 기기 사용법이 아니라 윤리적이고 체계적인 학습 설계의 문제임을 보여 준다. 매체와 교육과정은 모두 수업 설계의 조건이며, 교사는 이를 학습 목표와 학습자의 경험에 맞게 해석해야 한다.</p>
+<h2 id="_11">생각해보기<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ol>
+<li>내가 경험한 좋은 수업 하나를 떠올려 보자. 그 수업의 장점은 교육방법의 선택에서 비롯되었는가, 교육공학적 설계에서 비롯되었는가, 아니면 둘의 결합에서 비롯되었는가?</li>
+<li>새 디지털 도구를 수업에 도입하기 전에 교사가 반드시 물어야 할 질문 세 가지를 적어 보자.</li>
+<li>같은 교육과정 내용을 강의, 토의, 프로젝트로 각각 가르친다면 학습자의 경험과 평가 증거는 어떻게 달라질까?</li>
+</ol>
+<h2 id="_12">참고문헌<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:aect2008">
+<p>Januszewski, A., &amp; Molenda, M. (Eds.). (2008). <em>Educational Technology: A Definition with Commentary</em> (2nd ed.). Routledge. Publisher metadata verified at <code>https://www.routledge.com/Educational-Technology-A-Definition-with-Commentary/Januszewski-Molenda/p/book/9780805858617</code>.&#160;<a class="footnote-backref" href="#fnref:aect2008" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:aect2008" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:aect2023">
+<p>Association for Educational Communications and Technology. (2023). <em>AECT Definition for Educational Technology</em>. <code>https://www.aect.org/aect/about/aect-definition</code>.&#160;<a class="footnote-backref" href="#fnref:aect2023" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:aect2023" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:mayer2001">
+<p>Mayer, R. E. (2001). <em>Multimedia Learning</em>. Cambridge University Press. Metadata and table-of-contents lead verified through Google Books: <code>https://books.google.com/books/about/Multimedia_Learning.html?id=ymJ9o-w_6WEC</code>.&#160;<a class="footnote-backref" href="#fnref:mayer2001" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:mayer2001" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:moe2022">
+<p>교육부. (2022. 12. 22.). <em>[교육부 고시 제2022-33호] 초중등학교 교육과정 총론 및 각론 고시</em>. <code>https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=141&amp;boardSeq=93458&amp;lev=0&amp;page=1&amp;s=moe&amp;searchType=null&amp;statusYN=W</code>.&#160;<a class="footnote-backref" href="#fnref:moe2022" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:moe2022" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+      <section class="flip-area reader-enhancement" data-reader-enhancement aria-label="책 넘김 미리보기">
+        <h2>책 넘김 미리보기</h2>
+        <p class="notice">본문 일부를 카드처럼 넘기며 장의 흐름을 확인할 수 있습니다. 전체 본문은 위 장 콘텐츠에서 선택하거나 복사해서 이용할 수 있습니다.</p>
+        <div class="flip-book" data-flip-book>
+          <section class="reader-page" data-reader-page><h3>1장 교육방법과 교육공학의 이해</h3><p>본문을 카드처럼 넘기며 읽기 흐름을 확인합니다.</p><p><a href="../../book/part1/ch01/">텍스트 장으로 이동</a></p></section>
+          <section class="reader-page" data-reader-page><h3>읽기 경로</h3><p><a href="../../book/part1/ch01/">텍스트 장으로 이동</a></p><p><a href="../">책 넘김 목차로 이동</a></p></section>
+        </div>
+        <div class="reader-controls" data-reader-controls hidden><button class="button" type="button" data-page-prev>이전 페이지</button><button class="button" type="button" data-page-next>다음 페이지</button><span class="reader-status" data-reader-status aria-live="polite"></span></div>
+      </section>
+    </article>
+    <aside class="reader-sidebar" aria-label="책 넘김 장 목록">
+      <strong>장 목록</strong>
+      <ol>
+        <li><a href="../ch01/" data-chapter-link="ch01" aria-current="page">01. 1장 교육방법과 교육공학의 이해</a></li>
+        <li><a href="../ch02/" data-chapter-link="ch02">02. 2장 교육과 테크놀로지의 만남</a></li>
+        <li><a href="../ch03/" data-chapter-link="ch03">03. 3장 체제적 교수설계</a></li>
+        <li><a href="../ch04/" data-chapter-link="ch04">04. 4장 수업의 구성과 학습의 조건</a></li>
+        <li><a href="../ch05/" data-chapter-link="ch05">05. 5장 교수이론과 수업모형</a></li>
+        <li><a href="../ch06/" data-chapter-link="ch06">06. 6장 협동학습 전략</a></li>
+        <li><a href="../ch07/" data-chapter-link="ch07">07. 7장 학습동기 설계 (ARCS)</a></li>
+        <li><a href="../ch08/" data-chapter-link="ch08">08. 8장 질문과 탐구 중심 수업</a></li>
+        <li><a href="../ch09/" data-chapter-link="ch09">09. 9장 멀티미디어 학습과 인지부하</a></li>
+        <li><a href="../ch10/" data-chapter-link="ch10">10. 10장 디지털 학습환경과 미래교실</a></li>
+        <li><a href="../ch11/" data-chapter-link="ch11">11. 11장 AI와 교육의 만남</a></li>
+      </ol>
+    </aside>
+  </main>
+  <footer><div class="wrap">교육방법 및 교육공학 · 책 넘김 모드</div></footer>
+  <script type="application/json" data-reader-data>{"schemaVersion":1,"page":"reader-chapter","current":"ch01","chapters":[{"index":1,"slug":"ch01","title":"1장 교육방법과 교육공학의 이해","readerRoute":"book-reader/ch01/","readerHref":"../ch01/","textRoute":"book/part1/ch01/","textHref":"../../book/part1/ch01/"},{"index":2,"slug":"ch02","title":"2장 교육과 테크놀로지의 만남","readerRoute":"book-reader/ch02/","readerHref":"../ch02/","textRoute":"book/part1/ch02/","textHref":"../../book/part1/ch02/"},{"index":3,"slug":"ch03","title":"3장 체제적 교수설계","readerRoute":"book-reader/ch03/","readerHref":"../ch03/","textRoute":"book/part2/ch03/","textHref":"../../book/part2/ch03/"},{"index":4,"slug":"ch04","title":"4장 수업의 구성과 학습의 조건","readerRoute":"book-reader/ch04/","readerHref":"../ch04/","textRoute":"book/part2/ch04/","textHref":"../../book/part2/ch04/"},{"index":5,"slug":"ch05","title":"5장 교수이론과 수업모형","readerRoute":"book-reader/ch05/","readerHref":"../ch05/","textRoute":"book/part2/ch05/","textHref":"../../book/part2/ch05/"},{"index":6,"slug":"ch06","title":"6장 협동학습 전략","readerRoute":"book-reader/ch06/","readerHref":"../ch06/","textRoute":"book/part3/ch06/","textHref":"../../book/part3/ch06/"},{"index":7,"slug":"ch07","title":"7장 학습동기 설계 (ARCS)","readerRoute":"book-reader/ch07/","readerHref":"../ch07/","textRoute":"book/part3/ch07/","textHref":"../../book/part3/ch07/"},{"index":8,"slug":"ch08","title":"8장 질문과 탐구 중심 수업","readerRoute":"book-reader/ch08/","readerHref":"../ch08/","textRoute":"book/part3/ch08/","textHref":"../../book/part3/ch08/"},{"index":9,"slug":"ch09","title":"9장 멀티미디어 학습과 인지부하","readerRoute":"book-reader/ch09/","readerHref":"../ch09/","textRoute":"book/part4/ch09/","textHref":"../../book/part4/ch09/"},{"index":10,"slug":"ch10","title":"10장 디지털 학습환경과 미래교실","readerRoute":"book-reader/ch10/","readerHref":"../ch10/","textRoute":"book/part4/ch10/","textHref":"../../book/part4/ch10/"},{"index":11,"slug":"ch11","title":"11장 AI와 교육의 만남","readerRoute":"book-reader/ch11/","readerHref":"../ch11/","textRoute":"book/part4/ch11/","textHref":"../../book/part4/ch11/"}]}</script>
+  <script>(function () {
+  var DATA_SELECTOR = "[data-reader-data]";
+  function ready(fn) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn, { once: true });
+    else fn();
+  }
+  function readData() {
+    var node = document.querySelector(DATA_SELECTOR);
+    if (!node) return null;
+    try { return JSON.parse(node.textContent || "{}"); }
+    catch (error) { return null; }
+  }
+  function chapterFromUrl(data) {
+    if (!data || !data.chapters) return null;
+    var params = new URLSearchParams(window.location.search);
+    var requested = (params.get("chapter") || window.location.hash.replace(/^#/, "") || "").toLowerCase();
+    if (!requested) return null;
+    return data.chapters.find(function (chapter) {
+      return chapter.slug === requested || String(chapter.index).padStart(2, "0") === requested.replace(/^ch/, "");
+    }) || null;
+  }
+  function shouldIgnoreKeyboard(event) {
+    var target = event.target;
+    var tag = target && target.tagName ? target.tagName.toLowerCase() : "";
+    return event.altKey || event.ctrlKey || event.metaKey || event.defaultPrevented || tag === "input" || tag === "textarea" || tag === "select" || (target && target.isContentEditable);
+  }
+  ready(function () {
+    var data = readData();
+    var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var holder = document.querySelector("[data-flip-book]");
+    var controls = document.querySelector("[data-reader-controls]");
+    var status = document.querySelector("[data-reader-status]");
+    var chapters = data && data.chapters ? data.chapters : [];
+    var selected = chapterFromUrl(data);
+    var currentSlug = data && data.current ? String(data.current).toLowerCase() : "";
+    var current = currentSlug ? chapters.find(function (chapter) { return chapter.slug === currentSlug; }) : null;
+    var activeIndex = selected ? chapters.findIndex(function (chapter) { return chapter.slug === selected.slug; }) : (current ? chapters.findIndex(function (chapter) { return chapter.slug === current.slug; }) : 0);
+    if (activeIndex < 0) activeIndex = 0;
+
+    function setSelected(chapter, pushHash) {
+      if (!chapter) return;
+      document.querySelectorAll("[data-chapter-link]").forEach(function (link) {
+        if (link.getAttribute("data-chapter-link") === chapter.slug) link.setAttribute("aria-current", "page");
+        else link.removeAttribute("aria-current");
+      });
+      var title = document.querySelector("[data-preview-title]");
+      var source = document.querySelector("[data-preview-source]");
+      var reader = document.querySelector("[data-preview-reader]");
+      var text = document.querySelector("[data-preview-text]");
+      if (title) title.textContent = chapter.index.toString().padStart(2, "0") + ". " + chapter.title;
+      if (source) source.textContent = "선택한 장의 텍스트 장을 함께 제공합니다.";
+      if (reader) reader.setAttribute("href", chapter.readerHref || chapter.readerRoute || chapter.slug + "/");
+      if (text) text.setAttribute("href", chapter.textHref || "../book/" + chapter.textRoute.replace(/^book\//, ""));
+      if (status) status.textContent = "현재 페이지 " + chapter.index.toString().padStart(2, "0");
+      if (pushHash && window.history && window.location.hash !== "#" + chapter.slug) {
+        window.history.replaceState(null, "", "#" + chapter.slug);
+      }
+    }
+
+    setSelected(chapters[activeIndex], false);
+
+    if (!holder || reducedMotion || !window.St || !window.St.PageFlip) {
+      if (controls) controls.hidden = true;
+      return;
+    }
+
+    document.querySelectorAll("[data-reader-enhancement]").forEach(function (node) {
+      node.setAttribute("data-enhanced", "true");
+    });
+
+    var pageFlip = new window.St.PageFlip(holder, {
+      width: 360,
+      height: 480,
+      size: "stretch",
+      minWidth: 280,
+      maxWidth: 720,
+      minHeight: 360,
+      maxHeight: 860,
+      maxShadowOpacity: 0.16,
+      showCover: false,
+      mobileScrollSupport: true
+    });
+    pageFlip.loadFromHTML(document.querySelectorAll("[data-reader-page]"));
+    if (typeof pageFlip.flip === "function" && activeIndex > 0) pageFlip.flip(activeIndex);
+    if (controls) controls.hidden = false;
+
+    var prev = document.querySelector("[data-page-prev]");
+    var next = document.querySelector("[data-page-next]");
+    function move(delta) {
+      activeIndex = Math.max(0, Math.min(chapters.length - 1, activeIndex + delta));
+      setSelected(chapters[activeIndex], true);
+      if (delta < 0 && pageFlip.flipPrev) pageFlip.flipPrev();
+      if (delta > 0 && pageFlip.flipNext) pageFlip.flipNext();
+    }
+    if (prev) prev.addEventListener("click", function () { move(-1); });
+    if (next) next.addEventListener("click", function () { move(1); });
+    document.addEventListener("keydown", function (event) {
+      if (shouldIgnoreKeyboard(event)) return;
+      if (event.key === "ArrowLeft") { move(-1); }
+      if (event.key === "ArrowRight") { move(1); }
+    });
+  });
+}());</script>
+</body>
+</html>

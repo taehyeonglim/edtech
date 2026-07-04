@@ -23,6 +23,10 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install mkdocs-material
+      - name: Generate book reader
+        run: python3 tools/generate_book_reader.py --mode release --write
+      - name: Validate reader foundation
+        run: python3 tools/validate_reader_foundation.py
       - name: Build MkDocs (교재)
         run: mkdocs build --strict
       - name: Assemble site tree
@@ -33,7 +37,11 @@ jobs:
           [ -f .nojekyll ] && cp .nojekyll _site/.nojekyll || touch _site/.nojekyll
           cp -r chapters _site/chapters
           cp -r site _site/book
-          [ -d assets ] && cp -r assets _site/assets || true
+          cp book/index.html _site/book/index.html
+          mkdir -p _site/book/text
+          cp -r book/text/. _site/book/text/
+          cp -r book-reader _site/book-reader
+          cp -r assets _site/assets
       - uses: actions/upload-pages-artifact@v5
         with:
           path: _site

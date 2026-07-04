@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="임태형">
+  <meta name="description" content="교육방법 및 교육공학 책 넘김 모드 04장">
+  <title>4장 수업의 구성과 학습의 조건 · 책 넘김 모드</title>
+  <style>:root { --navy:#0b2c5c; --blue:#1b66c9; --ink:#1a1a1a; --muted:#5c6470; --line:#c5d2e3; --paper:#fffdf8; --ivory:#fff8e8; --soft:#eef4fb; --gold:#b8892f; --shadow:rgba(11,44,92,.14); }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; overflow-x:hidden; background:linear-gradient(180deg,var(--navy) 0 240px,var(--ivory) 240px,#fff 68%); color:var(--ink); font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif; line-height:1.72; }
+body::before { content:""; position:fixed; inset:0; pointer-events:none; background:radial-gradient(circle at 12% 0,rgba(255,248,232,.22),transparent 32rem),linear-gradient(90deg,rgba(11,44,92,.08),transparent 18%,transparent 82%,rgba(11,44,92,.08)); }
+a { color:var(--blue); text-underline-offset:.18em; }
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
+.wrap { width:min(1120px,calc(100% - 40px)); margin:0 auto; position:relative; }
+.topnav { display:flex; gap:12px; flex-wrap:wrap; padding:20px 0 0; font-weight:900; font-size:.95rem; }
+.topnav a { color:#fff8e8; text-decoration:none; }
+.topnav span { color:rgba(255,248,232,.55); }
+.hero { padding:44px 0 28px; color:#fff8e8; }
+.eyebrow { margin:0 0 10px; color:#d8c89d; font-size:.92rem; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+h1 { margin:0; color:inherit; font-size:clamp(2rem,4.8vw,3.65rem); line-height:1.08; font-weight:900; letter-spacing:-.03em; }
+.lead { max-width:850px; margin:16px 0 0; color:#f4eddc; font-weight:700; font-size:1.05rem; }
+.reader-panel { margin:0 auto 64px; padding:28px; border:1px solid var(--line); border-radius:20px; background:rgba(255,253,248,.96); box-shadow:0 22px 54px var(--shadow); }
+.reader-panel h2, .reader-panel h3 { color:var(--navy); }
+.reader-panel > h2:first-child { margin-top:0; }
+.gateway { display:grid; grid-template-columns:minmax(0,.92fr) minmax(300px,1.08fr); gap:24px; align-items:start; }
+.reader-enhancement { display:none; }
+.reader-enhancement[data-enhanced="true"] { display:block; }
+.preview-card { padding:22px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(145deg,#fff,var(--ivory)); box-shadow:inset 6px 0 0 rgba(184,137,47,.35); }
+.preview-kicker { margin:0 0 8px; color:var(--muted); font-weight:900; letter-spacing:.09em; text-transform:uppercase; }
+.preview-title { margin:0 0 8px; color:var(--navy); font-size:clamp(1.45rem,3vw,2rem); line-height:1.18; }
+.preview-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+.chapter-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:22px 0 0; padding:0; list-style:none; }
+.chapter-card { display:block; min-height:104px; padding:18px; border:1px solid var(--line); border-radius:12px; background:var(--paper); color:inherit; text-decoration:none; transition:border-color .18s ease, transform .18s ease, box-shadow .18s ease; }
+.chapter-card:hover, .chapter-card[aria-current="page"] { border-color:var(--gold); transform:translateY(-2px); box-shadow:0 12px 28px rgba(11,44,92,.13); }
+.num { display:inline-flex; margin-bottom:8px; padding:4px 9px; background:var(--navy); color:white; border-radius:2px; font-weight:900; letter-spacing:.08em; }
+.title { display:block; color:var(--navy); font-size:1.05rem; font-weight:900; }
+.source-note { display:block; color:var(--muted); font-size:.9rem; overflow-wrap:anywhere; }
+.notice, .admonition { margin:20px 0; padding:16px 18px; border-left:6px solid var(--blue); background:var(--soft); color:var(--muted); font-weight:700; }
+.button-row { display:flex; flex-wrap:wrap; gap:10px; margin:22px 0; }
+.button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 16px; border:1px solid var(--navy); border-radius:5px; background:#fff; color:var(--navy); font:inherit; font-weight:900; text-decoration:none; cursor:pointer; }
+.button.primary { background:var(--navy); color:white; }
+.reader-layout { display:grid; grid-template-columns:minmax(0,1fr) 270px; gap:24px; align-items:start; }
+.reader-content { min-width:0; user-select:text; }
+.reader-content, .reader-content * { overflow-wrap:anywhere; }
+.reader-content pre { overflow-x:auto; white-space:pre-wrap; }
+.reader-content code { white-space:pre-wrap; word-break:break-word; }
+.reader-content h1, .reader-content h2, .reader-content h3 { color:var(--navy); line-height:1.25; }
+.reader-content img, .reader-content video, .reader-content iframe { max-width:100%; border:0; }
+.reader-content iframe { width:100%; aspect-ratio:16/9; }
+.reader-content table { display:block; width:100%; max-width:100%; overflow-x:auto; border-collapse:collapse; margin:18px 0; }
+.reader-content th, .reader-content td { border:1px solid var(--line); padding:10px 12px; vertical-align:top; }
+.reader-content th { background:var(--soft); color:var(--navy); }
+.media-block { margin:24px 0; padding:18px; border:1px solid var(--line); border-radius:14px; background:var(--paper); }
+.media-kicker { margin:0 0 4px; color:var(--blue); font-weight:900; }
+.media-title { margin:0 0 14px; color:var(--navy); font-size:1.16rem; font-weight:900; }
+.media-grid, .media-flow, .media-axis { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; }
+.media-panel, .flow-node, .axis-cell { padding:12px; border:1px solid var(--line); border-radius:10px; background:white; }
+.media-source { color:var(--muted); font-size:.92rem; }
+.reader-sidebar { position:sticky; top:14px; padding:16px; border:1px solid var(--line); border-radius:14px; background:var(--soft); }
+.reader-sidebar ol { margin:10px 0 0; padding-left:22px; }
+.reader-sidebar a { text-decoration:none; font-weight:800; }
+.flip-area { margin:24px 0 0; padding:18px; border:1px dashed var(--line); border-radius:16px; background:white; }
+.flip-area[hidden], .reader-controls[hidden] { display:none !important; }
+.flip-book { width:100%; max-width:100%; min-height:220px; margin:0 auto; }
+.reader-page { width:360px; min-height:480px; padding:24px; border:1px solid var(--line); background:linear-gradient(90deg,rgba(11,44,92,.05),transparent 18px),var(--paper); color:var(--ink); overflow:hidden; }
+.reader-page h3 { margin-top:0; }
+.reader-controls { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; align-items:center; }
+.reader-status { color:var(--muted); font-weight:800; }
+footer { border-top:1px solid var(--line); background:var(--soft); color:var(--muted); }
+footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; } }
+@media (max-width:900px) { .gateway, .reader-layout { grid-template-columns:1fr; } .reader-sidebar { position:static; } .reader-panel { padding:22px; } }
+@media (max-width:640px) { .wrap { width:min(100% - 24px,1120px); } .chapter-grid { grid-template-columns:1fr; } .reader-page { width:280px; min-height:400px; padding:18px; } .button { flex:1 1 160px; } }</style>
+  <script src="../../assets/vendor/page-flip/page-flip.browser.js" defer></script>
+</head>
+<body>
+  <nav class="topnav wrap" aria-label="상위 경로"><a href="../">책 넘김 목차</a><span aria-hidden="true">|</span><a href="../../book/">교재 선택</a><span aria-hidden="true">|</span><a href="../../book/part2/ch04/">텍스트 장</a></nav>
+  <header class="hero wrap"><p class="eyebrow">교육방법 및 교육공학 · Chapter 04</p><h1>4장 수업의 구성과 학습의 조건</h1><p class="lead">전체 본문은 정적 HTML로 먼저 렌더링되어 텍스트 선택·복사와 링크 이동이 JavaScript 없이도 작동합니다.</p></header>
+  <main class="reader-panel wrap reader-layout" aria-label="04장 리더" data-reader-chapter="ch04">
+    <article class="reader-content" id="content">
+      <div class="button-row"><a class="button primary" href="../../book/part2/ch04/">텍스트 장 읽기</a><a class="button" href="../">책 넘김 목차</a><a class="button" href="../ch03/">이전 장</a><a class="button" href="../ch05/">다음 장</a></div>
+<h1 id="4">4장 수업의 구성과 학습의 조건<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
+<h2 id="_1">학습 목표<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>이 장을 학습한 뒤에는 다음을 설명할 수 있어야 한다.</p>
+<ol>
+<li>가녜가 말한 학습 조건 관점에서 학습 결과 유형과 수업 설계의 관계를 설명할 수 있다.</li>
+<li>9가지 교수사태를 단순한 수업 순서가 아니라 학습자의 내적 처리 과정을 돕는 외적 조건으로 해석할 수 있다.</li>
+<li>학습위계와 내용 계열화가 수업 목표, 선수학습, 연습 활동을 어떻게 연결하는지 설명할 수 있다.</li>
+<li>정교화 이론과 개정 블룸 분류표를 활용하여 단원 수준의 내용 조직과 차시 수준의 목표 진술을 점검할 수 있다.</li>
+</ol>
+<h2 id="_2">웹 학습 보조<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="media-block" data-media-kind="diagram">
+  <p class="media-kicker">조건 매트릭스</p>
+  <p class="media-title">학습 결과 유형에 맞는 지원</p>
+  <div class="media-axis">
+    <div class="axis-cell"><strong>언어정보</strong><br>의미 조직, 단서, 인출 기회</div>
+    <div class="axis-cell"><strong>지적기능</strong><br>개념 변별, 원리 적용, 하위 기능</div>
+    <div class="axis-cell"><strong>인지전략</strong><br>시범, 자기질문, 점검 절차</div>
+    <div class="axis-cell"><strong>태도·운동기능</strong><br>모델, 선택 경험, 반복 연습과 피드백</div>
+  </div>
+  <p class="media-source">출처: 이 장 본문과 Gagné 계열 학습 조건 논의를 바탕으로 만든 자체 매트릭스.</p>
+</div>
+
+<div class="media-block" data-media-kind="activity">
+  <p class="media-kicker">수업 흐름 점검</p>
+  <p class="media-title">9가지 교수사태 압축 체크</p>
+  <ol class="activity-steps">
+    <li>주의, 목표, 선수학습을 도입부에서 확인한다.</li>
+    <li>자료, 안내, 수행, 피드백이 목표 수행으로 이어지는지 본다.</li>
+    <li>평가 뒤 파지와 전이를 위한 변형 과제를 남긴다.</li>
+  </ol>
+  <p class="media-source">출처: 이 장의 9가지 교수사태 절을 바탕으로 만든 자체 활동.</p>
+</div>
+
+<p><span class="교재-highlight concept">핵심 관점</span> 수업 절차는 고정 순서가 아니라 특정 학습 결과를 가능하게 하는 조건 배열이다. <span class="교재-highlight evidence">근거 읽기</span> 학습 결과 유형, 교수사태, 학습위계는 모두 목표 수행과 필요한 지원을 연결한다. <span class="교재-highlight practice">수업 적용</span> 목표를 쓴 뒤 선수학습, 자료 제시, 피드백, 전이 과제를 한 줄로 점검한다.</p>
+
+<h2 id="1">1. 수업을 조건으로 본다는 것<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>수업은 교사가 설명한 시간의 총합이 아니다. 학습자가 어떤 결과에 도달해야 하는지, 그 결과에 필요한 선수 경험은 무엇인지, 어떤 자료와 활동이 그 경험을 가능하게 하는지를 맞추어 가는 설계 활동이다. 따라서 "좋은 수업"은 언제나 목표, 내용, 학습자, 매체, 평가 조건이 함께 맞물린 상태를 뜻한다.</p>
+<p>가녜의 <em>The Conditions of Learning</em>은 이 관점을 대표하는 고전이다. 이 책은 학습을 하나의 단일 현상으로만 보지 않고, 학습 결과의 종류와 그 결과를 가능하게 하는 조건을 함께 분석하는 방향을 제시하였다.<sup id="fnref:gagne1965"><a class="footnote-ref" href="#fn:gagne1965">1</a></sup> 이 관점에서 교사의 첫 질문은 "무엇을 재미있게 제시할까"가 아니라 "이 수업에서 학습자가 어떤 수행을 할 수 있게 되어야 하는가"이다.</p>
+<p>수업 조건을 생각한다는 것은 학습자에게 필요한 외적 지원을 설계한다는 뜻이다. 같은 설명이라도 목표가 사실 기억인지, 개념 구분인지, 원리 적용인지, 태도 변화인지에 따라 도입, 예시, 연습, 피드백의 모양은 달라진다. 수업 절차는 고정된 의식이 아니라 특정 학습 결과를 가능하게 하는 조건들의 배열이다.</p>
+<div class="admonition note">
+<p class="admonition-title">조건이라는 말의 범위</p>
+<p>이 장에서 조건은 교실 환경만을 뜻하지 않는다. 학습 목표, 선수학습, 자료 제시 방식, 연습 기회, 피드백, 평가, 전이 과제까지 포함하는 설계상의 조건을 가리킨다.</p>
+</div>
+<h2 id="2">2. 가녜의 학습 결과 유형<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>가녜, 브리그스, 웨이저의 <em>Principles of Instructional Design</em>은 학습 결과를 언어정보, 지적기능, 인지전략, 태도, 운동기능으로 구분하는 교수설계 관점을 제시한다.<sup id="fnref:gagne1992"><a class="footnote-ref" href="#fn:gagne1992">2</a></sup> 이 분류의 의의는 학습 결과를 이름 붙이는 데 있지 않다. 결과 유형에 따라 수업에서 제공해야 할 조건이 달라진다는 점을 교사가 판단하게 하는 데 있다.</p>
+<p>언어정보는 말이나 글로 표현할 수 있는 사실, 명제, 명칭, 사건에 관한 지식이다. 예를 들어 "2022 개정 교육과정은 교육부 고시로 공포되었다"와 같은 정보, 역사적 사건의 명칭, 개념의 정의가 여기에 속한다. 언어정보 수업에서는 정보가 의미 있게 조직되어야 하며, 학습자가 핵심 단서를 다시 인출할 기회를 가져야 한다.</p>
+<p>지적기능은 상징, 개념, 규칙을 사용하여 문제를 해결하는 능력이다. 단어를 외우는 것과 달리, 지적기능은 어떤 대상을 변별하고, 개념에 따라 분류하고, 원리를 적용하며, 새 문제를 해결하는 수행을 요구한다. 이때 선수학습의 확인이 중요하다. 예를 들어 일차방정식을 풀기 전에 등식의 성질과 기본 연산을 다루지 않으면, 학생의 오류는 "노력 부족"이 아니라 설계되지 않은 선수 조건의 문제일 수 있다.</p>
+<p>인지전략은 학습자가 자신의 사고와 학습 과정을 조절하는 능력이다. 요약하기, 비교표 만들기, 자기 질문 만들기, 풀이 과정을 점검하기 같은 전략은 특정 교과 내용과 결합되어 나타나지만, 핵심은 학습자가 스스로 인지 과정을 조절한다는 데 있다. 교사는 전략을 이름으로만 소개하기보다, 실제 과제 속에서 전략을 시범 보이고 학습자가 적용해 보도록 해야 한다.</p>
+<p>태도는 어떤 대상이나 행동을 선택하려는 비교적 지속적인 경향이다. 안전 수칙을 지키려는 태도, 타인의 의견을 존중하려는 태도, 학문적 정직성을 중요하게 여기는 태도는 단순 설명만으로 형성되기 어렵다. 신뢰할 만한 모델, 의미 있는 경험, 선택과 성찰의 기회가 함께 필요하다.</p>
+<p>운동기능은 신체 움직임이 일정한 정확성과 유창성을 갖추는 학습 결과다. 악기 연주, 실험 기구 조작, 체육 기능, 발음 훈련처럼 실행의 질이 중요한 영역에서는 충분한 연습, 수행 단서, 즉각적 피드백이 핵심 조건이 된다. 한 번의 설명으로 숙달을 기대하는 수업은 운동기능의 학습 조건을 과소평가한 것이다.</p>
+<h2 id="3-9">3. 9가지 교수사태와 수업의 흐름<a class="headerlink" href="#3-9" title="Permanent link">&para;</a></h2>
+<p>가녜의 9가지 교수사태는 수업을 설계할 때 자주 쓰이는 절차 틀이다. <em>Principles of Instructional Design</em>의 1992년 4판은 교수설계 원리를 다루는 대표 문헌으로 확인되며,<sup id="fnref2:gagne1992"><a class="footnote-ref" href="#fn:gagne1992">2</a></sup> 여러 대학 교수학습센터도 이 문헌을 근거로 9가지 교수사태를 안내한다.<sup id="fnref:niu2020"><a class="footnote-ref" href="#fn:niu2020">3</a></sup> 여기서 중요한 점은 9가지 교수사태를 기계적인 체크리스트로 오해하지 않는 것이다. 각 사태는 학습자의 내적 학습 과정을 돕기 위한 외적 수업 사건이다.</p>
+<p>첫째, 주의를 획득한다. 수업이 시작되었다고 해서 학습자의 인지 자원이 자동으로 수업 내용에 향하는 것은 아니다. 적절한 질문, 사례, 문제 상황은 학습자가 다룰 대상을 선명하게 만든다.</p>
+<p>둘째, 학습 목표를 알린다. 목표는 교사가 수업안을 완성하기 위해 쓰는 문장이 아니라, 학습자가 무엇에 주의를 기울이고 어떤 수행을 준비해야 하는지 알게 하는 안내 장치다.</p>
+<p>셋째, 선수학습 회상을 자극한다. 새 내용은 기존 지식과 연결될 때 더 안정적으로 이해된다. 지난 시간의 핵심 개념을 떠올리게 하거나, 일상 경험을 학습 과제와 연결하는 활동이 여기에 해당한다.</p>
+<p>넷째, 자극 자료를 제시한다. 이 단계의 핵심은 많은 정보를 제시하는 것이 아니라, 학습자가 핵심 특징을 지각하고 비교할 수 있도록 자료를 구조화하는 것이다.</p>
+<p>다섯째, 학습 안내를 제공한다. 예시, 반례, 힌트, 시범, 사고 과정의 말하기는 학습자가 정보를 의미 있게 부호화하도록 돕는다. 안내는 정답을 대신 주는 것이 아니라, 학습자가 접근할 길을 보여 주는 일이다.</p>
+<p>여섯째, 수행을 유도한다. 학습자는 듣는 것만으로 자신이 배웠는지 확인하기 어렵다. 문제 풀이, 설명하기, 적용 과제, 실습, 토의 산출물은 학습자가 실제 수행을 시도하게 만든다.</p>
+<p>일곱째, 피드백을 제공한다. 피드백은 칭찬이나 점수 통보에 그치지 않는다. 수행이 목표와 어떻게 맞거나 어긋났는지, 다음 시도에서 무엇을 조정해야 하는지 알려 주어야 한다.</p>
+<p>여덟째, 수행을 평가한다. 평가는 수업 목표에 비추어 학습자의 도달 정도를 확인하는 절차다. 형성평가와 총괄평가 모두 이 기능을 할 수 있으며, 평가는 앞서 제시한 목표와 정렬되어야 한다.</p>
+<p>아홉째, 파지와 전이를 향상한다. 학습이 수업 시간 안에서만 작동한다면 충분하지 않다. 학습자는 시간이 지난 뒤에도 핵심 내용을 떠올리고, 다른 맥락에서 사용할 수 있어야 한다. 복습, 변형 문제, 실제 적용 과제, 다양한 사례 비교는 이 마지막 조건을 강화한다.</p>
+<p>9가지 교수사태는 언제나 같은 길이와 순서로 실행되어야 하는 규칙은 아니다. 짧은 도입 활동에서는 몇 사태가 압축될 수 있고, 탐구 수업에서는 수행 유도와 피드백이 반복될 수 있다. 그러나 어떤 형태의 수업이든 주의, 목표, 선수학습, 자료, 안내, 수행, 피드백, 평가, 전이 조건을 의식적으로 점검하면 설계의 빈틈을 줄일 수 있다.</p>
+<h2 id="4_1">4. 학습위계와 선수학습의 설계<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h2>
+<p>학습위계는 어떤 목표를 성취하기 위해 먼저 갖추어야 할 하위 기능과 선수 지식을 분석하는 사고 도구다. 특히 지적기능을 가르칠 때 학습위계는 중요하다. 학습자가 원리를 적용하지 못할 때, 원리 자체를 이해하지 못한 것인지, 필요한 개념을 구분하지 못한 것인지, 더 기초적인 변별을 놓친 것인지 따져 보아야 한다.</p>
+<p>예를 들어 "삼각형의 넓이를 구한다"는 목표는 공식을 말하는 것만으로 완성되지 않는다. 학습자는 밑변과 높이를 구분해야 하고, 길이 단위를 이해해야 하며, 곱셈과 나눗셈을 사용할 수 있어야 한다. 이 조건 중 하나가 빠지면 교사의 설명이 아무리 명확해도 학습자는 같은 오류를 반복할 수 있다. 학습위계 분석은 이런 오류를 개인의 결핍으로 돌리기보다, 아직 설계되지 않은 조건을 찾게 한다.</p>
+<p>다만 모든 내용이 엄격한 위계로만 조직되는 것은 아니다. 절차적 수행은 단계의 순서가 중요하고, 개념 지식은 상위 개념과 하위 개념의 관계가 중요하며, 태도 수업은 경험과 모델의 질이 중요하다. 따라서 교수설계자는 "무엇이 먼저인가"와 함께 "무엇이 함께 비교되어야 하는가", "무엇이 실제 수행 속에서 반복되어야 하는가"를 물어야 한다.</p>
+<p>학습위계는 평가 설계와도 연결된다. 최종 문항만 제시하면 학습자가 어디에서 막혔는지 알기 어렵다. 하위 기능을 드러내는 짧은 과제, 오류 유형을 확인하는 질문, 단계별 피드백은 학습위계 분석을 수업 안에서 작동하게 만든다. 이런 점에서 학습위계는 교사용 문서가 아니라 학습자의 어려움을 읽기 위한 진단 틀이다.</p>
+<h2 id="5">5. 단원 조직과 정교화 이론<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>차시 안의 흐름을 설계했다면, 다음 질문은 단원과 교과 전체의 순서다. 무엇을 먼저 다루고, 무엇을 뒤로 미루며, 어떤 개념을 반복해서 심화할 것인가? 정교화 이론은 이런 거시적 순서와 조직의 문제를 다루는 교수설계 이론이다.</p>
+<p>스프링거의 논문 metadata는 Reigeluth의 1979년 논문 「In search of a better way to organize instruction: The elaboration theory」를 <em>Journal of Instructional Development</em> 2권 8-15쪽 논문으로 확인한다.<sup id="fnref:reigeluth1979"><a class="footnote-ref" href="#fn:reigeluth1979">4</a></sup> 이후 Reigeluth와 Aslan은 정교화 이론을 교수 내용을 조직하고 계열화하기 위한 이론으로 설명하며, 부분을 조각처럼 나열하기보다 전체 조망과 세부 탐색을 오가도록 설계하는 관점을 제시한다.<sup id="fnref:reigeluth2014"><a class="footnote-ref" href="#fn:reigeluth2014">5</a></sup></p>
+<p>정교화 이론을 수업 설계에 적용하면, 단원은 가장 단순하면서도 전체를 대표하는 구조에서 출발하여 점차 세부와 복잡성을 더하는 방식으로 조직될 수 있다. 예를 들어 생태계 단원을 시작할 때 먹이사슬, 에너지 흐름, 생물 다양성을 완전히 분리된 주제로 나열하기보다, 먼저 생태계 전체의 기본 관계를 조망하게 한 뒤 각 관계를 더 자세히 탐구하게 할 수 있다.</p>
+<p>이 방식은 학습자에게 큰 그림을 먼저 제공한다는 장점이 있다. 세부 내용은 전체 구조 속에서 의미를 얻고, 학습자는 새로 배우는 정보가 어디에 놓이는지 이해하기 쉽다. 그러나 정교화 이론이 모든 수업에서 항상 최선이라는 뜻은 아니다. 안전 절차, 실험 순서, 기초 기능처럼 정확한 단계 수행이 우선인 내용에서는 절차적 계열화가 더 적절할 수 있다. 핵심은 이론의 이름을 적용하는 것이 아니라 내용의 성격에 맞는 조직 원리를 고르는 것이다.</p>
+<h2 id="6">6. 목표 진술과 개정 블룸 분류표<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>수업의 조건을 설계하려면 목표가 먼저 분명해야 한다. "이해한다", "안다", "익힌다"는 말은 교사의 의도를 넓게 표현할 수 있지만, 학습자가 실제로 무엇을 해야 하는지 보여 주지는 못한다. 목표는 학습자가 수업 뒤에 설명하기, 분류하기, 적용하기, 분석하기, 평가하기, 설계하기처럼 관찰 가능한 수행으로 드러낼 수 있어야 한다.</p>
+<p>블룸과 동료들의 1956년 <em>Taxonomy of Educational Objectives: Handbook I: Cognitive Domain</em>은 교육목표를 분류하려는 대표적 시도였다.<sup id="fnref:bloom1956"><a class="footnote-ref" href="#fn:bloom1956">6</a></sup> 2001년 Anderson과 Krathwohl의 개정판은 이 전통을 재구성하여 지식 차원과 인지과정 차원을 구분하는 2차원 틀을 제시한다.<sup id="fnref:ak2001"><a class="footnote-ref" href="#fn:ak2001">7</a></sup> ERIC의 Krathwohl 2002 논문 metadata도 개정 분류표가 인지과정과 지식이라는 두 차원을 검토한다고 요약한다.<sup id="fnref:krathwohl2002"><a class="footnote-ref" href="#fn:krathwohl2002">8</a></sup></p>
+<p>인지과정 차원은 기억, 이해, 적용, 분석, 평가, 창조로 제시된다. 이 순서는 단순한 동사 목록이 아니라 학습 목표가 요구하는 사고의 성격을 점검하게 하는 도구다. "민주주의의 뜻을 말한다"와 "학교 규칙을 민주적 의사결정 원리에 비추어 평가한다"는 같은 주제를 다루지만 요구하는 인지과정이 다르다.</p>
+<p>지식 차원은 사실적 지식, 개념적 지식, 절차적 지식, 메타인지적 지식을 구분한다. Krathwohl의 2002년 개관 논문은 개정 분류표가 이러한 네 지식 범주를 포함한다고 설명한다.<sup id="fnref2:krathwohl2002"><a class="footnote-ref" href="#fn:krathwohl2002">8</a></sup> 이 구분은 목표 문장을 더 정교하게 만든다. 예를 들어 "분수를 이해한다"보다 "분수의 분자와 분모가 나타내는 관계를 그림과 수식으로 설명한다"가 더 분명하며, "분수 나눗셈 알고리즘을 적용한다"는 또 다른 지식과 인지과정을 요구한다.</p>
+<p>개정 블룸 분류표는 목표, 활동, 평가를 정렬하는 데 유용하다. 목표가 분석인데 활동은 교사의 설명 듣기에 머물고 평가가 용어 암기에 그친다면 수업 조건은 목표와 어긋난다. 반대로 목표가 사실 기억인데 과도하게 복잡한 프로젝트를 요구하면 학습자의 인지적 부담은 목표보다 커진다. 좋은 목표 진술은 높은 수준의 동사를 많이 쓰는 것이 아니라, 의도한 학습 결과와 수업 조건을 정확히 연결하는 것이다.</p>
+<h2 id="7">7. 한 차시 설계로 통합하기<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>이 장의 이론들은 서로 떨어진 목록이 아니다. 한 차시를 설계한다고 생각해 보자. 먼저 학습 결과가 무엇인지 판단한다. 언어정보인지, 지적기능인지, 인지전략인지, 태도인지, 운동기능인지에 따라 필요한 조건이 달라진다. 그다음 목표를 관찰 가능한 수행으로 진술하고, 필요한 선수학습과 하위 기능을 분석한다.</p>
+<p>이어 수업의 흐름을 9가지 교수사태로 점검한다. 도입에서 주의를 획득하고 목표를 알렸는가? 새 내용과 연결될 선수 지식을 회상하게 했는가? 자료는 핵심 특징이 보이도록 구조화되었는가? 학습 안내와 수행 기회, 피드백, 평가가 목표와 맞는가? 수업 뒤 파지와 전이를 돕는 과제가 있는가?</p>
+<p>마지막으로 단원 수준에서는 정교화 이론과 내용 계열화 관점으로 순서를 점검한다. 학습자가 큰 그림 없이 세부만 반복하고 있지는 않은가? 반대로 전체 개관만 있고 충분한 연습과 피드백이 없는 것은 아닌가? 수업 설계는 이 균형을 조정하는 전문적 의사결정이다.</p>
+<p>교사가 이 모든 이론을 매 시간 완벽하게 적용할 수는 없다. 그러나 수업이 잘 되지 않았을 때 "학생이 집중하지 않았다" 또는 "교재가 어렵다"에서 멈추지 않고, 어떤 조건이 빠졌는지 분석할 수 있다면 수업 개선은 훨씬 구체적이 된다. 이 장의 핵심은 바로 그 분석 언어를 갖추는 데 있다.</p>
+<h2 id="_3">도입 사례<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><strong>창작 시나리오.</strong> 초등학교 5학년 과학 수업을 맡은 예비교사 준호는 "식물의 잎이 하는 일을 설명한다"라는 차시를 준비했다. 처음에는 영상 한 편과 빈칸 채우기 활동으로 충분하다고 생각했지만, 학생들이 증산 작용이라는 용어를 기억하는 것과 잎의 구조, 물의 이동, 실험 결과를 연결하여 설명하는 것은 다른 학습 결과임을 깨달았다. 준호는 도입 질문으로 화분이 시드는 사례를 제시하고, 지난 시간에 배운 뿌리의 역할을 회상하게 한 뒤, 관찰 자료와 짧은 실험 결과를 비교하도록 수업을 재구성했다. 마지막에는 새로운 식물 관리 상황에 설명을 적용하게 하여 파지와 전이를 확인했다.</p>
+<h2 id="_4">핵심 용어<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>학습 조건</strong>: 특정 학습 결과가 일어나도록 목표, 선수학습, 자료, 연습, 피드백, 평가를 배열한 설계 조건.</li>
+<li><strong>학습 결과 유형</strong>: 언어정보, 지적기능, 인지전략, 태도, 운동기능처럼 서로 다른 수행 특성을 지닌 학습 성과 범주.</li>
+<li><strong>9가지 교수사태</strong>: 주의 획득에서 파지와 전이 향상까지 학습자의 내적 과정을 돕기 위한 외적 수업 사건.</li>
+<li><strong>학습위계</strong>: 최종 목표 수행에 필요한 하위 기능과 선수학습을 분석한 구조.</li>
+<li><strong>정교화 이론</strong>: 단원이나 교과 내용을 전체 조망에서 세부 탐색으로 점차 확장하도록 조직하는 계열화 이론.</li>
+</ul>
+<h2 id="_5">이론과 연구 확장<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">학습 결과 유형은 수업 지원의 종류를 바꾼다<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>가녜 계열 교수설계는 학습 결과를 언어정보, 지적기능, 인지전략, 태도, 운동기능으로 구분하고, 각 결과에 맞는 조건을 설계하도록 한다.<sup id="fnref3:gagne1992"><a class="footnote-ref" href="#fn:gagne1992">2</a></sup> 예컨대 역사 용어 기억은 의미 조직과 인출 연습이 중요하지만, 민주적 의사결정 원리 적용은 사례 비교와 판단 근거 제시가 필요하다. 예비교사는 수업 활동을 고르기 전에 목표 수행이 어떤 결과 유형에 가까운지 먼저 판단해야 한다.</p>
+<h3 id="9">9가지 교수사태는 학습자의 내적 처리를 돕는 외적 사건이다<a class="headerlink" href="#9" title="Permanent link">&para;</a></h3>
+<p>9가지 교수사태는 정해진 순서대로 칸을 채우는 양식이 아니라, 주의, 목표 인식, 선수학습 회상, 자료 지각, 의미화, 수행, 피드백, 평가, 전이의 조건을 점검하는 렌즈다.<sup id="fnref4:gagne1992"><a class="footnote-ref" href="#fn:gagne1992">2</a></sup> Northern Illinois University의 교수학습 자료도 이 틀을 수업 설계 안내로 소개한다.<sup id="fnref2:niu2020"><a class="footnote-ref" href="#fn:niu2020">3</a></sup> 짧은 수업에서는 몇 단계가 합쳐질 수 있지만, 목표와 평가 사이에서 수행 기회와 피드백이 빠지면 학습 조건은 약해진다.</p>
+<h3 id="_7">정교화와 분류표는 단원과 차시를 함께 점검하게 한다<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>정교화 이론은 내용을 단순한 전체 조망에서 점차 복잡한 세부로 확장하는 조직 원리를 제안한다.<sup id="fnref2:reigeluth1979"><a class="footnote-ref" href="#fn:reigeluth1979">4</a></sup> 개정 블룸 분류표는 목표가 어떤 지식 차원과 인지과정 차원을 요구하는지 점검하게 한다.<sup id="fnref2:ak2001"><a class="footnote-ref" href="#fn:ak2001">7</a></sup> 두 관점을 함께 쓰면 단원 수준에서는 무엇을 먼저 조망할지, 차시 수준에서는 학생이 기억, 이해, 적용, 분석, 평가, 창조 중 어떤 수행을 보여야 하는지 더 명확해진다.</p>
+<h2 id="_8">토론 질문<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ol>
+<li>같은 주제라도 언어정보 목표와 지적기능 목표로 가르칠 때 수업 활동과 평가가 어떻게 달라져야 하는가?</li>
+<li>9가지 교수사태 중 실제 학교 수업에서 가장 자주 생략되기 쉬운 단계는 무엇이며, 그 결과는 무엇인가?</li>
+<li>학습위계 분석이 학생의 오류를 이해하는 방식을 어떻게 바꿀 수 있는가?</li>
+<li>개정 블룸 분류표를 목표 작성 도구로 사용할 때 동사 목록만 베끼는 문제를 어떻게 피할 수 있는가?</li>
+</ol>
+<h2 id="_9">형성 평가<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>가녜의 학습 결과 유형 다섯 가지를 쓰고, 각각에 맞는 수업 지원을 하나씩 제시하시오.<br>
+<strong>예시 답안</strong>: 언어정보-의미 조직, 지적기능-개념 변별 연습, 인지전략-자기질문 시범, 태도-모델과 성찰, 운동기능-반복 연습과 즉각 피드백.<br>
+<strong>채점 기준</strong>: 다섯 유형을 모두 포함하고 지원 방식이 유형의 특성과 맞으면 적절하다.</p>
+</li>
+<li>
+<p>"학생은 삼각형의 넓이를 구할 수 있다"라는 목표의 선수학습을 두 가지 이상 제시하시오.<br>
+<strong>예시 답안</strong>: 밑변과 높이 구분, 길이 단위 이해, 곱셈과 나눗셈 사용.<br>
+<strong>해설</strong>: 학습위계 분석은 최종 수행을 가능하게 하는 하위 기능을 드러낸다.</p>
+</li>
+<li>
+<p>9가지 교수사태에서 "파지와 전이 향상"에 해당하는 활동 예를 하나 쓰시오.<br>
+<strong>예시 답안</strong>: 수업에서 배운 비례식을 다른 생활 장면의 할인율 계산 문제에 적용하게 한다.<br>
+<strong>해설</strong>: 전이 활동은 같은 지식을 새 맥락에서 사용하도록 요구해야 한다.</p>
+</li>
+<li>
+<p>개정 블룸 분류표에서 지식 차원과 인지과정 차원을 함께 보아야 하는 이유를 설명하시오.<br>
+<strong>예시 답안</strong>: 같은 내용도 사실 기억, 개념 설명, 절차 적용, 판단 근거 제시처럼 요구 수행이 달라질 수 있기 때문이다.<br>
+<strong>해설</strong>: 목표는 내용만이 아니라 학생이 그 내용으로 무엇을 할지까지 밝혀야 한다.</p>
+</li>
+<li>
+<p>다음 목표를 더 관찰 가능하게 고쳐 쓰시오. "학생은 생태계를 이해한다."<br>
+<strong>예시 답안</strong>: 학생은 먹이사슬 그림을 보고 생산자, 소비자, 분해자의 관계를 설명할 수 있다.<br>
+<strong>루브릭</strong>: 핵심 개념, 관찰 가능한 동사, 수행 조건이 포함되면 우수하다.</p>
+</li>
+</ol>
+<h2 id="_10">요약<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>가녜의 학습 조건 관점은 학습 결과 유형에 따라 필요한 교수 조건이 달라진다는 점을 강조한다. 언어정보, 지적기능, 인지전략, 태도, 운동기능은 서로 다른 수행을 요구하므로 도입, 자료, 연습, 피드백도 달라져야 한다. 9가지 교수사태는 학습자의 내적 과정을 돕는 외적 수업 사건이며, 학습위계 분석은 목표 성취에 필요한 선수학습과 하위 기능을 드러낸다. 정교화 이론은 단원과 교과 수준에서 내용을 전체에서 세부로 조직하는 관점을 제공하고, 개정 블룸 분류표는 지식 차원과 인지과정 차원을 함께 고려하여 목표, 활동, 평가를 정렬하게 한다.</p>
+<h2 id="_11">생각해보기<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ol>
+<li>최근에 들었거나 직접 해 본 수업 하나를 골라 9가지 교수사태 중 강하게 드러난 것과 빠진 것을 각각 찾아보자.</li>
+<li>"학생은 비례식을 활용하여 실생활 문제를 해결할 수 있다"라는 목표를 학습위계로 분석하면 어떤 선수학습이 필요한가?</li>
+<li>개정 블룸 분류표를 활용하여 자신이 만든 학습 목표 하나를 지식 차원과 인지과정 차원으로 분류해 보자. 목표, 활동, 평가가 서로 맞는지도 함께 점검해 보자.</li>
+</ol>
+<h2 id="_12">참고문헌<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:gagne1965">
+<p>Gagné, R. M. (1965). <em>The Conditions of Learning</em>. Holt, Rinehart and Winston. Metadata verified through Google Books at <code>https://books.google.com.bh/books?id=EhGdAAAAMAAJ</code>.&#160;<a class="footnote-backref" href="#fnref:gagne1965" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:gagne1992">
+<p>Gagné, R. M., Briggs, L. J., &amp; Wager, W. W. (1992). <em>Principles of Instructional Design</em> (4th ed.). Harcourt Brace Jovanovich College Publishers. Metadata verified through Google Books at <code>https://books.google.com/books/about/Principles_of_Instructional_Design.html?id=LH3uAAAAMAAJ</code>.&#160;<a class="footnote-backref" href="#fnref:gagne1992" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:gagne1992" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:gagne1992" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:gagne1992" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:niu2020">
+<p>Northern Illinois University Center for Innovative Teaching and Learning. (2020). <em>Gagné's Nine Events of Instruction</em>. <code>https://www.niu.edu/citl/resources/guides/instructional-guide/gagnes-nine-events-of-instruction.shtml</code>.&#160;<a class="footnote-backref" href="#fnref:niu2020" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:niu2020" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:reigeluth1979">
+<p>Reigeluth, C. M. (1979). In search of a better way to organize instruction: The elaboration theory. <em>Journal of Instructional Development, 2</em>, 8-15. <code>https://doi.org/10.1007/BF02984374</code>.&#160;<a class="footnote-backref" href="#fnref:reigeluth1979" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:reigeluth1979" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:reigeluth2014">
+<p>Reigeluth, C. M., &amp; Aslan, S. (2014). Elaboration theory: A theory to organize and sequence instructional content. In J. M. Spector (Ed.), <em>Encyclopedia of Educational Technology</em>. Sage Publications. Metadata and text inspected from the author-hosted PDF at <code>https://www.reigeluth.net/_files/ugd/4d4aa4_d7a333f8c2014bc0b30e85026775f95a.pdf</code>.&#160;<a class="footnote-backref" href="#fnref:reigeluth2014" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:bloom1956">
+<p>Bloom, B. S., Engelhart, M. D., Furst, E. J., Hill, W. H., &amp; Krathwohl, D. R. (1956). <em>The Taxonomy of Educational Objectives, Handbook I: The Cognitive Domain</em>. David McKay Co., Inc. Bibliographic metadata verified through the University of North Carolina at Charlotte Center for Teaching and Learning page at <code>https://teaching.charlotte.edu/services-programs/teaching-guides/course-design/blooms-educational-objectives/</code>.&#160;<a class="footnote-backref" href="#fnref:bloom1956" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:ak2001">
+<p>Anderson, L. W., &amp; Krathwohl, D. R. (2001). <em>A Taxonomy for Learning, Teaching, and Assessing: A Revision of Bloom's Taxonomy of Educational Objectives</em>. Longman. Metadata verified through Google Books at <code>https://books.google.com/books/about/A_Taxonomy_for_Learning_Teaching_and_Ass.html?id=EMQlAQAAIAAJ</code>.&#160;<a class="footnote-backref" href="#fnref:ak2001" title="Jump back to footnote 7 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:ak2001" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:krathwohl2002">
+<p>Krathwohl, D. R. (2002). A revision of Bloom's taxonomy: An overview. <em>Theory into Practice, 41</em>(4), 212-218. ERIC metadata verified at <code>https://eric.ed.gov/?id=EJ667155</code>.&#160;<a class="footnote-backref" href="#fnref:krathwohl2002" title="Jump back to footnote 8 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:krathwohl2002" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+      <section class="flip-area reader-enhancement" data-reader-enhancement aria-label="책 넘김 미리보기">
+        <h2>책 넘김 미리보기</h2>
+        <p class="notice">본문 일부를 카드처럼 넘기며 장의 흐름을 확인할 수 있습니다. 전체 본문은 위 장 콘텐츠에서 선택하거나 복사해서 이용할 수 있습니다.</p>
+        <div class="flip-book" data-flip-book>
+          <section class="reader-page" data-reader-page><h3>4장 수업의 구성과 학습의 조건</h3><p>본문을 카드처럼 넘기며 읽기 흐름을 확인합니다.</p><p><a href="../../book/part2/ch04/">텍스트 장으로 이동</a></p></section>
+          <section class="reader-page" data-reader-page><h3>읽기 경로</h3><p><a href="../../book/part2/ch04/">텍스트 장으로 이동</a></p><p><a href="../">책 넘김 목차로 이동</a></p></section>
+        </div>
+        <div class="reader-controls" data-reader-controls hidden><button class="button" type="button" data-page-prev>이전 페이지</button><button class="button" type="button" data-page-next>다음 페이지</button><span class="reader-status" data-reader-status aria-live="polite"></span></div>
+      </section>
+    </article>
+    <aside class="reader-sidebar" aria-label="책 넘김 장 목록">
+      <strong>장 목록</strong>
+      <ol>
+        <li><a href="../ch01/" data-chapter-link="ch01">01. 1장 교육방법과 교육공학의 이해</a></li>
+        <li><a href="../ch02/" data-chapter-link="ch02">02. 2장 교육과 테크놀로지의 만남</a></li>
+        <li><a href="../ch03/" data-chapter-link="ch03">03. 3장 체제적 교수설계</a></li>
+        <li><a href="../ch04/" data-chapter-link="ch04" aria-current="page">04. 4장 수업의 구성과 학습의 조건</a></li>
+        <li><a href="../ch05/" data-chapter-link="ch05">05. 5장 교수이론과 수업모형</a></li>
+        <li><a href="../ch06/" data-chapter-link="ch06">06. 6장 협동학습 전략</a></li>
+        <li><a href="../ch07/" data-chapter-link="ch07">07. 7장 학습동기 설계 (ARCS)</a></li>
+        <li><a href="../ch08/" data-chapter-link="ch08">08. 8장 질문과 탐구 중심 수업</a></li>
+        <li><a href="../ch09/" data-chapter-link="ch09">09. 9장 멀티미디어 학습과 인지부하</a></li>
+        <li><a href="../ch10/" data-chapter-link="ch10">10. 10장 디지털 학습환경과 미래교실</a></li>
+        <li><a href="../ch11/" data-chapter-link="ch11">11. 11장 AI와 교육의 만남</a></li>
+      </ol>
+    </aside>
+  </main>
+  <footer><div class="wrap">교육방법 및 교육공학 · 책 넘김 모드</div></footer>
+  <script type="application/json" data-reader-data>{"schemaVersion":1,"page":"reader-chapter","current":"ch04","chapters":[{"index":1,"slug":"ch01","title":"1장 교육방법과 교육공학의 이해","readerRoute":"book-reader/ch01/","readerHref":"../ch01/","textRoute":"book/part1/ch01/","textHref":"../../book/part1/ch01/"},{"index":2,"slug":"ch02","title":"2장 교육과 테크놀로지의 만남","readerRoute":"book-reader/ch02/","readerHref":"../ch02/","textRoute":"book/part1/ch02/","textHref":"../../book/part1/ch02/"},{"index":3,"slug":"ch03","title":"3장 체제적 교수설계","readerRoute":"book-reader/ch03/","readerHref":"../ch03/","textRoute":"book/part2/ch03/","textHref":"../../book/part2/ch03/"},{"index":4,"slug":"ch04","title":"4장 수업의 구성과 학습의 조건","readerRoute":"book-reader/ch04/","readerHref":"../ch04/","textRoute":"book/part2/ch04/","textHref":"../../book/part2/ch04/"},{"index":5,"slug":"ch05","title":"5장 교수이론과 수업모형","readerRoute":"book-reader/ch05/","readerHref":"../ch05/","textRoute":"book/part2/ch05/","textHref":"../../book/part2/ch05/"},{"index":6,"slug":"ch06","title":"6장 협동학습 전략","readerRoute":"book-reader/ch06/","readerHref":"../ch06/","textRoute":"book/part3/ch06/","textHref":"../../book/part3/ch06/"},{"index":7,"slug":"ch07","title":"7장 학습동기 설계 (ARCS)","readerRoute":"book-reader/ch07/","readerHref":"../ch07/","textRoute":"book/part3/ch07/","textHref":"../../book/part3/ch07/"},{"index":8,"slug":"ch08","title":"8장 질문과 탐구 중심 수업","readerRoute":"book-reader/ch08/","readerHref":"../ch08/","textRoute":"book/part3/ch08/","textHref":"../../book/part3/ch08/"},{"index":9,"slug":"ch09","title":"9장 멀티미디어 학습과 인지부하","readerRoute":"book-reader/ch09/","readerHref":"../ch09/","textRoute":"book/part4/ch09/","textHref":"../../book/part4/ch09/"},{"index":10,"slug":"ch10","title":"10장 디지털 학습환경과 미래교실","readerRoute":"book-reader/ch10/","readerHref":"../ch10/","textRoute":"book/part4/ch10/","textHref":"../../book/part4/ch10/"},{"index":11,"slug":"ch11","title":"11장 AI와 교육의 만남","readerRoute":"book-reader/ch11/","readerHref":"../ch11/","textRoute":"book/part4/ch11/","textHref":"../../book/part4/ch11/"}]}</script>
+  <script>(function () {
+  var DATA_SELECTOR = "[data-reader-data]";
+  function ready(fn) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn, { once: true });
+    else fn();
+  }
+  function readData() {
+    var node = document.querySelector(DATA_SELECTOR);
+    if (!node) return null;
+    try { return JSON.parse(node.textContent || "{}"); }
+    catch (error) { return null; }
+  }
+  function chapterFromUrl(data) {
+    if (!data || !data.chapters) return null;
+    var params = new URLSearchParams(window.location.search);
+    var requested = (params.get("chapter") || window.location.hash.replace(/^#/, "") || "").toLowerCase();
+    if (!requested) return null;
+    return data.chapters.find(function (chapter) {
+      return chapter.slug === requested || String(chapter.index).padStart(2, "0") === requested.replace(/^ch/, "");
+    }) || null;
+  }
+  function shouldIgnoreKeyboard(event) {
+    var target = event.target;
+    var tag = target && target.tagName ? target.tagName.toLowerCase() : "";
+    return event.altKey || event.ctrlKey || event.metaKey || event.defaultPrevented || tag === "input" || tag === "textarea" || tag === "select" || (target && target.isContentEditable);
+  }
+  ready(function () {
+    var data = readData();
+    var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var holder = document.querySelector("[data-flip-book]");
+    var controls = document.querySelector("[data-reader-controls]");
+    var status = document.querySelector("[data-reader-status]");
+    var chapters = data && data.chapters ? data.chapters : [];
+    var selected = chapterFromUrl(data);
+    var currentSlug = data && data.current ? String(data.current).toLowerCase() : "";
+    var current = currentSlug ? chapters.find(function (chapter) { return chapter.slug === currentSlug; }) : null;
+    var activeIndex = selected ? chapters.findIndex(function (chapter) { return chapter.slug === selected.slug; }) : (current ? chapters.findIndex(function (chapter) { return chapter.slug === current.slug; }) : 0);
+    if (activeIndex < 0) activeIndex = 0;
+
+    function setSelected(chapter, pushHash) {
+      if (!chapter) return;
+      document.querySelectorAll("[data-chapter-link]").forEach(function (link) {
+        if (link.getAttribute("data-chapter-link") === chapter.slug) link.setAttribute("aria-current", "page");
+        else link.removeAttribute("aria-current");
+      });
+      var title = document.querySelector("[data-preview-title]");
+      var source = document.querySelector("[data-preview-source]");
+      var reader = document.querySelector("[data-preview-reader]");
+      var text = document.querySelector("[data-preview-text]");
+      if (title) title.textContent = chapter.index.toString().padStart(2, "0") + ". " + chapter.title;
+      if (source) source.textContent = "선택한 장의 텍스트 장을 함께 제공합니다.";
+      if (reader) reader.setAttribute("href", chapter.readerHref || chapter.readerRoute || chapter.slug + "/");
+      if (text) text.setAttribute("href", chapter.textHref || "../book/" + chapter.textRoute.replace(/^book\//, ""));
+      if (status) status.textContent = "현재 페이지 " + chapter.index.toString().padStart(2, "0");
+      if (pushHash && window.history && window.location.hash !== "#" + chapter.slug) {
+        window.history.replaceState(null, "", "#" + chapter.slug);
+      }
+    }
+
+    setSelected(chapters[activeIndex], false);
+
+    if (!holder || reducedMotion || !window.St || !window.St.PageFlip) {
+      if (controls) controls.hidden = true;
+      return;
+    }
+
+    document.querySelectorAll("[data-reader-enhancement]").forEach(function (node) {
+      node.setAttribute("data-enhanced", "true");
+    });
+
+    var pageFlip = new window.St.PageFlip(holder, {
+      width: 360,
+      height: 480,
+      size: "stretch",
+      minWidth: 280,
+      maxWidth: 720,
+      minHeight: 360,
+      maxHeight: 860,
+      maxShadowOpacity: 0.16,
+      showCover: false,
+      mobileScrollSupport: true
+    });
+    pageFlip.loadFromHTML(document.querySelectorAll("[data-reader-page]"));
+    if (typeof pageFlip.flip === "function" && activeIndex > 0) pageFlip.flip(activeIndex);
+    if (controls) controls.hidden = false;
+
+    var prev = document.querySelector("[data-page-prev]");
+    var next = document.querySelector("[data-page-next]");
+    function move(delta) {
+      activeIndex = Math.max(0, Math.min(chapters.length - 1, activeIndex + delta));
+      setSelected(chapters[activeIndex], true);
+      if (delta < 0 && pageFlip.flipPrev) pageFlip.flipPrev();
+      if (delta > 0 && pageFlip.flipNext) pageFlip.flipNext();
+    }
+    if (prev) prev.addEventListener("click", function () { move(-1); });
+    if (next) next.addEventListener("click", function () { move(1); });
+    document.addEventListener("keydown", function (event) {
+      if (shouldIgnoreKeyboard(event)) return;
+      if (event.key === "ArrowLeft") { move(-1); }
+      if (event.key === "ArrowRight") { move(1); }
+    });
+  });
+}());</script>
+</body>
+</html>

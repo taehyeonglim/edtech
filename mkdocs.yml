@@ -8,6 +8,7 @@ use_directory_urls: true
 theme:
   name: material
   language: ko
+  font: false
   features:
     - navigation.sections
     - navigation.top
@@ -16,15 +17,6 @@ theme:
     - search.suggest
     - search.highlight
     - content.code.copy
-  palette:
-    - scheme: default
-      primary: indigo
-      accent: blue
-      toggle: { icon: material/weather-night, name: 다크 모드로 }
-    - scheme: slate
-      primary: indigo
-      accent: blue
-      toggle: { icon: material/weather-sunny, name: 라이트 모드로 }
 
 markdown_extensions:
   - admonition

@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="임태형">
+  <meta name="description" content="교육방법 및 교육공학 책 넘김 모드 07장">
+  <title>7장 학습동기 설계 (ARCS) · 책 넘김 모드</title>
+  <style>:root { --navy:#0b2c5c; --blue:#1b66c9; --ink:#1a1a1a; --muted:#5c6470; --line:#c5d2e3; --paper:#fffdf8; --ivory:#fff8e8; --soft:#eef4fb; --gold:#b8892f; --shadow:rgba(11,44,92,.14); }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; overflow-x:hidden; background:linear-gradient(180deg,var(--navy) 0 240px,var(--ivory) 240px,#fff 68%); color:var(--ink); font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif; line-height:1.72; }
+body::before { content:""; position:fixed; inset:0; pointer-events:none; background:radial-gradient(circle at 12% 0,rgba(255,248,232,.22),transparent 32rem),linear-gradient(90deg,rgba(11,44,92,.08),transparent 18%,transparent 82%,rgba(11,44,92,.08)); }
+a { color:var(--blue); text-underline-offset:.18em; }
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
+.wrap { width:min(1120px,calc(100% - 40px)); margin:0 auto; position:relative; }
+.topnav { display:flex; gap:12px; flex-wrap:wrap; padding:20px 0 0; font-weight:900; font-size:.95rem; }
+.topnav a { color:#fff8e8; text-decoration:none; }
+.topnav span { color:rgba(255,248,232,.55); }
+.hero { padding:44px 0 28px; color:#fff8e8; }
+.eyebrow { margin:0 0 10px; color:#d8c89d; font-size:.92rem; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+h1 { margin:0; color:inherit; font-size:clamp(2rem,4.8vw,3.65rem); line-height:1.08; font-weight:900; letter-spacing:-.03em; }
+.lead { max-width:850px; margin:16px 0 0; color:#f4eddc; font-weight:700; font-size:1.05rem; }
+.reader-panel { margin:0 auto 64px; padding:28px; border:1px solid var(--line); border-radius:20px; background:rgba(255,253,248,.96); box-shadow:0 22px 54px var(--shadow); }
+.reader-panel h2, .reader-panel h3 { color:var(--navy); }
+.reader-panel > h2:first-child { margin-top:0; }
+.gateway { display:grid; grid-template-columns:minmax(0,.92fr) minmax(300px,1.08fr); gap:24px; align-items:start; }
+.reader-enhancement { display:none; }
+.reader-enhancement[data-enhanced="true"] { display:block; }
+.preview-card { padding:22px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(145deg,#fff,var(--ivory)); box-shadow:inset 6px 0 0 rgba(184,137,47,.35); }
+.preview-kicker { margin:0 0 8px; color:var(--muted); font-weight:900; letter-spacing:.09em; text-transform:uppercase; }
+.preview-title { margin:0 0 8px; color:var(--navy); font-size:clamp(1.45rem,3vw,2rem); line-height:1.18; }
+.preview-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+.chapter-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:22px 0 0; padding:0; list-style:none; }
+.chapter-card { display:block; min-height:104px; padding:18px; border:1px solid var(--line); border-radius:12px; background:var(--paper); color:inherit; text-decoration:none; transition:border-color .18s ease, transform .18s ease, box-shadow .18s ease; }
+.chapter-card:hover, .chapter-card[aria-current="page"] { border-color:var(--gold); transform:translateY(-2px); box-shadow:0 12px 28px rgba(11,44,92,.13); }
+.num { display:inline-flex; margin-bottom:8px; padding:4px 9px; background:var(--navy); color:white; border-radius:2px; font-weight:900; letter-spacing:.08em; }
+.title { display:block; color:var(--navy); font-size:1.05rem; font-weight:900; }
+.source-note { display:block; color:var(--muted); font-size:.9rem; overflow-wrap:anywhere; }
+.notice, .admonition { margin:20px 0; padding:16px 18px; border-left:6px solid var(--blue); background:var(--soft); color:var(--muted); font-weight:700; }
+.button-row { display:flex; flex-wrap:wrap; gap:10px; margin:22px 0; }
+.button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 16px; border:1px solid var(--navy); border-radius:5px; background:#fff; color:var(--navy); font:inherit; font-weight:900; text-decoration:none; cursor:pointer; }
+.button.primary { background:var(--navy); color:white; }
+.reader-layout { display:grid; grid-template-columns:minmax(0,1fr) 270px; gap:24px; align-items:start; }
+.reader-content { min-width:0; user-select:text; }
+.reader-content, .reader-content * { overflow-wrap:anywhere; }
+.reader-content pre { overflow-x:auto; white-space:pre-wrap; }
+.reader-content code { white-space:pre-wrap; word-break:break-word; }
+.reader-content h1, .reader-content h2, .reader-content h3 { color:var(--navy); line-height:1.25; }
+.reader-content img, .reader-content video, .reader-content iframe { max-width:100%; border:0; }
+.reader-content iframe { width:100%; aspect-ratio:16/9; }
+.reader-content table { display:block; width:100%; max-width:100%; overflow-x:auto; border-collapse:collapse; margin:18px 0; }
+.reader-content th, .reader-content td { border:1px solid var(--line); padding:10px 12px; vertical-align:top; }
+.reader-content th { background:var(--soft); color:var(--navy); }
+.media-block { margin:24px 0; padding:18px; border:1px solid var(--line); border-radius:14px; background:var(--paper); }
+.media-kicker { margin:0 0 4px; color:var(--blue); font-weight:900; }
+.media-title { margin:0 0 14px; color:var(--navy); font-size:1.16rem; font-weight:900; }
+.media-grid, .media-flow, .media-axis { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; }
+.media-panel, .flow-node, .axis-cell { padding:12px; border:1px solid var(--line); border-radius:10px; background:white; }
+.media-source { color:var(--muted); font-size:.92rem; }
+.reader-sidebar { position:sticky; top:14px; padding:16px; border:1px solid var(--line); border-radius:14px; background:var(--soft); }
+.reader-sidebar ol { margin:10px 0 0; padding-left:22px; }
+.reader-sidebar a { text-decoration:none; font-weight:800; }
+.flip-area { margin:24px 0 0; padding:18px; border:1px dashed var(--line); border-radius:16px; background:white; }
+.flip-area[hidden], .reader-controls[hidden] { display:none !important; }
+.flip-book { width:100%; max-width:100%; min-height:220px; margin:0 auto; }
+.reader-page { width:360px; min-height:480px; padding:24px; border:1px solid var(--line); background:linear-gradient(90deg,rgba(11,44,92,.05),transparent 18px),var(--paper); color:var(--ink); overflow:hidden; }
+.reader-page h3 { margin-top:0; }
+.reader-controls { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; align-items:center; }
+.reader-status { color:var(--muted); font-weight:800; }
+footer { border-top:1px solid var(--line); background:var(--soft); color:var(--muted); }
+footer .wrap { padding:24px 0; font-size:.95rem; font-weight:700; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; } }
+@media (max-width:900px) { .gateway, .reader-layout { grid-template-columns:1fr; } .reader-sidebar { position:static; } .reader-panel { padding:22px; } }
+@media (max-width:640px) { .wrap { width:min(100% - 24px,1120px); } .chapter-grid { grid-template-columns:1fr; } .reader-page { width:280px; min-height:400px; padding:18px; } .button { flex:1 1 160px; } }</style>
+  <script src="../../assets/vendor/page-flip/page-flip.browser.js" defer></script>
+</head>
+<body>
+  <nav class="topnav wrap" aria-label="상위 경로"><a href="../">책 넘김 목차</a><span aria-hidden="true">|</span><a href="../../book/">교재 선택</a><span aria-hidden="true">|</span><a href="../../book/part3/ch07/">텍스트 장</a></nav>
+  <header class="hero wrap"><p class="eyebrow">교육방법 및 교육공학 · Chapter 07</p><h1>7장 학습동기 설계 (ARCS)</h1><p class="lead">전체 본문은 정적 HTML로 먼저 렌더링되어 텍스트 선택·복사와 링크 이동이 JavaScript 없이도 작동합니다.</p></header>
+  <main class="reader-panel wrap reader-layout" aria-label="07장 리더" data-reader-chapter="ch07">
+    <article class="reader-content" id="content">
+      <div class="button-row"><a class="button primary" href="../../book/part3/ch07/">텍스트 장 읽기</a><a class="button" href="../">책 넘김 목차</a><a class="button" href="../ch06/">이전 장</a><a class="button" href="../ch08/">다음 장</a></div>
+<h1 id="7-arcs">7장 학습동기 설계 (ARCS)<a class="headerlink" href="#7-arcs" title="Permanent link">&para;</a></h1>
+<h2 id="_1">학습 목표<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>이 장을 학습한 뒤에는 다음을 설명할 수 있어야 한다.</p>
+<ol>
+<li>학습동기를 단순한 흥미 유발이 아니라 수업 설계의 조건으로 설명할 수 있다.</li>
+<li>Keller의 ARCS 모형을 주의집중, 관련성, 자신감, 만족감의 네 범주로 구분하고 수업 장면에 적용할 수 있다.</li>
+<li>ARCS-V에서 의지(volition)가 추가되는 이유를 동기 유지와 자기조절의 관점에서 설명할 수 있다.</li>
+<li>자기결정성 이론의 기본 심리 욕구와 동기 연속체를 수업 설계 판단에 연결할 수 있다.</li>
+<li>몰입 이론의 도전-기술 균형을 활용하여 학습 과제의 난이도와 피드백을 조정할 수 있다.</li>
+</ol>
+<h2 id="_2">웹 학습 보조<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="media-block" data-media-kind="diagram">
+  <p class="media-kicker">동기 설계 지도</p>
+  <p class="media-title">ARCS-V를 수업 장면으로 번역하기</p>
+  <div class="media-axis">
+    <div class="axis-cell"><strong>Attention</strong><br>보게 하되 핵심 질문으로 이동시킨다.</div>
+    <div class="axis-cell"><strong>Relevance</strong><br>학습자의 경험, 목표, 가치와 연결한다.</div>
+    <div class="axis-cell"><strong>Confidence</strong><br>기준, 예시, 단계적 성공을 제공한다.</div>
+    <div class="axis-cell"><strong>Satisfaction + Volition</strong><br>공정한 결과와 지속 장치를 함께 둔다.</div>
+  </div>
+  <p class="media-source">출처: 이 장 본문과 Keller의 ARCS/ARCS-V 논의를 바탕으로 만든 자체 도식.</p>
+</div>
+
+<div class="media-block" data-media-kind="activity">
+  <p class="media-kicker">동기 진단 활동</p>
+  <p class="media-title">참여 저하 원인 분류</p>
+  <ol class="activity-steps">
+    <li>학생이 과제를 보지 않는지, 의미를 못 찾는지, 성공을 낮게 보는지 구분한다.</li>
+    <li>자율성, 유능감, 관계성 중 약한 조건을 표시한다.</li>
+    <li>도전-기술 균형을 맞추기 위해 난이도와 피드백 간격을 조정한다.</li>
+  </ol>
+  <p class="media-source">출처: 이 장의 ARCS, 자기결정성, 몰입 이론 절을 바탕으로 만든 자체 활동.</p>
+</div>
+
+<p><span class="교재-highlight concept">핵심 관점</span> 동기 설계는 재미있는 도입이 아니라 주의, 의미, 성공 가능성, 공정한 결과를 수업 전체에 배치하는 일이다. <span class="교재-highlight evidence">근거 읽기</span> ARCS-V, 자기결정성 이론, 몰입 이론은 동기의 질과 지속 조건을 서로 다른 관점에서 설명한다. <span class="교재-highlight practice">수업 적용</span> 참여 저하가 보이면 전략을 더하기 전에 어떤 동기 조건이 약한지 먼저 진단한다.</p>
+
+<h2 id="1">1. 학습동기를 설계한다는 것<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>학습동기는 학습자가 과제에 주의를 기울이고, 그 과제를 자신의 목표와 연결하며, 성공 가능성을 판단하고, 결과에 의미를 부여하는 과정과 관련된다. 따라서 동기 설계는 수업 도입부의 재미있는 활동을 고르는 일이 아니다. 학습자가 왜 이 내용을 배워야 하는지, 어떻게 하면 성공할 수 있는지, 학습 뒤 어떤 보람을 경험할 수 있는지를 수업 전체에 배치하는 일이다.</p>
+<p>Keller가 제안한 ARCS 모형은 교수설계자가 동기 문제를 체계적으로 진단하고 처방할 수 있도록 주의집중(Attention), 관련성(Relevance), 자신감(Confidence), 만족감(Satisfaction)의 네 범주를 제시한다.<sup id="fnref:keller1987"><a class="footnote-ref" href="#fn:keller1987">1</a></sup> 이 모형의 장점은 동기를 추상적 태도나 개인 성향으로만 보지 않고, 수업 목표, 자료, 활동, 피드백, 평가의 설계 문제로 다룬다는 데 있다.</p>
+<p>다만 학습동기는 수업자가 마음대로 조작할 수 있는 변인이 아니다. 같은 전략도 학습자의 발달 수준, 선행 지식, 문화적 배경, 교실 관계, 평가 압력에 따라 다르게 경험된다. 그러므로 이 장에서는 ARCS를 중심축으로 삼되, 자기결정성 이론과 몰입 이론을 함께 읽어 동기 설계를 더 넓은 학습자 이해의 문제로 다룬다.</p>
+<div class="admonition note">
+<p class="admonition-title">동기 유발과 동기 설계</p>
+<p>동기 유발은 순간적인 관심을 끌기 위한 활동으로 좁게 이해되기 쉽다. 동기 설계는 그보다 넓다. 학습자가 주의를 기울이고, 의미를 발견하고, 성공 가능성을 판단하고, 학습 결과를 가치 있게 느끼도록 수업의 여러 요소를 정렬하는 과정이다.</p>
+</div>
+<h2 id="2-arcs">2. ARCS 모형의 네 범주<a class="headerlink" href="#2-arcs" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 주의집중: 먼저 보게 하되, 계속 생각하게 하기<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>주의집중은 학습자가 학습 과제에 정신적 자원을 할당하도록 만드는 조건이다. Keller의 ARCS 논의에서 주의집중은 감각적 자극만을 뜻하지 않는다. 새롭거나 놀라운 자료로 시선을 끄는 일도 포함되지만, 더 중요한 것은 학습자의 호기심을 유지하고 탐구 질문을 만들도록 돕는 것이다.<sup id="fnref2:keller1987"><a class="footnote-ref" href="#fn:keller1987">1</a></sup></p>
+<p>수업 설계에서 주의집중 전략은 세 가지 방식으로 구현될 수 있다. 첫째, 지각적 주의 환기는 사진, 실물, 짧은 영상, 예상 밖의 사례처럼 학습자의 감각적 주의를 여는 장치다. 둘째, 탐구적 주의 환기는 모순 사례, 문제 상황, 예측 질문을 통해 "왜 그런가"를 묻게 한다. 셋째, 다양성은 강의, 질문, 개별 사고, 짝 토의, 실습의 리듬을 조정하여 단조로움을 줄인다.</p>
+<p>주의집중 전략은 수업의 출발점일 뿐 완성점은 아니다. 흥미로운 도입이 학습 목표와 연결되지 않으면 주의는 쉽게 산만함으로 바뀐다. 따라서 교사는 "눈길을 끄는가"와 함께 "그 눈길이 핵심 개념으로 이동하는가"를 함께 점검해야 한다.</p>
+<h3 id="22">2.2 관련성: 왜 배워야 하는가에 답하기<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>관련성은 학습자가 내용과 활동을 자신의 필요, 경험, 목표와 연결해 인식하도록 돕는 범주다. Keller의 모형에서 관련성은 단순히 실생활 예시를 넣는 것보다 넓다. 학습자의 현재 관심, 미래 목표, 가치, 친숙한 맥락과 학습 과제를 연결하는 설계 판단을 포함한다.<sup id="fnref:keller2010"><a class="footnote-ref" href="#fn:keller2010">2</a></sup></p>
+<p>관련성을 높이기 위해 교사는 세 가지 질문을 사용할 수 있다. 첫째, 이 내용은 학습자가 이미 알고 있는 무엇과 연결되는가. 둘째, 이 과제는 학습자의 현재 또는 미래 역할과 어떤 관계가 있는가. 셋째, 학습자는 이 활동 안에서 자신의 선택, 관심, 정체성을 어느 정도 반영할 수 있는가. 예를 들어 통계 개념을 가르칠 때 스포츠 기록, 학교 설문, 지역 문제 자료를 사용하는 것은 친숙성을 높일 수 있다. 그러나 자료가 친숙하다는 이유만으로 관련성이 자동으로 생기지는 않는다. 학습자가 그 자료를 통해 배워야 할 개념과 자신의 판단을 연결할 때 관련성이 형성된다.</p>
+<p>관련성 전략은 특히 "이걸 왜 해요?"라는 질문에 대한 수업의 응답이다. 교사가 그 질문을 귀찮은 저항으로만 보면 동기 설계의 기회를 놓친다. 그 질문은 목표, 활동, 평가가 학습자에게 충분히 설명되지 않았다는 신호일 수 있다.</p>
+<h3 id="23">2.3 자신감: 성공 가능성을 볼 수 있게 하기<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>자신감은 학습자가 과제를 성공적으로 수행할 수 있다고 판단하는 정도와 관련된다. ARCS에서 자신감은 막연한 격려가 아니다. 학습 요구 조건을 분명히 알려 주고, 적절한 난이도의 성공 경험을 제공하며, 학습자가 자신의 노력과 전략이 결과에 영향을 미친다고 느끼도록 설계하는 일이다.<sup id="fnref3:keller1987"><a class="footnote-ref" href="#fn:keller1987">1</a></sup></p>
+<p>자신감을 지원하는 수업은 성공 기준을 숨기지 않는다. 학습 목표, 평가 기준, 좋은 산출물의 예, 연습 기회를 미리 제시하면 학습자는 무엇을 해야 하는지 예측할 수 있다. 또한 과제 난이도는 너무 쉽거나 너무 어려워서는 안 된다. 쉬운 과제만 반복하면 유능감이 자라기 어렵고, 지나치게 어려운 과제는 실패 예상을 강화한다. 작은 성공에서 복잡한 수행으로 이동하는 계열화가 필요한 이유다.</p>
+<p>자신감은 통제감과도 연결된다. 학습자가 난이도, 주제, 표현 방식, 협업 방식 중 일부를 선택할 수 있으면 자신의 학습에 관여하고 있다는 감각이 커질 수 있다. 그러나 선택지는 무제한일 필요가 없다. 오히려 초보 학습자에게는 잘 구조화된 제한적 선택이 더 도움이 될 수 있다.</p>
+<h3 id="24">2.4 만족감: 학습의 결과가 공정하고 가치 있게 느껴지게 하기<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<p>만족감은 학습 뒤에 남는 정서적·인지적 평가와 관련된다. 학습자가 "해 볼 만했다", "내 노력이 의미 있었다", "평가가 공정했다"고 느끼면 다음 학습에 참여할 가능성이 높아진다. Keller의 설명에서 만족감은 자연적 결과, 긍정적 강화, 공정성의 문제와 연결된다.<sup id="fnref2:keller2010"><a class="footnote-ref" href="#fn:keller2010">2</a></sup></p>
+<p>자연적 결과는 배운 것을 실제 문제나 의미 있는 산출물에 적용하는 경험이다. 긍정적 강화는 적절한 칭찬, 피드백, 인정처럼 학습자의 노력과 성취를 확인해 주는 장치다. 공정성은 수업 목표, 연습 활동, 평가가 서로 맞물려 있다는 신뢰다. 평가가 수업에서 다룬 것과 어긋나거나 기준이 불투명하면 만족감은 낮아진다.</p>
+<p>만족감 전략에서 주의할 점은 보상이 학습의 의미를 대체하지 않도록 하는 것이다. Lepper, Greene, Nisbett의 고전적 연구는 기대된 외적 보상이 내재적으로 흥미롭던 활동의 흥미를 약화시킬 수 있음을 보여 준 사례로 자주 인용된다.<sup id="fnref:lepper1973"><a class="footnote-ref" href="#fn:lepper1973">9</a></sup> 이 결과를 모든 보상이 해롭다는 주장으로 확대해서는 안 되지만, 수업 설계자는 보상이 학습자의 자율성과 의미 경험을 침식하지 않는지 점검해야 한다.</p>
+<h2 id="3-arcs-arcs-v">3. ARCS에서 ARCS-V로<a class="headerlink" href="#3-arcs-arcs-v" title="Permanent link">&para;</a></h2>
+<p>Keller는 이후 ARCS 모형을 확장하여 의지(Volition)를 포함하는 ARCS-V 모형을 논의했다.<sup id="fnref:keller2016"><a class="footnote-ref" href="#fn:keller2016">3</a></sup> 여기서 의지는 학습자가 목표를 선택한 뒤에도 방해 요인, 피로, 지연, 실패 경험을 관리하며 과제를 지속하는 능력과 관련된다. 즉 동기가 "하고 싶다" 또는 "해야 한다"는 방향을 만든다면, 의지는 그 방향을 실제 행동으로 유지하는 조절 과정에 가깝다.</p>
+<p>의지를 별도로 다루는 이유는 교실에서 자주 확인된다. 어떤 학습자는 수업의 필요성을 이해하고 성공 가능성도 인정하지만, 장기 과제를 계획대로 수행하지 못한다. 온라인 학습에서는 이 문제가 더 뚜렷해질 수 있다. 알림, 다른 과제, 피로, 고립감이 학습 지속을 방해하기 때문이다. 이런 상황에서는 흥미로운 자료만 추가하는 것으로 충분하지 않다. 목표 쪼개기, 학습 일정 가시화, 중간 점검, 방해 요인 예측, 자기점검표, 동료 책임 구조처럼 의지를 지원하는 장치가 필요하다.</p>
+<p>ARCS-V를 적용할 때도 과잉 처방은 피해야 한다. 모든 수업에 복잡한 자기조절 도구를 붙이면 학습 부담이 늘어날 수 있다. 중요한 것은 동기 문제가 주의집중, 관련성, 자신감, 만족감 중 어디에서 주로 생기는지, 아니면 시작한 학습을 지속하는 의지의 문제인지 구분하는 것이다.</p>
+<h2 id="4">4. 자기결정성 이론과 동기의 질<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>자기결정성 이론은 인간의 동기를 자율성의 정도와 기본 심리 욕구의 충족이라는 관점에서 설명한다. Deci와 Ryan의 저서는 내재적 동기와 자기결정성 논의를 체계화한 대표적 원천이며,<sup id="fnref:deci1985"><a class="footnote-ref" href="#fn:deci1985">4</a></sup> Ryan과 Deci의 2000년 논문은 자기결정성 이론을 내재적 동기, 사회적 발달, 안녕감과 연결해 요약한다.<sup id="fnref:ryan2000a"><a class="footnote-ref" href="#fn:ryan2000a">5</a></sup></p>
+<p>이 이론에서 중요한 세 욕구는 자율성, 유능감, 관계성이다. 자율성은 자신의 행동이 강압이 아니라 의미 있는 선택과 의지에 의해 이루어진다고 느끼는 것이다. 유능감은 환경에 효과적으로 작용할 수 있다는 감각이다. 관계성은 타인과 연결되어 있고 존중받는다고 느끼는 경험이다.<sup id="fnref2:ryan2000a"><a class="footnote-ref" href="#fn:ryan2000a">5</a></sup> 교실에서 이 세 욕구는 추상적 구호가 아니라 수업 운영의 기준이 된다. 선택권을 제공하는가, 성공 가능한 도전을 주는가, 실수해도 배움이 지속되는 관계를 만드는가가 동기의 질을 바꾼다.</p>
+<p>자기결정성 이론은 외재적 동기를 단순히 나쁜 동기로 보지 않는다. Ryan과 Deci는 외재적 동기가 외적 규제, 내사된 규제, 동일시된 규제, 통합된 규제처럼 자율성의 정도가 다른 형태로 설명될 수 있음을 제시한다.<sup id="fnref:ryan2000b"><a class="footnote-ref" href="#fn:ryan2000b">6</a></sup> 예를 들어 학생이 벌을 피하려고 과제를 한다면 외적 규제에 가깝다. 반면 과제가 자신의 진로 목표와 중요하게 연결된다고 받아들이면 더 자율적인 외재적 동기에 가까워진다.</p>
+<p>이 관점은 ARCS의 관련성과 자신감 전략을 보완한다. 관련성은 학습자가 과제의 가치를 받아들이도록 돕고, 자신감은 유능감 경험을 설계한다. 그러나 자기결정성 이론은 여기에 관계성과 자율성의 질을 더 묻는다. 교사가 같은 목표를 제시하더라도 "시험에 나오니 하라"와 "이 개념을 이해하면 네가 선택한 프로젝트를 더 설득력 있게 만들 수 있다"는 학습자가 경험하는 동기의 질이 다를 수 있다.</p>
+<h2 id="5">5. 몰입: 도전과 기술의 균형<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>Csikszentmihalyi의 몰입(flow) 이론은 사람이 활동에 깊이 빠져들어 행위 자체에 집중하는 최적 경험을 설명한다.<sup id="fnref:csik1990"><a class="footnote-ref" href="#fn:csik1990">7</a></sup> 교육에서 몰입은 흔히 "재미있어서 시간 가는 줄 모르는 상태"로 단순화되지만, 수업 설계에서 특히 중요한 조건은 과제의 도전 수준과 개인의 기술 수준이 너무 어긋나지 않도록 조정하는 것이다.<sup id="fnref2:csik1990"><a class="footnote-ref" href="#fn:csik1990">7</a></sup><sup id="fnref:fong2015"><a class="footnote-ref" href="#fn:fong2015">8</a></sup></p>
+<p>도전이 기술보다 훨씬 높으면 학습자는 불안과 무력감을 느낄 수 있다. 반대로 기술이 도전보다 훨씬 높으면 지루함이 생긴다. 몰입을 고려한 수업 설계는 학습자의 현재 수준을 파악하고, 약간의 도전이 있는 과제를 제공하며, 즉각적이고 해석 가능한 피드백을 주는 방향으로 이루어진다. 목표가 분명하고, 진행 상황을 확인할 수 있고, 과제의 난이도가 점진적으로 상승할 때 학습자는 자신의 주의를 더 오래 유지할 수 있다.</p>
+<p>몰입 이론을 교실에 적용할 때도 효과를 과장해서는 안 된다. 모든 학생이 모든 시간에 몰입 상태에 들어가야 좋은 수업이라는 뜻은 아니다. 교실은 평가, 관계, 시간표, 피로, 기초 기능 차이의 영향을 받는다. 따라서 몰입은 수업의 유일한 목표가 아니라 과제 난이도와 피드백을 조정하기 위한 설계 관점으로 사용하는 것이 적절하다.</p>
+<h2 id="6">6. 교실 설계 전략<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>학습동기 설계는 모형 이름을 외우는 데서 끝나지 않는다. 실제 수업에서는 다음과 같은 순서로 ARCS, 자기결정성 이론, 몰입 이론을 함께 사용할 수 있다.</p>
+<p>첫째, 동기 문제를 진단한다. 참여가 낮을 때 곧바로 더 재미있는 자료를 찾기보다 원인을 나누어 본다. 학습자가 과제를 보지 않는가, 필요를 느끼지 못하는가, 성공 가능성을 낮게 보는가, 평가가 불공정하다고 느끼는가, 아니면 시작은 하지만 지속하지 못하는가.</p>
+<p>둘째, 전략을 한두 범주에 집중한다. 모든 ARCS 전략을 한 수업에 넣으면 수업이 산만해질 수 있다. 예를 들어 개념 자체는 흥미롭지만 학생들이 실패를 예상한다면 주의집중보다 자신감 전략이 먼저다. 평가 기준 공개, 예시 답안 분석, 낮은 위험의 연습 기회, 단계적 피드백이 더 적절할 수 있다.</p>
+<p>셋째, 자율성·유능감·관계성을 점검한다. 선택권은 있는가, 도전은 감당 가능한가, 도움을 요청해도 안전한가를 확인한다. 이 세 질문은 동기 전략이 학습자를 통제하는 방식으로 흐르지 않도록 막아 준다. Niemiec과 Ryan은 교육 장면에서 자율성, 유능감, 관계성의 지원이 내재적 동기와 내면화 논의를 이해하는 핵심이라고 설명한다.<sup id="fnref:niemiec2009"><a class="footnote-ref" href="#fn:niemiec2009">10</a></sup></p>
+<p>넷째, 도전과 피드백의 간격을 조정한다. 몰입 관점에서 좋은 과제는 너무 쉽지도, 너무 막막하지도 않아야 한다. 교사는 진단평가, 예비 질문, 초안 피드백, 난이도 선택 과제 등을 통해 학습자의 현재 기술 수준과 과제의 도전 수준을 맞춘다.</p>
+<p>다섯째, 수업 뒤 증거를 확인한다. 동기 전략의 성패는 교사의 의도만으로 판단할 수 없다. 제출률, 질문의 질, 중도 포기 양상, 자기평가, 짧은 출구표, 산출물의 개선 정도를 보며 다음 수업을 수정해야 한다. 이때 "ARCS 전략을 사용했으므로 효과가 있었다"고 단정하지 말고, 어떤 학습자에게 어떤 조건에서 도움이 되었는지를 조심스럽게 해석해야 한다.</p>
+<h2 id="_3">요약<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Keller의 ARCS 모형은 학습동기를 주의집중, 관련성, 자신감, 만족감의 네 범주로 나누어 수업 설계자가 진단하고 처방할 수 있게 한다. ARCS-V는 여기에 의지를 더해 학습자가 목표를 실제 행동으로 지속하는 문제를 다룬다. 자기결정성 이론은 자율성, 유능감, 관계성의 기본 심리 욕구와 동기 연속체를 통해 동기의 질을 설명한다. 몰입 이론은 도전과 기술의 균형, 분명한 목표, 즉각적 피드백의 중요성을 보여 준다. 교사는 이 이론들을 단편적 기법으로 소비하기보다, 학습자의 의미 경험과 성공 가능성, 공정한 평가, 지속 가능한 참여를 함께 설계하는 기준으로 사용해야 한다.</p>
+<h2 id="_4">도입 사례<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><strong>창작 시나리오.</strong> 고등학교 1학년 수학 수업에서 한 교사는 함수 단원 프로젝트의 제출률이 낮아진 원인을 "학생들이 재미없어해서"라고만 해석했다. 그러나 학생 면담과 과제 기록을 살펴보니 문제는 세 가지로 나뉘었다. 일부 학생은 함수 그래프가 자신의 생활과 어떤 관련이 있는지 알지 못했고, 일부는 평가 기준을 몰라 시작을 미루었으며, 일부는 초안을 낸 뒤 피드백을 반영하는 일정을 관리하지 못했다. 교사는 스포츠 기록과 통학 시간 자료 중 하나를 선택하게 하고, 좋은 그래프 해석 예시와 루브릭을 먼저 제시했으며, 초안-동료 피드백-수정본의 중간 기한을 나누었다. 이 사례는 동기 설계가 흥미로운 도입 하나가 아니라 관련성, 자신감, 만족감, 의지 지원을 함께 조정하는 과정임을 보여 준다.</p>
+<h2 id="_5">핵심 용어<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>ARCS 모형</strong>: 학습동기를 주의집중, 관련성, 자신감, 만족감의 네 범주로 진단하고 처방하는 Keller의 동기 설계 모형이다.</li>
+<li><strong>관련성</strong>: 학습 내용과 활동이 학습자의 경험, 목표, 가치, 미래 역할과 의미 있게 연결되어 있다고 느끼게 하는 조건이다.</li>
+<li><strong>자신감</strong>: 학습자가 요구 조건과 성공 기준을 이해하고, 적절한 도전 속에서 자신의 노력과 전략이 결과에 영향을 미친다고 판단하는 상태다.</li>
+<li><strong>의지</strong>: 목표를 선택한 뒤에도 방해 요인, 피로, 지연을 관리하며 학습 행동을 지속하는 조절 과정이다.</li>
+<li><strong>도전-기술 균형</strong>: 과제 난이도와 학습자의 현재 기술 수준이 지나치게 어긋나지 않아 몰입과 지속적 참여를 돕는 조건이다.</li>
+</ul>
+<h2 id="_6">이론과 연구 확장<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="arcs">ARCS를 흥미 유발 목록이 아니라 진단 도구로 사용하기<a class="headerlink" href="#arcs" title="Permanent link">&para;</a></h3>
+<p>Keller의 ARCS 모형은 동기 문제를 주의집중, 관련성, 자신감, 만족감으로 나누어 교수설계자가 원인을 구분하도록 돕는다.<sup id="fnref4:keller1987"><a class="footnote-ref" href="#fn:keller1987">1</a></sup> 따라서 참여가 낮다고 해서 항상 더 자극적인 자료를 넣는 것이 답은 아니다. Keller의 2010년 저서도 ARCS를 학습 수행을 위한 체계적 동기 설계 접근으로 제시한다.<sup id="fnref3:keller2010"><a class="footnote-ref" href="#fn:keller2010">2</a></sup> 교사는 학생이 과제를 보지 않는지, 의미를 못 찾는지, 성공 가능성을 낮게 보는지, 결과가 불공정하다고 느끼는지를 먼저 확인해야 한다.</p>
+<h3 id="arcs-v">ARCS-V와 지속을 위한 의지 지원<a class="headerlink" href="#arcs-v" title="Permanent link">&para;</a></h3>
+<p>ARCS-V는 기존 네 범주에 의지를 더해 학습을 시작한 뒤 지속하는 문제를 설명한다.<sup id="fnref2:keller2016"><a class="footnote-ref" href="#fn:keller2016">3</a></sup> 장기 과제나 온라인 학습에서는 학습자가 필요성을 이해해도 일정 관리, 방해 요인, 피로 때문에 수행을 지속하지 못할 수 있다. 이때 필요한 지원은 단순 격려보다 목표 쪼개기, 중간 점검, 자기점검표, 동료 책임 구조처럼 행동을 유지하게 하는 장치다. 다만 모든 수업에 복잡한 관리 도구를 더하기보다, 실제 지연 원인을 확인한 뒤 최소한의 지속 장치를 선택해야 한다.</p>
+<h3 id="_7">자기결정성 이론이 보완하는 동기의 질<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>자기결정성 이론은 자율성, 유능감, 관계성의 기본 심리 욕구를 통해 동기의 질을 설명한다.<sup id="fnref3:ryan2000a"><a class="footnote-ref" href="#fn:ryan2000a">5</a></sup> 같은 과제라도 학생이 강압으로 경험하는지, 가치 있는 선택으로 받아들이는지에 따라 참여의 성격이 달라진다. Ryan과 Deci는 외재적 동기도 자율성의 정도에 따라 여러 형태로 내면화될 수 있다고 설명한다.<sup id="fnref2:ryan2000b"><a class="footnote-ref" href="#fn:ryan2000b">6</a></sup> 수업 설계에서 이는 선택권, 성공 가능한 도전, 존중받는 관계가 ARCS 전략을 통제 장치가 아니라 학습 지원으로 경험하게 만드는 조건임을 뜻한다.</p>
+<h3 id="_8">몰입 관점에서 난이도와 피드백 조정하기<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>몰입 이론은 도전과 기술의 균형, 분명한 목표, 즉각적 피드백이 깊은 참여와 관련됨을 보여 준다.<sup id="fnref3:csik1990"><a class="footnote-ref" href="#fn:csik1990">7</a></sup> 최근 메타분석도 도전-기술 균형과 몰입의 관계를 검토하며, 이 조건을 단순 재미보다 정교한 과제 조정의 문제로 보게 한다.<sup id="fnref2:fong2015"><a class="footnote-ref" href="#fn:fong2015">8</a></sup> 교사는 모든 학생에게 같은 난이도를 고정하기보다 진단 질문, 선택 과제, 초안 피드백을 활용해 약간 어렵지만 해볼 만한 수준을 만들 필요가 있다.</p>
+<h2 id="_9">토론 질문<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ol>
+<li>도입 사례에서 학생들의 참여 저하 원인을 ARCS-V 범주로 나누면 각각 어떤 지원이 필요한가?</li>
+<li>관련성을 높이기 위해 실생활 자료를 사용할 때, 친숙한 소재가 학습 목표를 가리지 않도록 하려면 어떤 기준이 필요할까?</li>
+<li>보상이나 점수가 학생의 자율성을 약화시키지 않으려면 수업 목표, 피드백, 평가 방식은 어떻게 설계되어야 할까?</li>
+<li>자신이 설계한 과제 하나를 떠올리고, 도전-기술 균형을 맞추기 위해 난이도 또는 피드백 간격을 어떻게 조정할지 설명해 보자.</li>
+</ol>
+<h2 id="_10">형성 평가<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>ARCS 모형의 네 범주를 쓰고, 각 범주의 수업 설계 질문을 한 문장씩 제시하시오.<br>
+<strong>예시 답안</strong>: 주의집중-학생이 핵심 문제를 보게 하는가, 관련성-왜 배워야 하는지 연결되는가, 자신감-성공 기준과 연습 기회가 있는가, 만족감-결과가 공정하고 의미 있게 느껴지는가.<br>
+<strong>채점 기준</strong>: 네 범주를 모두 포함하고 각 범주를 수업 설계 판단과 연결하면 적절하다.</p>
+</li>
+<li>
+<p>다음 상황의 주된 동기 문제를 고르시오. "학생들이 과제의 필요성은 인정하지만 평가 기준을 몰라 시작을 미룬다."<br>
+   ① 주의집중 ② 관련성 ③ 자신감 ④ 만족감<br>
+<strong>정답</strong>: ③<br>
+<strong>해설</strong>: 평가 기준과 성공 조건을 예측하지 못하면 성공 가능성 판단이 낮아지므로 자신감 범주의 지원이 우선이다.</p>
+</li>
+<li>
+<p>ARCS-V에서 의지를 별도로 다루는 이유를 설명하시오.<br>
+<strong>예시 답안</strong>: 동기가 생겨도 장기 과제에서는 피로, 방해 요인, 지연 때문에 행동을 지속하지 못할 수 있으므로 목표 쪼개기와 중간 점검 같은 조절 지원이 필요하기 때문이다.<br>
+<strong>해설</strong>: 의지는 시작 의도보다 학습 행동의 유지와 자기조절에 초점을 둔다.</p>
+</li>
+<li>
+<p>자기결정성 이론의 세 기본 심리 욕구를 쓰고, 그중 하나를 지원하는 수업 전략을 제안하시오.<br>
+<strong>예시 답안</strong>: 자율성, 유능감, 관계성이다. 유능감을 지원하려면 좋은 산출물 예시와 단계별 연습 기회를 제공할 수 있다.<br>
+<strong>루브릭</strong>: 세 욕구 이름이 정확하고, 제안한 전략이 해당 욕구와 논리적으로 연결되면 우수하다.</p>
+</li>
+<li>
+<p>몰입 관점에서 과제가 너무 쉬운 경우와 너무 어려운 경우에 각각 필요한 조정을 쓰시오.<br>
+<strong>예시 답안</strong>: 너무 쉬우면 더 복잡한 적용 과제나 선택 도전을 제공하고, 너무 어려우면 단계별 힌트와 중간 피드백을 제공한다.<br>
+<strong>채점 기준</strong>: 도전-기술 균형을 기준으로 난이도와 피드백 조정을 모두 언급하면 적절하다.</p>
+</li>
+</ol>
+<h2 id="_11">참고문헌<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:keller1987">
+<p>Keller, J. M. (1987). Development and use of the ARCS model of instructional design. <em>Journal of Instructional Development, 10</em>(3), 2-10. https://doi.org/10.1007/BF02905780. Publisher metadata verified at <code>https://link.springer.com/article/10.1007/BF02905780</code>.&#160;<a class="footnote-backref" href="#fnref:keller1987" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:keller1987" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:keller1987" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:keller1987" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:keller2010">
+<p>Keller, J. M. (2010). <em>Motivational Design for Learning and Performance: The ARCS Model Approach</em>. Springer. https://doi.org/10.1007/978-1-4419-1250-3. Publisher metadata verified at <code>https://link.springer.com/book/10.1007/978-1-4419-1250-3</code>.&#160;<a class="footnote-backref" href="#fnref:keller2010" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:keller2010" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:keller2010" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:keller2016">
+<p>Keller, J. M. (2016). Motivation, learning, and technology: Applying the ARCS-V motivation model. <em>Participatory Educational Research, 3</em>(2), 1-15. https://doi.org/10.17275/per.16.06.3.2. Journal metadata verified at <code>https://dergipark.org.tr/en/pub/per/article/601133</code>.&#160;<a class="footnote-backref" href="#fnref:keller2016" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:keller2016" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:deci1985">
+<p>Deci, E. L., &amp; Ryan, R. M. (1985). <em>Intrinsic Motivation and Self-Determination in Human Behavior</em>. Plenum Press. https://doi.org/10.1007/978-1-4899-2271-7. Publisher metadata verified at <code>https://link.springer.com/book/10.1007/978-1-4899-2271-7</code>.&#160;<a class="footnote-backref" href="#fnref:deci1985" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:ryan2000a">
+<p>Ryan, R. M., &amp; Deci, E. L. (2000). Self-determination theory and the facilitation of intrinsic motivation, social development, and well-being. <em>American Psychologist, 55</em>(1), 68-78. https://doi.org/10.1037/0003-066X.55.1.68. PubMed metadata verified at <code>https://pubmed.ncbi.nlm.nih.gov/11392867/</code>.&#160;<a class="footnote-backref" href="#fnref:ryan2000a" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:ryan2000a" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:ryan2000a" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:ryan2000b">
+<p>Ryan, R. M., &amp; Deci, E. L. (2000). Intrinsic and extrinsic motivations: Classic definitions and new directions. <em>Contemporary Educational Psychology, 25</em>(1), 54-67. https://doi.org/10.1006/ceps.1999.1020. PubMed metadata verified at <code>https://pubmed.ncbi.nlm.nih.gov/10620381/</code>.&#160;<a class="footnote-backref" href="#fnref:ryan2000b" title="Jump back to footnote 6 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:ryan2000b" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:csik1990">
+<p>Csikszentmihalyi, M. (1990). <em>Flow: The Psychology of Optimal Experience</em>. Harper &amp; Row. First-edition metadata verified through WorldCat at <code>https://search.worldcat.org/title/Flow-%3A-The-Psychology-of-Optimal-Experience/oclc/20392741</code>.&#160;<a class="footnote-backref" href="#fnref:csik1990" title="Jump back to footnote 7 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:csik1990" title="Jump back to footnote 7 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:csik1990" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:fong2015">
+<p>Fong, C. J., Zaleski, D. J., &amp; Leach, J. K. (2015). The challenge-skill balance and antecedents of flow: A meta-analytic investigation. <em>The Journal of Positive Psychology, 10</em>(5), 425-446. https://doi.org/10.1080/17439760.2014.967799. Crossref and Taylor &amp; Francis metadata verified.&#160;<a class="footnote-backref" href="#fnref:fong2015" title="Jump back to footnote 8 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:fong2015" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:lepper1973">
+<p>Lepper, M. R., Greene, D., &amp; Nisbett, R. E. (1973). Undermining children's intrinsic interest with extrinsic reward: A test of the overjustification hypothesis. <em>Journal of Personality and Social Psychology, 28</em>(1), 129-137. https://doi.org/10.1037/h0035519. Crossref metadata verified.&#160;<a class="footnote-backref" href="#fnref:lepper1973" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:niemiec2009">
+<p>Niemiec, C. P., &amp; Ryan, R. M. (2009). Autonomy, competence, and relatedness in the classroom: Applying self-determination theory to educational practice. <em>Theory and Research in Education, 7</em>(2), 133-144. https://doi.org/10.1177/1477878509104318. Publisher metadata verified at <code>https://journals.sagepub.com/doi/10.1177/1477878509104318</code>.&#160;<a class="footnote-backref" href="#fnref:niemiec2009" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+      <section class="flip-area reader-enhancement" data-reader-enhancement aria-label="책 넘김 미리보기">
+        <h2>책 넘김 미리보기</h2>
+        <p class="notice">본문 일부를 카드처럼 넘기며 장의 흐름을 확인할 수 있습니다. 전체 본문은 위 장 콘텐츠에서 선택하거나 복사해서 이용할 수 있습니다.</p>
+        <div class="flip-book" data-flip-book>
+          <section class="reader-page" data-reader-page><h3>7장 학습동기 설계 (ARCS)</h3><p>본문을 카드처럼 넘기며 읽기 흐름을 확인합니다.</p><p><a href="../../book/part3/ch07/">텍스트 장으로 이동</a></p></section>
+          <section class="reader-page" data-reader-page><h3>읽기 경로</h3><p><a href="../../book/part3/ch07/">텍스트 장으로 이동</a></p><p><a href="../">책 넘김 목차로 이동</a></p></section>
+        </div>
+        <div class="reader-controls" data-reader-controls hidden><button class="button" type="button" data-page-prev>이전 페이지</button><button class="button" type="button" data-page-next>다음 페이지</button><span class="reader-status" data-reader-status aria-live="polite"></span></div>
+      </section>
+    </article>
+    <aside class="reader-sidebar" aria-label="책 넘김 장 목록">
+      <strong>장 목록</strong>
+      <ol>
+        <li><a href="../ch01/" data-chapter-link="ch01">01. 1장 교육방법과 교육공학의 이해</a></li>
+        <li><a href="../ch02/" data-chapter-link="ch02">02. 2장 교육과 테크놀로지의 만남</a></li>
+        <li><a href="../ch03/" data-chapter-link="ch03">03. 3장 체제적 교수설계</a></li>
+        <li><a href="../ch04/" data-chapter-link="ch04">04. 4장 수업의 구성과 학습의 조건</a></li>
+        <li><a href="../ch05/" data-chapter-link="ch05">05. 5장 교수이론과 수업모형</a></li>
+        <li><a href="../ch06/" data-chapter-link="ch06">06. 6장 협동학습 전략</a></li>
+        <li><a href="../ch07/" data-chapter-link="ch07" aria-current="page">07. 7장 학습동기 설계 (ARCS)</a></li>
+        <li><a href="../ch08/" data-chapter-link="ch08">08. 8장 질문과 탐구 중심 수업</a></li>
+        <li><a href="../ch09/" data-chapter-link="ch09">09. 9장 멀티미디어 학습과 인지부하</a></li>
+        <li><a href="../ch10/" data-chapter-link="ch10">10. 10장 디지털 학습환경과 미래교실</a></li>
+        <li><a href="../ch11/" data-chapter-link="ch11">11. 11장 AI와 교육의 만남</a></li>
+      </ol>
+    </aside>
+  </main>
+  <footer><div class="wrap">교육방법 및 교육공학 · 책 넘김 모드</div></footer>
+  <script type="application/json" data-reader-data>{"schemaVersion":1,"page":"reader-chapter","current":"ch07","chapters":[{"index":1,"slug":"ch01","title":"1장 교육방법과 교육공학의 이해","readerRoute":"book-reader/ch01/","readerHref":"../ch01/","textRoute":"book/part1/ch01/","textHref":"../../book/part1/ch01/"},{"index":2,"slug":"ch02","title":"2장 교육과 테크놀로지의 만남","readerRoute":"book-reader/ch02/","readerHref":"../ch02/","textRoute":"book/part1/ch02/","textHref":"../../book/part1/ch02/"},{"index":3,"slug":"ch03","title":"3장 체제적 교수설계","readerRoute":"book-reader/ch03/","readerHref":"../ch03/","textRoute":"book/part2/ch03/","textHref":"../../book/part2/ch03/"},{"index":4,"slug":"ch04","title":"4장 수업의 구성과 학습의 조건","readerRoute":"book-reader/ch04/","readerHref":"../ch04/","textRoute":"book/part2/ch04/","textHref":"../../book/part2/ch04/"},{"index":5,"slug":"ch05","title":"5장 교수이론과 수업모형","readerRoute":"book-reader/ch05/","readerHref":"../ch05/","textRoute":"book/part2/ch05/","textHref":"../../book/part2/ch05/"},{"index":6,"slug":"ch06","title":"6장 협동학습 전략","readerRoute":"book-reader/ch06/","readerHref":"../ch06/","textRoute":"book/part3/ch06/","textHref":"../../book/part3/ch06/"},{"index":7,"slug":"ch07","title":"7장 학습동기 설계 (ARCS)","readerRoute":"book-reader/ch07/","readerHref":"../ch07/","textRoute":"book/part3/ch07/","textHref":"../../book/part3/ch07/"},{"index":8,"slug":"ch08","title":"8장 질문과 탐구 중심 수업","readerRoute":"book-reader/ch08/","readerHref":"../ch08/","textRoute":"book/part3/ch08/","textHref":"../../book/part3/ch08/"},{"index":9,"slug":"ch09","title":"9장 멀티미디어 학습과 인지부하","readerRoute":"book-reader/ch09/","readerHref":"../ch09/","textRoute":"book/part4/ch09/","textHref":"../../book/part4/ch09/"},{"index":10,"slug":"ch10","title":"10장 디지털 학습환경과 미래교실","readerRoute":"book-reader/ch10/","readerHref":"../ch10/","textRoute":"book/part4/ch10/","textHref":"../../book/part4/ch10/"},{"index":11,"slug":"ch11","title":"11장 AI와 교육의 만남","readerRoute":"book-reader/ch11/","readerHref":"../ch11/","textRoute":"book/part4/ch11/","textHref":"../../book/part4/ch11/"}]}</script>
+  <script>(function () {
+  var DATA_SELECTOR = "[data-reader-data]";
+  function ready(fn) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn, { once: true });
+    else fn();
+  }
+  function readData() {
+    var node = document.querySelector(DATA_SELECTOR);
+    if (!node) return null;
+    try { return JSON.parse(node.textContent || "{}"); }
+    catch (error) { return null; }
+  }
+  function chapterFromUrl(data) {
+    if (!data || !data.chapters) return null;
+    var params = new URLSearchParams(window.location.search);
+    var requested = (params.get("chapter") || window.location.hash.replace(/^#/, "") || "").toLowerCase();
+    if (!requested) return null;
+    return data.chapters.find(function (chapter) {
+      return chapter.slug === requested || String(chapter.index).padStart(2, "0") === requested.replace(/^ch/, "");
+    }) || null;
+  }
+  function shouldIgnoreKeyboard(event) {
+    var target = event.target;
+    var tag = target && target.tagName ? target.tagName.toLowerCase() : "";
+    return event.altKey || event.ctrlKey || event.metaKey || event.defaultPrevented || tag === "input" || tag === "textarea" || tag === "select" || (target && target.isContentEditable);
+  }
+  ready(function () {
+    var data = readData();
+    var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var holder = document.querySelector("[data-flip-book]");
+    var controls = document.querySelector("[data-reader-controls]");
+    var status = document.querySelector("[data-reader-status]");
+    var chapters = data && data.chapters ? data.chapters : [];
+    var selected = chapterFromUrl(data);
+    var currentSlug = data && data.current ? String(data.current).toLowerCase() : "";
+    var current = currentSlug ? chapters.find(function (chapter) { return chapter.slug === currentSlug; }) : null;
+    var activeIndex = selected ? chapters.findIndex(function (chapter) { return chapter.slug === selected.slug; }) : (current ? chapters.findIndex(function (chapter) { return chapter.slug === current.slug; }) : 0);
+    if (activeIndex < 0) activeIndex = 0;
+
+    function setSelected(chapter, pushHash) {
+      if (!chapter) return;
+      document.querySelectorAll("[data-chapter-link]").forEach(function (link) {
+        if (link.getAttribute("data-chapter-link") === chapter.slug) link.setAttribute("aria-current", "page");
+        else link.removeAttribute("aria-current");
+      });
+      var title = document.querySelector("[data-preview-title]");
+      var source = document.querySelector("[data-preview-source]");
+      var reader = document.querySelector("[data-preview-reader]");
+      var text = document.querySelector("[data-preview-text]");
+      if (title) title.textContent = chapter.index.toString().padStart(2, "0") + ". " + chapter.title;
+      if (source) source.textContent = "선택한 장의 텍스트 장을 함께 제공합니다.";
+      if (reader) reader.setAttribute("href", chapter.readerHref || chapter.readerRoute || chapter.slug + "/");
+      if (text) text.setAttribute("href", chapter.textHref || "../book/" + chapter.textRoute.replace(/^book\//, ""));
+      if (status) status.textContent = "현재 페이지 " + chapter.index.toString().padStart(2, "0");
+      if (pushHash && window.history && window.location.hash !== "#" + chapter.slug) {
+        window.history.replaceState(null, "", "#" + chapter.slug);
+      }
+    }
+
+    setSelected(chapters[activeIndex], false);
+
+    if (!holder || reducedMotion || !window.St || !window.St.PageFlip) {
+      if (controls) controls.hidden = true;
+      return;
+    }
+
+    document.querySelectorAll("[data-reader-enhancement]").forEach(function (node) {
+      node.setAttribute("data-enhanced", "true");
+    });
+
+    var pageFlip = new window.St.PageFlip(holder, {
+      width: 360,
+      height: 480,
+      size: "stretch",
+      minWidth: 280,
+      maxWidth: 720,
+      minHeight: 360,
+      maxHeight: 860,
+      maxShadowOpacity: 0.16,
+      showCover: false,
+      mobileScrollSupport: true
+    });
+    pageFlip.loadFromHTML(document.querySelectorAll("[data-reader-page]"));
+    if (typeof pageFlip.flip === "function" && activeIndex > 0) pageFlip.flip(activeIndex);
+    if (controls) controls.hidden = false;
+
+    var prev = document.querySelector("[data-page-prev]");
+    var next = document.querySelector("[data-page-next]");
+    function move(delta) {
+      activeIndex = Math.max(0, Math.min(chapters.length - 1, activeIndex + delta));
+      setSelected(chapters[activeIndex], true);
+      if (delta < 0 && pageFlip.flipPrev) pageFlip.flipPrev();
+      if (delta > 0 && pageFlip.flipNext) pageFlip.flipNext();
+    }
+    if (prev) prev.addEventListener("click", function () { move(-1); });
+    if (next) next.addEventListener("click", function () { move(1); });
+    document.addEventListener("keydown", function (event) {
+      if (shouldIgnoreKeyboard(event)) return;
+      if (event.key === "ArrowLeft") { move(-1); }
+      if (event.key === "ArrowRight") { move(1); }
+    });
+  });
+}());</script>
+</body>
+</html>
