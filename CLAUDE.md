@@ -53,8 +53,12 @@ git push origin main               # → 1~2분 후 https://taehyeonglim.github.
 
 학지사 교재의 구조·개념 흐름은 참고하되 **본문을 그대로 옮기지 않는다.** 장·절 명칭도 독자 명칭을 쓴다(현재 목차는 이미 그렇게 설계됨). 자세한 배경은 `docs-internal/specs/2026-06-14-edtech-docs-site-design.md`.
 
-## 관련 저장소
+## 작업 방식
 
-`~/Documents/GitHub/lecture-content-maker-agent-team` — 슬라이드를 만들던 Claude Code 에이전트 팀 툴. 2026-08-05에 원본 자료와 산출물이 이 저장소로 이관되면서, 그쪽 `scripts/*.sh`·`dashboard/`·`.claude/agents/`의 `content/`·`Previous_lecture_content/` 상대경로 참조는 전부 깨진 상태다.
+**이 저장소에서 Claude Code 또는 Codex로 직접 작업한다.** tmux 다중 pane 에이전트 팀은 2026-08-05부로 쓰지 않는다.
 
-**따라서 `content/`는 현재 재생성 불가한 동결 스냅샷이다.** 기존 챕터를 읽어 교재 집필의 디딤돌로 쓰는 건 문제없지만, **새 챕터를 생성하려면 먼저 툴 리포의 경로 참조를 고쳐야 한다.** 이 저장소를 살아 있는 파이프라인으로 착각하지 말 것.
+`content/chapters/`는 그 에이전트 팀이 남긴 **영구 동결 스냅샷**이다. 교재 집필의 디딤돌로 **읽는 용도**이며, 여기에 새 챕터가 자동 생성되는 일은 없다. 슬라이드를 새로 만들거나 고쳐야 하면 `chapters/chapter-NN/slides/deck.html`을 직접 편집한다.
+
+### 은퇴한 저장소
+
+`~/Documents/GitHub/lecture-content-maker-agent-team` — 슬라이드를 만들던 Claude Code 5-에이전트 팀 툴. 원본 자료와 산출물이 이 저장소로 이관되면서 그쪽 `scripts/*.sh`·`dashboard/`·`.claude/agents/`의 상대경로 참조는 전부 깨졌고, **복구할 계획은 없다.** 참고용으로만 남아 있다.
