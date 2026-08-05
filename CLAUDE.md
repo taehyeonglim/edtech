@@ -32,7 +32,7 @@
 | `tools/` | 리더 생성·검증 파이썬 스크립트 | ✅ |
 | `chapters/chapter-NN/` | 공개 슬라이드 — `slides/deck.{html,pdf}` + `images/` 만 화이트리스트 | ✅ |
 | `Previous_lecture_content/` | 원본 강의자료 (제작 입력) | ❌ |
-| `content/chapters/` | 제작 작업장 — 교재 집필의 디딤돌 `composed.md` 등 | ❌ |
+| `content/chapters/` | 제작 산출물 스냅샷 — 교재 집필의 디딤돌 `composed.md` 등. **읽기 전용**(아래 참조) | ❌ |
 | `docs-internal/` | spec·plan·핸드오프 | ❌ |
 
 ## 배포
@@ -45,6 +45,7 @@ git push origin main               # → 1~2분 후 https://taehyeonglim.github.
 ```
 
 - `.github/workflows/` 를 수정할 때만 `gh auth refresh -h github.com -s workflow` 필요. 그 외 push 는 일반 권한으로 충분.
+- **배포가 `Deployment failed, try again later`(syncing_files 단계)로 실패하면** GitHub Pages 인프라의 일시 오류다. 코드 문제가 아니므로 **빈 커밋을 만들지 말고 워크플로만 재실행**한다: `gh workflow run "Deploy edtech site" --repo taehyeonglim/edtech` (2026-07-04에 실제로 이 경로로 복구됨).
 - mkdocs 로컬 설치(Homebrew Python, PEP 668): `python3 -m pip install --user --break-system-packages mkdocs-material`
 - 배포 확인: `gh run list --repo taehyeonglim/edtech -L1`
 
@@ -54,4 +55,6 @@ git push origin main               # → 1~2분 후 https://taehyeonglim.github.
 
 ## 관련 저장소
 
-`~/Documents/GitHub/lecture-content-maker-agent-team` — 슬라이드를 만들던 Claude Code 에이전트 팀 툴. 2026-08-05에 원본 자료와 산출물이 이 저장소로 이관되면서, 그쪽 `scripts/*.sh`·`dashboard/`·`.claude/agents/`의 `content/`·`Previous_lecture_content/` 상대경로 참조는 전부 깨진 상태다. 에이전트 팀을 다시 돌리려면 그 경로들을 먼저 고쳐야 한다.
+`~/Documents/GitHub/lecture-content-maker-agent-team` — 슬라이드를 만들던 Claude Code 에이전트 팀 툴. 2026-08-05에 원본 자료와 산출물이 이 저장소로 이관되면서, 그쪽 `scripts/*.sh`·`dashboard/`·`.claude/agents/`의 `content/`·`Previous_lecture_content/` 상대경로 참조는 전부 깨진 상태다.
+
+**따라서 `content/`는 현재 재생성 불가한 동결 스냅샷이다.** 기존 챕터를 읽어 교재 집필의 디딤돌로 쓰는 건 문제없지만, **새 챕터를 생성하려면 먼저 툴 리포의 경로 참조를 고쳐야 한다.** 이 저장소를 살아 있는 파이프라인으로 착각하지 말 것.
