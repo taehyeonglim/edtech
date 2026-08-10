@@ -24,7 +24,7 @@ jobs:
       contents: read
       pages: write
     outputs:
-      receipt_digest: ${{ steps.receipt-digest.outputs.digest }}
+      receipt_digest: ${{ steps.receipt_digest.outputs.digest }}
       artifact_name: ${{ steps.candidate.outputs.name }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
@@ -161,7 +161,7 @@ jobs:
           if-no-files-found: error
           overwrite: false
       - name: Bind receipt digest for protected deploy
-        id: receipt-digest
+        id: receipt_digest
         run: echo "digest=$(sha256sum .candidate/release-receipt.json | awk '{print \"sha256:\" $1}')" >> "$GITHUB_OUTPUT"
 
   deploy:
