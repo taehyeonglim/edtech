@@ -162,7 +162,7 @@ jobs:
           overwrite: false
       - name: Bind receipt digest for protected deploy
         id: receipt_digest
-        run: echo "digest=$(sha256sum .candidate/release-receipt.json | awk '{print \"sha256:\" $1}')" >> "$GITHUB_OUTPUT"
+        run: echo "digest=sha256:$(sha256sum .candidate/release-receipt.json | cut -d ' ' -f 1)" >> "$GITHUB_OUTPUT"
 
   deploy:
     needs: build
