@@ -136,6 +136,7 @@ jobs:
         env:
           ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}
           BINDING: .candidate/release-binding.json
+          RUN_ATTEMPT: ${{ github.run_attempt }}
         with:
           script: |
             const fs = require('fs');
@@ -148,7 +149,7 @@ jobs:
             if (matches.length !== 1 || artifact.id !== artifactId || artifact.name !== binding.expected_artifact_name || artifact.workflow_run?.id !== context.runId || artifact.expired || !/^sha256:[0-9a-f]{64}$/.test(artifact.digest ?? '')) throw new Error('Artifact API receipt does not exactly match this unique release candidate');
             binding.returned_artifact_id = String(artifact.id);
             binding.platform_artifact_digest = artifact.digest;
-            binding.artifact_api_metadata = { id: String(artifact.id), name: artifact.name, run_id: String(context.runId), run_attempt: String(context.runAttempt), expired: artifact.expired, digest: artifact.digest };
+            binding.artifact_api_metadata = { id: String(artifact.id), name: artifact.name, run_id: String(context.runId), run_attempt: process.env.RUN_ATTEMPT, expired: artifact.expired, digest: artifact.digest };
             fs.writeFileSync('.candidate/release-receipt.json', JSON.stringify(binding));
       - name: Validate post-upload receipt
         run: python3 tools/validate_release_attestation.py --phase post-upload --binding .candidate/release-receipt.json
