@@ -81,6 +81,14 @@ def api_json(repository: str, token: str) -> tuple[dict[str, Any] | None, list[s
             protection = None
         rulesets = get("/rulesets?includes_parents=false")
         environment = get("/environments/github-pages")
+        required_reviewer_rules = [
+            rule for rule in environment.get("protection_rules", [])
+            if isinstance(rule, dict) and rule.get("type") == "required_reviewers"
+        ]
+        environment = dict(environment)
+        environment["prevent_self_review"] = bool(required_reviewer_rules) and all(
+            rule.get("prevent_self_review") is True for rule in required_reviewer_rules
+        )
         teams = get("/teams?per_page=100")
     except (HTTPError, URLError, TimeoutError, json.JSONDecodeError) as exc:
         return None, [f"GitHub API release-protection lookup failed: {getattr(exc, 'code', type(exc).__name__)}"]
