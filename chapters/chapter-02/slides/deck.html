@@ -275,6 +275,25 @@ section.layout-cover .cover-subtitle {
   color: var(--text);
   margin-bottom: 10px;
 }
+section.layout-cover .textbook-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  margin-top: 24px;
+  padding: 10px 16px;
+  border: 2px solid var(--blue);
+  border-radius: 2px;
+  color: var(--navy);
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+section.layout-cover .textbook-link:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
+}
 section.layout-cover .cover-photo {
   position: absolute;
   right: 80px;
@@ -676,6 +695,7 @@ section.layout-closing .closing-meta {
       <h1 class="cover-title">교육과 기술의<br>관계</h1>
       <div class="cover-rule"></div>
       <div class="cover-subtitle">역사의 흐름에서 읽는 교육의 변화: 1945~현재</div>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part1/ch02/">텍스트 교재</a>
     </div>
     <div class="cover-photo">
       <img src="../images/img-s01-title.png" alt="1940년대 컴퓨터에서 2026년 AI까지 기술과 교육의 역사적 여정">

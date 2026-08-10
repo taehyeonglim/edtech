@@ -12,6 +12,11 @@
     body { margin: 0; overflow-x: hidden; background: linear-gradient(180deg, var(--navy) 0 250px, var(--ivory) 250px, var(--paper) 68%); color: var(--ink); font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif; line-height: 1.58; }
     a { color: inherit; text-decoration: none; }
     a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .skip-link { position: absolute; top: -48px; left: 16px; z-index: 10; padding: 10px 14px; background: #fff; color: var(--navy); font-weight: 900; }
+    .skip-link:focus { top: 16px; outline: 3px solid var(--gold); }
+    .choice-card.primary { border: 3px solid var(--navy); }
+    .choice-card.secondary { background: rgba(255,255,255,.82); }
+
     .wrap { width: min(1060px, calc(100% - 40px)); margin: 0 auto; }
     .topnav { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; padding: 20px 0 0; font-size: .95rem; font-weight: 900; }
     .topnav a { color: var(--ivory); }
@@ -34,33 +39,34 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <nav class="topnav wrap" aria-label="상위 경로">
     <a href="../">홈</a>
   </nav>
 
   <header class="hero wrap">
     <p class="eyebrow">교육방법 및 교육공학 교재</p>
-    <h1>대학 교재 읽기 방식 선택</h1>
-    <p class="lead">같은 canonical 교재를 두 가지 읽기 경로로 제공합니다. 텍스트 모드는 가장 안정적인 기본 경로이고, 책 넘김 모드는 JavaScript가 가능할 때만 더해지는 향상된 독서 경험입니다.</p>
+    <h1>텍스트 교재로 시작하세요</h1>
+    <p class="lead">텍스트 교재가 정본이며 한 학기 기본 경로입니다. 장마다 30~45분 먼저 읽고, 짧은 확인을 거쳐 수업에서 개념을 적용하세요. 책 넘김은 선택 가능한 보조 읽기 방식입니다.</p>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="choice-grid wrap" aria-label="교재 읽기 방식">
-      <a class="choice-card" href="text/">
-        <span class="badge">TEXT MODE</span>
-        <h2>텍스트 교재</h2>
-        <p>11개 장의 표준 텍스트 색인입니다. 복사, 검색, 보조기술, 느린 네트워크 환경에 우선 접근할 수 있습니다.</p>
-        <span class="go">텍스트 목차로 이동</span>
+      <a class="choice-card primary" href="text/">
+        <span class="badge">기본 경로 · TEXTBOOK</span>
+        <h2>반응형 텍스트 교재</h2>
+        <p>11개 장의 표준 텍스트입니다. 검색, 복사, 보조기술, 느린 네트워크 환경에서 안정적으로 읽을 수 있습니다.</p>
+        <span class="go">텍스트 교재 목차 열기 →</span>
       </a>
-      <a class="choice-card" href="../book-reader/">
-        <span class="badge">READER MODE</span>
+      <a class="choice-card secondary" href="../book-reader/">
+        <span class="badge">보조 모드 · READER</span>
         <h2>책 넘김 리더</h2>
-        <p>동일한 장 데이터를 활용하는 navy/ivory 책 넘김 게이트웨이입니다. 정적 링크는 유지되고 효과는 점진적으로 향상됩니다.</p>
-        <span class="go">책 넘김 리더로 이동</span>
+        <p>텍스트 교재를 읽은 뒤 선택적으로 이용하는 시각적 읽기 모드입니다. 정본은 텍스트 교재입니다.</p>
+        <span class="go">책 넘김 보조 모드 열기 →</span>
       </a>
     </section>
 
-    <p class="note wrap">두 경로는 동등한 진입점입니다. 텍스트 모드는 접근성과 안정성, 책 넘김 모드는 독서 몰입감을 우선합니다.</p>
+    <p class="note wrap">인쇄/PDF와 책 넘김은 보조 자료입니다. 과제와 수업 준비에는 항상 텍스트 교재의 장 링크를 기준으로 사용하세요.</p>
   </main>
 
   <footer>

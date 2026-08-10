@@ -286,6 +286,25 @@ section.layout-cover .cover-subtitle {
   color: var(--text);
   margin-bottom: 10px;
 }
+section.layout-cover .textbook-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  margin-top: 24px;
+  padding: 10px 16px;
+  border: 2px solid var(--blue);
+  border-radius: 2px;
+  color: var(--navy);
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+section.layout-cover .textbook-link:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
+}
 /* 표지 우상단 한국 교실 사진 (ornament) */
 section.layout-cover .cover-photo {
   position: absolute;
@@ -682,6 +701,7 @@ section.layout-closing .closing-meta {
       <h1 class="cover-title">수업을 설계하는<br>교사의 눈</h1>
       <div class="cover-rule"></div>
       <div class="cover-subtitle">1주차 · 오리엔테이션</div>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part1/ch01/">텍스트 교재</a>
     </div>
     <div class="cover-photo" style="position:absolute; left:1451px; top:470px; width:366px; height:246px; margin:0; transform:none">
       <img src="../images/img-s01-classroom.png" alt="한국 교실 — 교사가 앞에서 강의하고 학생들이 정면을 바라보는 장면">

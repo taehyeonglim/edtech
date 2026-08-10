@@ -30,6 +30,12 @@
 }
 
 html, body { background: var(--bg); }
+.reveal a {
+  align-items: center;
+  display: inline-flex;
+  min-height: 24px;
+  min-width: 24px;
+}
 .reveal {
   font-family: 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
   color: var(--text);
@@ -274,6 +280,25 @@ section.layout-cover .cover-subtitle {
   font-weight: 500;
   color: var(--text);
   margin-bottom: 10px;
+}
+section.layout-cover .textbook-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  margin-top: 24px;
+  padding: 10px 16px;
+  border: 2px solid var(--blue);
+  border-radius: 2px;
+  color: var(--navy);
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+section.layout-cover .textbook-link:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
 }
 section.layout-cover .cover-photo {
   position: absolute;
@@ -730,6 +755,7 @@ section.layout-closing .closing-meta {
       <h1 class="cover-title">2022 개정<br>교육과정과<br>AI·디지털 교육</h1>
       <div class="cover-rule"></div>
       <div class="cover-subtitle">정책적 맥락과 학습이론의 기초</div>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part4/ch10/">텍스트 교재</a>
     </div>
     <div class="cover-photo">
       <img src="../images/img-s01-cover-bg.png" alt="교육과정 문서, 디지털 태블릿, 학습심리학 아이콘이 어우러진 타이틀 배경 일러스트">

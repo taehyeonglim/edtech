@@ -1,40 +1,31 @@
-name: Deploy edtech site
+name: Deprecated deployment entrypoint
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
   build:
+    name: Refuse legacy deployment
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
+      # Kept only for the reader-foundation validator. This workflow never uploads
+      # an artifact and never receives Pages or OIDC permissions.
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c
         with:
           python-version: '3.12'
-      - run: pip install mkdocs-material
-      - name: Generate book reader
-        run: python3 tools/generate_book_reader.py --mode release --write
-      - name: Validate reader foundation
-        run: python3 tools/validate_reader_foundation.py
-      - name: Build MkDocs (교재)
-        run: mkdocs build --strict
-      - name: Assemble site tree
+      - run: pip install --disable-pip-version-check mkdocs-material
+      - run: python3 tools/generate_book_reader.py --mode release --write
+      - run: python3 tools/validate_reader_foundation.py
+      - run: mkdocs build --strict
+      - name: Assemble legacy candidate without publishing it
         run: |
           rm -rf _site
           mkdir -p _site
           cp index.html _site/index.html
-          [ -f .nojekyll ] && cp .nojekyll _site/.nojekyll || touch _site/.nojekyll
           cp -r chapters _site/chapters
           cp -r site _site/book
           cp book/index.html _site/book/index.html
@@ -42,15 +33,7 @@ jobs:
           cp -r book/text/. _site/book/text/
           cp -r book-reader _site/book-reader
           cp -r assets _site/assets
-      - uses: actions/upload-pages-artifact@v5
-        with:
-          path: _site
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v5
+      - name: Refuse bypass deployment
+        run: |
+          echo "This workflow is disabled. Use the protected Release workflow."
+          exit 1

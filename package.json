@@ -1,0 +1,17 @@
+{
+  "name": "edtech-slide-pdf-tools",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "audit:a11y": "node tools/audit_candidate.mjs",
+    "export:slides": "node tools/export_slide_pdfs.mjs",
+    "validate:slides": "node tools/validate_slide_pdf.mjs"
+  },
+  "dependencies": {
+    "axe-core": "4.12.1",
+    "pdfjs-dist": "5.7.284",
+    "playwright": "1.62.1",
+    "reveal.js": "5.1.0"
+  }
+}

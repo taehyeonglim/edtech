@@ -5,15 +5,61 @@
   --edtech-panel: #f8fafc;
   --edtech-concept: #0f766e;
   --edtech-evidence: #7c3aed;
-  --edtech-caution: #b45309;
+  --edtech-caution: #8a3e00;
   --edtech-practice: #1d4ed8;
+}
+:focus-visible {
+  outline: 3px solid #0f5c8c;
+  outline-offset: 3px;
+}
+
+[data-md-color-scheme="slate"] :focus-visible {
+  outline-color: #7dd3fc;
+}
+
+.md-skip {
+  background: #ffffff;
+  color: #0f172a;
+  left: 1rem;
+  padding: 0.75rem 1rem;
+  top: 1rem;
+}
+
+.md-skip:focus-visible {
+  z-index: 100;
+}
+
+.md-typeset a {
+  text-decoration-thickness: 0.125em;
+  text-underline-offset: 0.15em;
+}
+.md-footer .md-copyright,
+.md-footer .md-copyright a {
+  color: #ffffff;
+}
+
+.md-typeset :is(button, [role="button"], input, select, textarea),
+.md-typeset .md-button {
+  min-height: 2.75rem;
+}
+
+.md-typeset :is(input, select, textarea) {
+  max-width: 100%;
+}
+
+.md-typeset :is(p, li, td, th, a) {
+  overflow-wrap: anywhere;
 }
 
 [data-md-color-scheme="slate"] {
   --edtech-ink: #e2e8f0;
-  --edtech-muted: #94a3b8;
-  --edtech-line: #475569;
+  --edtech-muted: #cbd5e1;
+  --edtech-line: #64748b;
   --edtech-panel: #0f172a;
+  --edtech-concept: #5eead4;
+  --edtech-evidence: #c4b5fd;
+  --edtech-caution: #fbbf24;
+  --edtech-practice: #93c5fd;
 }
 
 .교재-highlight {
@@ -192,6 +238,81 @@
   color: var(--edtech-muted);
   font-size: 0.78rem;
   margin: 0.65rem 0 0;
+}
+.md-typeset__scrollwrap {
+  overflow-x: auto;
+}
+
+.md-typeset table {
+  border-collapse: collapse;
+}
+
+.md-typeset pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+@media screen and (max-width: 320px) {
+  .media-grid,
+  .media-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .md-typeset {
+    font-size: 0.875rem;
+  }
+
+  .md-typeset :is(table, pre, code) {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media print {
+  .md-header,
+  .md-tabs,
+  .md-sidebar,
+  .md-footer,
+  .md-top,
+  .md-search,
+  .md-skip {
+    display: none !important;
+  }
+
+  .md-main__inner,
+  .md-content {
+    margin: 0;
+    max-width: none;
+  }
+
+  .md-typeset a {
+    color: #000000;
+    text-decoration: underline;
+  }
+
+  .md-typeset a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    overflow-wrap: anywhere;
+  }
+
+  .media-block,
+  .media-panel,
+  .axis-cell,
+  .flow-node {
+    break-inside: avoid;
+  }
 }
 
 @media screen and (max-width: 640px) {

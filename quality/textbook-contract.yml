@@ -1,0 +1,34 @@
+version: 1
+rubric:
+  dimensions:
+    - learning-objective-alignment
+    - conceptual-accuracy
+    - instructional-coherence
+    - learner-accessibility
+    - assessment-evidence
+edges:
+  - lecture_id: lecture-01
+    chapter_id: ch01
+  - lecture_id: lecture-02
+    chapter_id: ch02
+  - lecture_id: lecture-03
+    chapter_id: ch10
+  - lecture_id: lecture-04
+    chapter_id: ch03
+  - lecture_id: lecture-05
+    chapter_id: ch04
+  - lecture_id: lecture-06
+    chapter_id: ch06
+  - lecture_id: lecture-07
+    chapter_id: ch07
+  - lecture_id: lecture-08
+    chapter_id: ch09
+  - lecture_id: lecture-09
+    chapter_id: ch10
+  - lecture_id: lecture-09
+    chapter_id: ch11
+  - lecture_id: lecture-10
+    chapter_id: ch11
+text_only_chapter_ids:
+  - ch05
+  - ch08

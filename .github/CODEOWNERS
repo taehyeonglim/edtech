@@ -1,0 +1,11 @@
+# Release controls require review by the repository owner.
+/.github/workflows/** @taehyeonglim
+/.github/CODEOWNERS @taehyeonglim
+/quality/** @taehyeonglim
+/tools/** @taehyeonglim
+/package.json @taehyeonglim
+/package-lock.json @taehyeonglim
+/requirements*.txt @taehyeonglim
+/constraints*.txt @taehyeonglim
+/poetry.lock @taehyeonglim
+/Pipfile.lock @taehyeonglim

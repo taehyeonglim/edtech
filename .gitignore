@@ -6,6 +6,13 @@ site/
 # tools/ 실행 부산물
 __pycache__/
 
+node_modules/
+
+# Candidate, release, and private audit material are local-only.
+.candidate/
+.release/
+.evidence/
+.bindings/
 # ─────────────────────────────────────────────────────────────
 # 비공개 원천 자료 — 이 저장소는 PUBLIC 이다. 절대 커밋하지 말 것.
 # ─────────────────────────────────────────────────────────────

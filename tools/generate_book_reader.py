@@ -32,6 +32,69 @@ VENDOR_METADATA: Final = ROOT / "assets/vendor/page-flip/METADATA.json"
 GENERATOR_NAME: Final = "tools/generate_book_reader.py"
 CHAPTER_RE: Final = re.compile(r"^part(?P<part>\d+)/ch(?P<chapter>\d{2})\.md$")
 LOCAL_LINK_RE: Final = re.compile(r"(?P<attr>\b(?:href|src)=)(?P<quote>[\"'])(?P<target>[^\"']+)(?P=quote)")
+FRONT_MATTER_DELIMITER: Final = "---"
+REQUIRED_FRONT_MATTER_KEYS: Final[tuple[str, ...]] = ("chapter_id",)
+
+class DuplicateKeySafeLoader(yaml.SafeLoader):
+    """Safe YAML loader that rejects duplicate keys at every mapping level."""
+
+
+def _construct_mapping_no_duplicates(
+    loader: DuplicateKeySafeLoader, node: yaml.MappingNode, deep: bool = False
+) -> dict[Any, Any]:
+    mapping: dict[Any, Any] = {}
+    for key_node, value_node in node.value:
+        key = loader.construct_object(key_node, deep=deep)
+        if key in mapping:
+            raise ValueError(f"duplicate front matter key: {key!r}")
+        mapping[key] = loader.construct_object(value_node, deep=deep)
+    return mapping
+
+
+DuplicateKeySafeLoader.add_constructor(
+    yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, _construct_mapping_no_duplicates
+)
+
+
+def split_front_matter(chapter: Chapter, text: str, errors: list[str]) -> str | None:
+    """Return Markdown body after strictly validating its YAML front matter."""
+    error_count = len(errors)
+    lines = text.splitlines(keepends=True)
+    if not lines or lines[0].rstrip("\r\n") != FRONT_MATTER_DELIMITER:
+        errors.append(f"docs/{chapter.source_posix}: missing opening YAML front matter delimiter")
+        return None
+
+    closing_index = next(
+        (index for index, line in enumerate(lines[1:], start=1)
+         if line.rstrip("\r\n") == FRONT_MATTER_DELIMITER),
+        None,
+    )
+    if closing_index is None:
+        errors.append(f"docs/{chapter.source_posix}: unclosed YAML front matter")
+        return None
+
+    front_matter = "".join(lines[1:closing_index])
+    try:
+        metadata = yaml.load(front_matter, Loader=DuplicateKeySafeLoader)
+    except (TypeError, yaml.YAMLError, ValueError) as exc:
+        errors.append(f"docs/{chapter.source_posix}: invalid YAML front matter: {exc}")
+        return None
+    if not isinstance(metadata, dict):
+        errors.append(f"docs/{chapter.source_posix}: YAML front matter must be a mapping")
+        return None
+    for key in REQUIRED_FRONT_MATTER_KEYS:
+        if key not in metadata:
+            errors.append(f"docs/{chapter.source_posix}: YAML front matter missing required key: {key}")
+    chapter_id = metadata.get("chapter_id")
+    if not isinstance(chapter_id, str) or not chapter_id:
+        errors.append(f"docs/{chapter.source_posix}: YAML front matter chapter_id must be a non-empty string")
+    elif chapter_id != chapter.slug:
+        errors.append(
+            f"docs/{chapter.source_posix}: YAML front matter chapter_id must be {chapter.slug!r}, found {chapter_id!r}"
+        )
+    if len(errors) != error_count:
+        return None
+    return "".join(lines[closing_index + 1:])
 
 def marker_text(*parts: str) -> str:
     return "".join(parts)
@@ -390,11 +453,14 @@ def rewrite_local_links(rendered: str, chapter: Chapter, errors: list[str]) -> s
 def render_markdown(chapter: Chapter, extensions: list[Any], errors: list[str]) -> str:
     source_path = DOCS_DIR / chapter.source
     text = source_path.read_text(encoding="utf-8")
-    errors.extend(validate_source_markdown(chapter, text))
+    body = split_front_matter(chapter, text, errors)
+    if body is None:
+        return ""
+    errors.extend(validate_source_markdown(chapter, body))
     names, configs = extension_configs(extensions)
     try:
         md = markdown.Markdown(extensions=names, extension_configs=configs, output_format="html5")
-        rendered = md.convert(text)
+        rendered = md.convert(body)
     except Exception as exc:
         errors.append(f"docs/{chapter.source_posix}: Markdown render failed: {exc}")
         return ""
@@ -880,6 +946,7 @@ def build_chapter(chapter: Chapter, chapters: list[Chapter], rendered: str) -> s
     prev_link = f"<a class=\"button\" href=\"../{prev_chapter.slug}/\">이전 장</a>" if prev_chapter else ""
     next_link = f"<a class=\"button\" href=\"../{next_chapter.slug}/\">다음 장</a>" if next_chapter else ""
     flip_pages = build_reader_flip_pages(chapter, rendered)
+    static_rendered = re.sub(r"<h1(\b[^>]*)>(.*?)</h1>", r"<h2\1>\2</h2>", rendered, count=1, flags=re.DOTALL)
     body = f"""  <nav class=\"topnav wrap\" aria-label=\"상위 경로\"><a href=\"../\">책 넘김 목차</a><span aria-hidden=\"true\">|</span><a href=\"../../book/\">교재 선택</a><span aria-hidden=\"true\">|</span><a href=\"{chapter.text_href_from_reader_chapter}\">텍스트 장</a></nav>
   <header class=\"hero wrap\"><p class=\"eyebrow\">교육방법 및 교육공학 · Chapter {chapter.index:02d}</p><h1>{html.escape(chapter.title)}</h1><p class=\"lead\">큰 화면에서는 실제 책처럼 양면으로 펼쳐 넘기고, 좁은 화면에서는 한 장씩 넘깁니다. 전체 텍스트 본문은 같은 페이지 아래에 보존됩니다.</p></header>
   <main class=\"reader-panel wrap reader-layout\" aria-label=\"{chapter.index:02d}장 리더\" data-reader-chapter=\"{chapter.slug}\">
@@ -895,7 +962,7 @@ def build_chapter(chapter: Chapter, chapters: list[Chapter], rendered: str) -> s
     <article class=\"reader-content\">
       <section class=\"static-content\" id=\"content\" aria-label=\"전체 텍스트 본문\">
         <h2>전체 텍스트 본문</h2>
-{rendered}
+{static_rendered}
       </section>
     </article>
     <aside class=\"reader-sidebar\" aria-label=\"책 넘김 장 목록\">
@@ -939,21 +1006,28 @@ def write_file(path: Path, text: str) -> None:
     path.write_text(text, encoding="utf-8")
 
 
-def output_map(chapters: list[Chapter], rendered: dict[str, str]) -> dict[Path, str]:
-    outputs = {READER_DIR / "index.html": build_index(chapters)}
+def output_map(chapters: list[Chapter], rendered: dict[str, str], output_dir: Path = READER_DIR) -> dict[Path, str]:
+    outputs = {output_dir / "index.html": build_index(chapters)}
     for chapter in chapters:
-        outputs[READER_DIR / chapter.slug / "index.html"] = build_chapter(chapter, chapters, rendered[chapter.slug])
-    outputs[READER_DIR / "reader-data.json"] = json.dumps(manifest(chapters), ensure_ascii=False, indent=2) + "\n"
+        outputs[output_dir / chapter.slug / "index.html"] = build_chapter(chapter, chapters, rendered[chapter.slug])
+    outputs[output_dir / "reader-data.json"] = json.dumps(manifest(chapters), ensure_ascii=False, indent=2) + "\n"
     return outputs
 
 
-def validate_outputs(outputs: dict[Path, str], chapters: list[Chapter], errors: list[str]) -> None:
-    expected_paths = {READER_DIR / "index.html", READER_DIR / "reader-data.json"}
-    expected_paths.update(READER_DIR / chapter.slug / "index.html" for chapter in chapters)
+def output_label(path: Path) -> str:
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
+def validate_outputs(outputs: dict[Path, str], chapters: list[Chapter], errors: list[str], output_dir: Path = READER_DIR) -> None:
+    expected_paths = {output_dir / "index.html", output_dir / "reader-data.json"}
+    expected_paths.update(output_dir / chapter.slug / "index.html" for chapter in chapters)
     if set(outputs) != expected_paths:
         errors.append("internal output set did not match expected reader routes")
     for chapter in chapters:
-        chapter_text = outputs[READER_DIR / chapter.slug / "index.html"]
+        chapter_text = outputs[output_dir / chapter.slug / "index.html"]
         if chapter.text_href_from_reader_chapter not in chapter_text:
             errors.append(f"book-reader/{chapter.slug}/index.html missing text route {chapter.text_href_from_reader_chapter}")
         for marker in ("data-reader-chapter", "data-reader-data", "data-reader-enhancement", "data-flip-book", "data-reader-page", "data-reader-controls", "ArrowLeft", "ArrowRight", "prefers-reduced-motion: reduce", "URLSearchParams", "window.location.hash"):
@@ -965,7 +1039,7 @@ def validate_outputs(outputs: dict[Path, str], chapters: list[Chapter], errors: 
             errors.append(f"book-reader/{chapter.slug}/index.html still exposes preview-only copy")
         if chapter_text.count("data-reader-page") < 6:
             errors.append(f"book-reader/{chapter.slug}/index.html must generate multiple body reader pages, not a two-card preview")
-    index_text = outputs[READER_DIR / "index.html"]
+    index_text = outputs[output_dir / "index.html"]
     for marker in ("data-reader-root", "data-reader-data", "data-reader-enhancement", "data-flip-book", "data-reader-controls", "assets/vendor/page-flip/page-flip.browser.js", "#ch03", "?chapter=ch03"):
         if marker not in index_text:
             errors.append(f"book-reader/index.html missing reader UX hook {marker}")
@@ -975,9 +1049,25 @@ def validate_outputs(outputs: dict[Path, str], chapters: list[Chapter], errors: 
     for output_path, text in outputs.items():
         for marker in FORBIDDEN_OUTPUT_MARKERS:
             if marker in text:
-                errors.append(f"{output_path.relative_to(ROOT)} contains forbidden marker: {marker}")
+                errors.append(f"{output_label(output_path)} contains forbidden marker: {marker}")
         if re.search(r"\b(?:href|src)=[\"'][^\"']+\.md(?:[?#/\"'])", text, re.IGNORECASE):
-            errors.append(f"{output_path.relative_to(ROOT)} contains .md href/src leak")
+            errors.append(f"{output_label(output_path)} contains .md href/src leak")
+
+
+def check_outputs(outputs: dict[Path, str]) -> list[str]:
+    errors: list[str] = []
+    for path, expected_text in sorted(outputs.items()):
+        label = output_label(path)
+        try:
+            actual_text = path.read_text(encoding="utf-8")
+        except FileNotFoundError:
+            errors.append(f"generated output missing: {label}")
+        except OSError as exc:
+            errors.append(f"generated output unreadable: {label}: {exc}")
+        else:
+            if actual_text != expected_text:
+                errors.append(f"generated output differs: {label}")
+    return errors
 
 
 def validate_static_prereqs(errors: list[str]) -> None:
@@ -1001,7 +1091,7 @@ def write_report(path: Path, payload: dict[str, Any]) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def run(mode: str, write: bool, report_path: Path | None) -> int:
+def run(mode: str, write: bool, report_path: Path | None, check: bool = False, output_dir: Path = READER_DIR) -> int:
     errors: list[str] = []
     warnings: list[str] = []
     try:
@@ -1015,25 +1105,29 @@ def run(mode: str, write: bool, report_path: Path | None) -> int:
     rendered: dict[str, str] = {}
     for chapter in chapters:
         rendered[chapter.slug] = render_markdown(chapter, extensions, errors)
-    outputs = output_map(chapters, rendered) if chapters and all(chapter.slug in rendered for chapter in chapters) else {}
+    outputs = output_map(chapters, rendered, output_dir) if chapters and all(chapter.slug in rendered for chapter in chapters) else {}
     if outputs:
-        validate_outputs(outputs, chapters, errors)
+        validate_outputs(outputs, chapters, errors, output_dir)
     if mode == "development" and errors:
         warnings.extend(errors)
         errors = []
+    if check:
+        errors.extend(check_outputs(outputs))
     if write and not errors:
         for path, text in outputs.items():
             write_file(path, text)
     report = {
         "mode": mode,
         "write": write,
+        "check": check,
+        "outputDir": output_label(output_dir),
         "ok": not errors,
         "chapterCount": len(chapters),
         "chapters": [
             {"index": chapter.index, "slug": chapter.slug, "title": chapter.title, "textRoute": f"book/{chapter.source.with_suffix('').as_posix()}/"}
             for chapter in chapters
         ],
-        "outputs": [str(path.relative_to(ROOT)) for path in sorted(outputs)] if outputs else [],
+        "outputs": [output_label(path) for path in sorted(outputs)] if outputs else [],
         "warnings": warnings,
         "errors": errors,
     }
@@ -1058,10 +1152,17 @@ def run(mode: str, write: bool, report_path: Path | None) -> int:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Generate the static book-reader route from MkDocs chapter Markdown.")
     parser.add_argument("--mode", choices=("development", "release"), default="development")
-    parser.add_argument("--write", action="store_true", help="write generated book-reader outputs")
+    action = parser.add_mutually_exclusive_group()
+    action.add_argument("--write", action="store_true", help="write generated reader outputs")
+    action.add_argument("--check", action="store_true", help="compare tracked book-reader outputs without writing")
+    parser.add_argument("--output-dir", type=Path, help="write generated outputs beneath this directory instead of book-reader")
     parser.add_argument("--report", type=Path, help="write a JSON generation report")
     args = parser.parse_args(argv)
-    return run(args.mode, args.write, args.report)
+    if args.check and (args.output_dir or args.report):
+        parser.error("--check cannot be combined with --output-dir or --report")
+    if args.output_dir and not args.write:
+        parser.error("--output-dir requires --write")
+    return run(args.mode, args.write, args.report, args.check, args.output_dir or READER_DIR)
 
 
 if __name__ == "__main__":

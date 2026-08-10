@@ -620,10 +620,42 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
   color: var(--text-muted);
   bottom: 18px; right: 32px;
 }
+.textbook-links {
+  position: fixed;
+  z-index: 30;
+  bottom: 16px;
+  left: 24px;
+  display: flex;
+  gap: 8px;
+  pointer-events: none;
+}
+.textbook-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 10px 14px;
+  border: 1px solid var(--navy);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--navy);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  pointer-events: auto;
+}
+.textbook-links a:hover { background: var(--navy); color: var(--bg); }
+.textbook-links a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 .reveal aside.notes { display: none; }
 </style>
 </head>
 <body>
+<nav class="textbook-links" aria-label="텍스트 교재">
+  <a href="https://taehyeonglim.github.io/edtech/book/part4/ch10/">텍스트 교재 10장</a>
+  <a href="https://taehyeonglim.github.io/edtech/book/part4/ch11/">텍스트 교재 11장</a>
+</nav>
 <div class="reveal">
 <div class="slides">
 

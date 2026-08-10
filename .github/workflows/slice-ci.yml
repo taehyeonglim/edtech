@@ -1,0 +1,39 @@
+name: Slice CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check mkdocs-material
+      - name: Validate source contracts
+        run: |
+          python3 tools/validate_textbook_apparatus.py
+          python3 tools/validate_textbook_alignment.py
+          python3 tools/validate_course_links.py
+          python3 tools/validate_freshness.py
+          python3 tools/validate_public_boundary.py --root docs
+          python3 tools/validate_candidate_routes.py --fixture tests/fixtures/candidate/valid
+          python3 tools/validate_release_attestation.py --phase policy
+      - name: Check reader before any write
+        run: |
+          python3 tools/generate_book_reader.py --mode release --check
+          python3 tools/validate_reader_foundation.py
+      - name: Build textbook strictly
+        run: mkdocs build --strict
+      - name: Validate built textbook accessibility baseline
+        run: python3 tools/validate_accessibility_static.py --root site
+      - name: Run quality fixtures
+        run: python3 -m unittest tools/test_generate_book_reader.py

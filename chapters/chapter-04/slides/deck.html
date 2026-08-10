@@ -30,6 +30,12 @@
 }
 
 html, body { background: var(--bg); }
+.reveal a {
+  align-items: center;
+  display: inline-flex;
+  min-height: 24px;
+  min-width: 24px;
+}
 .reveal {
   font-family: 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
   color: var(--text);
@@ -267,6 +273,25 @@ section.layout-cover .cover-subtitle {
   font-weight: 500;
   color: var(--text);
   margin-bottom: 10px;
+}
+section.layout-cover .textbook-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  margin-top: 24px;
+  padding: 10px 16px;
+  border: 2px solid var(--blue);
+  border-radius: 2px;
+  color: var(--navy);
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+section.layout-cover .textbook-link:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
 }
 section.layout-cover .cover-photo {
   position: absolute;
@@ -705,6 +730,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <h1 class="cover-title">체제적<br>교수설계의<br>방법과 절차</h1>
       <div class="cover-rule"></div>
       <div class="cover-subtitle">교수설계의 의미·ADDIE·Dick &amp; Carey 모형</div>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part2/ch03/">텍스트 교재</a>
     </div>
     <div class="cover-photo">
       <img src="../images/img-s01-cover-bg.png" alt="교수설계 청사진, 흐름도 화살표, 교육 아이콘이 어우러진 타이틀 배경 일러스트">

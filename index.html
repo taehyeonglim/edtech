@@ -39,6 +39,18 @@
       color: inherit;
       text-decoration: none;
     }
+    .skip-link {
+      position: absolute;
+      top: -48px;
+      left: 16px;
+      z-index: 10;
+      padding: 10px 14px;
+      background: #fff;
+      color: var(--navy);
+      font-weight: 900;
+    }
+    .skip-link:focus { top: 16px; outline: 3px solid var(--blue); }
+
 
     .hero {
       min-height: 68vh;
@@ -346,26 +358,27 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <header class="hero">
     <div class="hero-inner">
-      <p class="eyebrow">EdTech Lecture Decks</p>
-      <h1><span class="title-part">교육방법 및</span> <span class="title-part">교육공학</span></h1>
-      <p class="subtitle">2026학년도 강의용 HTML 교안 10강 모음</p>
+      <p class="eyebrow">교육방법 및 교육공학</p>
+      <h1><span class="title-part">한 학기 학습의</span> <span class="title-part">출발점</span></h1>
+      <p class="subtitle">먼저 반응형 텍스트 교재를 읽고, 짧게 확인한 뒤 수업에서 적용하세요. 장마다 30~45분의 사전 읽기를 권장합니다.</p>
     </div>
   </header>
 
-  <main class="hub">
-    <a class="hub-card" href="./book/">
-      <div class="hub-icon">📖</div>
-      <h2>교재 읽기</h2>
-      <p>4부 11장 전공 교재 · 좌측 목차 · 전문 검색</p>
-      <span class="hub-go">교재 열기 →</span>
+  <main id="main-content" class="hub">
+    <a class="hub-card" href="./book/text/">
+      <div class="hub-icon" aria-hidden="true">📖</div>
+      <h2>텍스트 교재로 시작하기</h2>
+      <p>한 학기 기본 경로: 장당 30~45분 읽기 → 장의 짧은 확인 → 수업 중 적용. 검색과 보조기술에 안정적으로 대응합니다.</p>
+      <span class="hub-go">텍스트 교재 열기 →</span>
     </a>
     <a class="hub-card" href="./chapters/">
-      <div class="hub-icon">🖥</div>
-      <h2>강의 슬라이드</h2>
-      <p>10강 HTML 슬라이드 · PDF 배포본</p>
-      <span class="hub-go">슬라이드 열기 →</span>
+      <div class="hub-icon" aria-hidden="true">🖥</div>
+      <h2>강의 슬라이드와 PDF</h2>
+      <p>교재를 읽은 뒤 수업용 슬라이드와 인쇄/PDF 보조 자료를 확인합니다.</p>
+      <span class="hub-go">보조 자료 열기 →</span>
     </a>
   </main>
 

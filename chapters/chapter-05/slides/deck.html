@@ -268,6 +268,25 @@ section.layout-cover .cover-subtitle {
   color: var(--text);
   margin-bottom: 10px;
 }
+section.layout-cover .textbook-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  margin-top: 24px;
+  padding: 10px 16px;
+  border: 2px solid var(--blue);
+  border-radius: 2px;
+  color: var(--navy);
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+section.layout-cover .textbook-link:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
+}
 section.layout-cover .cover-photo {
   position: absolute;
   right: 80px;
@@ -708,6 +727,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <h1 class="cover-title">수업의<br>구성과 절차</h1>
       <div class="cover-rule"></div>
       <div class="cover-subtitle">가녜 이론과 학습 설계의 실천</div>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part2/ch04/">텍스트 교재</a>
     </div>
     <div class="cover-photo">
       <img src="../images/img-s01-cover-bg.png" alt="수업 흐름도, 9단계 사다리, 학습 목표 아이콘이 어우러진 타이틀 배경 일러스트">

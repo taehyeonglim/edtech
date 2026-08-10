@@ -80,6 +80,17 @@ READER_UX_HOOKS: Final[tuple[str, ...]] = (
     "책장 넘김 뷰어",
     "static-content",
 )
+FRONT_MATTER_LEAK_MARKERS: Final[tuple[str, ...]] = (
+    "chapter_id",
+    "objectives",
+    "prework_minutes",
+    "confirmed_date",
+    "review_date",
+    "review_cadence_days",
+    "activity_ids",
+    "assessment_ids",
+    "source_ids",
+)
 
 
 def read_text(path: Path) -> str:
@@ -307,6 +318,11 @@ def check_reader_routes(chapters: list[dict[str, Any]]) -> list[str]:
         for marker in ("data-reader-chapter", "data-reader-data", "data-reader-enhancement", "data-flip-book", "data-reader-page", "data-reader-cover", "reader-stage", "data-reader-controls"):
             if marker not in chapter_text:
                 errors.append(f"book-reader/{slug}/index.html missing G003 chapter reader hook: {marker}")
+        for marker in FRONT_MATTER_LEAK_MARKERS:
+            if re.search(rf"\b{re.escape(marker)}\s*:", chapter_text):
+                errors.append(
+                    f"book-reader/{slug}/index.html exposes YAML front matter key: {marker}"
+                )
         if "책장 넘김 뷰어" not in chapter_text:
             errors.append(f"book-reader/{slug}/index.html missing full book-flip viewer label")
         if "책 넘김 미리보기" in chapter_text:
@@ -382,13 +398,8 @@ def check_generated_outputs_synced() -> list[str]:
         return [f"generator dry-run sync validation failed: {exc}"]
     errors = [f"generator dry-run error: {error}" for error in generator_errors]
     errors.extend(f"generator dry-run warning: {warning}" for warning in generator_warnings)
-    for path, expected_text in outputs.items():
-        if not path.is_file():
-            errors.append(f"generated output missing; run generator --write: {path.relative_to(ROOT)}")
-            continue
-        actual_text = read_text(path)
-        if actual_text != expected_text:
-            errors.append(f"generated output is not synchronized with docs/mkdocs; run generator --write: {path.relative_to(ROOT)}")
+    for error in module.check_outputs(outputs):
+        errors.append(f"generator --check failed: {error}")
     return errors
 
 

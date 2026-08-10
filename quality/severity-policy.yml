@@ -1,0 +1,15 @@
+version: 1
+severity_levels:
+  critical:
+    release_blocking: true
+  serious:
+    release_blocking: true
+  moderate:
+    release_blocking: false
+  minor:
+    release_blocking: false
+release_gate:
+  applies_to: all-domains
+  blocked_severities:
+    - critical
+    - serious

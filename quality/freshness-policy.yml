@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "scope": {
+    "topic_terms": ["생성형 AI", "AI 교육자료", "AI와 교육"]
+  },
+  "required_front_matter": {
+    "confirmed_date": "confirmed_date",
+    "review_date": "review_date",
+    "review_cadence_days": "review_cadence_days"
+  },
+  "review_cadence": {
+    "minimum_days": 1,
+    "maximum_days": 365
+  }
+}

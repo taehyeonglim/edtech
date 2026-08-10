@@ -13,6 +13,10 @@
     body { margin: 0; overflow-x: hidden; background: linear-gradient(180deg, var(--ivory), var(--paper) 52%); color: var(--ink); font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif; line-height: 1.58; }
     a { color: inherit; text-decoration: none; }
     a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .skip-link { position: absolute; top: -48px; left: 16px; z-index: 10; padding: 10px 14px; background: #fff; color: var(--navy); font-weight: 900; }
+    .skip-link:focus { top: 16px; outline: 3px solid var(--gold); }
+    .status { display: inline-block; margin-top: 9px; color: var(--muted); font-size: .92rem; font-weight: 900; }
+
     .wrap { width: min(1060px, calc(100% - 40px)); margin: 0 auto; }
     .topnav { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; padding: 20px 0 0; font-size: .95rem; font-weight: 900; }
     .topnav a { color: var(--blue); }
@@ -32,8 +36,8 @@
     .chapter-link:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(11,44,92,.12); }
     .chapter-no { display: inline-flex; margin-bottom: 8px; padding: 4px 9px; border-radius: 2px; background: var(--navy); color: #fff; font-size: .82rem; font-weight: 900; letter-spacing: .08em; }
     .chapter-title { display: block; color: var(--ink); font-size: 1.05rem; font-weight: 900; line-height: 1.32; }
-    .reader-mini { display: inline-block; margin-top: 9px; color: var(--blue); font-size: .92rem; font-weight: 900; }
-    .reader-mini:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+    .reader-mini, .slide-mini { display: inline-block; margin-top: 9px; color: var(--blue); font-size: .92rem; font-weight: 900; }
+    .reader-mini:focus-visible, .slide-mini:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
     footer { border-top: 1px solid var(--line); background: var(--soft); color: var(--muted); }
     .footer-inner { padding: 24px 0; font-size: .95rem; font-weight: 700; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition-duration: .001ms !important; } }
@@ -41,57 +45,58 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <nav class="topnav wrap" aria-label="상위 경로">
     <a href="../">교재 선택</a>
-    <span class="sep">|</span>
+    <span class="sep" aria-hidden="true">|</span>
     <a href="../../">홈</a>
-    <span class="sep">|</span>
-    <a href="../../book-reader/">책 넘김 리더</a>
+    <span class="sep" aria-hidden="true">|</span>
+    <a href="../../book-reader/">책 넘김 보조 모드</a>
   </nav>
 
   <header class="pagehead wrap">
-    <p class="eyebrow">텍스트 교재</p>
+    <p class="eyebrow">기본 경로 · 텍스트 교재</p>
     <h1>텍스트 교재 목차</h1>
-    <p class="lead">11개 장의 안정적인 텍스트 교재 경로입니다. 각 장은 표준 읽기 링크를 보존하며, 같은 장의 책 넘김 리더 링크도 함께 제공합니다.</p>
-    <div class="mode-links" aria-label="읽기 방식 전환">
-      <a class="button primary" href="./">텍스트 모드</a>
-      <a class="button" href="../../book-reader/">책 넘김 모드</a>
+    <p class="lead">이 텍스트 교재가 정본입니다. 한 장을 30~45분 읽고, 장의 짧은 확인을 마친 뒤 수업에서 적용하세요. 책 넘김과 인쇄/PDF는 보조 방식입니다.</p>
+    <div class="mode-links" aria-label="보조 읽기 방식">
+      <a class="button primary" href="./" aria-current="page">텍스트 교재</a>
+      <a class="button" href="../../book-reader/">책 넘김 보조 모드</a>
     </div>
   </header>
 
-  <main class="chapter-grid wrap" aria-label="텍스트 교재 장 목록">
+  <main id="main-content" class="chapter-grid wrap" aria-label="텍스트 교재 장 목록">
     <section class="part" aria-labelledby="part1">
       <h2 id="part1">1부 교육방법·교육공학의 토대</h2>
       <ol class="chapter-list">
-        <li><a class="chapter-link" href="../part1/ch01/"><span class="chapter-no">01</span><span class="chapter-title">교육방법과 교육공학의 이해</span></a><a class="reader-mini" href="../../book-reader/ch01/">책 넘김 모드로 열기</a></li>
-        <li><a class="chapter-link" href="../part1/ch02/"><span class="chapter-no">02</span><span class="chapter-title">교육과 테크놀로지의 만남</span></a><a class="reader-mini" href="../../book-reader/ch02/">책 넘김 모드로 열기</a></li>
+        <li><a class="chapter-link" href="../part1/ch01/"><span class="chapter-no">01</span><span class="chapter-title">교육방법과 교육공학의 이해</span></a><a class="reader-mini" href="../../book-reader/ch01/">책 넘김 보조 모드</a><a class="slide-mini" href="../../chapters/chapter-01/slides/deck.html">1강 슬라이드</a></li>
+        <li><a class="chapter-link" href="../part1/ch02/"><span class="chapter-no">02</span><span class="chapter-title">교육과 테크놀로지의 만남</span></a><a class="reader-mini" href="../../book-reader/ch02/">책 넘김 보조 모드</a><a class="slide-mini" href="../../chapters/chapter-02/slides/deck.html">2강 슬라이드</a></li>
       </ol>
     </section>
 
     <section class="part" aria-labelledby="part2">
       <h2 id="part2">2부 교수설계의 원리와 모형</h2>
       <ol class="chapter-list" start="3">
-        <li><a class="chapter-link" href="../part2/ch03/"><span class="chapter-no">03</span><span class="chapter-title">체제적 교수설계</span></a><a class="reader-mini" href="../../book-reader/ch03/">책 넘김 모드로 열기</a></li>
-        <li><a class="chapter-link" href="../part2/ch04/"><span class="chapter-no">04</span><span class="chapter-title">수업의 구성과 학습의 조건</span></a><a class="reader-mini" href="../../book-reader/ch04/">책 넘김 모드로 열기</a></li>
-        <li><a class="chapter-link" href="../part2/ch05/"><span class="chapter-no">05</span><span class="chapter-title">교수이론과 수업모형</span></a><a class="reader-mini" href="../../book-reader/ch05/">책 넘김 모드로 열기</a></li>
+        <li><a class="chapter-link" href="../part2/ch03/"><span class="chapter-no">03</span><span class="chapter-title">체제적 교수설계</span></a><a class="reader-mini" href="../../book-reader/ch03/">책 넘김 보조 모드</a><a class="slide-mini" href="../../chapters/chapter-04/slides/deck.html">4강 슬라이드</a></li>
+        <li><a class="chapter-link" href="../part2/ch04/"><span class="chapter-no">04</span><span class="chapter-title">수업의 구성과 학습의 조건</span></a><a class="reader-mini" href="../../book-reader/ch04/">책 넘김 보조 모드</a><a class="slide-mini" href="../../chapters/chapter-05/slides/deck.html">5강 슬라이드</a></li>
+        <li><a class="chapter-link" href="../part2/ch05/"><span class="chapter-no">05</span><span class="chapter-title">교수이론과 수업모형</span></a><a class="reader-mini" href="../../book-reader/ch05/">책 넘김 보조 모드</a><span class="status">연계 슬라이드 없음</span></li>
       </ol>
     </section>
 
     <section class="part" aria-labelledby="part3">
       <h2 id="part3">3부 수업 전략의 실제</h2>
       <ol class="chapter-list" start="6">
-        <li><a class="chapter-link" href="../part3/ch06/"><span class="chapter-no">06</span><span class="chapter-title">협동학습 전략</span></a><a class="reader-mini" href="../../book-reader/ch06/">책 넘김 모드로 열기</a></li>
-        <li><a class="chapter-link" href="../part3/ch07/"><span class="chapter-no">07</span><span class="chapter-title">학습동기 설계 (ARCS)</span></a><a class="reader-mini" href="../../book-reader/ch07/">책 넘김 모드로 열기</a></li>
-        <li><a class="chapter-link" href="../part3/ch08/"><span class="chapter-no">08</span><span class="chapter-title">질문과 탐구 중심 수업</span></a><a class="reader-mini" href="../../book-reader/ch08/">책 넘김 모드로 열기</a></li>
+        <li><a class="chapter-link" href="../part3/ch06/"><span class="chapter-no">06</span><span class="chapter-title">협동학습 전략</span></a><a class="reader-mini" href="../../book-reader/ch06/">책 넘김 보조 모드</a><a class="slide-mini" href="../../chapters/chapter-06/slides/deck.html">6강 슬라이드</a></li>
+        <li><a class="chapter-link" href="../part3/ch07/"><span class="chapter-no">07</span><span class="chapter-title">학습동기 설계 (ARCS)</span></a><a class="reader-mini" href="../../book-reader/ch07/">책 넘김 보조 모드</a><a class="slide-mini" href="../../chapters/chapter-07/slides/deck.html">7강 슬라이드</a></li>
+        <li><a class="chapter-link" href="../part3/ch08/"><span class="chapter-no">08</span><span class="chapter-title">질문과 탐구 중심 수업</span></a><a class="reader-mini" href="../../book-reader/ch08/">책 넘김 보조 모드</a><span class="status">연계 슬라이드 없음</span></li>
       </ol>
     </section>
 
     <section class="part" aria-labelledby="part4">
       <h2 id="part4">4부 디지털·AI 학습환경</h2>
       <ol class="chapter-list" start="9">
-        <li><a class="chapter-link" href="../part4/ch09/"><span class="chapter-no">09</span><span class="chapter-title">멀티미디어 학습과 인지부하</span></a><a class="reader-mini" href="../../book-reader/ch09/">책 넘김 모드로 열기</a></li>
-        <li><a class="chapter-link" href="../part4/ch10/"><span class="chapter-no">10</span><span class="chapter-title">디지털 학습환경과 미래교실</span></a><a class="reader-mini" href="../../book-reader/ch10/">책 넘김 모드로 열기</a></li>
-        <li><a class="chapter-link" href="../part4/ch11/"><span class="chapter-no">11</span><span class="chapter-title">AI와 교육의 만남</span></a><a class="reader-mini" href="../../book-reader/ch11/">책 넘김 모드로 열기</a></li>
+        <li><a class="chapter-link" href="../part4/ch09/"><span class="chapter-no">09</span><span class="chapter-title">멀티미디어 학습과 인지부하</span></a><a class="reader-mini" href="../../book-reader/ch09/">책 넘김 보조 모드</a><a class="slide-mini" href="../../chapters/chapter-08/slides/deck.html">8강 슬라이드</a></li>
+        <li><a class="chapter-link" href="../part4/ch10/"><span class="chapter-no">10</span><span class="chapter-title">디지털 학습환경과 미래교실</span></a><a class="reader-mini" href="../../book-reader/ch10/">책 넘김 보조 모드</a><a class="slide-mini" href="../../chapters/chapter-03/slides/deck.html">3강 슬라이드</a><a class="slide-mini" href="../../chapters/chapter-09/slides/deck.html">9강 슬라이드</a></li>
+        <li><a class="chapter-link" href="../part4/ch11/"><span class="chapter-no">11</span><span class="chapter-title">AI와 교육의 만남</span></a><a class="reader-mini" href="../../book-reader/ch11/">책 넘김 보조 모드</a><a class="slide-mini" href="../../chapters/chapter-09/slides/deck.html">9강 슬라이드</a><a class="slide-mini" href="../../chapters/chapter-10/slides/deck.html">10강 슬라이드</a></li>
       </ol>
     </section>
   </main>

@@ -1,0 +1,15 @@
+{
+  "branch_protection": {"required_pull_request_reviews": {"required_approving_review_count": 1, "require_code_owner_reviews": true}},
+  "rulesets": [],
+  "environment": {
+    "name": "github-pages",
+    "prevent_self_review": true,
+    "protection_rules": [{"type": "required_reviewers", "reviewers": [{"type": "User", "reviewer": {"login": "outside-reviewer"}}]}]
+  },
+  "codeowners": {
+    "/.github/workflows/**": ["@taehyeonglim"], "/quality/**": ["@taehyeonglim"], "/tools/**": ["@taehyeonglim"],
+    "/package.json": ["@taehyeonglim"], "/package-lock.json": ["@taehyeonglim"], "/requirements*.txt": ["@taehyeonglim"],
+    "/constraints*.txt": ["@taehyeonglim"], "/poetry.lock": ["@taehyeonglim"], "/Pipfile.lock": ["@taehyeonglim"]
+  },
+  "reviewer_permissions": {"@outside-reviewer": "admin"}
+}
