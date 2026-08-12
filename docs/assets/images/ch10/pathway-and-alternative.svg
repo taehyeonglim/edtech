@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">디지털 도구 선택과 대체 경로 절차도</title>
+  <desc id="desc">학습목표를 먼저 확인한 뒤 도구가 직접 지원하는지, 접근성과 데이터 조건을 충족하는지 판단하고 디지털 경로 또는 저기술 대체 경로를 선택한 다음 학습 증거로 검토하는 절차도이다.</desc>
+  <rect width="960" height="440" fill="#FFFFFF"/>
+  <rect x="32" y="28" width="896" height="68" rx="16" fill="#0B2C5C"/>
+  <text x="62" y="70" fill="#FFFFFF" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="27" font-weight="700">도구를 고르기 전: 대체 경로까지 설계하기</text>
+  <g font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="19">
+    <rect x="48" y="164" width="180" height="104" rx="16" fill="#EAF2FF" stroke="#1B66C9" stroke-width="3"/><text x="77" y="207" fill="#0B2C5C" font-weight="700">1. 학습 목표</text><text x="72" y="238" fill="#173B70">무엇을 설명·적용?</text>
+    <rect x="286" y="164" width="180" height="104" rx="16" fill="#F2F7FF" stroke="#1B66C9" stroke-width="3"/><text x="312" y="207" fill="#0B2C5C" font-weight="700">2. 직접 지원?</text><text x="316" y="238" fill="#173B70">도구의 역할은?</text>
+    <rect x="524" y="138" width="180" height="104" rx="16" fill="#EAF2FF" stroke="#1B66C9" stroke-width="3"/><text x="551" y="181" fill="#0B2C5C" font-weight="700">3. 조건 확인</text><text x="548" y="212" fill="#173B70">접근성·데이터·망</text>
+    <rect x="524" y="294" width="180" height="104" rx="16" fill="#F2F7FF" stroke="#1B66C9" stroke-width="3"/><text x="545" y="337" fill="#0B2C5C" font-weight="700">저기술 대체</text><text x="550" y="368" fill="#173B70">인쇄·대면·오프라인</text>
+    <rect x="762" y="216" width="150" height="104" rx="16" fill="#0B2C5C"/><text x="791" y="258" fill="#FFFFFF" font-weight="700">학습 증거</text><text x="783" y="288" fill="#D9E8FF">설명·산출물·수정</text>
+  </g>
+  <path d="M228 216H286M466 216H524M614 242V294M704 190L762 242M704 346L762 294" fill="none" stroke="#1B66C9" stroke-width="4"/>
+  <text x="480" y="126" fill="#1B66C9" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="17" font-weight="700">가능하면</text><text x="480" y="282" fill="#1B66C9" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="17" font-weight="700">불가하면</text>
+</svg>
