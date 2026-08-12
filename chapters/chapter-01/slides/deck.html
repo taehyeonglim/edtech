@@ -376,6 +376,26 @@ section.layout-section .section-blurb {
   line-height: 1.5;
   max-width: 1400px;
 }
+section.layout-section .textbook-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 24px;
+  min-height: 24px;
+  margin-top: 36px;
+  padding: 10px 16px;
+  border: 2px solid var(--blue);
+  border-radius: 2px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+section.layout-section .textbook-link:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
+}
 
 /* ─── 3. layout-text (본문 — 번호 매긴 섹션) ─── */
 section.layout-text { padding: 0; }
@@ -749,6 +769,7 @@ section.layout-closing .closing-meta {
       <h1 class="cover-title">수업을 설계하는<br>교사의 눈</h1>
       <div class="cover-rule"></div>
       <div class="cover-subtitle">1주차 · 오리엔테이션</div>
+      <div class="cover-subtitle" style="font-size:32px; margin-top:8px;">연계 교재: 1장 교육방법과 교육공학의 이해</div>
       <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part1/ch01/">텍스트 교재</a>
     </div>
     <div class="cover-photo" style="position:absolute; left:1451px; top:470px; width:366px; height:246px; margin:0; transform:none">
@@ -771,28 +792,28 @@ section.layout-closing .closing-meta {
         <span class="num-chip">01</span>
         <div class="text">
           <span class="label">개념 구분</span>
-          교육방법과 <strong>교육공학</strong>의 정의를 구분해 설명할 수 있다.
+          교육방법과 <strong>교육공학</strong>을 구분하고, 실제 수업 설계에서 두 관점이 만나는 지점을 설명할 수 있다.
         </div>
       </div>
       <div class="num-section">
         <span class="num-chip">02</span>
         <div class="text">
-          <span class="label">필요성 이해</span>
-          예비교사에게 이 학문이 필요한 이유 <strong>세 가지</strong>를 자기 언어로 정리할 수 있다.
+          <span class="label">정의 읽기</span>
+          AECT의 <strong>2008년 정의와 2023년 현재 정의</strong>를 구분하여 교육공학의 초점을 말할 수 있다.
         </div>
       </div>
       <div class="num-section">
         <span class="num-chip">03</span>
         <div class="text">
-          <span class="label">학기 여정 조망</span>
-          <strong>4부 11장</strong>의 핵심 질문을 자신의 교사 정체성과 연결할 수 있다.
+          <span class="label">설계 판단</span>
+          매체 선택과 교육과정 해석이 왜 <strong>수업 설계의 문제</strong>인지 사례와 연결해 설명할 수 있다.
         </div>
       </div>
       <div class="num-section">
         <span class="num-chip">04</span>
         <div class="text">
-          <span class="label">학습 전략 수립</span>
-          한 학기 운영 방식과 평가 철학을 이해하고 학습 전략을 세울 수 있다.
+          <span class="label">학습 경로</span>
+          <strong>4부 11장</strong>의 학습 경로를 따라 자신의 수업 설계 역량을 확장할 계획을 세울 수 있다.
         </div>
       </div>
     </div>
@@ -805,6 +826,7 @@ section.layout-closing .closing-meta {
       <div class="section-num">제 1 절 · SECTION 01</div>
       <h2 class="section-title">교육방법 및 교육공학이란<br>무엇인가</h2>
       <p class="section-blurb">두 학문의 정의와 접점, 그리고 이 과목이 다루는 범위를 정리한다.</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part1/ch01/#3-두-관점의-접점">교재 1장 3절: 두 관점의 접점</a>
     </div>
   </section>
 
@@ -818,18 +840,18 @@ section.layout-closing .closing-meta {
     <div class="body-area">
       <h2 class="slide-heading">교육방법의 의미</h2>
       <p class="body-text">
-        <strong>교육방법(教育方法)</strong>은 학습자가 정해진 목표에 도달하도록 교사가 <em>의도적으로 선택하는</em> 교수 절차와 활동의 총체이다.
+        <strong>교육방법(教育方法)</strong>은 교사와 학습자가 무엇을 어떤 순서로 하고 <em>어떻게 상호작용할지</em>를 정하는 실천적 지식이다.
       </p>
       <div class="callout callout--summary">
-        교육방법은 '<strong>무엇을 가르치는가</strong>'(내용)와 '<strong>왜 가르치는가</strong>'(목적) 사이를 잇는 <em>실천의 다리</em>다.
+        방법 선택은 유행하는 기법을 고르는 일이 아니라 <strong>목표·학습자·내용·시간·평가 조건</strong>을 함께 읽는 설계 판단이다.
       </div>
       <div class="num-section">
         <span class="num-chip navy">①</span>
-        <div class="text"><span class="label">전통 관점</span>가르치는 기술과 절차에 초점</div>
+        <div class="text"><span class="label">활동</span>교사와 학습자의 질문·설명·토의·탐구를 구체화</div>
       </div>
       <div class="num-section">
         <span class="num-chip navy">②</span>
-        <div class="text"><span class="label">현대 관점</span>학습자의 인지·정의·사회적 성장을 함께 설계</div>
+        <div class="text"><span class="label">조건</span>방법이 작동하는 학습자·자료·시간·피드백의 조건을 함께 점검</div>
       </div>
     </div>
     <aside class="notes">교육방법은 단순한 요령이나 기법 목록이 아니라, 목표와 내용이 실제 학습 경험으로 이어지도록 만드는 의도적 선택입니다. 전통 관점은 교사의 전달 기술에 초점을 두었지만, 현대 관점에서는 학습자의 인지적 이해, 정의적 태도, 사회적 성장을 함께 고려합니다. 이 차이를 잡아야 뒤의 협동학습, 동기 설계, AI 활용을 기술 중심으로 오해하지 않습니다.</aside>
@@ -845,18 +867,17 @@ section.layout-closing .closing-meta {
     <div class="body-area">
       <div class="copy">
         <h2 class="slide-heading">교육공학의 정의</h2>
-        <p class="body-text"><strong>AECT(2008)</strong>: 적절한 기술적 과정과 자원을 <em>창출·사용·관리</em>함으로써 학습을 촉진하고 수행을 향상시키는 연구·실천 분야.</p>
+        <p class="body-text"><strong>AECT(2008)</strong>: 학습 촉진과 수행 향상을 위해 과정과 자원을 <em>창출·활용·관리</em>하는 관점.</p>
         <ul>
-          <li>창출 — 매체·환경의 개발</li>
-          <li>사용 — 교수 상황에서의 활용</li>
-          <li>관리 — 자원·프로젝트의 운영</li>
+          <li><strong>AECT(2023)</strong>: 이론·연구·실천의 윤리적 연구와 적용</li>
+          <li>전략적 <strong>설계·관리·실행·평가</strong>로 학습과 수행을 개선</li>
+          <li>도구의 새로움보다 학습 경험과 환경의 설계에 주목</li>
         </ul>
-        <p class="body-text"><strong>Seels &amp; Richey(1994)</strong>: 설계·개발·활용·관리·평가의 다섯 영역.</p>
       </div>
       <figure>
-        <img data-src="../images/img-s05-radial-fig.png" alt="교육공학 5개 영역 방사형 다이어그램"
+        <img data-src="../images/img-s05-radial-fig.png" alt="교육공학을 학습 경험과 환경의 설계·관리·실행·평가 관점으로 보여 주는 방사형 도식"
              onerror="this.parentElement.classList.add('image-pending')">
-        <figcaption>[그림 1-1] 중심에 교육공학, 다섯 영역이 방사형으로 뻗는다.</figcaption>
+        <figcaption>[그림 1-1] 교육공학의 요소는 학습 경험을 설계하고 개선하는 과정에서 연결된다.</figcaption>
       </figure>
     </div>
     <aside class="notes">교육공학은 기계를 쓰는 수업이라는 좁은 뜻이 아닙니다. AECT 정의에서 중요한 말은 기술적 과정과 자원을 창출, 사용, 관리하여 학습을 촉진하고 수행을 향상시킨다는 점입니다. Seels와 Richey의 다섯 영역은 이후 강의에서 설계, 개발, 활용, 관리, 평가가 서로 분리되지 않고 순환한다는 점을 이해하기 위한 기본 지도입니다.</aside>
@@ -872,11 +893,11 @@ section.layout-closing .closing-meta {
     <div class="body-area">
       <div class="copy">
         <h2 class="slide-heading">두 개념이 만나는 자리</h2>
-        <p class="body-text">두 학문은 <strong>학습자의 성장</strong>이라는 같은 지점을 향한다.</p>
+        <p class="body-text">두 관점은 경쟁하지 않는다. 활동은 설계 없이 이어지기 어렵고, 설계는 활동 없이 수업 장면이 될 수 없다.</p>
         <ul>
-          <li>교육방법 — 교사의 의사결정 중심</li>
-          <li>교육공학 — 학습 환경·도구·자원 중심</li>
-          <li>교차 — <strong>학습자 성장</strong>·수업 설계·실천</li>
+          <li>교육방법 — 질문 유형·발언 순서·모둠 구성·정리 활동을 구체화</li>
+          <li>교육공학 — 자료·매체·수행 증거·피드백·접근성·개인정보를 함께 설계</li>
+          <li>교차 — <strong>활동·자료·매체·평가</strong>를 한 흐름으로 배치</li>
         </ul>
       </div>
       <figure>
@@ -893,6 +914,7 @@ section.layout-closing .closing-meta {
       <div class="section-num">제 2 절 · SECTION 02</div>
       <h2 class="section-title">예비교사에게 이 학문이<br>필요한 이유</h2>
       <p class="section-blurb">수업 설계·매체 활용·디지털 전환 시대의 교사상을 세 항으로 나누어 살핀다.</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part1/ch01/#4-매체는-보조물이-아니라-설계-요소다">교재 1장 4절: 매체는 설계 요소다</a>
     </div>
   </section>
 
@@ -938,14 +960,14 @@ section.layout-closing .closing-meta {
     <div class="body-area">
       <div class="copy">
         <h2 class="slide-heading">매체 개발 및 활용</h2>
-        <p class="body-text"><strong>Mayer(2001) 멀티미디어 원리</strong>: '단어+그림'은 '단어만'보다 학습 효과가 크다.</p>
+        <p class="body-text"><strong>Mayer(2001)를 설계 언어로 읽기</strong>: 말과 시각 자료의 관계는 학습에 중요하지만, 더 많이 넣는다고 항상 더 잘 배우는 것은 아니다.</p>
         <ul>
-          <li>분할 원리 — 한 번에 너무 많이 담지 않는다</li>
-          <li>모달리티 원리 — 시각·청각을 함께 쓴다</li>
-          <li>공간 근접성 — 관련 요소를 가까이 둔다</li>
+          <li>목표 수행에 필요한 관계를 드러내는 표현인가</li>
+          <li>학습자의 인지 부담과 접근성을 줄이는가</li>
+          <li>자료·활동·평가 증거와 정합적인가</li>
         </ul>
         <div class="callout callout--info">
-          매체 선택은 <strong>기술 우월성</strong>이 아닌 <em>학습 목표 적합성</em>으로 결정한다.
+          매체 선택은 <strong>기술 우월성</strong>이 아닌 <em>학습 목표·인지 처리·접근성</em>의 적합성으로 결정한다.
         </div>
       </div>
       <figure>
@@ -998,6 +1020,7 @@ section.layout-closing .closing-meta {
       <div class="section-num">제 3 절 · SECTION 03</div>
       <h2 class="section-title">이 책의 구성과<br>한 학기 학습 여정</h2>
       <p class="section-blurb">4부 11장 체계, 각 부의 핵심 질문, 평가 철학을 함께 살핀다.</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part1/ch01/#6-이-책의-학습-경로">교재 1장 6절: 이 책의 학습 경로</a>
     </div>
   </section>
 
@@ -1095,6 +1118,7 @@ section.layout-closing .closing-meta {
       <div class="section-num">제 4 절 · SECTION 04</div>
       <h2 class="section-title">앞으로 열릴<br>학습의 지평</h2>
       <p class="section-blurb">2022 개정 교육과정, AI·디지털 시대의 교사, 한 학기 끝의 성찰.</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part1/ch01/#5-교육과정도-설계-조건이다">교재 1장 5절: 교육과정도 설계 조건이다</a>
     </div>
   </section>
 
@@ -1185,9 +1209,8 @@ section.layout-closing .closing-meta {
       <table class="data-table">
         <thead><tr><th style="width:14em">저자(연도)</th><th>제목 · 출처</th></tr></thead>
         <tbody>
-          <tr><td>AECT (2008)</td><td>Definition and Terminology Committee Document. AECT.</td></tr>
+          <tr><td>AECT (2008, 2023)</td><td>교육공학의 역사적 정의와 현재 정의. AECT.</td></tr>
           <tr><td>Mayer, R. E. (2001)</td><td>Multimedia Learning. Cambridge University Press.</td></tr>
-          <tr><td>Seels &amp; Richey (1994)</td><td>Instructional Technology: The Definition and Domains of the Field. AECT.</td></tr>
           <tr><td>교육부 (2022)</td><td>2022 개정 교육과정 총론. 교육부 고시 제2022-33호.</td></tr>
         </tbody>
       </table>
