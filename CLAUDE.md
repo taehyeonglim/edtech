@@ -29,7 +29,7 @@
 | `docs/` | MkDocs 교재 소스 — `index.md` + `part1~4/ch01~11.md` + `assets/images/chNN/`(자체 제작 SVG 도식). 장 구성은 `quality/apparatus-spec.md`의 표준 절 순서를 따른다 | ✅ |
 | `mkdocs.yml` | MkDocs Material 설정 (한국어 UI·검색 lang ko·다크모드·한글 앵커 slugify) | ✅ |
 | `book/text/` | 구 URL 보존용 리다이렉트 스텁 (`/book/` 루트가 MkDocs 홈) | ✅ |
-| `assets/vendor/reveal.js/` | 슬라이드용 reveal.js 5 벤더링 (CDN 미사용) | ✅ |
+| `assets/lecture-viewer/` | 자체 구현 문서형 강의 뷰어 (viewer.css/js) — 각 덱은 인라인 `DECK` 데이터로 정의, PDF 없음(문서 모드가 대체) | ✅ |
 | `tools/` | 검증 파이썬/Node 스크립트 + `build_site.sh`(배포 조립) | ✅ |
 | `chapters/chapter-NN/` | 공개 슬라이드 — `slides/deck.{html,pdf}` + `images/` 만 화이트리스트 | ✅ |
 | `Previous_lecture_content/` | 원본 강의자료 (제작 입력) | ❌ |
@@ -38,7 +38,7 @@
 
 ## 배포
 
-`main` 에 push 하면 GitHub Actions(`.github/workflows/pages.yml`)가 검증(계약 8종 + a11y/axe/라우트) → 조립(`tools/build_site.sh`) → 슬라이드 PDF 재생성 → Pages 배포까지 자동 수행한다. 수동 빌드·복사·어테스테이션 절차 없음(2026-08-13에 수동 릴리스 체계 폐기). PR 검증은 `slice-ci.yml`.
+`main` 에 push 하면 GitHub Actions(`.github/workflows/pages.yml`)가 검증(계약 8종 + a11y/axe/라우트) → 조립(`tools/build_site.sh`) → Pages 배포까지 자동 수행한다. 수동 빌드·복사·어테스테이션 절차 없음(2026-08-13에 수동 릴리스 체계와 deck.pdf 파이프라인 폐기). PR 검증은 `slice-ci.yml`.
 
 ```bash
 python3 -m mkdocs build --strict   # 커밋 전 필수 — 깨진 링크/문법 검출
