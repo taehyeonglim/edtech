@@ -75,6 +75,19 @@ async function main() {
           await document.fonts.ready;
           if (!window.Reveal || typeof window.Reveal.isReady !== 'function') throw new Error('Reveal failed to load');
           await new Promise((ready, reject) => { if (window.Reveal.isReady()) return ready(); window.Reveal.on('ready', ready); setTimeout(() => reject(new Error('Reveal.initialize did not complete')), 15000); });
+          const lazyImages = [...document.querySelectorAll('img[data-src]')];
+          const imageLoads = lazyImages.map((image) => new Promise((resolve) => {
+            image.addEventListener('load', resolve, { once: true });
+            image.addEventListener('error', resolve, { once: true });
+          }));
+          for (const image of lazyImages) {
+            image.src = image.dataset.src;
+            image.dataset.lazyLoaded = '';
+            delete image.dataset.src;
+          }
+          await Promise.all(imageLoads);
+          const failedImages = [...document.images].filter((image) => image.currentSrc && !image.naturalWidth);
+          if (failedImages.length) throw new Error(`Unable to load ${failedImages.length} image(s) for PDF export`);
           await new Promise((ready) => requestAnimationFrame(ready));
           const footer = document.createElement('nav'); footer.setAttribute('aria-label', '교재 본문 링크'); footer.style.cssText = 'position:fixed;right:8mm;bottom:5mm;z-index:99999;font:9pt sans-serif';
           for (const chapterId of chapters) { const chapter = Number(chapterId.slice(2)); const part = chapter <= 2 ? 1 : chapter <= 5 ? 2 : chapter <= 8 ? 3 : 4; const link = document.createElement('a'); link.href = `https://taehyeonglim.github.io/edtech/book/part${part}/ch${String(chapter).padStart(2, '0')}/`; link.textContent = `교재 ${chapter}장`; link.style.cssText = 'margin-left:4mm;color:#102a43;background:#fff'; footer.append(link); }
