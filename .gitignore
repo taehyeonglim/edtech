@@ -46,9 +46,11 @@ chapters/*/images/*
 !chapters/*/slides/
 chapters/*/slides/*
 !chapters/*/slides/deck.html
-!chapters/*/slides/deck.pdf
 
 # Local Pages build artifacts
 _site/
 .slide-pdfs/
 .slide-provenance.json
+
+# 디자인 분석 산출물 (외부 사이트 분석 — 커밋 금지)
+insane-design/
