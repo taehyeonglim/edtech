@@ -26,10 +26,11 @@
 | 경로 | 역할 | 공개 |
 |---|---|---|
 | `index.html` | 랜딩 허브 (교재/슬라이드 두 갈래) | ✅ |
-| `docs/` | MkDocs 교재 소스 — `index.md` + `part1~4/ch01~11.md` (본문 집필 완료) | ✅ |
-| `mkdocs.yml` | MkDocs Material 설정 (한국어 UI) | ✅ |
-| `book/`, `book-reader/`, `assets/` | 페이지 넘김 리더 (page-flip) | ✅ |
-| `tools/` | 리더 생성·검증 파이썬 스크립트 | ✅ |
+| `docs/` | MkDocs 교재 소스 — `index.md` + `part1~4/ch01~11.md` + `assets/images/chNN/`(자체 제작 SVG 도식). 장 구성은 `quality/apparatus-spec.md`의 표준 절 순서를 따른다 | ✅ |
+| `mkdocs.yml` | MkDocs Material 설정 (한국어 UI·검색 lang ko·다크모드·한글 앵커 slugify) | ✅ |
+| `book/text/` | 구 URL 보존용 리다이렉트 스텁 (`/book/` 루트가 MkDocs 홈) | ✅ |
+| `assets/vendor/reveal.js/` | 슬라이드용 reveal.js 5 벤더링 (CDN 미사용) | ✅ |
+| `tools/` | 검증 파이썬/Node 스크립트 + `build_site.sh`(배포 조립) | ✅ |
 | `chapters/chapter-NN/` | 공개 슬라이드 — `slides/deck.{html,pdf}` + `images/` 만 화이트리스트 | ✅ |
 | `Previous_lecture_content/` | 원본 강의자료 (제작 입력) | ❌ |
 | `content/chapters/` | 제작 산출물 스냅샷 — 교재 집필의 디딤돌 `composed.md` 등. **읽기 전용**(아래 참조) | ❌ |
@@ -37,7 +38,7 @@
 
 ## 배포
 
-`main` 에 push 하면 GitHub Actions(`.github/workflows/deploy.yml`)가 자동 배포한다. 수동 빌드·복사 불필요.
+`main` 에 push 하면 GitHub Actions(`.github/workflows/pages.yml`)가 검증(계약 8종 + a11y/axe/라우트) → 조립(`tools/build_site.sh`) → 슬라이드 PDF 재생성 → Pages 배포까지 자동 수행한다. 수동 빌드·복사·어테스테이션 절차 없음(2026-08-13에 수동 릴리스 체계 폐기). PR 검증은 `slice-ci.yml`.
 
 ```bash
 python3 -m mkdocs build --strict   # 커밋 전 필수 — 깨진 링크/문법 검출
