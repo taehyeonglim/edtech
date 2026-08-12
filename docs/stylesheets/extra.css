@@ -60,6 +60,8 @@
   --edtech-evidence: #c4b5fd;
   --edtech-caution: #fbbf24;
   --edtech-practice: #93c5fd;
+  --md-accent-fg-color: #bae6fd;
+  --md-typeset-a-color: #93c5fd;
 }
 
 .교재-highlight {
@@ -239,12 +241,40 @@
   font-size: 0.78rem;
   margin: 0.65rem 0 0;
 }
+
 .md-typeset__scrollwrap {
+  -webkit-overflow-scrolling: touch;
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-color: var(--edtech-line) transparent;
+  scrollbar-width: thin;
 }
 
 .md-typeset table {
   border-collapse: collapse;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+  background-color: #172033;
+  border-color: #56667e;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: #253552;
+  color: #f8fafc;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) td {
+  border-color: #56667e;
+  color: #e2e8f0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tbody tr:nth-child(even) {
+  background-color: #1e293b;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tbody tr:hover {
+  background-color: #293b59;
 }
 
 .md-typeset pre {
@@ -316,6 +346,30 @@
 }
 
 @media screen and (max-width: 640px) {
+  .md-typeset__scrollwrap:has(> .md-typeset__table > table > thead > tr > :nth-child(6)) {
+    /* The fading edge keeps the horizontal-scroll affordance visible without extra markup. */
+    -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 1.5rem), transparent 100%);
+    mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 1.5rem), transparent 100%);
+  }
+
+  html .md-typeset__table:has(> table > thead > tr > :nth-child(6)) > table:not([class]) {
+    min-width: 46rem;
+    width: max(100%, 46rem);
+  }
+
+  .md-typeset table:not([class]) {
+    font-size: 0.7rem;
+  }
+
+  .md-typeset table:not([class]) th {
+    min-width: 6.5rem;
+    padding: 0.75em 0.875em;
+  }
+
+  .md-typeset table:not([class]) td {
+    padding: 0.75em 0.875em;
+  }
+
   .media-axis {
     grid-template-columns: 1fr;
   }
