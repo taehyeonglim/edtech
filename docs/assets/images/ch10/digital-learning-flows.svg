@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+  <title id="title">디지털 학습환경의 네 흐름 도식</title>
+  <desc id="desc">자료, 상호작용, 산출물, 데이터의 네 흐름이 학습 목표를 중심으로 순환하며 디지털 학습환경을 구성하는 모습을 나타낸다.</desc>
+  <rect width="960" height="500" fill="#FFFFFF"/>
+  <rect x="32" y="28" width="896" height="70" rx="16" fill="#0B2C5C"/>
+  <text x="62" y="72" fill="#FFFFFF" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="28" font-weight="700">디지털 학습환경은 장비가 아니라 네 흐름의 설계다</text>
+  <g font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+    <circle cx="480" cy="292" r="94" fill="#0B2C5C"/>
+    <text x="429" y="283" fill="#FFFFFF" font-size="27" font-weight="700">학습 목표</text><text x="418" y="321" fill="#D9E8FF" font-size="19">설명·적용·성찰</text>
+    <rect x="64" y="152" width="250" height="126" rx="18" fill="#EAF2FF" stroke="#1B66C9" stroke-width="3"/>
+    <text x="92" y="195" fill="#0B2C5C" font-size="25" font-weight="700">자료</text><text x="92" y="229" fill="#173B70" font-size="18">검색·검증·인용·저작권</text>
+    <rect x="646" y="152" width="250" height="126" rx="18" fill="#F2F7FF" stroke="#1B66C9" stroke-width="3"/>
+    <text x="674" y="195" fill="#0B2C5C" font-size="25" font-weight="700">상호작용</text><text x="674" y="229" fill="#173B70" font-size="18">대면·온라인의 기능 분담</text>
+    <rect x="64" y="342" width="250" height="126" rx="18" fill="#F2F7FF" stroke="#1B66C9" stroke-width="3"/>
+    <text x="92" y="385" fill="#0B2C5C" font-size="25" font-weight="700">산출물</text><text x="92" y="419" fill="#173B70" font-size="18">해석·생성·공유·피드백</text>
+    <rect x="646" y="342" width="250" height="126" rx="18" fill="#EAF2FF" stroke="#1B66C9" stroke-width="3"/>
+    <text x="674" y="385" fill="#0B2C5C" font-size="25" font-weight="700">데이터</text><text x="674" y="419" fill="#173B70" font-size="18">목적·보관·권한·대체 경로</text>
+  </g>
+  <path d="M314 222L386 260M646 222L574 260M314 390L386 326M646 390L574 326" stroke="#1B66C9" stroke-width="4"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="470" viewBox="0 0 960 470" role="img" aria-labelledby="title desc">
+  <title id="title">생성형 AI 산출물 검증 순환 도식</title>
+  <desc id="desc">목표와 질문을 정한 뒤 AI 산출물을 받고 출처·계산·누락 관점·편향을 확인하며, 수정 이유와 자신의 최종 판단을 기록하는 검증 순환을 나타낸다.</desc>
+  <rect width="960" height="470" fill="#FFFFFF"/>
+  <rect x="32" y="28" width="896" height="68" rx="16" fill="#0B2C5C"/>
+  <text x="62" y="70" fill="#FFFFFF" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="27" font-weight="700">AI 산출물은 답이 아니라 검증할 초안이다</text>
+  <g font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+    <circle cx="480" cy="270" r="86" fill="#0B2C5C"/>
+    <text x="438" y="264" fill="#FFFFFF" font-size="24" font-weight="700">나의 최종</text><text x="446" y="295" fill="#FFFFFF" font-size="24" font-weight="700">판단</text>
+    <rect x="70" y="162" width="200" height="102" rx="18" fill="#EAF2FF" stroke="#1B66C9" stroke-width="3"/><text x="99" y="204" fill="#0B2C5C" font-size="22" font-weight="700">1. 목표·질문</text><text x="102" y="235" fill="#173B70" font-size="17">AI에 맡길 범위 정하기</text>
+    <rect x="345" y="126" width="270" height="94" rx="18" fill="#F2F7FF" stroke="#1B66C9" stroke-width="3"/><text x="389" y="167" fill="#0B2C5C" font-size="22" font-weight="700">2. 산출물 받기</text><text x="391" y="197" fill="#173B70" font-size="17">그럴듯함은 근거가 아님</text>
+    <rect x="690" y="162" width="200" height="102" rx="18" fill="#EAF2FF" stroke="#1B66C9" stroke-width="3"/><text x="719" y="204" fill="#0B2C5C" font-size="22" font-weight="700">3. 검증</text><text x="712" y="235" fill="#173B70" font-size="17">출처·계산·편향·누락</text>
+    <rect x="658" y="334" width="232" height="96" rx="18" fill="#F2F7FF" stroke="#1B66C9" stroke-width="3"/><text x="683" y="374" fill="#0B2C5C" font-size="22" font-weight="700">4. 수정·기록</text><text x="680" y="404" fill="#173B70" font-size="17">사용 범위와 수정 이유</text>
+    <rect x="70" y="334" width="232" height="96" rx="18" fill="#F2F7FF" stroke="#1B66C9" stroke-width="3"/><text x="97" y="374" fill="#0B2C5C" font-size="22" font-weight="700">대체 경로</text><text x="96" y="404" fill="#173B70" font-size="17">AI 없이도 목표 달성</text>
+  </g>
+  <path d="M270 213L345 176M615 176L690 213M790 264L755 334M658 382L566 337M394 337L302 382M170 334L205 264" fill="none" stroke="#1B66C9" stroke-width="4"/>
+</svg>

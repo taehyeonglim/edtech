@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">학습자 전문성에 따른 안내량 조절 도식</title>
+  <desc id="desc">초보자에게는 완성 예제와 용어 표시를, 중급자에게는 부분 힌트와 오류 비교를, 숙련자에게는 문제 선택과 설명 요구를 제공하는 전문성 역전 효과 적용 도식이다.</desc>
+  <rect width="960" height="420" fill="#FFFFFF"/>
+  <rect x="32" y="28" width="896" height="66" rx="16" fill="#0B2C5C"/>
+  <text x="62" y="70" fill="#FFFFFF" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="27" font-weight="700">같은 내용, 다른 안내: 학습자 수준에 맞추기</text>
+  <g font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+    <path d="M126 128H834" stroke="#1B66C9" stroke-width="6"/>
+    <path d="M834 128l-18-12v24z" fill="#1B66C9"/>
+    <text x="94" y="115" fill="#1B66C9" font-size="18" font-weight="700">안내량 많음</text>
+    <text x="808" y="115" fill="#1B66C9" font-size="18" font-weight="700">안내량 적음</text>
+    <rect x="48" y="170" width="260" height="174" rx="18" fill="#EAF2FF" stroke="#1B66C9" stroke-width="3"/>
+    <text x="74" y="216" fill="#0B2C5C" font-size="25" font-weight="700">초보자</text>
+    <text x="74" y="253" fill="#173B70" font-size="19">완성 예제</text><text x="74" y="282" fill="#173B70" font-size="19">그림 위 용어·단계 표시</text>
+    <rect x="350" y="170" width="260" height="174" rx="18" fill="#F2F7FF" stroke="#1B66C9" stroke-width="3"/>
+    <text x="376" y="216" fill="#0B2C5C" font-size="25" font-weight="700">중급자</text>
+    <text x="376" y="253" fill="#173B70" font-size="19">부분 완성 문제</text><text x="376" y="282" fill="#173B70" font-size="19">오류 사례 비교·설명</text>
+    <rect x="652" y="170" width="260" height="174" rx="18" fill="#EAF2FF" stroke="#1B66C9" stroke-width="3"/>
+    <text x="678" y="216" fill="#0B2C5C" font-size="25" font-weight="700">숙련자</text>
+    <text x="678" y="253" fill="#173B70" font-size="19">문제·전략 스스로 선택</text><text x="678" y="282" fill="#173B70" font-size="19">새 사례에 적용·정당화</text>
+  </g>
+  <text x="48" y="390" fill="#0B2C5C" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="19">판단 질문: 이 설명은 지금 이 학습자에게 필요한 지원인가, 이미 아는 내용을 반복시키는가?</text>
+</svg>

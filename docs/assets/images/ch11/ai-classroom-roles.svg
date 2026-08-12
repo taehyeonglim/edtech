@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="430" viewBox="0 0 960 430" role="img" aria-labelledby="title desc">
+  <title id="title">AI 수업에서 학생, 교사, AI의 역할 경계 도식</title>
+  <desc id="desc">AI는 초안과 피드백을 제안하고, 학생은 질문·검증·수정·표시를 수행하며, 교사는 목표·규칙·피드백·형평성을 설계하는 역할을 맡는 도식이다.</desc>
+  <rect width="960" height="430" fill="#FFFFFF"/>
+  <rect x="32" y="28" width="896" height="68" rx="16" fill="#0B2C5C"/>
+  <text x="62" y="70" fill="#FFFFFF" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="27" font-weight="700">AI 수업의 책임은 도구에 넘겨지지 않는다</text>
+  <g font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+    <circle cx="480" cy="280" r="83" fill="#0B2C5C"/>
+    <text x="443" y="274" fill="#FFFFFF" font-size="25" font-weight="700">학습 목표</text><text x="448" y="307" fill="#D9E8FF" font-size="19">공정한 참여</text>
+    <rect x="58" y="150" width="250" height="166" rx="18" fill="#EAF2FF" stroke="#1B66C9" stroke-width="3"/><text x="88" y="197" fill="#0B2C5C" font-size="25" font-weight="700">학생</text><text x="88" y="233" fill="#173B70" font-size="18">질문·검증·반례 찾기</text><text x="88" y="262" fill="#173B70" font-size="18">수정 이유·사용 표시</text>
+    <rect x="652" y="150" width="250" height="166" rx="18" fill="#EAF2FF" stroke="#1B66C9" stroke-width="3"/><text x="682" y="197" fill="#0B2C5C" font-size="25" font-weight="700">교사</text><text x="682" y="233" fill="#173B70" font-size="18">목표·허용 범위·평가</text><text x="682" y="262" fill="#173B70" font-size="18">개인정보·대체 경로</text>
+    <rect x="355" y="124" width="250" height="92" rx="18" fill="#F2F7FF" stroke="#1B66C9" stroke-width="3"/><text x="448" y="164" fill="#0B2C5C" font-size="25" font-weight="700">AI</text><text x="392" y="194" fill="#173B70" font-size="18">초안·예시·피드백 제안</text>
+  </g>
+  <path d="M308 235L397 264M652 235L563 264M480 216V197" stroke="#1B66C9" stroke-width="4"/>
+  <text x="155" y="373" fill="#1B66C9" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="19" font-weight="700">판단을 수행한다</text><text x="684" y="373" fill="#1B66C9" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="19" font-weight="700">조건을 설계한다</text>
+</svg>

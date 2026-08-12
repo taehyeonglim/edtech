@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="460" viewBox="0 0 960 460" role="img" aria-labelledby="title desc">
+  <title id="title">인지부하를 수업자료 설계 판단으로 연결하는 도식</title>
+  <desc id="desc">내재적 부하는 내용 복잡성과 선행지식으로, 외재적 부하는 장식과 불필요한 탐색으로, 학습 관련 부하는 비교와 설명 활동으로 이어지며 세 판단이 핵심 관계 이해를 지원하는 모습을 나타낸다.</desc>
+  <rect width="960" height="460" fill="#FFFFFF"/>
+  <rect x="32" y="28" width="896" height="72" rx="16" fill="#0B2C5C"/>
+  <text x="64" y="72" fill="#FFFFFF" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="28" font-weight="700">인지부하: 무엇을 조절하고 무엇에 자원을 쓸 것인가</text>
+  <g font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+    <rect x="32" y="144" width="270" height="202" rx="18" fill="#EAF2FF" stroke="#1B66C9" stroke-width="3"/>
+    <text x="60" y="191" fill="#0B2C5C" font-size="24" font-weight="700">내재적 부하</text>
+    <text x="60" y="228" fill="#173B70" font-size="19">내용 요소의 상호작용</text>
+    <text x="60" y="257" fill="#173B70" font-size="19">+ 학습자의 선행지식</text>
+    <text x="60" y="307" fill="#1B66C9" font-size="18" font-weight="700">→ 단계·선수개념을 조절</text>
+    <rect x="345" y="144" width="270" height="202" rx="18" fill="#F2F7FF" stroke="#1B66C9" stroke-width="3"/>
+    <text x="373" y="191" fill="#0B2C5C" font-size="24" font-weight="700">외재적 부하</text>
+    <text x="373" y="228" fill="#173B70" font-size="19">장식·분리된 설명</text>
+    <text x="373" y="257" fill="#173B70" font-size="19">+ 불필요한 탐색</text>
+    <text x="373" y="307" fill="#1B66C9" font-size="18" font-weight="700">→ 신호·가까운 배치로 감소</text>
+    <rect x="658" y="144" width="270" height="202" rx="18" fill="#EAF2FF" stroke="#1B66C9" stroke-width="3"/>
+    <text x="686" y="191" fill="#0B2C5C" font-size="24" font-weight="700">학습 관련 부하</text>
+    <text x="686" y="228" fill="#173B70" font-size="19">비교·오류 설명</text>
+    <text x="686" y="257" fill="#173B70" font-size="19">+ 일반화·적용</text>
+    <text x="686" y="307" fill="#1B66C9" font-size="18" font-weight="700">→ 핵심 사고에 자원 배분</text>
+  </g>
+  <path d="M167 346V382H793V346" fill="none" stroke="#1B66C9" stroke-width="4"/>
+  <path d="M793 382l-14-10v20z" fill="#1B66C9"/>
+  <text x="364" y="425" fill="#0B2C5C" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="23" font-weight="700">핵심 관계를 이해하고 설명하게 하기</text>
+</svg>
