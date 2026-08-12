@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="임태형">
-<title>교육방법 및 교육공학 — 7주차 학습 동기 유발 전략: 이론에서 수업 실천으로</title>
+<title>교육방법 및 교육공학 — 7주차 학습동기 설계: ARCS로 참여 조건 진단하기</title>
 <link rel="stylesheet" href="../../../assets/vendor/reveal.js/reset.css">
 <link rel="stylesheet" href="../../../assets/vendor/reveal.js/reveal.css">
 <link rel="stylesheet" href="../../../assets/vendor/reveal.js/theme/white.css" id="theme">
@@ -250,6 +250,38 @@ section.layout-cover .cover-subtitle {
   font-weight: 500;
   color: var(--text);
   margin-bottom: 10px;
+}
+section.layout-cover .textbook-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  margin-top: 24px;
+  padding: 10px 16px;
+  border: 2px solid var(--blue);
+  border-radius: 2px;
+  color: var(--navy);
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+section.layout-cover .textbook-link:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
+}
+.section-inner .textbook-link {
+  display: inline-block;
+  margin-top: 24px;
+  color: var(--blue);
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.section-inner .textbook-link:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
 }
 section.layout-cover .cover-photo {
   position: absolute;
@@ -683,15 +715,16 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
   <section class="layout-cover">
     <div class="cover-content">
       <div class="cover-eyebrow">교육방법 및 교육공학 · CHAPTER 07</div>
-      <h1 class="cover-title">학습 동기<br>유발 전략</h1>
+      <h1 class="cover-title">학습동기<br>설계</h1>
       <div class="cover-rule"></div>
-      <div class="cover-subtitle">이론에서 수업 실천으로</div>
+      <div class="cover-subtitle">ARCS로 참여 조건을 진단하고 조정하기</div>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part3/ch07/">연계 교재 · 7장 학습동기 설계 (ARCS)</a>
     </div>
     <div class="cover-photo">
       <img data-src="../images/img-s01-cover-bg.png" alt="ARCS 알파벳·몰입 파도·동기 불꽃 아이콘이 어우러진 타이틀 배경 일러스트">
       <div class="photo-credit">AI-generated · gpt-image-gen</div>
     </div>
-    <aside class="notes">7장은 학습자의 동기를 수업 설계의 핵심 변수로 다루는 장입니다. 5장에서 가녜의 9사태와 학습 조건을 다루었고, 6장에서 협동학습 구조를 다루었다면, 7장은 그 모든 수업 설계의 전제가 되는 학습자 동기를 어떻게 의도적으로 설계할 수 있는지를 탐구합니다. Keller의 ARCS 모형을 중심으로, SDT와 몰입(Flow) 이론을 통합적으로 이해하는 것이 이 장의 핵심입니다.</aside>
+    <aside class="notes">7강은 교재 7장과 연계됩니다. 참여가 낮을 때 더 재미있는 자료를 먼저 찾기보다, 주의·의미·성공 가능성·만족·지속 중 어느 조건이 약한지 진단합니다. ARCS-V, 자기결정성 이론, 몰입 관점으로 목표·활동·피드백·평가를 조정합니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 2. 학습목표 ━━━━━━━━━━━━━━━━ -->
@@ -707,36 +740,36 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <div class="num-section">
           <span class="num-chip">01</span>
           <div class="text">
-            <span class="label">내재적·외재적 동기</span>
-            내재적·외재적 동기의 차이와 과잉정당화 효과를 설명한다.
+            <span class="label">동기 설계</span>
+            학습동기를 단순 흥미 유발이 아닌 수업 설계 조건으로 설명한다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">02</span>
           <div class="text">
-            <span class="label">SDT 세 가지 욕구</span>
-            자기결정성 이론(SDT)의 세 가지 기본 심리 욕구를 적용한다.
+            <span class="label">ARCS 진단</span>
+            ARCS 네 범주를 수업 장면의 진단 질문으로 적용한다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">03</span>
           <div class="text">
-            <span class="label">ARCS 12가지 전략</span>
-            ARCS 모형의 네 요소와 각 요소의 3가지 하위 전략을 사용한다.
+            <span class="label">ARCS-V 의지</span>
+            의지 지원이 동기 유지와 자기조절에 필요한 이유를 설명한다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">04</span>
           <div class="text">
-            <span class="label">ARCS-V 의지</span>
-            ARCS-V 모형에서 의지(Volition)의 의미와 역할을 분석한다.
+            <span class="label">동기의 질</span>
+            SDT의 자율성·유능감·관계성을 설계 판단에 연결한다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">05</span>
           <div class="text">
-            <span class="label">몰입 이론</span>
-            몰입(Flow) 이론의 도전-능력 균형 조건을 수업 설계에 연결한다.
+            <span class="label">도전-기술 조절</span>
+            몰입 관점으로 과제 난이도와 피드백을 조정한다.
           </div>
         </div>
       </div>
@@ -745,7 +778,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <figcaption>그림 7-0 · 7강 학습 목표 맵</figcaption>
       </figure>
     </div>
-    <aside class="notes">7장의 다섯 가지 학습목표를 안내합니다. 내재적·외재적 동기 구분과 과잉정당화 효과, SDT의 세 가지 기본 심리 욕구(자율성·유능감·관계성), ARCS 네 요소와 12가지 하위 전략, ARCS-V에서 의지(V) 추가의 이유, 몰입 이론의 도전-능력 균형 조건이 핵심 내용입니다. 이 모든 내용은 Dick &amp; Carey 10단계 ⑥교수전략개발 단계에서 동기 유발 전략을 설계할 때 직접 활용됩니다(류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">학습목표는 동기를 수업 설계 조건으로 이해하고, ARCS 네 범주로 수업 장면을 진단하며, 의지 지원과 자기결정성 이론으로 동기의 질을 살피고, 도전-기술 간격에 맞게 과제와 피드백을 조절하는 것입니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 2-B. 왜 중요한가 — 교직논술 출제 영역 ━━━━━━━━━━━━━━━━ -->
@@ -782,6 +815,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <div class="section-num">SECTION 01</div>
       <h2 class="section-title">학습 동기의<br>개념과<br>이론적 토대</h2>
       <p class="section-blurb">안내 질문: 동기가 수업 설계의 핵심 변수가 되는 이유는 무엇인가?</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part3/ch07/#1-학습동기를-설계한다는-것">교재 7장 1절 · 학습동기를 설계한다는 것</a>
     </div>
     <aside class="notes">1절에서는 동기의 정의와 학습에서의 역할, 내재적·외재적 동기의 구분과 과잉정당화 효과, 그리고 자기결정성 이론(SDT)의 세 가지 기본 심리 욕구를 다룹니다. 핵심은 동기가 인지 능력과 달리 수업 설계를 통해 의도적으로 강화될 수 있다는 것입니다(류지헌, 김민정, 임태형, 2023).</aside>
   </section>
@@ -798,8 +832,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <h2 class="slide-heading">동기의 정의와 학습에서의 역할</h2>
         <p class="body-text"><strong>동기(Motivation)</strong>: 행동을 <strong>시작</strong>(activation)하고, <strong>방향</strong>을 이끌며(direction), <strong>지속</strong>하게 하는(persistence) 내적 상태</p>
         <div class="callout callout--info" style="margin-top:24px; font-size:40px;">
-          지능은 비교적 고정적이지만, 동기는 수업 설계로 <strong>의도적으로 강화</strong>할 수 있다<br>
-          <span style="font-size:28px; color:var(--text-muted);">— 류지헌, 김민정, 임태형 (2023)</span>
+          동기 설계는 도입용 흥미를 고르는 일이 아니라<br><strong>목표·자료·활동·피드백·평가</strong>를 연결하는 일
         </div>
       </div>
       <figure>
@@ -807,7 +840,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <figcaption>그림 7-1 · 동기의 3가지 기능 (류지헌 외, 2023)</figcaption>
       </figure>
     </div>
-    <aside class="notes">동기의 정의와 학습에서의 역할을 설명합니다. 동기는 행동을 시작하고(activation), 특정 방향으로 이끌며(direction), 지속하게 하는(persistence) 내적 상태입니다. 학습 동기의 중요성은 인지 능력이 유사한 학습자들 사이에서도 성취 차이가 발생하는 주요 이유가 동기의 차이라는 점에서 확인됩니다. 인지 능력이나 사전 지식은 비교적 고정적인 데 반해, 동기는 수업 설계와 교사의 전략에 의해 의도적으로 강화될 수 있다는 점에서 교육공학적 접근의 핵심 대상입니다(류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">동기는 행동을 시작하고 방향을 정하며 지속하게 하는 과정과 관련됩니다. 수업 설계에서는 흥미로운 도입 하나를 넣는 것이 아니라, 학습자가 왜 배우는지, 어떻게 해낼 수 있는지, 결과가 왜 의미 있는지를 목표·자료·활동·피드백·평가에 걸쳐 연결합니다. 학습자와 맥락에 따라 다르게 경험되므로, 단일 전략의 효과를 단정하지 않습니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 5. 내재적 vs 외재적 ━━━━━━━━━━━━━━━━ -->
@@ -870,7 +903,8 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
     <div class="section-inner">
       <div class="section-num">SECTION 02</div>
       <h2 class="section-title">Keller의<br>ARCS<br>동기 설계 모형</h2>
-      <p class="section-blurb">안내 질문: ARCS 모형이 '처방적(prescriptive) 설계 모형'인 이유는 무엇인가?</p>
+      <p class="section-blurb">안내 질문: 참여가 낮을 때 ARCS 네 범주로 무엇을 먼저 진단할 수 있는가?</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part3/ch07/#2-arcs-네-범주로-수업-장면-읽기">교재 7장 2절 · ARCS 네 범주로 수업 장면 읽기</a>
     </div>
     <aside class="notes">2절에서는 ARCS 모형의 개발 배경과 이론적 특성, 그리고 ARCS 네 요소의 구조와 상호 보완적 관계를 다룹니다. Keller가 FSU 교육공학과에서 분산된 동기 이론들을 종합하여 처방적 설계 모형으로 체계화했다는 점이 핵심입니다. Walter Dick, Gagné 등 FSU 교육공학과의 지적 계보를 함께 이해할 수 있다는 사실도 맥락으로 설명합니다(Keller, 1987).</aside>
   </section>
@@ -911,7 +945,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <p class="body-text"><strong>A</strong>ttention(주의집중) · <strong>R</strong>elevance(관련성) · <strong>C</strong>onfidence(자신감) · <strong>S</strong>atisfaction(만족감)</p>
         <p class="body-text">네 요소는 <strong>상호 보완적</strong> — 어느 하나의 결핍이 전체 동기를 저하시킨다</p>
         <div class="callout callout--info" style="font-size:36px; margin-top:20px;">
-          흥미로운 A 전략만으로는 부족하다 — R·C·S가 함께 설계되어야 동기가 지속된다<br>
+          ARCS는 전략 목록보다 <strong>어느 조건이 약한지 묻는 진단 도구</strong>다<br>
           <span style="font-size:26px; color:var(--text-muted);">— Keller (1987)</span>
         </div>
       </div>
@@ -920,7 +954,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <figcaption>그림 7-2 · ARCS 모형의 네 요소 (Keller, 1987)</figcaption>
       </figure>
     </div>
-    <aside class="notes">ARCS 모형의 구조와 네 요소를 설명합니다. Attention(주의집중)·Relevance(관련성)·Confidence(자신감)·Satisfaction(만족감)의 네 요소는 서로 독립적이 아니라 상호 보완적 관계를 갖습니다. 아무리 자신감을 높이는 전략을 구사해도 학습 내용이 학습자의 삶과 무관하다고 느껴지면 동기는 유지되기 어렵습니다. ARCS 모형의 수업 설계상의 의의는 동기 문제를 진단하고 처방하는 체계적 절차를 제공한다는 데 있으며, 동기 설계 절차(MDLP)는 ADDIE 흐름과 유사하게 분석-설계-실행-평가 단계로 이루어집니다(Keller, 1987; Keller, 2010; 류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">ARCS의 주의집중·관련성·자신감·만족감은 서로 보완됩니다. 그러나 네 요소를 모두 한꺼번에 넣는 처방 목록으로 사용하지 않습니다. 참여가 낮을 때 학생이 과제를 보지 않는지, 의미를 못 찾는지, 성공을 낮게 보는지, 결과를 불공정하게 느끼는지부터 진단한 뒤 가장 약한 조건에 집중합니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 10. SECTION 3 ━━━━━━━━━━━━━━━━ -->
@@ -1107,6 +1141,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <div class="section-num">SECTION 04</div>
       <h2 class="section-title">ARCS 모형의<br>확장과<br>교실 적용</h2>
       <p class="section-blurb">안내 질문: ARCS-V에서 '의지(Volition)'를 별도 요소로 추가한 이유는 무엇인가?</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part3/ch07/#3-arcs-v-시작-뒤의-지속을-설계하기">교재 7장 3절 · ARCS-V와 지속 설계</a>
     </div>
     <aside class="notes">4절에서는 Keller(2010)가 기존 ARCS에 의지(Volition)를 추가한 ARCS-V 모형과, ARCS 수업 동기 설계 절차(분석-설계-평가)를 다룹니다. 핵심 질문은 '동기(motivation)와 의지(volition)는 왜 구분되어야 하는가'입니다. Julius Kuhl의 행동 통제 이론이 이론적 근거입니다(Keller, 2010).</aside>
   </section>
@@ -1121,11 +1156,11 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
     <div class="body-area">
       <div class="copy">
         <h2 class="slide-heading">ARCS-V 모형: 의지(Volition)의 추가</h2>
-        <p class="body-text">기존 ARCS에 <strong>V(Volition, 의지)</strong> 추가 <em>(Keller, 2010)</em></p>
-        <p class="body-text"><strong>의지</strong>: 방해물·유혹을 억제하고 목표를 <strong>지속하는</strong> 자기조절 능력</p>
+        <p class="body-text">기존 ARCS에 <strong>V(Volition, 의지)</strong>를 더해 시작 뒤의 지속을 살핀다.</p>
+        <p class="body-text"><strong>의지</strong>: 피로·지연·방해 요인을 조절하며 목표를 <strong>지속하는</strong> 과정</p>
         <div class="callout callout--info" style="font-size:36px; margin-top:20px;">
-          동기(방향 설정) ≠ 의지(지속 실행)<br>
-          — Keller(2010)가 Kuhl의 행동 통제 이론(Action Control Theory)을 바탕으로 V 추가
+          동기(방향) ≠ 의지(지속)<br>
+          목표 쪼개기·중간 점검·자기점검표로 <strong>지속 조건</strong>을 지원
         </div>
       </div>
       <figure>
@@ -1159,11 +1194,11 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
           </tr>
           <tr>
             <td class="num"><strong>설계</strong></td>
-            <td>해당 요소 집중 전략 선택 → 수업에 통합</td>
+            <td>가장 약한 조건 한두 가지에 맞는 작은 장치부터 수업에 통합</td>
           </tr>
           <tr>
             <td class="num"><strong>평가</strong></td>
-            <td>동기 변화 측정 → 전략 효과 확인 및 개선</td>
+            <td>제출률·질문의 질·자기평가·산출물로 효과를 확인하고 수정</td>
           </tr>
         </tbody>
       </table>
@@ -1180,6 +1215,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <div class="section-num">SECTION 05</div>
       <h2 class="section-title">학습몰입과<br>최적 동기<br>상태</h2>
       <p class="section-blurb">안내 질문: 몰입 이론과 ARCS 모형은 어떻게 보완적인 관계를 이루는가?</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part3/ch07/#5-몰입-도전과-기술의-간격-조정하기">교재 7장 5절 · 몰입과 도전-기술 간격</a>
     </div>
     <aside class="notes">5절에서는 칙센트미하이의 몰입(Flow) 이론과 교실 적용, 그리고 ARCS·SDT·몰입 이론의 통합적 이해를 다룹니다. 핵심 질문은 몰입 이론(기술적 접근)과 ARCS(처방적 접근)가 어떻게 보완적으로 기능하는가입니다. 두 이론을 함께 이해하면 교사는 ARCS 전략으로 동기의 기초를 마련하면서 동시에 몰입이 일어날 수 있는 도전-능력 균형을 설계에 반영할 수 있습니다(Csikszentmihalyi, 1990).</aside>
   </section>
@@ -1302,17 +1338,17 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
           <tr>
             <td class="num"><strong>SDT</strong></td>
             <td>욕구 기반 — 자율·유능·관계 충족</td>
-            <td>선택권·성공 경험·관계 형성</td>
+            <td>구조화된 선택권·성공 기준·안전한 도움 요청</td>
           </tr>
           <tr>
             <td class="num"><strong>몰입 이론</strong></td>
             <td>균형 기반 — 도전·능력 조율</td>
-            <td>ZPD 수준 과제·즉각 피드백</td>
+            <td>도전-기술 간격을 진단하고 과제·피드백을 조절</td>
           </tr>
         </tbody>
       </table>
       <div class="callout callout--summary" style="margin-top:24px; font-size:36px;">
-        세 관점의 <strong>통합적 이해</strong>가 동기 유발을 기법 모음이 아닌 교육적 실천으로 만든다
+        참여 저하의 원인을 진단하고 <strong>한두 조건부터 조정</strong>하는 것이 설계의 출발점
       </div>
     </div>
     <aside class="notes">세 이론의 통합적 이해를 설명합니다. ARCS(처방적): 동기의 여러 구성 요소를 수업 전반에 걸쳐 의도적으로 설계합니다. SDT(욕구 기반): 자율성, 유능감, 관계성의 기본 심리 욕구를 충족시키는 수업 환경을 조성합니다. 몰입 이론(균형 기반): 도전과 능력의 균형을 통해 몰입 상태를 유도합니다. 이 세 관점의 통합적 이해가 동기 유발 전략을 단편적 기법의 모음이 아닌 학습자 이해에 기반한 교육적 실천으로 이끄는 토대가 됩니다(Keller, 2010; Deci &amp; Ryan, 1985; Csikszentmihalyi, 1990; 류지헌, 김민정, 임태형, 2023).</aside>
@@ -1345,8 +1381,8 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
   <section class="layout-closing">
     <div class="body-area">
       <ul class="closing-list">
-        <li>ARCS는 동기를 <strong>수업 설계 변수</strong>로 만들었다</li>
-        <li>SDT는 <strong>왜</strong> 동기가 작동하는지, 몰입 이론은 <strong>언제</strong> 최적 상태가 되는지를 설명한다</li>
+        <li>ARCS는 동기를 <strong>진단 가능한 수업 설계 조건</strong>으로 만든다</li>
+        <li>SDT는 동기의 질을, 몰입 관점은 <strong>도전-기술 간격</strong>을 조정하게 한다</li>
       </ul>
       <div class="closing-quote">
         8강에서는 <em>멀티미디어 설계 원리</em>로<br>학습 자료를 인지적으로 설계하는 방법을 다룬다
