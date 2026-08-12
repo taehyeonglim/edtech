@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+  <title id="title">9가지 교수사태를 수업 흐름으로 읽는 방법</title>
+  <desc id="desc">주의와 목표, 선수학습, 자료와 안내, 수행과 피드백, 평가와 전이의 네 묶음으로 9가지 교수사태를 압축한 흐름도</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B66C9"/></marker></defs>
+  <rect width="960" height="500" rx="24" fill="#fff"/>
+  <text x="56" y="64" fill="#0B2C5C" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif" font-size="30" font-weight="700">9가지 교수사태: 고정 순서가 아니라 조건 점검</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif">
+    <g><rect x="54" y="148" width="190" height="186" rx="18" fill="#F4F8FF" stroke="#1B66C9" stroke-width="2"/><text x="78" y="190" fill="#0B2C5C" font-size="23" font-weight="700">시작 조건</text><text x="78" y="228" fill="#46617F" font-size="17">1 주의 획득</text><text x="78" y="257" fill="#46617F" font-size="17">2 목표 알리기</text><text x="78" y="286" fill="#46617F" font-size="17">3 선수학습 회상</text></g>
+    <g><rect x="278" y="148" width="190" height="186" rx="18" fill="#EAF2FF" stroke="#1B66C9" stroke-width="2"/><text x="302" y="190" fill="#0B2C5C" font-size="23" font-weight="700">이해 조건</text><text x="302" y="228" fill="#46617F" font-size="17">4 자료 제시</text><text x="302" y="257" fill="#46617F" font-size="17">5 학습 안내</text></g>
+    <g><rect x="502" y="148" width="190" height="186" rx="18" fill="#F4F8FF" stroke="#1B66C9" stroke-width="2"/><text x="526" y="190" fill="#0B2C5C" font-size="23" font-weight="700">수행 조건</text><text x="526" y="228" fill="#46617F" font-size="17">6 수행 유도</text><text x="526" y="257" fill="#46617F" font-size="17">7 피드백 제공</text></g>
+    <g><rect x="726" y="148" width="180" height="186" rx="18" fill="#EAF2FF" stroke="#1B66C9" stroke-width="2"/><text x="750" y="190" fill="#0B2C5C" font-size="23" font-weight="700">확인·전이</text><text x="750" y="228" fill="#46617F" font-size="17">8 수행 평가</text><text x="750" y="257" fill="#46617F" font-size="17">9 파지·전이</text></g>
+  </g>
+  <path d="M244 241H278M468 241H502M692 241H726" stroke="#1B66C9" stroke-width="5" marker-end="url(#arrow)"/>
+  <text x="480" y="415" text-anchor="middle" fill="#1B66C9" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif" font-size="19" font-weight="600">짧은 수업은 묶어 쓸 수 있고, 탐구 수업은 수행과 피드백을 반복할 수 있다.</text>
+</svg>

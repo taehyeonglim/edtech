@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="450" viewBox="0 0 960 450" role="img" aria-labelledby="title desc">
+  <title id="title">목표, 평가 증거, 학습 활동의 정렬</title>
+  <desc id="desc">관찰 가능한 목표에서 평가 증거를 정하고 그 증거를 준비시키는 학습 활동을 배치하며 피드백으로 수정하는 절차도</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B66C9"/></marker></defs>
+  <rect width="960" height="450" rx="24" fill="#fff"/>
+  <text x="56" y="66" fill="#0B2C5C" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif" font-size="30" font-weight="700">목표–평가–활동: 같은 수행을 가리키는가?</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif">
+    <rect x="58" y="138" width="250" height="190" rx="18" fill="#F4F8FF" stroke="#1B66C9" stroke-width="2"/>
+    <text x="88" y="185" fill="#0B2C5C" font-size="25" font-weight="700">1. 목표</text><text x="88" y="222" fill="#46617F" font-size="18">수업 뒤 보일</text><text x="88" y="250" fill="#46617F" font-size="18">관찰 가능한 수행</text>
+    <rect x="355" y="138" width="250" height="190" rx="18" fill="#EAF2FF" stroke="#1B66C9" stroke-width="2"/>
+    <text x="385" y="185" fill="#0B2C5C" font-size="25" font-weight="700">2. 평가 증거</text><text x="385" y="222" fill="#46617F" font-size="18">그 수행을 확인할</text><text x="385" y="250" fill="#46617F" font-size="18">답안·설명·산출물</text>
+    <rect x="652" y="138" width="250" height="190" rx="18" fill="#F4F8FF" stroke="#1B66C9" stroke-width="2"/>
+    <text x="682" y="185" fill="#0B2C5C" font-size="25" font-weight="700">3. 학습 활동</text><text x="682" y="222" fill="#46617F" font-size="18">증거를 준비시키는</text><text x="682" y="250" fill="#46617F" font-size="18">예시·연습·피드백</text>
+  </g>
+  <path d="M308 233H355M605 233H652" stroke="#1B66C9" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M777 328C748 395 190 395 174 328" fill="none" stroke="#1B66C9" stroke-width="4" stroke-dasharray="8 8" marker-end="url(#arrow)"/>
+  <text x="480" y="417" text-anchor="middle" fill="#1B66C9" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif" font-size="18" font-weight="600">수행 증거를 보고 목표·활동을 다시 조정한다</text>
+</svg>
