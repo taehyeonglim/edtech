@@ -251,6 +251,38 @@ section.layout-cover .cover-subtitle {
   color: var(--text);
   margin-bottom: 10px;
 }
+section.layout-cover .textbook-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  margin-top: 24px;
+  padding: 10px 16px;
+  border: 2px solid var(--blue);
+  border-radius: 2px;
+  color: var(--navy);
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+section.layout-cover .textbook-link:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
+}
+.section-inner .textbook-link {
+  display: inline-block;
+  margin-top: 24px;
+  color: var(--blue);
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.section-inner .textbook-link:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
+}
 section.layout-cover .cover-photo {
   position: absolute;
   right: 80px;
@@ -715,12 +747,13 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <h1 class="cover-title">협동학습<br>전략</h1>
       <div class="cover-rule"></div>
       <div class="cover-subtitle">교실 공동체의 힘을 활용한 수업 설계</div>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part3/ch06/">연계 교재 · 6장 협동학습 전략</a>
     </div>
     <div class="cover-photo">
       <img data-src="../images/img-s01-cover-bg.png" alt="퍼즐 조각이 맞춰지는 협동 일러스트, 4명의 학생이 함께 작업하는 모습">
       <div class="photo-credit">AI-generated · gpt-image-gen</div>
     </div>
-    <aside class="notes">6장은 5장에서 다룬 가녜의 9사태와 블룸 분류표라는 이론적 도구 위에서, 수업 현장에서 직접 활용할 수 있는 협동학습 전략들을 다룹니다. 협동학습과 협력학습의 개념 구분, Johnson &amp; Johnson의 5요소, 직소 I·II, STAD, TGT 모형의 절차와 비교, 교사의 역할이 이 장의 핵심 내용입니다. 이 장의 내용은 Dick &amp; Carey 10단계 중 ⑥교수전략개발 단계의 구체적 전략에 해당합니다.</aside>
+    <aside class="notes">6강은 교재 6장과 연계됩니다. 협동학습은 단순한 모둠 활동이 아니라 공동 목표, 상호의존성, 개인 이해 증거를 함께 만드는 수업 구조입니다. 다섯 요소, Jigsaw·STAD·TGT의 선택 조건, 참여 위험을 줄이는 교사 개입을 다룹니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 2. 학습목표 ━━━━━━━━━━━━━━━━ -->
@@ -736,36 +769,29 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <div class="num-section">
           <span class="num-chip">01</span>
           <div class="text">
-            <span class="label">개념 구분</span>
-            협동학습과 협력학습의 개념적 차이를 구분한다.
+            <span class="label">협동학습의 조건</span>
+            협동학습을 단순 모둠 활동과 구분하고 핵심 조건을 설명한다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">02</span>
           <div class="text">
-            <span class="label">이론적 기반</span>
-            협동학습의 세 가지 이론적 기반을 설명한다.
+            <span class="label">다섯 요소</span>
+            다섯 요소를 과제·상호작용·평가의 설계 언어로 바꾼다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">03</span>
           <div class="text">
-            <span class="label">5가지 핵심 요소</span>
-            Johnson &amp; Johnson의 5가지 핵심 요소를 적용한다.
+            <span class="label">모형 비교</span>
+            Jigsaw·STAD·TGT의 절차와 평가 구조를 비교한다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">04</span>
           <div class="text">
-            <span class="label">직소·STAD·TGT</span>
-            직소 I·II, STAD, TGT의 절차와 특징을 비교한다.
-          </div>
-        </div>
-        <div class="num-section">
-          <span class="num-chip">05</span>
-          <div class="text">
-            <span class="label">모형 선택</span>
-            학습 목표·내용 특성에 따라 적합한 모형을 선택한다.
+            <span class="label">교사 개입</span>
+            개인 이해 증거를 확보하고 참여 위험을 줄이는 개입을 설계한다.
           </div>
         </div>
       </div>
@@ -774,7 +800,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <figcaption>그림 6-0 · 6강 학습목표 맵</figcaption>
       </figure>
     </div>
-    <aside class="notes">6장의 다섯 가지 학습목표를 안내합니다. 협동·협력학습 구분, 이론적 기반 3가지, Johnson &amp; Johnson 5요소, 직소·STAD·TGT 절차 비교, 모형 선택 기준이 이 장의 핵심입니다. 이 내용들은 Dick &amp; Carey 10단계 ⑥교수전략개발에서 실제 선택하게 될 전략들입니다(류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">학습목표는 협동학습의 조건, 다섯 요소의 설계 언어, Jigsaw·STAD·TGT의 절차와 평가 구조, 그리고 무임승차·불균등 참여·피상적 설명을 줄이는 교사 개입으로 구성됩니다. 모형의 이름보다 과제 구조와 개인 이해의 증거를 먼저 판단합니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 2-B. 왜 중요한가 — 교직논술 출제 영역 ━━━━━━━━━━━━━━━━ -->
@@ -810,9 +836,10 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
     <div class="section-inner">
       <div class="section-num">SECTION 01</div>
       <h2 class="section-title">협동학습의<br>개념과<br>이론적 배경</h2>
-      <p class="section-blurb">안내 질문: 협동학습과 협력학습의 구조적 차이가 수업 설계 선택에 어떤 영향을 미치는가?</p>
+      <p class="section-blurb">안내 질문: 모둠을 만들었다는 사실만으로 협동학습이 되지 않는 이유는 무엇인가?</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part3/ch06/#1-협동학습은-어떤-구조인가">교재 6장 1절 · 협동학습은 어떤 구조인가</a>
     </div>
-    <aside class="notes">1절에서는 협동학습과 협력학습의 개념적 차이, 협동학습의 세 가지 이론적 기반(사회적 상호의존·인지발달·행동주의 보상), 그리고 협동학습의 교육적 효과와 한계를 다룹니다. 단순히 모둠을 나누는 것이 아닌 '구조'가 협동학습의 핵심임을 강조합니다(류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">1절에서는 협동학습이 어떤 구조인지, 사회적 상호의존성, 그리고 교육적 효과와 한계를 다룹니다. 학생들은 왜 서로 도와야 하는지, 각자가 무엇을 책임지는지, 무엇으로 이해를 확인할지를 알아야 합니다. 이 장치가 없으면 몇 명이 과제를 떠안고 다른 학생은 관찰자로 남을 수 있습니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 4. 협동 vs 협력 ━━━━━━━━━━━━━━━━ -->
@@ -828,8 +855,8 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
           <div class="col-title">협동학습 (Cooperative Learning)</div>
           <ul>
             <li><strong>긍정적 상호의존성·개별 책무성</strong>을 구조화한 소집단 학습</li>
-            <li>분담형(직소): "내가 챕터 1, 너는 챕터 2"</li>
-            <li>동일내용형(STAD·TGT): 팀 보상으로 협력 유도</li>
+            <li>공동 목표를 향해 서로 의존하되, <strong>각자의 이해 증거</strong>도 남긴다</li>
+            <li>Jigsaw·STAD·TGT는 이 조건을 구현하는 서로 다른 구조다</li>
           </ul>
         </div>
         <div class="col-card">
@@ -837,12 +864,12 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
           <ul>
             <li><strong>공동 사유</strong> 중심 → 함께 의미 구성</li>
             <li>"이 문제를 같이 고민해보자"</li>
-            <li>비구조적 문제·비판적 사고에 적합</li>
+            <li>공동 탐구가 필요한 문제에서 함께 의미를 구성한다</li>
           </ul>
         </div>
       </div>
     </div>
-    <aside class="notes">협동학습과 협력학습의 구조적 차이를 설명합니다. 협동학습은 과제 분담과 전문화가 핵심이고, 협력학습은 공동 사유와 의미 구성이 핵심입니다. 이 구분은 단순한 용어 정리가 아니라 수업 설계의 실천적 출발점입니다. 학습 목표와 과제 성격에 따라 두 방식을 의도적으로 선택하거나 결합해야 합니다(류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">협동학습과 협력학습의 차이를 수업 구조로 설명합니다. 협동학습은 공동 목표를 향해 서로 의존하되 각자의 이해와 기여가 드러나는 구조이고, 협력학습은 공동 사유와 의미 구성이 중심입니다. 어느 쪽이든 모둠을 만들었다는 사실만으로 학습이 보장되지는 않습니다. 학습 목표와 과제 성격에 따라 선택하거나 결합합니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 5. 이론적 기반 3가지 ━━━━━━━━━━━━━━━━ -->
@@ -908,6 +935,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <div class="section-num">SECTION 02</div>
       <h2 class="section-title">협동학습의<br>핵심 구성<br>요소</h2>
       <p class="section-blurb">안내 질문: Johnson &amp; Johnson의 5요소 중 어느 하나가 결여되면 어떤 문제가 생기는가?</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part3/ch06/#2-다섯-요소를-수업-언어로-바꾸기">교재 6장 2절 · 다섯 요소를 수업 언어로 바꾸기</a>
     </div>
     <aside class="notes">2절에서는 Johnson &amp; Johnson의 협동학습 5가지 기본 요소와 집단 구성의 원칙을 다룹니다. 핵심 질문은 모둠을 나눈다고 협동학습이 되는가입니다 — 5요소 중 어느 하나라도 결여되면 효과가 현저히 저하됩니다. 반세기에 걸친 Johnson &amp; Johnson의 연구에서 도출된 이 5요소는 협동학습 설계의 체크리스트입니다(Johnson &amp; Johnson, 1994).</aside>
   </section>
@@ -924,11 +952,11 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <div class="col-card">
           <div class="col-title">David W. Johnson (Minnesota) — 협동학습 5요소</div>
           <ol class="ordered-list">
-            <li><strong>긍정적 상호의존성</strong> — 운명공동체 인식</li>
-            <li><strong>개별 책무성</strong> — 무임승차 방지</li>
-            <li><strong>촉진적 상호작용</strong> — 설명·격려</li>
-            <li><strong>사회적 기술</strong> — 소통·갈등 해결</li>
-            <li><strong>집단 과정</strong> — 협동 성찰·개선</li>
+            <li><strong>긍정적 상호의존성</strong> — 각 부분이 빠지면 공동 이해가 불완전한가?</li>
+            <li><strong>개별 책무성</strong> — 개인 퀴즈·설명·성찰로 이해를 확인하는가?</li>
+            <li><strong>촉진적 상호작용</strong> — 답을 건네지 않고 설명·질문으로 확인하는가?</li>
+            <li><strong>사회적 기술</strong> — 경청·도움 요청·갈등 조정을 가르치고 관찰하는가?</li>
+            <li><strong>집단 과정</strong> — 협동 방식을 되돌아보고 다음 행동을 정하는가?</li>
           </ol>
         </div>
       </div>
@@ -983,9 +1011,10 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
     <div class="section-inner">
       <div class="section-num">SECTION 03</div>
       <h2 class="section-title">직소 모형:<br>과제 분담과<br>전문성 기반 학습</h2>
-      <p class="section-blurb">안내 질문: 직소 I의 '극단적 상호의존성'이 학습 참여 동기를 어떻게 내재화하는가?</p>
+      <p class="section-blurb">안내 질문: 부분을 다시 통합해야 전체 이해가 완성될 때 직소가 적합한 이유는 무엇인가?</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part3/ch06/#3-jigsaw-부분-전문성을-전체-이해로-연결하기">교재 6장 3절 · Jigsaw와 부분 전문성</a>
     </div>
-    <aside class="notes">3절에서는 직소(Jigsaw) 모형을 다룹니다. 1971년 Elliot Aronson이 인종 통합 교육 환경에서 개발한 직소 I과, Slavin이 그 한계를 보완하여 STAD 보상 방식을 결합한 직소 II를 비교합니다. 핵심 질문은 극단적 상호의존성이 어떻게 학습 동기를 내재화하는가입니다(Aronson et al., 1978).</aside>
+    <aside class="notes">3절에서는 Jigsaw를 다룹니다. 학생이 한 부분의 전문가가 된 뒤 원래 모둠에서 서로 가르치는 모형입니다. 내용이 부분으로 나뉘고 다시 통합되어야 전체 이해가 완성될 때 강합니다. 반대로 모두가 같은 순차적 기능을 반복해야 하는 수업에서는 개인 연습과 점검을 더 강화해야 합니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 11. 직소 I 절차 ━━━━━━━━━━━━━━━━ -->
@@ -1027,12 +1056,12 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
           <div class="col-title">직소 I의 두 가지 한계</div>
           <ul>
             <li>전체 내용 조망 어려움</li>
-            <li>팀 보상·향상점수 구조가 없어 전문가 학습 동기가 약함</li>
+            <li>개별 점검이 약하면 피상적 설명이나 이해 격차를 놓치기 쉬움</li>
           </ul>
           <div style="margin-top:20px; padding:16px; background:var(--surface); border-left:4px solid var(--blue); font-size:36px; line-height:1.45;">
             <strong>직소 II 개선</strong> (Slavin)<br>
             전체 내용 먼저 읽기 → 맥락 후 전문화<br>
-            <strong>STAD 향상 점수·팀 보상</strong> 구조 도입
+            <strong>개별 설명·퀴즈</strong>로 원래 모둠의 이해까지 확인
           </div>
         </div>
       </div>
@@ -1046,6 +1075,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <div class="section-num">SECTION 04</div>
       <h2 class="section-title">팀성취분담(STAD)과<br>팀게임<br>토너먼트(TGT)</h2>
       <p class="section-blurb">안내 질문: STAD의 향상 점수 체계가 이질적 학습 집단에서 협동을 촉진하는 이유는 무엇인가?</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part3/ch06/#4-stad와-tgt-공통-목표를-개인-성장과-연결하기">교재 6장 4절 · STAD와 TGT</a>
     </div>
     <aside class="notes">4절에서는 Slavin이 개발한 STAD와, DeVries &amp; Edwards가 개발하고 Slavin이 Johns Hopkins Student Team Learning 계열에서 발전시킨 TGT를 다룹니다. STAD의 핵심은 향상 점수 체계를 통해 개인 성취와 집단 성취를 연결하는 것입니다. TGT는 STAD와 유사하지만 동질적 토너먼트 경쟁 구조를 추가하여 고성취자에게도 도전감을 제공합니다(Slavin, 1978; Slavin, 1995).</aside>
   </section>
@@ -1154,6 +1184,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <div class="section-num">SECTION 05</div>
       <h2 class="section-title">협동학습의<br>교실 적용과<br>교사의 역할</h2>
       <p class="section-blurb">안내 질문: 협동학습에서 교사의 역할이 '감소'가 아니라 '정교화'라고 하는 이유는 무엇인가?</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part3/ch06/#5-모형을-고르고-실행을-점검하기">교재 6장 5절 · 모형을 고르고 실행을 점검하기</a>
     </div>
     <aside class="notes">5절에서는 학습 목표·내용에 따른 모형 선택 기준과 협동학습에서 교사의 역할을 다룹니다. 핵심 질문은 협동학습에서 교사의 역할이 감소하는 것처럼 보이지만 실제로는 왜 더 높은 수준의 전문성이 요구되는가입니다(류지헌, 김민정, 임태형, 2023).</aside>
   </section>
@@ -1190,7 +1221,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         </tbody>
       </table>
       <div class="callout callout--summary" style="margin-top:24px; font-size:38px;">
-        어떤 모형이든 <strong>긍정적 상호의존성 + 개별 책무성</strong> 설계가 선행되어야 한다.
+        어떤 모형이든 <strong>공동 산출물 + 개인 이해 증거</strong>를 함께 설계해야 한다.
       </div>
     </div>
     <aside class="notes">학습 목표와 내용 특성에 따른 모형 선택 기준을 설명합니다. 내용이 독립적으로 분절 가능하면 직소 I·II, 동일 내용을 모두 숙달해야 한다면 STAD, 게임과 수준별 도전이 필요하다면 TGT를 선택합니다. 어떤 모형을 선택하든 Johnson &amp; Johnson 5요소 중 가장 핵심인 긍정적 상호의존성과 개별 책무성 설계가 선행되어야 합니다(Slavin, 1995; Johnson &amp; Johnson, 1994; 류지헌, 김민정, 임태형, 2023).</aside>
@@ -1210,7 +1241,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
           <ul>
             <li>학습 목표에 맞는 모형 선택</li>
             <li>내용을 협동 구조로 재구성</li>
-            <li>집단 편성 및 평가 방식 결정</li>
+            <li>상호의존 장치와 개인 이해 증거 결정</li>
           </ul>
         </div>
         <div class="col-card">
@@ -1218,7 +1249,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
           <ul>
             <li>소집단 순회·모니터링</li>
             <li>소외·무임승차 개입</li>
-            <li>성찰 토의 이끌기, 성취 평가</li>
+            <li>개인 정리와 집단 성찰을 함께 확인</li>
           </ul>
         </div>
       </div>
@@ -1252,8 +1283,8 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
   <section class="layout-closing">
     <div class="body-area">
       <ul class="closing-list">
-        <li>협동학습은 <strong>구조적 설계</strong>로 교실 공동체의 힘을 이끌어낸다</li>
-        <li>직소·STAD·TGT는 도구이고, <strong>Johnson &amp; Johnson 5요소</strong>가 설계의 기준이다</li>
+        <li>협동학습은 모둠 편성이 아니라 <strong>상호의존성과 개인 이해 증거</strong>의 구조다</li>
+        <li>직소·STAD·TGT는 도구이고, <strong>다섯 요소와 교사 개입</strong>이 설계의 기준이다</li>
       </ul>
       <div class="closing-quote">
         7강에서는 <em>ARCS 동기 설계</em>로<br>학습 참여 구조를 더 정교화한다

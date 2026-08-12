@@ -251,6 +251,38 @@ section.layout-cover .cover-subtitle {
   color: var(--text);
   margin-bottom: 10px;
 }
+section.layout-cover .textbook-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  margin-top: 24px;
+  padding: 10px 16px;
+  border: 2px solid var(--blue);
+  border-radius: 2px;
+  color: var(--navy);
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+section.layout-cover .textbook-link:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
+}
+.section-inner .textbook-link {
+  display: inline-block;
+  margin-top: 24px;
+  color: var(--blue);
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.section-inner .textbook-link:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
+}
 section.layout-cover .cover-photo {
   position: absolute;
   right: 80px;
@@ -717,10 +749,11 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
   <!-- ━━━━━━━━━━━━━━━━ 1. COVER ━━━━━━━━━━━━━━━━ -->
   <section class="layout-cover">
     <div class="cover-content">
-      <div class="cover-eyebrow">교육방법 및 교육공학 · CHAPTER 08</div>
+      <div class="cover-eyebrow">교육방법 및 교육공학 · LECTURE 08</div>
       <h1 class="cover-title">멀티미디어<br>설계 원리</h1>
       <div class="cover-rule"></div>
       <div class="cover-subtitle">인지부하이론과 효과적인 학습 환경 설계</div>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part4/ch09/">연계 교재 · 9장 멀티미디어 학습과 인지부하</a>
     </div>
     <div class="cover-photo">
       <img data-src="../images/img-s01-cover-bg.png" alt="뇌·이미지·텍스트·음파 아이콘이 어우러진 멀티미디어 학습 타이틀 배경 일러스트">
@@ -742,36 +775,36 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <div class="num-section">
           <span class="num-chip">01</span>
           <div class="text">
-            <span class="label">CIP 기억 구조</span>
-            CIP 이론의 기억 3단계 구조와 작업기억 용량 제한을 설명한다.
+            <span class="label">설계 관점</span>
+            인지부하 이론이 수업자료 설계에 주는 핵심 메시지를 설명한다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">02</span>
           <div class="text">
-            <span class="label">세 가지 인지부하</span>
-            세 가지 인지부하(내재적·외생적·본질적)의 특성과 설계 방향을 구분한다.
+            <span class="label">기억과 스키마</span>
+            작동기억·장기기억·스키마의 관계를 자료 설계 관점에서 해석한다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">03</span>
           <div class="text">
-            <span class="label">CTML 세 가지 가정</span>
-            Mayer CTML의 세 가지 인지 가정으로 멀티미디어 설계를 분석한다.
+            <span class="label">말과 그림</span>
+            이중부호화와 멀티미디어 학습 이론의 기본 가정을 구분한다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">04</span>
           <div class="text">
-            <span class="label">설계 원리 적용</span>
-            인지부하 유형별 멀티미디어 설계 원리를 수업 자료 개발에 적용한다.
+            <span class="label">세 부하의 판단</span>
+            내재적·외재적·학습 관련 부하를 설계 판단에 연결한다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">05</span>
           <div class="text">
-            <span class="label">전문성 역전 효과</span>
-            전문성 역전 효과를 고려하여 학습자 수준에 맞는 설계 전략을 수립한다.
+            <span class="label">수준별 안내</span>
+            멀티미디어 원리와 전문성 역전 효과로 수준별 안내를 설계한다.
           </div>
         </div>
       </div>
@@ -780,7 +813,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <figcaption>그림 8-0 · 8강 학습목표 맵</figcaption>
       </figure>
     </div>
-    <aside class="notes">8장의 다섯 가지 학습목표를 안내합니다. CIP 기억 3단계 구조와 작업기억 용량 제한, 세 가지 인지부하(내재적·외생적·본질적)의 구분, Mayer CTML 세 가지 인지 가정, 인지부하 유형별 설계 원리 적용, 전문성 역전 효과 대응이 핵심 내용입니다. 이 내용들은 수업 자료를 개발할 때 학습자의 인지 부담을 최적화하는 설계 원칙으로 직접 활용됩니다(류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">8강은 교재 9장과 연계됩니다. 인지부하 이론의 설계 메시지, 작동기억·장기기억·스키마의 관계, 이중부호화와 멀티미디어 학습의 가정, 세 부하의 설계 판단, 전문성 역전 효과에 따른 안내량 조절을 다룹니다. 자료의 효과는 화려함이 아니라 학생이 핵심 관계를 설명하고 적용하는 증거로 판단합니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 3. SECTION 1 ━━━━━━━━━━━━━━━━ -->
@@ -789,8 +822,9 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <div class="section-num">SECTION 01</div>
       <h2 class="section-title">인지정보처리이론과<br>멀티미디어<br>학습의 배경</h2>
       <p class="section-blurb">안내 질문: 인지정보처리이론이 멀티미디어 설계 원리의 존재 근거가 되는 이유는 무엇인가?</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part4/ch09/#2-제한된-작동기억과-스키마">교재 9장 2절 · 제한된 작동기억과 스키마</a>
     </div>
-    <aside class="notes">1절에서는 멀티미디어 학습이론의 역사적 발전 흐름, CIP의 기억 3단계 구조, 그리고 Paivio의 이중부호화 이론을 다룹니다. 핵심은 왜 작업기억의 용량 제한이 모든 멀티미디어 설계 원리의 출발점이 되는지를 이해하는 것입니다. 역사적으로는 행동주의에서 인지주의로의 패러다임 전환이 멀티미디어 학습이론의 이론적 토대를 형성했습니다(류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">1절에서는 멀티미디어 학습을 설계한다는 의미, 작동기억과 스키마, Paivio의 이중부호화를 다룹니다. 핵심은 자료의 양이나 기술 사용 여부가 아니라, 학습자가 핵심 정보를 고르고 관계를 묶어 이미 아는 것과 연결할 수 있는가입니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 4. 역사적 기원 ━━━━━━━━━━━━━━━━ -->
@@ -831,10 +865,10 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
     <div class="body-area">
       <div class="copy">
         <h2 class="slide-heading">인지정보처리이론(CIP): 기억의 3단계 구조</h2>
-        <p class="body-text"><strong>감각기억</strong> → 선택적 <strong>주의</strong> → <strong>작업기억</strong> (즉시기억 폭: 7±2 청크) → <strong>장기기억</strong></p>
+        <p class="body-text"><strong>감각기억</strong> → 선택적 <strong>주의</strong> → <strong>작동기억</strong> → <strong>장기기억의 스키마</strong></p>
         <ul style="margin-top:16px;">
-          <li>작업기억 내부: <strong>중앙집행기</strong> + <strong>음운루프</strong> + <strong>시공간스케치패드</strong> <em>(Baddeley, 1986)</em></li>
-          <li><strong>작업기억의 처리 용량 제한</strong> = 멀티미디어 설계 원리의 출발점 <em>(Miller, 1956; Baddeley, 1986)</em></li>
+          <li>용어·기호·그림·절차를 한꺼번에 요구할수록 핵심 관계에 쓸 여유가 줄어든다</li>
+          <li><strong>작동기억의 제한과 선행 스키마</strong>가 자료의 난이도를 함께 바꾼다</li>
         </ul>
       </div>
       <figure>
@@ -842,7 +876,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <figcaption>그림 8-2 · CIP 기억의 3단계 구조 (Atkinson &amp; Shiffrin, 1968; Miller, 1956; Baddeley, 1986)</figcaption>
       </figure>
     </div>
-    <aside class="notes">인지정보처리이론(CIP)의 기억 3단계 구조를 설명합니다. 감각기억은 수백 밀리초~수 초의 일시적 보유이며, 선택적 주의를 받은 정보만 다음 단계로 이동합니다. 3단계 기억 저장고 모형은 Atkinson &amp; Shiffrin(1968)에서 체계화되었습니다. 작업기억(working memory)은 고전적으로 Miller(1956)가 7±2개 청크(chunk)의 즉시기억 폭을 제시했으며, 핵심은 작업기억 용량이 제한적이라는 점입니다. Baddeley(1986)의 작업기억 모델은 중앙집행기, 음운루프(언어 처리), 시공간스케치패드(시각 처리)라는 주요 하위 체계로 설명했으며, 이 구조가 멀티미디어 학습에서 시각 채널과 청각 채널을 구분하는 인지과학적 근거가 됩니다. 장기기억은 사실상 무제한 용량으로 스키마 형태의 지식을 영구 저장합니다(Atkinson &amp; Shiffrin, 1968; Miller, 1956; Baddeley, 1986; 류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">작동기억은 지금 처리하는 정보를 잠시 유지하고 조작하는 체계로 볼 수 있습니다. 용어·기호·그림·절차·예외를 동시에 요구할수록 학습자가 핵심 관계에 쓸 여유가 줄어듭니다. 따라서 초보자의 어려움을 의지 문제로만 보지 않고, 선행 스키마와 자료의 제시 방식이 무엇을 동시에 요구하는지 함께 살핍니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 6. 이중부호화 ━━━━━━━━━━━━━━━━ -->
@@ -867,7 +901,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         </div>
       </div>
     </div>
-    <aside class="notes">Paivio(1986)의 이중부호화 이론을 설명합니다. 인간의 인지 체계는 언어적 정보와 비언어적(이미지) 정보를 처리하는 두 개의 분리된 채널을 갖고 있습니다. 이 두 채널을 동시에 활성화하여 두 표상 간의 연결을 형성할 때 기억과 이해가 더 깊어집니다. Paivio의 이론은 Mayer CTML의 이중채널 가정의 직접적 이론적 기반이며, Baddeley의 작업기억 모델이 각 채널의 구체적 구조를 설명하고, Miller의 용량 한계가 설계 제약을 설정하는 방식으로 세 이론이 상호 보완하며 CTML의 기초를 이룹니다(Paivio, 1986; Mayer, 2001).</aside>
+    <aside class="notes">Paivio의 이중부호화 관점은 언어 정보와 비언어 정보가 관련되지만 구분되는 체계로 표상될 수 있음을 설명합니다. 그렇다고 그림을 많이 넣는다고 학습이 자동으로 좋아지지는 않습니다. 그림은 설명해야 할 핵심 관계를 보여야 하며, 말과 그림이 서로 다른 메시지를 주거나 장식에 머물면 학습자는 관계를 찾는 데 힘을 씁니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 7. SECTION 2 ━━━━━━━━━━━━━━━━ -->
@@ -876,8 +910,9 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <div class="section-num">SECTION 02</div>
       <h2 class="section-title">인지부하이론<br>(Cognitive<br>Load Theory)</h2>
       <p class="section-blurb">안내 질문: 세 가지 인지부하의 차이를 파악하는 것이 왜 수업 설계에서 결정적으로 중요한가?</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part4/ch09/#4-인지부하의-세-범주">교재 9장 4절 · 인지부하의 세 범주</a>
     </div>
-    <aside class="notes">2절에서는 Sweller의 인지부하이론(CLT)의 핵심 주장, 세 가지 인지부하의 구분, 그리고 전문성 역전 효과를 다룹니다. 핵심은 총 인지부하(내재적 + 외생적 + 본질적)가 작업기억 처리 한계를 초과하지 않을 때 효과적 학습이 가능해진다는 것입니다. 세 부하의 구분이 Mayer 설계 원리 체계와 직접 대응하므로 정확한 이해가 중요합니다(Sweller, 1988; Sweller, van Merriënboer &amp; Paas, 1998).</aside>
+    <aside class="notes">2절에서는 인지부하의 세 범주와 전문성 역전 효과를 다룹니다. 핵심은 모든 부담을 없애는 것이 아니라, 내용의 복잡성·제시 방식·핵심 사고를 구분해 불필요한 부담은 줄이고 필요한 사고에 자원을 쓰게 하는 것입니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 8. CLT 핵심 주장 ━━━━━━━━━━━━━━━━ -->
@@ -892,14 +927,14 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <div class="col-card">
           <div class="col-title">John Sweller (UNSW, 1988) — CLT 핵심 주장</div>
           <ul>
-            <li>작업기억 용량 초과 → <strong>인지 과부하</strong> → 학습 실패</li>
-            <li>총 인지부하 = 내재적 + 외생적 + 본질적 <em>(Sweller et al., 1998)</em></li>
-            <li>효과적 설계 = <strong>외생적 부하 제거</strong> + <strong>본질적 부하 촉진</strong></li>
+            <li>제한된 작동기억에서는 요소가 많고 관계가 복잡할수록 핵심 이해가 어려워진다</li>
+            <li>설계는 <strong>내용의 복잡성·제시 방식·핵심 사고</strong>를 구분해 판단한다</li>
+            <li>효과적 설계 = <strong>외재적 부하 감소</strong> + <strong>핵심 관계를 비교·설명하는 사고</strong> 지원</li>
           </ul>
         </div>
       </div>
     </div>
-    <aside class="notes">인지부하이론(CLT)의 핵심 주장을 설명합니다. Sweller(1988)는 작업기억에 가해지는 총 인지부하가 처리 가능한 한계를 초과하면 학습이 이루어지지 않는다고 주장합니다. 인지부하는 작업기억에 가해지는 정신적 부담으로, 총량이 한계를 넘으면 인지 과부하(cognitive overload)가 발생하고 정보는 장기기억으로 이전되지 못합니다. 효과적인 수업 설계의 목표는 학습에 필요한 인지부하는 지원하되 불필요한 인지부하는 최소화하는 데 있습니다. 특히 외생적 부하(잘못된 설계로 인한 불필요한 부하)를 제거하고, 본질적 부하(실제 학습 과정의 부하)를 촉진하는 것이 핵심 방향입니다(Sweller, 1988; Sweller, van Merriënboer &amp; Paas, 1998).</aside>
+    <aside class="notes">인지부하 이론은 학습자가 한꺼번에 처리할 수 있는 정보에 한계가 있다는 전제에서 출발합니다. 설계에서는 내재적 부하, 외재적 부하, 학습 관련 부하를 구분합니다. 목표는 어려운 내용을 모두 단순화하는 것이 아니라, 장식과 불필요한 탐색 때문에 핵심 사고가 밀려나지 않게 하는 것입니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 9. 세 가지 인지부하 표 ━━━━━━━━━━━━━━━━ -->
@@ -926,22 +961,22 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
             <td>분할·사전훈련으로 <strong>조절</strong></td>
           </tr>
           <tr>
-            <td class="num"><strong>외생적 부하</strong></td>
+            <td class="num"><strong>외재적 부하</strong></td>
             <td>잘못된 학습 자료 설계</td>
             <td>불필요 요소 <strong>제거</strong></td>
           </tr>
           <tr>
-            <td class="num"><strong>본질적 부하</strong></td>
-            <td>스키마 형성·자동화 과정</td>
-            <td>능동적 처리 <strong>촉진</strong></td>
+            <td class="num"><strong>학습 관련 부하</strong></td>
+            <td>핵심 관계 비교·오류 설명·새 사례 적용</td>
+            <td>필요한 사고에 자원 <strong>투입</strong></td>
           </tr>
         </tbody>
       </table>
       <div class="callout callout--summary" style="margin-top:24px; font-size:38px;">
-        총 인지부하(내재 + 외생 + 본질)가 작업기억 처리 한계를 초과하지 않을 때 효과적 학습이 가능해진다
+        모든 부하를 없애는 것이 아니라, <strong>불필요한 부담은 줄이고 필요한 사고</strong>에 자원을 쓴다
       </div>
     </div>
-    <aside class="notes">세 가지 인지부하의 특성과 설계 방향을 설명합니다. 내재적 부하(Intrinsic Load)는 과제 자체의 복잡성에서 비롯하며, 학습자의 사전 지식 수준에 따라 상대적으로 달라집니다. 완전히 제거할 수 없으므로 분할·사전훈련으로 조절합니다. 외생적 부하(Extraneous Load)는 잘못된 자료 설계로 인한 불필요한 부하이며, 학습에 기여하지 않으면서 작업기억을 낭비하므로 최대한 제거해야 합니다. 본질적 부하(Germane Load)는 스키마 형성·자동화 등 실제 학습 과정의 부하이므로 제거 대상이 아니라 촉진 대상입니다. 외생적 부하를 줄임으로써 절약된 용량을 본질적 부하(스키마 형성)에 투입합니다(Sweller, 1988; Sweller, van Merriënboer &amp; Paas, 1998; Mayer &amp; Moreno, 2003).</aside>
+    <aside class="notes">내재적 부하는 내용의 복잡성과 선행지식의 관계에서 생기므로 분할과 사전훈련으로 조절합니다. 외재적 부하는 장식, 분리된 설명, 불필요한 탐색처럼 목표와 무관한 제시 방식에서 생기므로 줄입니다. 학습 관련 부하는 핵심 관계를 비교하고 예제를 일반화하며 오류를 설명하고 새 사례에 적용하는 데 쓰는 노력입니다. 목표는 모든 부하를 없애는 것이 아니라 필요한 사고에 자원을 쓰게 하는 것입니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 10. 전문성 역전 효과 ━━━━━━━━━━━━━━━━ -->
@@ -956,7 +991,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <h2 class="slide-heading">전문성 역전 효과</h2>
         <ul>
           <li><strong>초보자</strong>: 상세 설명·예시 → 내재적 부하 감소 → <strong>효과적</strong></li>
-          <li><strong>전문가</strong>: 동일 설명 → 이미 아는 내용의 <strong>외생적 부하</strong> → <strong>역효과</strong></li>
+          <li><strong>숙련자</strong>: 동일 설명 → 이미 아는 내용의 <strong>외재적 부하</strong> → <strong>역효과</strong></li>
         </ul>
         <div class="callout callout--info" style="margin-top:20px; font-size:36px;">
           설계의 최적 조건은 학습자의 <strong>사전 지식 수준</strong>에 따라 달라진다<br>
@@ -968,7 +1003,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <figcaption>그림 8-3 · 전문성 역전 효과 (Kalyuga et al., 2003)</figcaption>
       </figure>
     </div>
-    <aside class="notes">전문성 역전 효과(Expertise Reversal Effect)를 설명합니다. Kalyuga et al.(2003)이 실증한 이 현상은 초보자에게 효과적인 교수 전략이 전문가에게 역효과를 낼 수 있음을 보여줍니다. 상세한 단계별 설명과 풍부한 예시가 초보자의 이해를 크게 돕지만, 이미 관련 스키마를 보유한 전문가에게는 이미 알고 있는 내용을 반복 처리해야 하는 불필요한 외생적 부하로 작용합니다. 이 효과는 교사가 학습자 집단의 사전 지식 수준을 진단하고, 그에 맞게 설명의 상세도와 보조 자료의 양을 조절해야 함을 시사합니다(Kalyuga et al., 2003; Sweller, 1994).</aside>
+    <aside class="notes">전문성 역전 효과는 초보자에게 효과적인 안내가 숙련자에게는 중복 정보가 되어 방해가 될 수 있음을 보여 줍니다. 초보자에게는 완성 예제, 그림 위 명칭, 단계별 해설이 필요할 수 있습니다. 중급자에게는 일부 단계를 비워 설명하게 하거나 오류 사례를 비교하게 하고, 숙련자에게는 문제 상황만 제시해 해결 전략을 고르게 할 수 있습니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 11. SECTION 3 ━━━━━━━━━━━━━━━━ -->
@@ -977,8 +1012,9 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <div class="section-num">SECTION 03</div>
       <h2 class="section-title">Mayer의<br>멀티미디어<br>학습이론(CTML)</h2>
       <p class="section-blurb">안내 질문: Mayer는 어떻게 이전 인지 이론들을 하나의 처방적 설계 이론으로 통합했는가?</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part4/ch09/#3-말과-그림이-만날-때">교재 9장 3절 · 말과 그림이 만날 때</a>
     </div>
-    <aside class="notes">3절에서는 Mayer의 CTML(멀티미디어 학습의 인지이론) 세 가지 인지 가정과 멀티미디어 학습 과정 모델을 다룹니다. Mayer는 Paivio의 이중부호화 이론, Baddeley의 작업기억 모델, Sweller의 인지부하이론을 통합하여 처방적 설계 이론으로 체계화했습니다. 통합(integration) 단계가 핵심입니다(Mayer, 2001; Mayer, 2009).</aside>
+    <aside class="notes">3절에서는 Mayer의 CTML 세 가지 인지 가정과 멀티미디어 학습 과정 모델을 다룹니다. 이중 채널, 제한된 처리 용량, 능동적 처리는 말과 그림을 함께 둘 때 학생이 핵심 정보를 선택·조직·통합해야 함을 설명합니다. 통합 단계가 핵심입니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 12. CTML 3가정 ━━━━━━━━━━━━━━━━ -->
@@ -1013,7 +1049,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
     <div class="body-area">
       <h2 class="slide-heading">멀티미디어 학습 인지 과정 모델</h2>
       <div class="copy">
-        <p class="body-text"><strong>외부 입력</strong> → 감각기억 → <strong>작업기억</strong> (언어 모델 + 이미지 모델) → <strong>통합</strong> → 장기기억</p>
+        <p class="body-text"><strong>외부 입력</strong> → 감각기억 → <strong>작동기억</strong> (언어 모델 + 이미지 모델) → <strong>통합</strong> → 장기기억</p>
         <div class="callout callout--info" style="font-size:36px; margin-top:12px;">
           <strong>통합(integration)</strong> 단계가 핵심 — 시각·청각 채널의 연결을 통해 진정한 이해가 발생<br>
           <span style="font-size:26px; color:var(--text-muted);">— Mayer (2001)</span>
@@ -1024,7 +1060,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <figcaption>그림 8-4 · Mayer의 멀티미디어 학습 인지 과정 모델 (Mayer, 2001)</figcaption>
       </figure>
     </div>
-    <aside class="notes">Mayer의 멀티미디어 학습 과정 모델을 설명합니다. 텍스트와 이미지는 각각 눈을 통해 감각기억에 입력됩니다. 선택적 주의가 관련 정보를 작업기억으로 이동시키고, 작업기억 안에서 언어 모델과 이미지 모델이 각각 조직화됩니다. 두 모델이 통합(integration)되어 의미 있는 표상이 형성되고, 이 통합된 표상이 장기기억의 선행 지식과 연결되어 최종 저장됩니다. 핵심은 통합 단계입니다. 시각 정보와 청각 정보가 작업기억 안에서 정확하게 연결될 때 진정한 학습이 발생합니다. Mayer의 설계 원리들은 이 통합이 최적으로 이루어지도록 돕기 위한 설계 지침입니다(Mayer, 2001; Mayer, 2009; Paivio, 1986; Baddeley, 1986).</aside>
+    <aside class="notes">Mayer의 멀티미디어 학습 과정 모델은 학습자가 말과 그림에서 핵심 정보를 선택하고, 관계를 조직하며, 이미 아는 것과 통합해야 한다고 설명합니다. 핵심은 표상을 많이 제시하는 것이 아니라, 각 표상이 맡을 역할을 분명히 하고 관련 명칭·방향·단계를 가까이 두는 것입니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 14. SECTION 4 ━━━━━━━━━━━━━━━━ -->
@@ -1033,19 +1069,20 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <div class="section-num">SECTION 04</div>
       <h2 class="section-title">멀티미디어<br>설계 원리의<br>체계</h2>
       <p class="section-blurb">안내 질문: 세 가지 인지부하 유형은 멀티미디어 설계 원리 체계에 어떻게 대응되는가?</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part4/ch09/#5-멀티미디어-원리를-수업에-적용하기">교재 9장 5절 · 멀티미디어 원리를 수업에 적용하기</a>
     </div>
-    <aside class="notes">4절에서는 Mayer의 멀티미디어 설계 원리를 세 가지 인지부하 유형에 대응하여 체계적으로 다룹니다. 외생적 부하 저감 원리(5가지), 내재적 부하 조절 원리(3가지), 본질적 부하 촉진 원리(4가지)로 구성됩니다. 이 5+3+4=12개 원리가 Mayer(2009)의 멀티미디어 설계 12원리를 인지부하 유형별로 체계화한 것입니다. 완성된 예제·자기설명은 CLT 기반 확장 원리로 함께 다룹니다(Mayer, 2001; Mayer, 2009; Mayer &amp; Moreno, 2003).</aside>
+    <aside class="notes">4절에서는 수업자료를 다듬는 순서를 다룹니다. 먼저 학생이 설명해야 할 핵심 관계를 한 문장으로 쓰고, 꼭 필요한 용어·그림 요소·절차만 남깁니다. 이어 글·음성·그림·애니메이션의 역할을 나누고, 신호와 가까운 배치, 분절과 짧은 확인 질문으로 관계를 찾게 돕습니다.</aside>
   </section>
 
-  <!-- ━━━━━━━━━━━━━━━━ 15. 외생적 부하 저감 원리 ━━━━━━━━━━━━━━━━ -->
+  <!-- ━━━━━━━━━━━━━━━━ 15. 외재적 부하 저감 원리 ━━━━━━━━━━━━━━━━ -->
   <section class="layout-table">
     <div class="header-bar">
       <span class="chapter-chip">08</span>
-      <span class="header-title">외생적 부하 저감 원리: 불필요한 처리의 제거</span>
+      <span class="header-title">외재적 부하 저감 원리: 불필요한 처리의 제거</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">외생적 부하 저감 원리</h2>
+      <h2 class="slide-heading">외재적 부하 저감 원리</h2>
       <table class="data-table">
         <thead>
           <tr>
@@ -1077,10 +1114,10 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         </tbody>
       </table>
       <div class="callout callout--summary" style="margin-top:18px; font-size:36px;">
-        외생적 부하 제거로 절약된 용량을 <strong>본질적 부하(스키마 형성)</strong>에 투입
+        외재적 부하를 줄여 <strong>핵심 관계를 비교·설명하는 사고</strong>에 자원을 쓴다
       </div>
     </div>
-    <aside class="notes">외생적 부하를 저감하는 5가지 설계 원리를 설명합니다. 일관성 원리: 관련 없는 그림·사운드 효과·텍스트 제거(배경 음악·장식 이미지 금지). 신호 원리: 핵심 단어 볼드·색상·화살표로 강조하여 무엇이 핵심인지 파악하는 인지적 노력 감소. 중복성 원리: 음성 설명 시 동일 텍스트 화면 표시 금지(단, 접근성·정확도 필요 시 예외). 공간근접성 원리: 그림과 설명이 화면에서 멀리 떨어지면 시선 이동과 연결에 추가 인지 자원 소비. 시간근접성 원리: 관련 시각·음성 정보를 동시 제시하여 먼저 제시된 정보를 작업기억에 유지하는 부담 제거(Mayer, 2001; Mayer, 2009; Mayer &amp; Moreno, 2003). 이 5가지가 Mayer(2009) 12원리 중 외생적 처리 감소 범주의 핵심이다.</aside>
+    <aside class="notes">외재적 부하는 학습 목표와 직접 관련 없는 제시 방식에서 생깁니다. 장식 이미지와 효과를 줄이고, 핵심어·색·화살표·번호로 중요한 위치와 순서를 표시합니다. 그림과 설명을 가깝게 두고, 관련 시각·음성 정보의 관계도 분명하게 제시합니다. 다만 음성·텍스트의 선택에서는 접근성과 정확도에 필요한 대체 경로를 함께 고려합니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 16. 내재적 부하 조절 원리 ━━━━━━━━━━━━━━━━ -->
@@ -1122,18 +1159,18 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         내재적 부하 관리로 학습자가 <strong>핵심에 집중</strong>할 수 있도록
       </div>
     </div>
-    <aside class="notes">내재적 부하를 조절하는 설계 원리를 설명합니다. 분할 원리(Segmenting): e-learning에서 각 개념 단위를 별도 모듈로 분리, 학습자가 각 단계를 처리한 후 다음으로 진행. 사전훈련 원리(Pre-training): 핵심 용어와 개념을 미리 학습하면 본 학습에서 관계와 과정 처리에 집중 가능. 정보양식 원리(Modality): 이미지+텍스트는 시각 채널 과부하, 이미지+음성은 두 채널에 분산. 완성된 예제(Worked-out Example): Mayer(2009) 12원리에 포함되지 않지만 CLT의 핵심 전략으로, 처음부터 스스로 해결하는 문제 해결 상황의 높은 내재적 부하를 모범 사례 제시로 압축한다(Sweller &amp; Cooper, 1985; Mayer, 2001; Mayer, 2009; Mayer &amp; Moreno, 2003).</aside>
+    <aside class="notes">내재적 부하는 내용의 복잡성과 선행지식이 만나는 곳에서 생깁니다. 복잡한 절차는 단계로 나누고, 핵심 용어와 개념을 미리 제시하며, 완성된 예제로 적용의 출발점을 보일 수 있습니다. 자료를 쉽게 보이게 하려는 장식이 아니라, 학습자가 관계와 과정에 집중하게 하려는 판단입니다.</aside>
   </section>
 
-  <!-- ━━━━━━━━━━━━━━━━ 17. 본질적 부하 촉진 원리 ━━━━━━━━━━━━━━━━ -->
+  <!-- ━━━━━━━━━━━━━━━━ 17. 학습 관련 부하와 능동적 학습 ━━━━━━━━━━━━━━━━ -->
   <section class="layout-table">
     <div class="header-bar">
       <span class="chapter-chip">08</span>
-      <span class="header-title">본질적 부하 촉진 원리: 능동적 학습의 지원</span>
+      <span class="header-title">학습 관련 부하: 능동적 학습의 지원</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">본질적 부하 촉진 원리</h2>
+      <h2 class="slide-heading">학습 관련 부하와 능동적 학습</h2>
       <table class="data-table">
         <thead>
           <tr>
@@ -1165,10 +1202,10 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         </tbody>
       </table>
       <div class="callout callout--summary" style="margin-top:12px; font-size:36px;">
-        스키마 형성과 장기 파지를 위한 <strong>능동적 인지 처리</strong> 촉진
+        핵심 관계의 비교·설명·적용으로 <strong>능동적 인지 처리</strong> 지원
       </div>
     </div>
-    <aside class="notes">본질적 부하를 촉진하는 설계 원리를 설명합니다. 멀티미디어 원리: 이중채널을 모두 활성화하여 두 채널 간의 연결이 형성될 때 깊은 이해와 기억이 촉진됩니다. 개인화 원리: 2인칭 호칭과 구어체적 표현이 사회적 파트너십 감각을 활성화하여 능동적 처리를 촉진합니다. 목소리 원리: 합성음보다 자연스러운 인간 목소리가 감정적 반응과 주의를 더 효과적으로 활성화합니다. 이미지 원리: Mayer(2009)의 이미지 원리는 강사 이미지를 화면에 추가한다고 반드시 학습이 향상되는 것은 아니라고 제시합니다. 비언어적 신호(제스처·시선·움직임)가 체화 원리(Embodiment Principle)로서 더 효과적입니다. 자기 설명: Mayer(2009) 12원리에는 포함되지 않는 생성학습 전략으로, 학습자가 배운 내용을 자신의 언어로 재설명하는 기회를 통해 스키마 통합이 촉진됩니다(Mayer, 2001; Mayer, 2009; Fiorella &amp; Mayer, 2015).</aside>
+    <aside class="notes">학습 관련 부하는 핵심 관계를 비교하고, 예제를 일반화하며, 자신의 오류를 설명하고 새 상황에 적용할 때 쓰는 노력입니다. 자기 설명과 짧은 확인 질문은 학생이 표상을 수동적으로 보지 않고 자신의 말로 관계를 다시 구성하게 돕습니다. 그래서 외재적 부하를 줄이는 일은 사고를 없애는 일이 아니라, 필요한 사고를 위한 여유를 만드는 일입니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 18. 설계 원리 체계 총괄 ━━━━━━━━━━━━━━━━ -->
@@ -1190,7 +1227,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         </thead>
         <tbody>
           <tr style="background:#FFF3E0;">
-            <td class="num" style="border-left:5px solid var(--red);"><strong>외생적 부하</strong> 저감</td>
+            <td class="num" style="border-left:5px solid var(--red);"><strong>외재적 부하</strong> 저감</td>
             <td>일관성·신호·중복성·공간근접성·시간근접성 <small style="color:var(--text-muted);">(Mayer 5개)</small></td>
             <td>불필요 처리 제거</td>
           </tr>
@@ -1200,17 +1237,17 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
             <td>복잡성 단계적 관리</td>
           </tr>
           <tr style="background:var(--surface);">
-            <td class="num" style="border-left:5px solid var(--blue);"><strong>본질적 부하</strong> 촉진</td>
+            <td class="num" style="border-left:5px solid var(--blue);"><strong>학습 관련 부하</strong> 지원</td>
             <td>멀티미디어·개인화·목소리·이미지 <small style="color:var(--text-muted);">(Mayer 4개)</small> + 자기설명 <small style="color:var(--text-muted);">(생성학습)</small></td>
-            <td>스키마 능동 형성</td>
+            <td>핵심 관계의 능동적 처리</td>
           </tr>
         </tbody>
       </table>
       <div class="callout callout--info" style="margin-top:20px; font-size:36px;">
-        Mayer(2009)의 12개 멀티미디어 설계 원리 + CLT 기반 확장 원리의 인지부하이론 기반 체계화
+        핵심 관계를 먼저 정하고, 꼭 필요한 표상·신호·분절·확인 질문만 남긴다
       </div>
     </div>
-    <aside class="notes">멀티미디어 설계 원리 체계를 총괄하여 설명합니다. 외생적 부하 저감 원리(5가지): 일관성·신호·중복성·공간근접성·시간근접성 — 불필요한 처리 제거. 내재적 부하 조절 원리(3가지, Mayer 2009 기준): 분할·사전훈련·정보양식 — 복잡성의 단계적 관리. (완성된 예제는 CLT 기반 보충 전략으로 함께 제시.) 본질적 부하 촉진 원리(4가지, Mayer 2009 기준): 멀티미디어·개인화·목소리·이미지 — 스키마 능동 형성. (자기설명은 CLT/생성학습 전략으로 함께 제시.) 이 체계는 Mayer(2009)가 제안한 12개 멀티미디어 설계 원리(외생 5+내재 3+생성 4)를 Sweller의 인지부하 유형 분류에 기반하여 체계화한 것입니다. 임용 시험에서 특정 수업 자료의 문제점을 인지부하 유형으로 진단하고 개선 방안을 원리로 제시하는 문항이 출제됩니다(Mayer, 2009; Mayer &amp; Moreno, 2003; Sweller, van Merriënboer &amp; Paas, 1998).</aside>
+    <aside class="notes">이 표는 고정된 처방 목록이 아니라 자료를 점검하는 관점입니다. 외재적 부하를 줄일 때에는 장식과 분리된 설명, 불필요한 탐색을 살핍니다. 내재적 부하를 조절할 때에는 요소의 복잡성과 선행지식을 봅니다. 학습 관련 부하를 지원할 때에는 학생이 핵심 관계를 비교·설명·적용할 기회를 두었는지 확인합니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 19. SECTION 5 ━━━━━━━━━━━━━━━━ -->
@@ -1219,6 +1256,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <div class="section-num">SECTION 05</div>
       <h2 class="section-title">멀티미디어<br>학습 연구의<br>최신 동향</h2>
       <p class="section-blurb">안내 질문: 실감형 미디어는 기존 멀티미디어 설계 원리에 어떤 새로운 도전을 제기하는가?</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part4/ch09/#6-전문성에-맞춰-안내량-조절하기">교재 9장 6절 · 전문성에 맞춰 안내량 조절하기</a>
     </div>
     <aside class="notes">5절에서는 학습 과정 분석 기술의 발전(시선추적·EEG·얼굴표정 분석)과 VR·AR·MR 실감형 미디어가 제기하는 새로운 도전과 기회를 다룹니다. 학습 결과 측정에서 학습 과정 측정으로의 연구 패러다임 전환, 그리고 실감형 미디어가 이중채널 가정을 확장해야 할 이유가 핵심 내용입니다(류지헌, 김민정, 임태형, 2023).</aside>
   </section>
@@ -1297,7 +1335,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <tbody>
           <tr>
             <td class="num"><strong>CIP</strong> (감각→작업→장기)</td>
-            <td>작업기억 용량 제한 근거</td>
+            <td>작동기억의 제한과 스키마 형성 근거</td>
             <td>모든 원리의 인지과학적 전제</td>
           </tr>
           <tr>
@@ -1307,12 +1345,12 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
           </tr>
           <tr>
             <td class="num"><strong>CLT</strong> (Sweller)</td>
-            <td>3가지 인지부하 분류</td>
+            <td>내재적·외재적·학습 관련 부하의 설계 판단</td>
             <td>원리 체계의 인지과학적 근거</td>
           </tr>
           <tr>
             <td class="num"><strong>CTML</strong> (Mayer)</td>
-            <td>세 가지 가정 + 12개 설계 원리</td>
+            <td>말과 그림의 선택·조직·통합</td>
             <td>처방적 멀티미디어 설계 지침</td>
           </tr>
         </tbody>
@@ -1321,7 +1359,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         CTML은 CIP·이중부호화·CLT의 관점을 <strong>결합</strong>하여 멀티미디어 설계 원리를 제시한다
       </div>
     </div>
-    <aside class="notes">8장의 네 이론을 통합하여 설명합니다. CIP(인지정보처리이론): 작업기억의 용량 제한을 근거로 모든 멀티미디어 설계 원리의 인지과학적 전제를 형성합니다. 이중부호화 이론(Paivio, 1986): 시각 채널과 언어 채널의 분리된 처리를 입증하여 Mayer CTML의 이중채널 가정에 직접 연결됩니다. 인지부하이론(Sweller): 내재적·외생적·본질적 부하의 분류 체계가 Mayer 설계 원리의 체계화 근거를 제공합니다. CTML(Mayer): 세 이론의 관점을 결합하여 이중채널 가정·제한용량 가정·능동처리 가정 위에 12개 처방적 설계 원리를 체계화합니다. 최신 동향에서는 학습 분석 기술(시선추적·EEG)과 실감형 미디어(VR·AR·MR)가 이 이론 체계의 적용 범위를 확장하고 있습니다(류지헌, 김민정, 임태형, 2023; Mayer, 2001; Sweller, van Merriënboer &amp; Paas, 1998; Paivio, 1986; Baddeley, 1986).</aside>
+    <aside class="notes">인지정보처리 관점은 작동기억의 제한과 장기기억의 스키마를 보게 합니다. 이중부호화와 CTML은 말과 그림이 핵심 관계를 보완하도록 설계해야 함을 설명합니다. 인지부하 관점은 학생의 어려움을 의지 부족으로만 보지 않고, 내용·제시 방식·핵심 사고 중 무엇이 부담을 키우는지 구분하게 합니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 23. 참고문헌 ━━━━━━━━━━━━━━━━ -->
@@ -1356,15 +1394,15 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
   <section class="layout-closing">
     <div class="body-area">
       <ul class="closing-list">
-        <li>멀티미디어 설계 원리는 인지과학이 수업 실천에 직접 연결되는 지점이다</li>
-        <li><strong>CLT + CTML</strong> = 수업 자료 설계의 인지과학적 원칙</li>
+        <li>멀티미디어 설계는 말과 그림을 많이 넣는 일이 아니라 <strong>핵심 관계의 처리 순서</strong>를 정하는 일이다</li>
+        <li>불필요한 부담은 줄이고, <strong>학습자 수준에 맞는 안내</strong>로 설명·적용의 증거를 확인한다</li>
       </ul>
       <div class="closing-quote">
         9강에서는 <em>AI 디지털교과서</em>, 학습분석학,<br>생성형 AI가 수업을 어떻게 바꾸는지 다룬다
       </div>
       <div class="closing-meta">교육방법 및 교육공학 · 8강</div>
     </div>
-    <aside class="notes">8장의 핵심 메시지를 정리합니다. 멀티미디어 설계 원리는 인지과학(CIP·이중부호화·CLT·CTML)이 수업 실천에 직접 연결되는 지점입니다. CLT의 세 가지 인지부하 분류 체계와 CTML의 12개 설계 원리(+ CLT 기반 확장 원리)가 결합하여 수업 자료 설계의 인지과학적 원칙을 형성합니다. 9장에서는 AI 디지털교과서, 학습분석학, 생성형 AI를 중심으로 디지털 기술이 수업 설계와 교사의 의사결정을 어떻게 바꾸는지 살펴봅니다.</aside>
+    <aside class="notes">8강의 핵심은 말과 그림을 많이 넣는 일이 아니라, 학생이 어떤 정보를 어떤 순서로 처리해 핵심 관계를 설명하게 할지를 설계하는 일입니다. 외재적 부하는 줄이고, 학습자 수준에 맞는 안내와 자기 설명·적용의 기회를 제공합니다. 자료를 완성한 뒤에는 보기 좋은가보다 학생이 관계를 설명하고 새 사례에 적용하는지 확인합니다.</aside>
   </section>
 
 </div>
