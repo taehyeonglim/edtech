@@ -4,7 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="임태형">
-  <meta name="description" content="교육방법 및 교육공학 10강 HTML 교안 모음">
+  <meta name="description" content="교육방법 및 교육공학: 11장 텍스트 교재와 10강 수업 슬라이드·PDF 자료">
+  <meta property="og:title" content="교육방법 및 교육공학">
+  <meta property="og:description" content="11장 텍스트 교재와 10강 수업 슬라이드·PDF 자료">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://taehyeonglim.github.io/edtech/">
+  <meta property="og:image" content="https://taehyeonglim.github.io/edtech/chapters/chapter-01/images/img-s01-classroom.png">
   <title>교육방법 및 교육공학</title>
   <style>
     :root {
@@ -73,7 +78,6 @@
     }
 
     .hero-inner,
-    .course-grid,
     .footer-inner {
       width: min(1160px, calc(100% - 40px));
       margin: 0 auto;
@@ -177,116 +181,6 @@
       letter-spacing: 0.01em;
     }
 
-    .course-grid {
-      padding: 42px 0 64px;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      align-items: end;
-      margin-bottom: 22px;
-      border-bottom: 2px solid var(--navy);
-      padding-bottom: 18px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      color: var(--navy);
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-      line-height: 1.12;
-      letter-spacing: 0;
-    }
-
-    .count {
-      flex: none;
-      color: var(--muted);
-      font-weight: 800;
-      letter-spacing: 0.04em;
-    }
-
-    .lecture-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .lecture-card {
-      display: grid;
-      grid-template-columns: 184px minmax(0, 1fr);
-      min-height: 172px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      overflow: hidden;
-      background: #fff;
-    }
-
-    .thumb {
-      min-height: 172px;
-      background: var(--soft) center / cover;
-      border-right: 1px solid var(--line);
-    }
-
-    .lecture-body {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 20px;
-    }
-
-    .week {
-      display: inline-flex;
-      width: fit-content;
-      background: var(--navy);
-      color: #fff;
-      border-radius: 2px;
-      padding: 5px 10px;
-      font-size: 0.82rem;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-    }
-
-    .lecture-card h3 {
-      margin: 12px 0 0;
-      color: var(--ink);
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-      line-height: 1.28;
-      letter-spacing: 0;
-    }
-
-    .actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 0 14px;
-      border-radius: 4px;
-      font-weight: 900;
-      border: 1px solid var(--navy);
-      color: var(--navy);
-    }
-
-    .button.primary {
-      background: var(--navy);
-      color: #fff;
-    }
-
-    .button:focus-visible {
-      outline: 3px solid var(--blue);
-      outline-offset: 2px;
-    }
-
     footer {
       border-top: 1px solid var(--line);
       background: var(--soft);
@@ -304,18 +198,6 @@
         min-height: 58vh;
       }
 
-      .section-head {
-        display: block;
-      }
-
-      .count {
-        display: block;
-        margin-top: 8px;
-      }
-
-      .lecture-list {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 640px) {
@@ -326,7 +208,6 @@
 
     @media (max-width: 620px) {
       .hero-inner,
-      .course-grid,
       .footer-inner,
       .hub {
         width: min(100% - 28px, 1160px);
@@ -336,23 +217,8 @@
         padding: 72px 0 56px;
       }
 
-      .lecture-card {
-        grid-template-columns: 1fr;
-      }
-
       .title-part {
         display: block;
-      }
-
-      .thumb {
-        min-height: 180px;
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .actions {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
   </style>
@@ -368,7 +234,7 @@
   </header>
 
   <main id="main-content" class="hub">
-    <a class="hub-card" href="./book/text/">
+    <a class="hub-card" href="./book/">
       <div class="hub-icon" aria-hidden="true">📖</div>
       <h2>텍스트 교재로 시작하기</h2>
       <p>한 학기 기본 경로: 장당 30~45분 읽기 → 장의 짧은 확인 → 수업 중 적용. 검색과 보조기술에 안정적으로 대응합니다.</p>
@@ -383,7 +249,7 @@
   </main>
 
   <footer>
-    <div class="footer-inner">교육방법 및 교육공학 · HTML/PDF 교안</div>
+    <div class="footer-inner">교육방법 및 교육공학 · 슬라이드는 10강 체계, 텍스트 교재는 11장 체계이며 대응 관계는 교재 홈에서 확인할 수 있습니다.</div>
   </footer>
 </body>
 </html>
