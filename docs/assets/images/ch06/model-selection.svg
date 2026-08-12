@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" role="img" aria-labelledby="title desc">
+  <title id="title">협동학습 모형 선택 흐름</title>
+  <desc id="desc">내용의 분절과 통합, 공통 목표와 개인 점검, 반복 연습과 게임 적합성을 기준으로 Jigsaw, STAD, TGT를 선택하는 흐름도</desc>
+  <style>
+    .bg{fill:#fff}.title{fill:#0B2C5C;font:700 29px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.sub{fill:#315276;font:400 16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.q{fill:#F5F9FF;stroke:#1B66C9;stroke-width:2}.a{fill:#0B2C5C}.a2{fill:#1B66C9}.tq{fill:#0B2C5C;font:700 20px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.ta{fill:#fff;font:700 22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.s{fill:#315276;font:400 14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.line{stroke:#72A6E8;stroke-width:4;fill:none}.tag{fill:#1B66C9;font:700 15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+  </style>
+  <rect class="bg" width="960" height="480" rx="18"/>
+  <text class="title" x="480" y="50" text-anchor="middle">협동학습 모형 선택</text>
+  <text class="sub" x="480" y="78" text-anchor="middle">모형 이름보다 과제 구조와 평가 증거를 먼저 묻는다.</text>
+  <rect class="q" x="325" y="118" width="310" height="84" rx="18"/>
+  <text class="tq" x="480" y="153" text-anchor="middle">내용을 부분으로 나눈 뒤</text>
+  <text class="tq" x="480" y="180" text-anchor="middle">다시 통합해야 하는가?</text>
+  <path class="line" d="M325 160 H185 V274 M635 160 H775 V274"/>
+  <text class="tag" x="218" y="148">예</text><text class="tag" x="732" y="148">아니오</text>
+  <rect class="a" x="55" y="274" width="260" height="108" rx="18"/>
+  <text class="ta" x="185" y="320" text-anchor="middle">Jigsaw</text>
+  <text class="ta" x="185" y="349" text-anchor="middle" style="font-size:15px;font-weight:400">부분 전문성 + 상호 설명</text>
+  <rect class="q" x="620" y="264" width="310" height="104" rx="18"/>
+  <text class="tq" x="775" y="303" text-anchor="middle">모두의 공통 이해와</text>
+  <text class="tq" x="775" y="330" text-anchor="middle">개인 점검이 필요한가?</text>
+  <path class="line" d="M775 368 V408 H525 M775 368 V408 H825"/>
+  <text class="tag" x="585" y="399">예</text><text class="tag" x="840" y="399">반복 연습·게임 적합</text>
+  <rect class="a" x="390" y="408" width="270" height="58" rx="18"/>
+  <text class="ta" x="525" y="446" text-anchor="middle">STAD</text>
+  <rect class="a2" x="690" y="408" width="270" height="58" rx="18"/>
+  <text class="ta" x="825" y="446" text-anchor="middle">TGT</text>
+</svg>

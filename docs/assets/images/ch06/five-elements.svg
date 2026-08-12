@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">협동학습의 다섯 요소</title>
+  <desc id="desc">공동 목표와 개인 이해 확인을 중심으로 긍정적 상호의존성, 촉진적 상호작용, 사회적 기술, 집단 과정이 연결된 도식</desc>
+  <style>
+    .bg{fill:#fff}.title{fill:#0B2C5C;font:700 29px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.sub{fill:#315276;font:400 16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.core{fill:#0B2C5C}.coreT{fill:#fff;font:700 22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.coreS{fill:#DCEBFF;font:400 15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.card{fill:#F5F9FF;stroke:#1B66C9;stroke-width:2}.cardT{fill:#0B2C5C;font:700 19px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.cardS{fill:#315276;font:400 14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.line{stroke:#72A6E8;stroke-width:3;fill:none}
+  </style>
+  <rect class="bg" width="960" height="540" rx="18"/>
+  <text class="title" x="480" y="52" text-anchor="middle">협동학습의 다섯 요소</text>
+  <text class="sub" x="480" y="80" text-anchor="middle">모둠 편성만으로는 부족하다. 공동 목표와 개인 이해의 증거를 함께 설계한다.</text>
+  <path class="line" d="M480 275 L215 175 M480 275 L745 175 M480 275 L190 410 M480 275 L770 410"/>
+  <path class="line" d="M480 320 L480 440"/>
+  <rect class="core" x="325" y="210" width="310" height="125" rx="24"/>
+  <text class="coreT" x="480" y="254" text-anchor="middle">공동 목표 + 개인 이해 확인</text>
+  <text class="coreS" x="480" y="284" text-anchor="middle">서로의 성공이 연결되고, 각자의 배움이 보인다</text>
+  <rect class="card" x="70" y="110" width="290" height="110" rx="16"/>
+  <text class="cardT" x="215" y="151" text-anchor="middle">긍정적 상호의존성</text>
+  <text class="cardS" x="215" y="180" text-anchor="middle">서로의 정보·역할이 필요하다</text>
+  <rect class="card" x="600" y="110" width="290" height="110" rx="16"/>
+  <text class="cardT" x="745" y="151" text-anchor="middle">개별 책무성</text>
+  <text class="cardS" x="745" y="180" text-anchor="middle">각자의 이해와 기여를 확인한다</text>
+  <rect class="card" x="45" y="360" width="290" height="110" rx="16"/>
+  <text class="cardT" x="190" y="401" text-anchor="middle">촉진적 상호작용</text>
+  <text class="cardS" x="190" y="430" text-anchor="middle">설명·질문·근거 확인을 한다</text>
+  <rect class="card" x="625" y="360" width="290" height="110" rx="16"/>
+  <text class="cardT" x="770" y="401" text-anchor="middle">사회적 기술</text>
+  <text class="cardS" x="770" y="430" text-anchor="middle">경청·도움 요청·갈등 조정을 배운다</text>
+  <rect class="card" x="335" y="430" width="290" height="74" rx="16"/>
+  <text class="cardT" x="480" y="461" text-anchor="middle">집단 과정</text>
+  <text class="cardS" x="480" y="486" text-anchor="middle">활동 뒤 협동 방식을 고친다</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 450" role="img" aria-labelledby="title desc">
+  <title id="title">탐구의 증거 흐름</title>
+  <desc id="desc">현상에서 탐구 가능한 질문을 만들고 증거를 수집해 설명을 구성한 뒤 대안 비교와 의사소통으로 이어지는 흐름도</desc>
+  <style>
+    .bg{fill:#fff}.title{fill:#0B2C5C;font:700 29px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.sub{fill:#315276;font:400 16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.node{fill:#F5F9FF;stroke:#1B66C9;stroke-width:2}.node2{fill:#0B2C5C}.nt{fill:#0B2C5C;font:700 19px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.ns{fill:#315276;font:400 14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wt{fill:#fff;font:700 19px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.ws{fill:#DCEBFF;font:400 14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.line{stroke:#72A6E8;stroke-width:4}
+  </style>
+  <rect class="bg" width="960" height="450" rx="18"/>
+  <text class="title" x="480" y="50" text-anchor="middle">탐구의 증거 흐름</text>
+  <text class="sub" x="480" y="78" text-anchor="middle">질문, 증거, 설명, 대안, 의사소통을 한 번에 끝내지 않고 연결한다.</text>
+  <line class="line" x1="174" y1="240" x2="786" y2="240"/>
+  <polygon fill="#72A6E8" points="798,240 778,229 778,251"/>
+  <g><rect class="node" x="35" y="170" width="140" height="140" rx="18"/><text class="nt" x="105" y="217" text-anchor="middle">현상</text><text class="ns" x="105" y="247" text-anchor="middle">사례·자료를</text><text class="ns" x="105" y="268" text-anchor="middle">만난다</text></g>
+  <g><rect class="node" x="205" y="170" width="140" height="140" rx="18"/><text class="nt" x="275" y="217" text-anchor="middle">질문</text><text class="ns" x="275" y="247" text-anchor="middle">답할 수 있게</text><text class="ns" x="275" y="268" text-anchor="middle">범위를 정한다</text></g>
+  <g><rect class="node2" x="375" y="170" width="140" height="140" rx="18"/><text class="wt" x="445" y="217" text-anchor="middle">증거</text><text class="ws" x="445" y="247" text-anchor="middle">관찰·조사·자료</text><text class="ws" x="445" y="268" text-anchor="middle">해석을 한다</text></g>
+  <g><rect class="node" x="545" y="170" width="140" height="140" rx="18"/><text class="nt" x="615" y="217" text-anchor="middle">설명</text><text class="ns" x="615" y="247" text-anchor="middle">근거로 주장을</text><text class="ns" x="615" y="268" text-anchor="middle">구성한다</text></g>
+  <g><rect class="node" x="715" y="170" width="210" height="140" rx="18"/><text class="nt" x="820" y="208" text-anchor="middle">대안 비교·의사소통</text><text class="ns" x="820" y="242" text-anchor="middle">다른 설명을 검토하고</text><text class="ns" x="820" y="265" text-anchor="middle">질문을 반영해 수정한다</text></g>
+  <path d="M820 335 C690 410 300 410 275 335" fill="none" stroke="#0B2C5C" stroke-width="3" stroke-dasharray="8 8"/>
+  <text class="sub" x="545" y="404" text-anchor="middle">수정한 설명은 다음 질문의 출발점이 된다</text>
+</svg>
