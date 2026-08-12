@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+  <title id="title">질문을 활동으로 만드는 대화 순환</title>
+  <desc id="desc">질문 뒤에 개인 사고, 짝 검토, 근거 비교, 전체 공유, 설명 수정을 배치하는 순환도</desc>
+  <style>
+    .bg{fill:#fff}.title{fill:#0B2C5C;font:700 29px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.sub{fill:#315276;font:400 16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.node{fill:#F5F9FF;stroke:#1B66C9;stroke-width:3}.nt{fill:#0B2C5C;font:700 20px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.ns{fill:#315276;font:400 14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.core{fill:#0B2C5C}.ct{fill:#fff;font:700 21px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.line{stroke:#72A6E8;stroke-width:4;fill:none}
+  </style>
+  <rect class="bg" width="960" height="500" rx="18"/>
+  <text class="title" x="480" y="50" text-anchor="middle">질문을 활동으로 만드는 대화 순환</text>
+  <text class="sub" x="480" y="78" text-anchor="middle">말하기 전에 생각과 근거를 준비하고, 대화 뒤에는 설명을 수정한다.</text>
+  <path class="line" d="M315 172 C430 104 580 104 690 172 M768 245 C802 332 685 408 612 414 M480 414 C355 416 188 330 193 245 M252 173 C302 124 359 104 405 105"/>
+  <polygon fill="#72A6E8" points="697,178 678,162 682,188"/><polygon fill="#72A6E8" points="603,421 623,401 621,428"/><polygon fill="#72A6E8" points="186,252 210,240 204,265"/><polygon fill="#72A6E8" points="412,110 391,95 393,121"/>
+  <rect class="core" x="370" y="205" width="220" height="90" rx="28"/><text class="ct" x="480" y="242" text-anchor="middle">핵심 질문</text><text class="ct" x="480" y="270" text-anchor="middle" style="font-size:15px;font-weight:400">무엇을, 어떤 근거로 판단할까?</text>
+  <g><rect class="node" x="110" y="110" width="205" height="90" rx="18"/><text class="nt" x="212" y="147" text-anchor="middle">개인 사고</text><text class="ns" x="212" y="174" text-anchor="middle">답과 근거를 먼저 쓴다</text></g>
+  <g><rect class="node" x="645" y="110" width="205" height="90" rx="18"/><text class="nt" x="747" y="147" text-anchor="middle">짝 검토</text><text class="ns" x="747" y="174" text-anchor="middle">질문·반례를 비교한다</text></g>
+  <g><rect class="node" x="670" y="315" width="205" height="90" rx="18"/><text class="nt" x="772" y="352" text-anchor="middle">전체 공유</text><text class="ns" x="772" y="379" text-anchor="middle">근거와 논점을 연결한다</text></g>
+  <g><rect class="node" x="377" y="382" width="205" height="90" rx="18"/><text class="nt" x="480" y="419" text-anchor="middle">설명 수정</text><text class="ns" x="480" y="446" text-anchor="middle">처음 주장과 달라진 점을 남긴다</text></g>
+  <g><rect class="node" x="85" y="315" width="205" height="90" rx="18"/><text class="nt" x="187" y="352" text-anchor="middle">근거 비교</text><text class="ns" x="187" y="379" text-anchor="middle">자료와 발언을 연결한다</text></g>
+</svg>
