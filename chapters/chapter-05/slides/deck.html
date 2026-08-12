@@ -288,6 +288,24 @@ section.layout-cover .textbook-link:focus-visible {
   outline: 4px solid var(--blue);
   outline-offset: 4px;
 }
+section.layout-section .textbook-link--section {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+  padding: 8px 14px;
+  border: 2px solid var(--blue);
+  border-radius: 2px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+}
+section.layout-section .textbook-link--section:focus-visible {
+  outline: 4px solid #fff;
+  outline-offset: 4px;
+}
 section.layout-cover .cover-photo {
   position: absolute;
   right: 80px;
@@ -775,13 +793,14 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <h1 class="cover-title">수업의<br>구성과 절차</h1>
       <div class="cover-rule"></div>
       <div class="cover-subtitle">가녜 이론과 학습 설계의 실천</div>
+      <div class="cover-subtitle" style="font-size:28px; margin-top:18px;">교재 연계: <strong>4장 수업의 구성과 학습의 조건</strong></div>
       <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part2/ch04/">텍스트 교재</a>
     </div>
     <div class="cover-photo">
       <img data-src="../images/img-s01-cover-bg.png" alt="수업 흐름도, 9단계 사다리, 학습 목표 아이콘이 어우러진 타이틀 배경 일러스트">
       <div class="photo-credit">AI-generated · gpt-image-gen</div>
     </div>
-    <aside class="notes">5장은 4장에서 체계화한 교수설계 모형(ADDIE, Dick &amp; Carey)의 각 단계에 해당하는 실천적 도구들을 상세히 다룹니다. 가녜(Gagné)의 학습 결과 5유형, 9가지 교수사태, 학습 위계 분석 방법, 내용 조직화·계열화, 블룸 분류표가 이 장의 핵심 내용입니다. 이 도구들은 Dick &amp; Carey 10단계 중 ②교수분석, ④수행목표진술, ⑥교수전략개발의 실질적 내용을 채웁니다.</aside>
+    <aside class="notes">5강은 교재 4장 「수업의 구성과 학습의 조건」과 연계됩니다. 학습 결과 유형에 맞는 조건, 9가지 교수사태, 선수학습과 내용 조직, 관찰 가능한 목표를 하나의 수업안에서 함께 점검합니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 2. 학습목표 ━━━━━━━━━━━━━━━━ -->
@@ -797,8 +816,8 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <div class="num-section">
           <span class="num-chip">01</span>
           <div class="text">
-            <span class="label">가녜 생애 &amp; 『학습의 조건』</span>
-            학문적 생애와 핵심 주장을 <strong>설명</strong>한다.
+            <span class="label">학습 조건</span>
+            학습 결과 유형과 수업 설계의 관계를 <strong>설명</strong>한다.
           </div>
         </div>
         <div class="num-section">
@@ -811,22 +830,22 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <div class="num-section">
           <span class="num-chip">03</span>
           <div class="text">
-            <span class="label">9가지 교수사태 × CIP</span>
-            내적 학습 과정과의 대응 관계를 <strong>적용</strong>한다.
+            <span class="label">9가지 교수사태</span>
+            내적 처리를 돕는 외적 조건으로 <strong>해석</strong>한다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">04</span>
           <div class="text">
-            <span class="label">위계·절차·군집 분석 / 계열화</span>
-            분석 방법과 계열화 원리를 <strong>비교</strong>한다.
+            <span class="label">선수학습·내용 조직</span>
+            학습위계와 계열화로 선수학습과 연습을 <strong>연결</strong>한다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">05</span>
           <div class="text">
-            <span class="label">블룸 분류표 (2차원)</span>
-            학습 목표를 인지과정 수준에 맞춰 <strong>진술</strong>한다.
+            <span class="label">정교화·개정 블룸 분류표</span>
+            단원 조직과 관찰 가능한 목표를 <strong>점검</strong>한다.
           </div>
         </div>
       </div>
@@ -835,7 +854,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <figcaption>그림 5-0 · 5강 학습목표 맵</figcaption>
       </figure>
     </div>
-    <aside class="notes">5장의 다섯 가지 학습목표를 안내합니다. 가녜의 생애와 『학습의 조건』 핵심 주장, 학습 결과 5유형과 교수 조건, 9가지 교수사태와 CIP 이론의 대응, 학습 위계 분석 세 방법과 계열화 전략, 블룸 분류표(개정판) 2차원 구조가 이 장의 핵심 내용입니다(류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">5강의 목표는 교재 4장에 맞춰 학습 결과 유형과 조건, 9가지 교수사태, 학습위계와 내용 계열화, 정교화 이론과 개정 블룸 분류표의 네 축으로 정리합니다. 학습 조건은 항목을 빠짐없이 채우는 목록이 아니라 목표 수행에 맞춰 고르는 설계 판단입니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 2-B. 왜 중요한가 — 임용 2차 수업실연의 핵심 ━━━━━━━━━━━━━━━━ -->
@@ -870,33 +889,34 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
   <section class="layout-section">
     <div class="section-inner">
       <div class="section-num">SECTION 01</div>
-      <h2 class="section-title">로버트 가녜:<br>교육공학의 학문적<br>기초를 다진 사람</h2>
-      <p class="section-blurb">안내 질문: 가녜가 행동주의에서 출발한 점이 왜 인지주의 교수설계의 전환점이 되었는가?</p>
+      <h2 class="section-title">수업을 학습<br>조건으로 보기</h2>
+      <p class="section-blurb">안내 질문: 같은 설명이라도 목표 수행이 다르면 어떤 조건을 다르게 마련해야 하는가?</p>
+      <a class="textbook-link--section" href="https://taehyeonglim.github.io/edtech/book/part2/ch04/#1-수업을-학습-조건으로-보기">교재 1절 보기 →</a>
     </div>
-    <aside class="notes">1절에서는 '교육공학의 아버지'로 불리는 로버트 가녜(Robert M. Gagné, 1916-2002)의 학문적 생애와 그의 대표 저서 『학습의 조건(The Conditions of Learning)』(1965)의 핵심 주장을 다룹니다. 행동주의 심리학자로 출발한 가녜가 군사 훈련 경험을 통해 인지주의로 전환한 과정, FSU 교육공학과 설립 참여까지의 궤적을 살펴봅니다.</aside>
+    <aside class="notes">1절에서는 수업을 교사가 설명한 시간의 합이 아니라, 학습자가 도달할 수행과 선수 경험, 자료와 활동을 맞추는 설계로 봅니다. 목표가 사실 기억인지, 개념 구분인지, 원리 적용인지에 따라 필요한 조건이 달라집니다.</aside>
   </section>
 
-  <!-- ━━━━━━━━━━━━━━━━ 4. 가녜 생애 ━━━━━━━━━━━━━━━━ -->
+  <!-- ━━━━━━━━━━━━━━━━ 4. 학습 조건을 설계하기 ━━━━━━━━━━━━━━━━ -->
   <section class="layout-flex-2col">
     <div class="header-bar">
       <span class="chapter-chip">05</span>
-      <span class="header-title">로버트 가녜의 학문적 생애</span>
+      <span class="header-title">학습 조건을 설계하기</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
       <div class="cols" style="grid-template-columns:1fr">
         <div class="col-card">
-          <div class="col-title">Robert M. Gagné (1916–2002) — 학문적 여정</div>
+          <div class="col-title">조건은 교실 환경만을 가리키지 않는다</div>
           <ul>
-            <li>1940년 Brown 대학교 박사 <strong>(행동주의 출발)</strong></li>
-            <li>제2차 세계대전 중 군사 훈련 설계 → 인간 학습의 복잡성 인식</li>
-            <li>1965년 『<strong>학습의 조건</strong>』 출간</li>
-            <li>1969년 <strong>FSU</strong> 합류; 1972년 Instructional Systems 교육과정 개발 참여</li>
+            <li><strong>목표</strong>: 학생이 수업 뒤 무엇을 할 수 있어야 하는가</li>
+            <li><strong>선수학습</strong>: 그 수행에 필요한 경험과 하위 기능은 무엇인가</li>
+            <li><strong>활동·자료</strong>: 어떤 예시와 연습이 수행을 가능하게 하는가</li>
+            <li><strong>피드백·평가·전이</strong>: 무엇으로 확인하고 새 맥락에 적용하게 할 것인가</li>
           </ul>
         </div>
       </div>
     </div>
-    <aside class="notes">로버트 가녜는 행동주의 심리학자로 출발하여 제2차 세계대전 중 군사 훈련 프로그램 설계를 맡으면서 학습의 복잡성을 인식하게 되었습니다. 1965년 『학습의 조건』을 출간하여 교수설계 이론의 토대를 놓았고, 1969년 FSU에 합류하여 1972년 Instructional Systems 대학원 교육과정 개발에 초기 핵심 교수진으로 참여하였습니다. FSU에서 1985년까지 16년간 재직하며 체제적 교수설계 패러다임의 확산을 이끌었습니다(Gagné, 1965; 류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">학습 조건은 목표, 선수학습, 자료 제시, 연습 기회, 피드백, 평가, 전이 과제까지 포함합니다. 첫 질문은 “무엇을 재미있게 보여 줄까?”보다 “학생이 수업 뒤 무엇을 할 수 있어야 하는가?”입니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 5. 학습의 조건 핵심 주장 ━━━━━━━━━━━━━━━━ -->
@@ -910,9 +930,9 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <div class="copy">
         <h2 class="slide-heading">『학습의 조건』의 핵심 주장</h2>
         <p class="body-text"><strong>통찰 1</strong>: 학습에는 <strong>여러 유형</strong>이 존재 — 유형마다 질적으로 다른 결과</p>
-        <p class="body-text"><strong>통찰 2</strong>: 각 유형에 맞는 <strong>최적의 교수·학습 조건</strong>이 달라진다</p>
+        <p class="body-text"><strong>통찰 2</strong>: 각 유형에 맞는 <strong>교수·학습 조건</strong>이 달라진다</p>
         <div class="callout callout--info" style="font-size:38px; margin-top:28px;">
-          다양한 유형의 학습이 존재하며, 각 유형마다 서로 다른 교수·학습 조건이 요구된다.<br>
+          같은 설명이라도 목표가 기억·개념 구분·원리 적용 중 무엇인지에 따라 필요한 조건이 달라진다.<br>
           <span style="font-size:28px; color:var(--text-muted);">Gagné (1965) 이론의 핵심 명제</span>
         </div>
       </div>
@@ -921,7 +941,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <figcaption>그림 5-1 · 학습 유형과 교수 조건의 대응 (Gagné, 1965)</figcaption>
       </figure>
     </div>
-    <aside class="notes">가녜의 핵심 통찰은 행동주의 패러다임의 '모든 학습은 자극-반응 연합'이라는 단일 설명을 거부한 것입니다. 수학 개념 이해, 피아노 연주 숙달, 도덕적 태도 형성, 학습 전략 습득은 서로 질적으로 다른 유형의 학습이며, 각기 다른 교수 조건이 필요합니다. 이 관점은 이후 학습 결과 5유형과 9단계 교수사태로 구체화되었습니다(Gagné, 1965).</aside>
+    <aside class="notes">가녜의 학습 조건 관점은 학습 결과의 종류와 그것을 가능하게 하는 조건을 함께 분석하게 합니다. 수학 개념 이해, 피아노 연주 숙달, 태도 형성, 학습 전략 습득은 서로 다른 지원을 요구합니다(Gagné, 1965; Gagné, Briggs, &amp; Wager, 1992).</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 6. SECTION 2 ━━━━━━━━━━━━━━━━ -->
@@ -930,8 +950,9 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <div class="section-num">SECTION 02</div>
       <h2 class="section-title">Gagné의<br>학습 결과<br>다섯 유형</h2>
       <p class="section-blurb">안내 질문: 교사가 수업 설계 전에 왜 먼저 학습 결과의 유형을 파악해야 하는가?</p>
+      <a class="textbook-link--section" href="https://taehyeonglim.github.io/edtech/book/part2/ch04/#2-학습-결과와-교수사태를-연결하기">교재 2절 보기 →</a>
     </div>
-    <aside class="notes">2절에서는 가녜의 학습 결과 5유형(언어정보·지적기능·인지전략·태도·운동기능)을 다룹니다. 핵심 질문은 '왜 학습 결과 유형을 먼저 파악해야 하는가'입니다. 유형에 따라 교수·학습 조건이 달라지기 때문입니다. 이 분류는 임의적 열거가 아니라 인간 능력의 질적 차이에 기반한 심리학적 분석입니다(Gagné, 1965; Gagné, Briggs &amp; Wager, 1992).</aside>
+    <aside class="notes">2절에서는 가녜의 학습 결과 다섯 유형을 이름 자체가 아니라 지원을 고르는 기준으로 봅니다. 언어정보에는 조직과 인출 단서, 지적기능에는 개념 변별과 하위 기능 연습, 인지전략에는 시범과 자기질문, 태도에는 모델과 성찰, 운동기능에는 반복과 피드백이 필요합니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 7. 학습 결과 5유형 비교표 ━━━━━━━━━━━━━━━━ -->
@@ -995,19 +1016,19 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       <div class="flow-row cols-3">
         <div class="flow-card">
           <div class="step-key">언어정보</div>
-          <div class="step-desc">선언적 지식 — "무엇인가?"<br>사실·명제 기억·재현<br><strong>복잡한 학습의 기반</strong></div>
+          <div class="step-desc">사실·명제를 기억·재현<br><strong>의미 조직·인출 단서</strong>로 지원</div>
         </div>
         <div class="flow-card">
           <div class="step-key">지적기능</div>
-          <div class="step-desc">절차적 지식 — "어떻게 적용하나?"<br>변별 → 개념 → 원리 → <strong>문제해결</strong> 위계</div>
+          <div class="step-desc">개념을 변별하고 원리를 적용<br><strong>예시·하위 기능 연습</strong>으로 지원</div>
         </div>
         <div class="flow-card">
           <div class="step-key">인지전략</div>
-          <div class="step-desc">자기조절 역량 — "어떻게 학습하나?"<br>작동기억·장기기억 처리를 <strong>학습자 스스로 통제</strong></div>
+          <div class="step-desc">학습 과정을 조절하는 전략<br><strong>시범·자기질문·점검 절차</strong>로 지원</div>
         </div>
       </div>
     </div>
-    <aside class="notes">세 유형의 특성을 상세히 설명합니다. 언어정보는 선언적 지식(사실·명제)으로, 단순 암기처럼 보이지만 더 복잡한 지적기능의 기반입니다. 지적기능은 절차적 지식으로, 변별-개념-원리-문제해결의 네 하위 유형이 위계를 이룹니다. 인지전략은 3장의 CIP 이론에서 작동기억과 장기기억 사이의 정교화·조직화 과정을 학습자 스스로 통제하는 능력에 해당합니다. 요약하기, 관련 질문 만들기, 서로 가르치기 등이 인지전략을 발달시키는 방법입니다(Gagné, 1965; 류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">언어정보, 지적기능, 인지전략은 서로 다른 지원을 요구합니다. 특히 인지전략은 학생에게 답을 주는 것보다 교사의 시범, 자기질문, 점검 절차를 통해 더 잘 드러납니다. 분류 이름을 외우기보다 목표 수행에 맞는 지원을 고르는 데 씁니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 9. 태도와 운동기능 ━━━━━━━━━━━━━━━━ -->
@@ -1044,44 +1065,45 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
   <section class="layout-section">
     <div class="section-inner">
       <div class="section-num">SECTION 03</div>
-      <h2 class="section-title">수업의 9단계:<br>9 Events of<br>Instruction</h2>
-      <p class="section-blurb">안내 질문: 9가지 교수사태는 왜 임의적 순서가 아닌 CIP 이론에 근거한 설계인가?</p>
+      <h2 class="section-title">9가지 교수사태:<br>외적 조건으로<br>읽기</h2>
+      <p class="section-blurb">안내 질문: 수업 흐름에서 학습자의 내적 처리를 돕는 조건은 무엇인가?</p>
+      <a class="textbook-link--section" href="https://taehyeonglim.github.io/edtech/book/part2/ch04/#2-학습-결과와-교수사태를-연결하기">교재 2절 보기 →</a>
     </div>
-    <aside class="notes">3절에서는 가녜의 9가지 교수사태(Nine Events of Instruction)를 다룹니다. 핵심은 외적 수업 활동이 학습자 내부의 CIP 인지 처리 과정을 활성화하도록 설계된다는 것입니다. 9사태는 임의적 활동 목록이 아니라 3장에서 다룬 감각기억-작동기억-장기기억의 흐름에 대응하는 과학적 설계입니다(Gagné, Briggs &amp; Wager, 1992).</aside>
+    <aside class="notes">3절에서는 9가지 교수사태를 학습자의 내적 처리를 돕는 외적 수업 사건으로 읽습니다. 모든 사태를 같은 순서와 분량으로 넣는 체크리스트가 아니라, 목표 수행에 필요한 조건이 빠지지 않았는지 점검하는 틀입니다.</aside>
   </section>
 
-  <!-- ━━━━━━━━━━━━━━━━ 11. CIP와 9단계 대응 ━━━━━━━━━━━━━━━━ -->
+  <!-- ━━━━━━━━━━━━━━━━ 11. 9가지 교수사태와 수업 조건 ━━━━━━━━━━━━━━━━ -->
   <section class="layout-image">
     <div class="header-bar">
       <span class="chapter-chip">05</span>
-      <span class="header-title">CIP 이론과 9단계의 대응 구조</span>
+      <span class="header-title">9가지 교수사태와 수업 조건</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
       <div class="copy">
-        <h2 class="slide-heading">CIP 이론과 9단계의 대응 구조</h2>
-        <p class="body-text"><strong>외적 교수 활동</strong> → <strong>내적 인지 처리</strong> 활성화</p>
+        <h2 class="slide-heading">9가지 교수사태와 수업 조건</h2>
+        <p class="body-text"><strong>외적 수업 사건</strong> → <strong>학습자의 내적 처리</strong>를 돕는 조건</p>
         <ul class="body-text" style="margin-top:20px;">
           <li style="list-style:none; padding-left:36px; position:relative; margin-bottom:16px;">
             <span style="position:absolute;left:0;color:var(--blue);font-size:22px;">■</span>
-            ① <strong>주의</strong> → ② <strong>기대 형성</strong> → ③ <strong>선수지식 인출</strong>
+            ① <strong>주의</strong> → ② <strong>목표 인식</strong> → ③ <strong>선수학습 회상</strong>
           </li>
           <li style="list-style:none; padding-left:36px; position:relative; margin-bottom:16px;">
             <span style="position:absolute;left:0;color:var(--blue);font-size:22px;">■</span>
-            ④ <strong>선택적 지각</strong> → ⑤ <strong>의미부호화</strong> → ⑥ <strong>반응</strong> → ⑦ <strong>강화</strong>
+            ④ <strong>자료 제시</strong> → ⑤ <strong>학습 안내</strong> → ⑥ <strong>수행</strong> → ⑦ <strong>피드백</strong>
           </li>
           <li style="list-style:none; padding-left:36px; position:relative;">
             <span style="position:absolute;left:0;color:var(--blue);font-size:22px;">■</span>
-            ⑧ <strong>수행 확인</strong> → ⑨ <strong>인출·일반화(파지·전이)</strong>
+            ⑧ <strong>평가</strong> → ⑨ <strong>파지와 전이</strong>
           </li>
         </ul>
       </div>
       <figure>
         <img data-src="../images/img-s11-9events-cip.png" alt="CIP 감각→작동→장기기억 흐름 위에 9가지 교수사태가 대응하는 도식">
-        <figcaption>그림 5-2 · CIP와 9가지 교수사태 대응 (Gagné, Briggs &amp; Wager, 1992)</figcaption>
+        <figcaption>그림 5-2 · 학습 조건을 점검하는 9가지 교수사태 흐름</figcaption>
       </figure>
     </div>
-    <aside class="notes">9가지 교수사태는 각각 특정 내적 인지 과정과 대응합니다. ①주의(attention), ②기대 형성(expectancy), ③선수지식 인출(retrieval), ④선택적 지각(selective perception), ⑤의미부호화(semantic encoding), ⑥반응(responding), ⑦강화(reinforcement), ⑧수행 확인(assessment), ⑨인출·일반화(retrieval &amp; generalization)가 그것입니다. 이 대응 구조가 9사태를 '임의적 활동 목록'이 아닌 '인지과학 기반 설계'로 만드는 이유입니다(Gagné, Briggs &amp; Wager, 1992; 류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">9가지 교수사태는 주의, 목표 인식, 선수학습 회상, 자료와 안내, 수행과 피드백, 평가와 전이를 통해 학습자의 처리를 돕습니다. 짧은 수업에서는 압축하고, 탐구 수업에서는 수행과 피드백을 반복할 수 있습니다(Gagné, Briggs, &amp; Wager, 1992).</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 12. 9사태 ①~⑤ ━━━━━━━━━━━━━━━━ -->
@@ -1098,7 +1120,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
           <tr>
             <th>#</th>
             <th>사태</th>
-            <th>내적 학습 과정</th>
+            <th>설계에서 점검할 조건</th>
             <th>수업 예시</th>
           </tr>
         </thead>
@@ -1106,37 +1128,37 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
           <tr>
             <td class="num">①</td>
             <td><strong>주의 획득</strong></td>
-            <td>감각기억 활성화</td>
+            <td>학습할 이유에 주의를 모은다</td>
             <td>충격적 사례, 흥미로운 질문</td>
           </tr>
           <tr>
             <td class="num">②</td>
             <td><strong>학습 목표 제시</strong></td>
-            <td>기대 형성</td>
+            <td>수업 뒤 할 수 있는 수행을 분명히 한다</td>
             <td>"오늘 수업 후 할 수 있는 것"</td>
           </tr>
           <tr>
             <td class="num">③</td>
             <td><strong>선수 학습 회상</strong></td>
-            <td>장기기억 인출</td>
+            <td>필요한 선수지식과 경험을 꺼낸다</td>
             <td>"지난 시간 배운 내용은?"</td>
           </tr>
           <tr>
             <td class="num">④</td>
             <td><strong>자극 자료 제시</strong></td>
-            <td>선택적 지각</td>
+            <td>핵심 자료를 구조화해 제시한다</td>
             <td>강조·구조화된 내용 제시</td>
           </tr>
           <tr>
             <td class="num">⑤</td>
             <td><strong>학습 안내 제공</strong></td>
-            <td>부호화·정교화</td>
+            <td>비유·예시·개념도로 이해를 안내한다</td>
             <td>비유, 예시, 개념도</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <aside class="notes">9가지 교수사태 전반부 ①~⑤를 설명합니다. ①주의 획득은 수업의 전제 조건으로, 주의 없이는 이후 정보 처리가 불가능합니다. ②목표 제시는 학습자가 어디에 주의를 기울여야 할지 기대를 형성합니다. ③선수학습 회상은 기존 지식 구조에 새 내용을 연결하기 위한 준비입니다. ④자극 자료 제시는 선택적 지각이 일어나도록 강조와 구조화가 중요합니다. ⑤학습 안내는 새 정보가 장기기억에 의미 있게 통합(정교화)되도록 지원합니다(Gagné, Briggs &amp; Wager, 1992; 류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">전반부는 수업의 출발 조건을 만듭니다. 도입 질문으로 주의를 모으고, 목표와 선수학습을 확인한 뒤, 자료와 안내가 목표 수행으로 이어지도록 설계합니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 13. 9사태 ⑥~⑨ ━━━━━━━━━━━━━━━━ -->
@@ -1153,7 +1175,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
           <tr>
             <th>#</th>
             <th>사태</th>
-            <th>내적 학습 과정</th>
+            <th>설계에서 점검할 조건</th>
             <th>수업 예시</th>
           </tr>
         </thead>
@@ -1161,38 +1183,38 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
           <tr>
             <td class="num">⑥</td>
             <td><strong>수행 유도</strong></td>
-            <td>적용·자기 확인</td>
+            <td>배운 것을 실제로 해 볼 기회를 준다</td>
             <td>연습 문제, 역할극, 실험</td>
           </tr>
           <tr>
             <td class="num">⑦</td>
             <td><strong>피드백 제공</strong></td>
-            <td>강화·오개념 수정</td>
+            <td>오개념을 고칠 구체적 정보를 제공한다</td>
             <td>"왜 맞고 틀렸는지" 구체 안내</td>
           </tr>
           <tr>
             <td class="num">⑧</td>
             <td><strong>수행 평가</strong></td>
-            <td>인출·학습 여부 확인</td>
+            <td>목표 수행을 증거로 확인한다</td>
             <td>목표 달성 여부 형성평가</td>
           </tr>
           <tr>
             <td class="num">⑨</td>
             <td><strong>파지·전이 향상</strong></td>
-            <td>장기기억 강화</td>
+            <td>새 맥락의 과제로 파지와 전이를 돕는다</td>
             <td>다양한 맥락 사례, 복습 과제</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <aside class="notes">9가지 교수사태 후반부 ⑥~⑨를 설명합니다. ⑥수행 유도는 학습자가 배운 내용을 실제 적용해 보는 기회이자 교수자의 진단 기회입니다. ⑦피드백은 단순 정답 알림이 아닌 '왜 맞고 틀렸는지'를 구체적으로 안내해야 합니다. ⑧수행 평가는 4장의 준거지향평가 원리가 구현되는 단계입니다. ⑨파지·전이는 학습의 진정한 완성 조건으로, 다양한 맥락 사례 제공과 실제 적용 과제가 핵심 방법입니다(Gagné, Briggs &amp; Wager, 1992; 류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">후반부는 수행 기회, 구체적 피드백, 목표에 맞는 평가, 새 맥락 전이 과제를 연결합니다. 9사태를 한 차시에 모두 같은 길이로 넣어야 하는 것은 아닙니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 14. 파지와 전이 ━━━━━━━━━━━━━━━━ -->
   <section class="layout-flex-2col">
     <div class="header-bar">
       <span class="chapter-chip">05</span>
-      <span class="header-title">파지와 전이: 학습의 완성 조건</span>
+      <span class="header-title">파지와 전이: 새 맥락까지 확인하기</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
@@ -1200,99 +1222,101 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <div class="col-card primary">
           <div class="col-title">파지 (Retention)</div>
           <ul>
-            <li>시간이 지나도 기억 재현 가능</li>
-            <li><strong>간격 두기 연습</strong>(spaced practice)</li>
-            <li>정교화 전략으로 장기기억 강화</li>
+            <li>시간이 지난 뒤에도 필요한 지식과 기능을 인출</li>
+            <li>배운 내용을 다시 꺼내어 수행할 기회</li>
+            <li>평가 뒤에도 핵심 수행을 확인</li>
           </ul>
         </div>
         <div class="col-card">
           <div class="col-title">전이 (Transfer)</div>
           <ul>
-            <li>새로운 맥락에서 적용 가능</li>
-            <li>'<strong>불활성 지식</strong>(inert knowledge)' 탈피</li>
-            <li>다양한 사례·원리 중심 이해로 촉진</li>
+            <li>배운 수행을 <strong>새로운 맥락</strong>에 적용</li>
+            <li>같은 답을 반복하지 않는 변형 과제</li>
+            <li>마지막에 남기는 다음 수업의 적용 기회</li>
           </ul>
         </div>
       </div>
     </div>
-    <aside class="notes">파지와 전이는 학습이 진정으로 완성되었는지를 판단하는 두 기준입니다. 파지는 시간이 지나도 기억을 재현할 수 있는 것으로, 반복 학습과 간격 두기 연습(spaced practice)이 효과적입니다. 전이는 새로운 맥락에서의 적용으로, 전이가 이루어지지 않는 학습은 교실 안에서만 작동하는 '불활성 지식(inert knowledge)'으로 남습니다. 전이 촉진을 위해서는 다양한 맥락의 사례 제공과 원리 중심 이해가 핵심입니다(Gagné, Briggs &amp; Wager, 1992; 류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">9번째 교수사태는 평가로 끝내지 않고 파지와 전이를 위한 변형 과제를 남기게 합니다. 예를 들어 비례식을 배운 뒤 할인율처럼 다른 생활 장면에 적용하게 하면 새 맥락에서의 수행을 확인할 수 있습니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 15. SECTION 4 ━━━━━━━━━━━━━━━━ -->
   <section class="layout-section">
     <div class="section-inner">
       <div class="section-num">SECTION 04</div>
-      <h2 class="section-title">학습 위계 분석과<br>내용 조직</h2>
-      <p class="section-blurb">안내 질문: 위계적·절차적·군집 분석 중 어떤 기준으로 방법을 선택해야 하는가?</p>
+      <h2 class="section-title">선수학습에서<br>단원 조직까지</h2>
+      <p class="section-blurb">안내 질문: 목표 수행에 필요한 하위 기능과 내용의 성격을 어떻게 읽을 것인가?</p>
+      <a class="textbook-link--section" href="https://taehyeonglim.github.io/edtech/book/part2/ch04/#3-선수학습에서-단원-조직까지">교재 3절 보기 →</a>
     </div>
-    <aside class="notes">4절에서는 가르칠 내용을 체계적으로 분석하고 조직하는 방법을 다룹니다. Dick &amp; Carey 10단계 중 ②교수분석 단계의 실질적 내용이 바로 위계적·절차적·군집 분석입니다. 또한 라이겔루스의 정교화 이론에 기반한 주제별 계열화와 나선형 계열화(Bruner, 1960)를 비교합니다.</aside>
+    <aside class="notes">4절에서는 학습위계로 최종 수행에 필요한 하위 기능과 선수학습을 분석하고, 내용 성격에 따라 조직 원리를 고릅니다. 모든 내용을 한 줄의 위계로 환원하지 않고, 절차·개념·태도에 알맞은 조건을 따로 봅니다.</aside>
   </section>
 
-  <!-- ━━━━━━━━━━━━━━━━ 16. 분석의 세 방법 ━━━━━━━━━━━━━━━━ -->
+  <!-- ━━━━━━━━━━━━━━━━ 16. 선수학습과 내용 성격 분석 ━━━━━━━━━━━━━━━━ -->
   <section class="layout-image">
     <div class="header-bar">
       <span class="chapter-chip">05</span>
-      <span class="header-title">학습 내용 분석의 세 방법</span>
+      <span class="header-title">선수학습과 내용 성격 분석</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
       <div class="copy">
-        <h2 class="slide-heading">학습 내용 분석의 세 방법</h2>
-        <p class="body-text"><strong>위계적 분석</strong>: <span style="color:var(--blue); font-weight:700;">"무엇을 먼저 알아야 하는가?"</span> → 선수 지식 계층 파악 <em>(지적기능·운동기능)</em></p>
-        <p class="body-text"><strong>절차적 분석</strong>: <span style="color:var(--blue); font-weight:700;">"어떤 순서로 해야 하는가?"</span> → 수행 단계별 나열 <em>(스마트폰 조작·실험 절차)</em></p>
-        <p class="body-text"><strong>군집 분석</strong>: <span style="color:var(--blue); font-weight:700;">"어떻게 묶이는가?"</span> → 속성 기반 범주화 <em>(구기·비구기, 지역별 국가)</em></p>
+        <h2 class="slide-heading">선수학습과 내용 성격 분석</h2>
+        <p class="body-text"><strong>학습위계</strong>: <span style="color:var(--blue); font-weight:700;">"무엇을 먼저 할 수 있어야 하는가?"</span> → 최종 수행의 하위 기능과 선수지식 확인</p>
+        <p class="body-text"><strong>절차적 수행</strong>: <span style="color:var(--blue); font-weight:700;">"어떤 순서가 핵심인가?"</span> → 안전 절차·기초 기능의 단계 분석</p>
+        <p class="body-text"><strong>개념·태도</strong>: <span style="color:var(--blue); font-weight:700;">"어떤 관계와 경험이 필요한가?"</span> → 관계 비교·모델·성찰 조건 선택</p>
       </div>
       <figure>
         <img data-src="../images/img-s16-analysis-3types.png" alt="위계적 트리, 절차적 순서 화살표, 군집 버블 세 구조를 나란히 배치한 비교 다이어그램">
-        <figcaption>그림 5-3 · 세 가지 분석 방법 구조 비교</figcaption>
+        <figcaption>그림 5-3 · 목표 수행에 맞춰 선수학습과 내용 성격을 읽는 관점</figcaption>
       </figure>
     </div>
-    <aside class="notes">학습 내용 분석 세 방법의 특성과 적용 기준을 설명합니다. 위계적 분석은 '무엇을 먼저 알아야 하는가'를 묻는 분석으로, 원의 넓이 계산 학습 목표를 위해 원주율 이해, 반지름 개념, 곱셈 연산을 위계적으로 파악하는 예가 전형적입니다. 절차적 분석은 '어떤 순서로 해야 하는가'를 묻습니다. 군집 분석은 위계나 순서가 없는 내용을 속성 기반으로 범주화합니다. 세 방법은 복합적으로 활용됩니다(류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">학습위계는 최종 목표를 이루기 위해 먼저 갖춰야 할 하위 기능과 선수지식을 드러냅니다. 다만 모든 내용을 엄격한 한 줄 위계로 조직하지는 않습니다. 절차적 기능에는 단계, 개념 지식에는 관계 비교, 태도에는 경험과 모델이 더 중요할 수 있습니다.</aside>
   </section>
 
-  <!-- ━━━━━━━━━━━━━━━━ 17. 계열화: 주제별 vs 나선형 ━━━━━━━━━━━━━━━━ -->
+  <!-- ━━━━━━━━━━━━━━━━ 17. 계열화: 정교화와 절차적 선택 ━━━━━━━━━━━━━━━━ -->
   <section class="layout-image">
     <div class="header-bar">
       <span class="chapter-chip">05</span>
-      <span class="header-title">조직화·계열화: 주제별 vs 나선형</span>
+      <span class="header-title">계열화: 정교화와 절차적 선택</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
       <div class="copy">
-        <h2 class="slide-heading">조직화·계열화: 주제별 vs 나선형</h2>
-        <p class="body-text"><strong>주제별 계열화</strong>: 한 주제 완전 학습 후 다음 → 집중적 깊이</p>
-        <p class="body-text"><strong>나선형 계열화</strong> (Bruner, 1960): 핵심 개념을 학년마다 심화 반복</p>
+        <h2 class="slide-heading">계열화: 정교화와 절차적 선택</h2>
+        <p class="body-text"><strong>정교화 이론</strong>: 전체를 대표하는 단순한 구조에서 출발해 세부와 복잡성으로 확장</p>
+        <p class="body-text"><strong>절차적 계열화</strong>: 안전 절차나 기초 기능처럼 정확한 단계가 핵심이면 수행 순서를 우선</p>
         <div class="callout callout--info" style="font-size:38px; margin-top:24px;">
-          분수(초등) → 유리수·정수(중1~2) → 무리수·실수(중3) — 나선형의 전형
+          이론의 이름보다 <strong>내용의 성격</strong>을 먼저 보고 조직 원리를 고른다
         </div>
       </div>
       <figure>
         <img data-src="../images/img-s17-sequencing.png" alt="왼쪽 주제별 선형 계열, 오른쪽 나선형으로 심화되는 계열 구조 비교 다이어그램">
-        <figcaption>그림 5-4 · 주제별 vs 나선형 계열화 구조 (Bruner, 1960)</figcaption>
+        <figcaption>그림 5-4 · 내용 성격에 따라 계열화 원리를 선택하는 관점</figcaption>
       </figure>
     </div>
-    <aside class="notes">계열화 두 방식을 비교합니다. 주제별 계열화는 한 주제를 일정 기간 집중적으로 다뤄 깊이 있는 학습이 가능하지만, 나선형 계열화(Bruner, 1960)는 핵심 개념을 학년마다 더 넓고 깊은 맥락에서 반복 학습하도록 설계합니다. 수학의 분수(초등) → 유리수·정수(중1~2) → 무리수·실수(중3) 계열이 나선형의 전형입니다. 수학 내용 계열 일부는 나선형 계열화 사례로 해석할 수 있습니다(Reigeluth et al., 1979; Bruner, 1960; 류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">정교화 이론은 단원 수준에서 큰 그림과 세부를 오가게 하는 조직 원리입니다. 그러나 정확한 순서가 핵심인 내용에는 절차적 계열화가 더 알맞을 수 있습니다. 단원의 전체 조망과 차시의 선수학습을 구분해 설계합니다(Reigeluth et al., 1979; Reigeluth &amp; Aslan, 2014).</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 18. SECTION 5 ━━━━━━━━━━━━━━━━ -->
   <section class="layout-section">
     <div class="section-inner">
       <div class="section-num">SECTION 05</div>
-      <h2 class="section-title">학습 목표 진술과<br>블룸 분류표</h2>
-      <p class="section-blurb">안내 질문: 학습 목표에 사용하는 동사의 수준이 왜 수업의 인지적 요구를 결정하는가?</p>
+      <h2 class="section-title">관찰 가능한 목표와<br>개정 블룸 분류표</h2>
+      <p class="section-blurb">안내 질문: 목표의 내용과 수행을 함께 쓰면 활동과 평가는 어떻게 달라지는가?</p>
+      <a class="textbook-link--section" href="https://taehyeonglim.github.io/edtech/book/part2/ch04/#4-관찰-가능한-목표를-쓰기">교재 4절 보기 →</a>
     </div>
-    <aside class="notes">5절에서는 학습 목표 진술 원칙과 블룸 학습목표 분류표(개정판, Anderson &amp; Krathwohl, 2001)를 다룹니다. 핵심 질문은 '목표에 어떤 동사를 사용하는지가 왜 수업의 인지적 요구 수준을 결정하는가'입니다. 명확한 목표 없이는 교수 전략 선택도, 평가 도구 설계도 불가능하다는 체제적 교수설계의 논리와 직결됩니다.</aside>
+    <aside class="notes">5절에서는 목표를 설명하기, 분류하기, 적용하기, 분석하기, 평가하기, 설계하기처럼 관찰 가능한 수행으로 씁니다. 개정 블룸 분류표는 목표의 지식 차원과 인지과정 차원을 함께 점검하게 하며, 단원 수준의 내용 조직과 차시 수준의 목표 진술을 연결합니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 19. 학습목표 작성 원칙 ━━━━━━━━━━━━━━━━ -->
   <section class="layout-table">
     <div class="header-bar">
       <span class="chapter-chip">05</span>
-      <span class="header-title">학습 목표 작성의 원칙</span>
+      <span class="header-title">관찰 가능한 목표 작성</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">학습 목표 작성의 원칙</h2>
+      <h2 class="slide-heading">관찰 가능한 목표 작성</h2>
       <table class="data-table">
         <thead>
           <tr>
@@ -1315,15 +1339,15 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
           <tr>
             <td class="num"><strong>측정 가능</strong> 수준</td>
             <td>"잘 배운다"</td>
-            <td>"80% 이상 정확하게 답한다"</td>
+            <td>“그림과 수식으로 관계를 설명한다”</td>
           </tr>
         </tbody>
       </table>
       <div class="callout callout--summary" style="margin-top:24px; font-size:38px;">
-        "어떤 동사를 사용하는가"가 수업의 <strong>인지적 요구 수준</strong>을 결정한다
+        목표는 <strong>내용 + 관찰 가능한 수행 + 조건</strong>을 드러낸다
       </div>
     </div>
-    <aside class="notes">학습 목표 진술의 세 원칙을 설명합니다. 첫째, 행동 동사: "이해한다"는 모호하고 측정 불가능하지만 "설명한다", "분류한다"는 구체적 수행을 지시합니다. 둘째, 학습자 주어: 교수자가 '가르칠 것'이 아니라 학습자가 '할 수 있게 될 것'이 기준입니다. 셋째, 측정 가능 수준: "잘 배운다"가 아닌 "80% 이상 정확하게"와 같이 구체적 기준이 필요합니다. 이 세 원칙은 4장 Dick &amp; Carey 10단계의 ④수행목표진술 단계 원칙과 동일합니다(Anderson &amp; Krathwohl, 2001; 류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">“분수를 이해한다”보다 “분수의 분자와 분모가 나타내는 관계를 그림과 수식으로 설명한다”가 수행과 조건을 보여 줍니다. 목표가 분석인데 활동은 설명 듣기에 머물고 평가가 용어 암기에 그치면 수업 조건은 어긋납니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 20. 블룸 분류표 2차원 ━━━━━━━━━━━━━━━━ -->
@@ -1339,7 +1363,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <p class="body-text"><strong>인지과정 차원</strong> (6단계): 기억 → 이해 → 적용 → 분석 → 평가 → <strong>창조</strong></p>
         <p class="body-text"><strong>지식 차원</strong> (4유형): 사실적 → 개념적 → 절차적 → <strong>메타인지적</strong></p>
         <div class="callout callout--info" style="font-size:38px; margin-top:24px;">
-          교차하면 <strong>6 × 4 = 24셀</strong> — 각 셀이 하나의 목표 유형에 해당
+          같은 내용도 요구 수행이 다르다 — <strong>지식 차원 × 인지과정 차원</strong>을 함께 확인
         </div>
       </div>
       <figure>
@@ -1347,7 +1371,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
         <figcaption>그림 5-5 · 블룸 학습목표 분류표(개정판) (Anderson &amp; Krathwohl, 2001)</figcaption>
       </figure>
     </div>
-    <aside class="notes">블룸 학습목표 분류표(개정판)의 2차원 구조를 설명합니다. 1956년 블룸이 처음 제안하고 2001년 Anderson &amp; Krathwohl이 개정하였습니다. 인지과정 차원(기억·이해·적용·분석·평가·창조)과 지식 차원(사실적·개념적·절차적·메타인지적)을 교차하면 24개 셀이 만들어집니다. "광합성의 정의를 말할 수 있다"는 [기억×사실적 지식], "실험 데이터를 그래프로 표현할 수 있다"는 [적용×절차적 지식] 셀에 위치합니다(Anderson &amp; Krathwohl, 2001).</aside>
+    <aside class="notes">개정 블룸 분류표는 지식 차원과 인지과정 차원을 구분하는 2차원 틀입니다. 예를 들어 광합성의 정의를 말하는 목표와 실험 자료를 그래프로 표현하는 목표는 요구하는 지식과 수행이 다릅니다. 목표·활동·평가가 같은 수행을 향하는지 확인하는 데 씁니다(Anderson &amp; Krathwohl, 2001; Krathwohl, 2002).</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 21. 블룸 6단계 대표 동사 ━━━━━━━━━━━━━━━━ -->
@@ -1404,46 +1428,46 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
     <aside class="notes">블룸 분류표 인지과정 6단계의 대표 동사와 학습 목표 예시를 설명합니다. 아래에서 위로 인지적 요구의 복잡도가 높아집니다. 임용 시험에서는 특정 학습 목표가 어느 수준에 해당하는지 판단하거나, 주어진 수준에 해당하는 동사를 사용하여 목표를 작성하는 문항이 자주 출제됩니다. 대부분의 수업에서 기억·이해 수준의 목표가 압도적으로 많고 적용·분석·평가·창조 수준의 목표는 드문 경향에 주목할 필요가 있습니다(Anderson &amp; Krathwohl, 2001; 류지헌, 김민정, 임태형, 2023).</aside>
   </section>
 
-  <!-- ━━━━━━━━━━━━━━━━ 22. 5강 도구와 Dick & Carey 연결 ━━━━━━━━━━━━━━━━ -->
+  <!-- ━━━━━━━━━━━━━━━━ 22. 누적 수업안 조건 점검 ━━━━━━━━━━━━━━━━ -->
   <section class="layout-table">
     <div class="header-bar">
       <span class="chapter-chip">05</span>
-      <span class="header-title">5강 도구 상자와 Dick &amp; Carey 단계 연결</span>
+      <span class="header-title">누적 수업안 조건 점검</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">5강 도구 상자와 Dick &amp; Carey 단계 연결</h2>
+      <h2 class="slide-heading">누적 수업안 조건 점검</h2>
       <table class="data-table">
         <thead>
           <tr>
-            <th>Dick &amp; Carey 단계</th>
-            <th>5강 이론 도구</th>
+            <th>점검 요소</th>
+            <th>수업안에 남길 판단</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="num">②교수분석</td>
-            <td>위계적·절차적·군집 분석</td>
+            <td class="num">목표</td>
+            <td>학습 결과 유형과 지식·인지과정 차원을 표시한다</td>
           </tr>
           <tr>
-            <td class="num">④수행목표진술</td>
-            <td>Bloom 분류표 행동 동사</td>
+            <td class="num">선수학습</td>
+            <td>수행에 필요한 하위 기능 두 가지를 쓴다</td>
           </tr>
           <tr>
-            <td class="num">⑤평가도구 개발</td>
-            <td>Bloom 분류표 — 인지 수준 정렬 보조도구</td>
+            <td class="num">수행·피드백</td>
+            <td>수행 기회와 피드백 문장을 한 줄씩 넣는다</td>
           </tr>
           <tr>
-            <td class="num">⑥교수전략개발</td>
-            <td>Gagné 9가지 교수사태</td>
+            <td class="num">전이</td>
+            <td>같은 수행을 다른 맥락에서 확인할 과제를 남긴다</td>
           </tr>
         </tbody>
       </table>
       <div class="callout callout--summary" style="margin-top:24px; font-size:38px;">
-        5강 도구들이 4강 Dick &amp; Carey <strong>②④⑤⑥단계의 실질적 내용</strong>을 채운다
+        목표–조건–증거가 맞물릴 때 <strong>수업안의 수정 지점</strong>이 보인다
       </div>
     </div>
-    <aside class="notes">5장의 이론 도구들이 4장 Dick &amp; Carey 10단계 중 어느 단계에 해당하는지를 정리합니다. ②교수분석 단계에는 위계적·절차적·군집 분석이, ④수행목표진술 단계에는 블룸 분류표의 행동 동사가, ⑤평가도구 개발 단계에는 블룸 분류표를 인지 수준 정렬 보조도구로 활용하며, ⑥교수전략개발 단계에는 가녜의 9가지 교수사태가 실질적 내용을 채웁니다. 4장과 5장의 연결 고리를 명확히 이해함으로써 두 장을 통합적으로 활용할 수 있습니다(Gagné, Briggs &amp; Wager, 1992; Anderson &amp; Krathwohl, 2001; 류지헌, 김민정, 임태형, 2023).</aside>
+    <aside class="notes">앞 장에서 만든 목표–증거–활동 행을 가져와 조건을 점검합니다. 목표의 유형과 두 차원을 표시하고, 선수학습, 수행과 피드백, 새 맥락 전이 과제를 덧붙이면 어떤 조건이 빠졌는지 구체적으로 보입니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 23. 참고문헌 ━━━━━━━━━━━━━━━━ -->
@@ -1455,24 +1479,26 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
     </div>
     <div class="body-area">
       <h2 class="slide-heading">참고문헌</h2>
-      <ul>
-        <li>류지헌, 김민정, 임태형 (2023). <em>수업역량 강화를 위한 교육방법 및 교육공학</em> (1판 2쇄). 학지사.</li>
-        <li>Gagné, R. M. (1965). <em>The Conditions of Learning</em> (1st ed.). Holt, Rinehart and Winston.</li>
-        <li>Gagné, R. M., Briggs, L. J., &amp; Wager, W. W. (1992). <em>Principles of Instructional Design</em> (4th ed.). Harcourt Brace Jovanovich.</li>
-        <li>Reigeluth, C. M., Merrill, M. D., Wilson, B. G., &amp; Spiller, R. T. (1979). In search of a better way to organize instruction: The elaboration theory. <em>Journal of Instructional Development</em>, <em>2</em>(3), 8–15.</li>
-        <li>Anderson, L. W., &amp; Krathwohl, D. R. (2001). <em>A Taxonomy for Learning, Teaching, and Assessing: A Revision of Bloom's Taxonomy of Educational Objectives</em>. Longman.</li>
-        <li>Bruner, J. S. (1960). <em>The Process of Education</em>. Harvard University Press.</li>
+      <ul style="display:grid; grid-template-columns:1fr 1fr; column-gap:42px;">
+        <li>Gagné, R. M. (1965). <em>The Conditions of Learning</em>.</li>
+        <li>Gagné, R. M., Briggs, L. J., &amp; Wager, W. W. (1992). <em>Principles of Instructional Design</em> (4th ed.).</li>
+        <li>Northern Illinois University. (2020). <em>Gagné's Nine Events of Instruction</em>.</li>
+        <li>Reigeluth, C. M., Merrill, M. D., Wilson, B. G., &amp; Spiller, R. T. (1979). Elaboration theory.</li>
+        <li>Reigeluth, C. M., &amp; Aslan, S. (2014). Elaboration theory.</li>
+        <li>Bloom, B. S., et al. (1956). <em>Taxonomy of Educational Objectives</em>.</li>
+        <li>Anderson, L. W., &amp; Krathwohl, D. R. (2001). <em>A Taxonomy for Learning, Teaching, and Assessing</em>.</li>
+        <li>Krathwohl, D. R. (2002). A revision of Bloom's taxonomy.</li>
       </ul>
     </div>
-    <aside class="notes">이 장에서 인용한 주요 참고문헌입니다. 주교재 류지헌, 김민정, 임태형(2023)과 함께 가녜의 원전 두 편(1965; 1992), 라이겔루스(1979), 앤더슨 &amp; 크라스월(2001), 브루너(1960) 총 6편입니다.</aside>
+    <aside class="notes">교재 4장의 핵심 논의와 연결한 참고문헌입니다. 학습 결과 유형과 9가지 교수사태, 정교화 이론, 개정 블룸 분류표의 근거를 확인할 수 있습니다.</aside>
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━ 24. CLOSING ━━━━━━━━━━━━━━━━ -->
   <section class="layout-closing">
     <div class="body-area">
       <ul class="closing-list">
-        <li>가녜의 <strong>9사태</strong>는 수업 한 차시의 설계 틀</li>
-        <li><strong>블룸 분류표</strong>는 목표 동사를 선택하는 나침반</li>
+        <li>가녜의 <strong>9사태</strong>는 목표 수행에 필요한 조건을 점검하는 틀</li>
+        <li><strong>개정 블룸 분류표</strong>는 목표의 내용과 수행을 함께 묻는 틀</li>
       </ul>
       <div class="closing-quote">
         6강에서는 이 토대 위에서<br>
@@ -1480,7 +1506,7 @@ section.layout-closing .closing-list li strong { color: var(--blue); }
       </div>
       <div class="closing-meta">교육방법 및 교육공학 · 5강</div>
     </div>
-    <aside class="notes">5장의 핵심 메시지를 정리합니다. 가녜의 9사태는 수업 한 차시를 설계하는 표준 틀이고, 블룸 분류표는 학습 목표에 쓸 동사를 선택하는 나침반입니다. 이 두 도구는 4장의 Dick &amp; Carey 모형 ④수행목표진술과 ⑥교수전략개발 단계의 실질적 내용을 채웁니다. 6장에서는 이 이론적 토대 위에서 협동학습 구조와 상호작용 전략을 살펴보고, 7장에서는 ARCS를 중심으로 학습동기 설계를 별도로 다룹니다.</aside>
+    <aside class="notes">5강의 핵심은 목표 수행에 맞춰 조건을 고르는 것입니다. 9가지 교수사태는 조건 점검 틀이고, 개정 블룸 분류표는 목표의 내용과 수행을 함께 묻습니다. 선수학습, 수행 기회, 피드백, 전이 과제를 수업안에 연결해 보십시오.</aside>
   </section>
 
 </div>
