@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="510" viewBox="0 0 960 510" role="img" aria-labelledby="title desc">
+  <title id="title">기술 사건을 교사의 질문으로 바꾸는 타임라인</title>
+  <desc id="desc">1950년 Turing, 1956년 Dartmouth, 웹의 확산, 코로나19 원격학습, 생성형 AI의 확산을 각각 교사의 수업 설계 질문과 연결한 시간 흐름이다.</desc>
+  <rect width="960" height="510" fill="#ffffff"/>
+  <text x="480" y="45" text-anchor="middle" fill="#0B2C5C" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="28" font-weight="700">기술 사건을 교육 질문으로 읽기</text>
+  <path d="M145 100 V430" stroke="#1B66C9" stroke-width="6" stroke-linecap="round"/>
+  <g font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif">
+    <g><circle cx="145" cy="120" r="15" fill="#0B2C5C"/><text x="185" y="116" fill="#0B2C5C" font-size="20" font-weight="700">1950 · Turing</text><text x="185" y="143" fill="#345978" font-size="17">지능을 어떤 수행으로 판단할까?</text></g>
+    <g><circle cx="145" cy="195" r="15" fill="#1B66C9"/><text x="185" y="191" fill="#0B2C5C" font-size="20" font-weight="700">1956 · Dartmouth</text><text x="185" y="218" fill="#345978" font-size="17">학습과 추론을 무엇까지 모델로 설명할 수 있을까?</text></g>
+    <g><circle cx="145" cy="270" r="15" fill="#0B2C5C"/><text x="185" y="266" fill="#0B2C5C" font-size="20" font-weight="700">1990년대 · 웹의 확산</text><text x="185" y="293" fill="#345978" font-size="17">학생에게 정보 접근과 출처 검증을 어떻게 가르칠까?</text></g>
+    <g><circle cx="145" cy="345" r="15" fill="#1B66C9"/><text x="185" y="341" fill="#0B2C5C" font-size="20" font-weight="700">2020 · 원격학습</text><text x="185" y="368" fill="#345978" font-size="17">누가 접속하고, 참여하고, 피드백을 받을 수 있는가?</text></g>
+    <g><circle cx="145" cy="420" r="15" fill="#0B2C5C"/><text x="185" y="416" fill="#0B2C5C" font-size="20" font-weight="700">2020년대 · 생성형 AI</text><text x="185" y="443" fill="#345978" font-size="17">과정, 근거, 책임을 어떤 증거로 평가할까?</text></g>
+  </g>
+  <text x="480" y="490" text-anchor="middle" fill="#45617f" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="15">자체 제작 · 이 장의 역사적 전환점과 수업 설계 질문을 바탕으로 구성</text>
+</svg>

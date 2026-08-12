@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="430" viewBox="0 0 960 430" role="img" aria-labelledby="title desc">
+  <title id="title">교육방법과 교육공학을 잇는 설계 정합성</title>
+  <desc id="desc">학습 목표에서 활동과 상호작용, 자료와 매체, 수행 증거와 피드백으로 이어지고 다시 목표를 점검하는 순환 도식이다.</desc>
+  <rect width="960" height="430" fill="#ffffff"/>
+  <text x="480" y="48" text-anchor="middle" fill="#0B2C5C" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="28" font-weight="700">설계 정합성: 목표에서 증거까지</text>
+  <text x="480" y="78" text-anchor="middle" fill="#45617f" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="16">교육방법의 활동 설계와 교육공학의 체제적 관점을 함께 점검한다.</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1B66C9"/></marker>
+  </defs>
+  <path d="M234 201 H303" stroke="#1B66C9" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M454 201 H523" stroke="#1B66C9" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M674 201 H743" stroke="#1B66C9" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M850 276 C850 365 110 365 110 276" fill="none" stroke="#72a5e8" stroke-width="4" stroke-dasharray="9 9" marker-end="url(#arrow)"/>
+  <g font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" text-anchor="middle">
+    <rect x="54" y="135" width="180" height="132" rx="18" fill="#eaf3ff" stroke="#1B66C9" stroke-width="3"/>
+    <text x="144" y="182" fill="#0B2C5C" font-size="21" font-weight="700">학습 목표</text>
+    <text x="144" y="214" fill="#23496f" font-size="16">학생이 할 수 있는</text><text x="144" y="237" fill="#23496f" font-size="16">수행을 먼저 정한다</text>
+    <rect x="274" y="135" width="180" height="132" rx="18" fill="#f4f8fe" stroke="#1B66C9" stroke-width="3"/>
+    <text x="364" y="182" fill="#0B2C5C" font-size="21" font-weight="700">활동·상호작용</text>
+    <text x="364" y="214" fill="#23496f" font-size="16">질문, 협력, 피드백의</text><text x="364" y="237" fill="#23496f" font-size="16">순서를 설계한다</text>
+    <rect x="494" y="135" width="180" height="132" rx="18" fill="#eaf3ff" stroke="#1B66C9" stroke-width="3"/>
+    <text x="584" y="182" fill="#0B2C5C" font-size="21" font-weight="700">자료·매체</text>
+    <text x="584" y="214" fill="#23496f" font-size="16">표현, 인지 부담,</text><text x="584" y="237" fill="#23496f" font-size="16">접근성을 확인한다</text>
+    <rect x="714" y="135" width="180" height="132" rx="18" fill="#f4f8fe" stroke="#1B66C9" stroke-width="3"/>
+    <text x="804" y="182" fill="#0B2C5C" font-size="21" font-weight="700">수행 증거</text>
+    <text x="804" y="214" fill="#23496f" font-size="16">설명과 산출물을 보고</text><text x="804" y="237" fill="#23496f" font-size="16">다음 설계를 조정한다</text>
+  </g>
+  <text x="480" y="410" text-anchor="middle" fill="#45617f" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="15">자체 제작 · 이 장의 교육방법, 교육공학, 매체 선택, 교육과정 해석 내용을 바탕으로 구성</text>
+</svg>

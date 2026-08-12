@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="450" viewBox="0 0 960 450" role="img" aria-labelledby="title desc">
+  <title id="title">수업 매체 선택의 네 가지 점검 질문</title>
+  <desc id="desc">학습 목표, 표현과 인지 부담, 접근성과 대안, 평가 증거를 차례로 확인한 뒤 매체 사용 여부를 판단하는 흐름도이다.</desc>
+  <rect width="960" height="450" fill="#ffffff"/>
+  <text x="480" y="48" text-anchor="middle" fill="#0B2C5C" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="28" font-weight="700">새 매체를 넣기 전, 네 가지 질문</text>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#1B66C9"/></marker></defs>
+  <g font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif">
+    <rect x="70" y="100" width="360" height="70" rx="14" fill="#eaf3ff" stroke="#1B66C9" stroke-width="3"/>
+    <circle cx="108" cy="135" r="19" fill="#0B2C5C"/><text x="108" y="142" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">1</text>
+    <text x="150" y="141" fill="#0B2C5C" font-size="20" font-weight="700">목표 수행에 정말 필요한가?</text>
+    <rect x="530" y="100" width="360" height="70" rx="14" fill="#f4f8fe" stroke="#1B66C9" stroke-width="3"/>
+    <circle cx="568" cy="135" r="19" fill="#0B2C5C"/><text x="568" y="142" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">2</text>
+    <text x="610" y="141" fill="#0B2C5C" font-size="20" font-weight="700">표현이 이해를 돕는가?</text>
+    <rect x="70" y="255" width="360" height="70" rx="14" fill="#f4f8fe" stroke="#1B66C9" stroke-width="3"/>
+    <circle cx="108" cy="290" r="19" fill="#0B2C5C"/><text x="108" y="297" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">3</text>
+    <text x="150" y="296" fill="#0B2C5C" font-size="20" font-weight="700">누구나 접근하고 대체할 수 있는가?</text>
+    <rect x="530" y="255" width="360" height="70" rx="14" fill="#eaf3ff" stroke="#1B66C9" stroke-width="3"/>
+    <circle cx="568" cy="290" r="19" fill="#0B2C5C"/><text x="568" y="297" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">4</text>
+    <text x="610" y="296" fill="#0B2C5C" font-size="20" font-weight="700">수행 증거를 남길 수 있는가?</text>
+  </g>
+  <path d="M430 135 H520" stroke="#1B66C9" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M710 170 V220 H250 V247" fill="none" stroke="#1B66C9" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M430 290 H520" stroke="#1B66C9" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M710 326 V370" stroke="#1B66C9" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="308" y="370" width="404" height="48" rx="24" fill="#0B2C5C"/>
+  <text x="510" y="402" text-anchor="middle" fill="#fff" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="19" font-weight="700">답이 연결될 때 매체를 설계에 포함한다</text>
+  <text x="480" y="440" text-anchor="middle" fill="#45617f" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="15">자체 제작 · 이 장의 매체 선택과 설계 정합성 설명을 바탕으로 구성</text>
+</svg>

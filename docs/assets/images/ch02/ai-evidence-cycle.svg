@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="430" viewBox="0 0 960 430" role="img" aria-labelledby="title desc">
+  <title id="title">생성형 AI 활용 글쓰기에서 학습 증거를 남기는 순환</title>
+  <desc id="desc">작품 읽기와 질문 만들기, AI 초안과 자신의 초안 비교, 출처 대조와 수정, 구두 설명과 최종 글쓰기의 네 단계가 이어지는 순환 도식이다.</desc>
+  <rect width="960" height="430" fill="#ffffff"/>
+  <text x="480" y="48" text-anchor="middle" fill="#0B2C5C" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="28" font-weight="700">AI 활용에서도 학습 과정을 보이게 하기</text>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#1B66C9"/></marker></defs>
+  <g font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" text-anchor="middle">
+    <rect x="55" y="135" width="190" height="130" rx="18" fill="#eaf3ff" stroke="#1B66C9" stroke-width="3"/>
+    <text x="150" y="177" fill="#0B2C5C" font-size="20" font-weight="700">읽기·질문</text><text x="150" y="208" fill="#345978" font-size="16">작품 근거를 고르고</text><text x="150" y="231" fill="#345978" font-size="16">자신의 질문을 만든다</text>
+    <rect x="285" y="135" width="190" height="130" rx="18" fill="#f4f8fe" stroke="#1B66C9" stroke-width="3"/>
+    <text x="380" y="177" fill="#0B2C5C" font-size="20" font-weight="700">초안 비교</text><text x="380" y="208" fill="#345978" font-size="16">AI 도움과 자신의</text><text x="380" y="231" fill="#345978" font-size="16">문장을 구분한다</text>
+    <rect x="515" y="135" width="190" height="130" rx="18" fill="#eaf3ff" stroke="#1B66C9" stroke-width="3"/>
+    <text x="610" y="177" fill="#0B2C5C" font-size="20" font-weight="700">근거 대조·수정</text><text x="610" y="208" fill="#345978" font-size="16">출처를 확인하고</text><text x="610" y="231" fill="#345978" font-size="16">수정 이유를 남긴다</text>
+    <rect x="745" y="135" width="160" height="130" rx="18" fill="#f4f8fe" stroke="#1B66C9" stroke-width="3"/>
+    <text x="825" y="177" fill="#0B2C5C" font-size="20" font-weight="700">설명·평가</text><text x="825" y="208" fill="#345978" font-size="16">구두 설명과</text><text x="825" y="231" fill="#345978" font-size="16">최종 글쓰기를 본다</text>
+  </g>
+  <path d="M245 200 H275 M475 200 H505 M705 200 H735" stroke="#1B66C9" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M825 270 C825 360 150 360 150 270" fill="none" stroke="#72a5e8" stroke-width="4" stroke-dasharray="9 9" marker-end="url(#arrow)"/>
+  <text x="480" y="410" text-anchor="middle" fill="#45617f" font-family="system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="15">자체 제작 · 이 장의 생성형 AI, 출처 검증, 과정 중심 평가 설명을 바탕으로 구성</text>
+</svg>
