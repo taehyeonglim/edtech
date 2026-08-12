@@ -1,6 +1,6 @@
 :root {
   --bg: #ffffff; --bg-secondary: #f5f6f8;
-  --label: #1d1d1f; --label-secondary: #6e6e73; --label-tertiary: #86868b;
+  --label: #1d1d1f; --label-secondary: #57575d; --label-tertiary: #66666d;
   --separator: rgba(0,0,0,.10); --fill-hover: rgba(0,0,0,.04);
   --accent: #0B2C5C;
   --accent-emphasis: #1B66C9;
@@ -270,3 +270,5 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px s
   .viewer-slide.is-entering { animation: none; }
   .viewer-code-block pre, .viewer-table-wrap { overflow: visible; }
 }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
