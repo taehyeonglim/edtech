@@ -1,3 +1,6 @@
 # Chapters are moved here only after they satisfy quality/apparatus-spec.md.
-# An empty list keeps every chapter on the legacy apparatus checks during staged revision.
-migrated: []
+# Chapters omitted here remain on the legacy apparatus checks during staged revision.
+migrated:
+  - ch03
+  - ch04
+  - ch05

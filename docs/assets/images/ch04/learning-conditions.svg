@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="480" viewBox="0 0 960 480" role="img" aria-labelledby="title desc">
+  <title id="title">학습 결과 유형에 맞춘 수업 조건</title>
+  <desc id="desc">언어정보, 지적기능, 인지전략, 태도, 운동기능 각각에 알맞은 수업 지원을 대응시킨 도식</desc>
+  <rect width="960" height="480" rx="24" fill="#fff"/>
+  <text x="56" y="64" fill="#0B2C5C" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif" font-size="30" font-weight="700">학습 결과가 다르면 필요한 조건도 달라진다</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif">
+    <g><rect x="55" y="105" width="262" height="92" rx="14" fill="#F4F8FF"/><text x="78" y="143" fill="#0B2C5C" font-size="22" font-weight="700">언어정보</text><text x="78" y="174" fill="#46617F" font-size="17">의미 조직 · 인출 단서</text></g>
+    <g><rect x="353" y="105" width="262" height="92" rx="14" fill="#EAF2FF"/><text x="376" y="143" fill="#0B2C5C" font-size="22" font-weight="700">지적기능</text><text x="376" y="174" fill="#46617F" font-size="17">개념 비교 · 하위 기능 연습</text></g>
+    <g><rect x="651" y="105" width="254" height="92" rx="14" fill="#F4F8FF"/><text x="674" y="143" fill="#0B2C5C" font-size="22" font-weight="700">인지전략</text><text x="674" y="174" fill="#46617F" font-size="17">시범 · 자기질문 · 점검</text></g>
+    <g><rect x="204" y="245" width="262" height="92" rx="14" fill="#EAF2FF"/><text x="227" y="283" fill="#0B2C5C" font-size="22" font-weight="700">태도</text><text x="227" y="314" fill="#46617F" font-size="17">모델 · 선택 · 성찰 경험</text></g>
+    <g><rect x="502" y="245" width="262" height="92" rx="14" fill="#F4F8FF"/><text x="525" y="283" fill="#0B2C5C" font-size="22" font-weight="700">운동기능</text><text x="525" y="314" fill="#46617F" font-size="17">반복 수행 · 즉각 피드백</text></g>
+  </g>
+  <rect x="151" y="385" width="658" height="54" rx="27" fill="#0B2C5C"/>
+  <text x="480" y="420" text-anchor="middle" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif" font-size="20" font-weight="600">먼저 목표 수행을 정하고, 그 수행을 가능하게 할 조건을 고른다</text>
+</svg>

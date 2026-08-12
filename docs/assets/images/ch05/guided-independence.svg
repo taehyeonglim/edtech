@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="470" viewBox="0 0 960 470" role="img" aria-labelledby="title desc">
+  <title id="title">인지적 도제에서 안내된 수행이 독립으로 이어지는 과정</title>
+  <desc id="desc">모델링, 코칭, 스캐폴딩, 명료화와 성찰, 탐색의 흐름에서 교사 지원은 줄고 학습자 독립성은 커지는 도식</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B66C9"/></marker></defs>
+  <rect width="960" height="470" rx="24" fill="#fff"/>
+  <text x="56" y="64" fill="#0B2C5C" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif" font-size="30" font-weight="700">사고를 보이고, 지원을 줄이며, 독립 수행으로</text>
+  <path d="M104 260H858" stroke="#BFD6F7" stroke-width="18" stroke-linecap="round"/>
+  <path d="M104 260H858" stroke="#1B66C9" stroke-width="5" marker-end="url(#arrow)"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif" text-anchor="middle">
+    <g><circle cx="125" cy="260" r="52" fill="#0B2C5C"/><text x="125" y="267" fill="#fff" font-size="20" font-weight="700">모델링</text></g>
+    <g><circle cx="305" cy="260" r="52" fill="#1B66C9"/><text x="305" y="267" fill="#fff" font-size="20" font-weight="700">코칭</text></g>
+    <g><circle cx="485" cy="260" r="52" fill="#0B2C5C"/><text x="485" y="267" fill="#fff" font-size="18" font-weight="700">스캐폴딩</text></g>
+    <g><circle cx="665" cy="260" r="52" fill="#1B66C9"/><text x="665" y="253" fill="#fff" font-size="17" font-weight="700">명료화·</text><text x="665" y="278" fill="#fff" font-size="17" font-weight="700">성찰</text></g>
+    <g><circle cx="845" cy="260" r="52" fill="#0B2C5C"/><text x="845" y="267" fill="#fff" font-size="20" font-weight="700">탐색</text></g>
+  </g>
+  <text x="125" y="360" text-anchor="middle" fill="#46617F" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif" font-size="17">교사가 생각을</text><text x="125" y="385" text-anchor="middle" fill="#46617F" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif" font-size="17">보여 준다</text>
+  <text x="485" y="360" text-anchor="middle" fill="#46617F" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif" font-size="17">필요한 지원을</text><text x="485" y="385" text-anchor="middle" fill="#46617F" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif" font-size="17">점차 줄인다</text>
+  <text x="845" y="360" text-anchor="middle" fill="#46617F" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif" font-size="17">학습자가 해결</text><text x="845" y="385" text-anchor="middle" fill="#46617F" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif" font-size="17">경로를 찾는다</text>
+</svg>
