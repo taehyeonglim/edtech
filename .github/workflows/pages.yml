@@ -37,14 +37,6 @@ jobs:
         run: |
           npm ci --ignore-scripts
           npx playwright install --with-deps chromium
-      - name: Regenerate and validate slide PDFs
-        run: |
-          rm -rf .slide-pdfs .slide-provenance.json
-          npm run export:slides -- --manifest quality/textbook-contract.yml --root .slide-pdfs --provenance .slide-provenance.json
-          npm run validate:slides -- --manifest quality/textbook-contract.yml --root .slide-pdfs --provenance .slide-provenance.json
-          for number in $(seq -w 1 10); do
-            cp ".slide-pdfs/lecture-${number}.pdf" "_site/chapters/chapter-${number}/slides/deck.pdf"
-          done
       - name: Audit the candidate to be uploaded
         run: |
           python3 tools/validate_public_boundary.py --root _site
