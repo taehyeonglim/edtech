@@ -2,18 +2,30 @@
 
 > 교육대학교 「교육방법 및 교육공학」 강의를 위한 교재입니다.
 
-이 사이트의 **MkDocs 텍스트 교재가 정본**입니다. 개념 설명, 각주, 참고문헌과 장별 학습 활동은 이 텍스트를 기준으로 읽으세요. 강의 슬라이드와 책 넘김/PDF 자료는 수업 복습을 돕는 보조 자료이며, 내용이 다르거나 최신성이 필요한 경우에는 이 교재와 공식 자료를 먼저 확인합니다.
+이 사이트의 **MkDocs 텍스트 교재가 정본**입니다. 개념 설명, 각주, 참고문헌과 장별 학습 활동은 이 텍스트를 기준으로 읽으세요. 강의 슬라이드와 PDF 자료는 수업 복습을 돕는 보조 자료이며, 내용이 다르거나 최신성이 필요한 경우에는 이 교재와 공식 자료를 먼저 확인합니다.
 
 이 교재는 교육방법 및 교육공학의 기초, 교수설계, 수업 전략, 디지털·AI 학습환경을 4부 11장으로 다룹니다. 각 장은 강의에서 다룰 핵심 개념을 학술 문헌과 정책 자료에 근거해 설명하고, 주요 주장에는 각주와 참고문헌을 붙였습니다.
 
 ## 한 학기 학습 흐름
 
-1. **1부 교육방법·교육공학의 토대** — [1장 교육방법과 교육공학의 이해](part1/ch01.md), [2장 교육과 테크놀로지의 만남](part1/ch02.md)
-2. **2부 교수설계의 원리와 모형** — [3장 체제적 교수설계](part2/ch03.md), [4장 수업의 구성과 학습의 조건](part2/ch04.md), [5장 교수이론과 수업모형](part2/ch05.md)
-3. **3부 수업 전략의 실제** — [6장 협동학습 전략](part3/ch06.md), [7장 학습동기 설계 (ARCS)](part3/ch07.md), [8장 질문과 탐구 중심 수업](part3/ch08.md)
-4. **4부 디지털·AI 학습환경** — [9장 멀티미디어 학습과 인지부하](part4/ch09.md), [10장 디지털 학습환경과 미래교실](part4/ch10.md), [11장 AI와 교육의 만남](part4/ch11.md)
+좌측 목차에서 4부 11장을 순서대로 읽고, 장 안의 활동과 질문을 수업 전·후 학습에 활용하세요. 본문 오른쪽 목차로 긴 장의 절을 이동할 수 있으며, 상단 검색 기능으로 용어와 주제를 찾을 수 있습니다.
 
-각 부를 순서대로 읽고, 장 안의 활동과 질문을 수업 전·후 학습에 활용하세요. 좌측 목차에서 현재 장을 바꾸고, 본문 오른쪽의 목차로 긴 장의 절을 이동할 수 있습니다. 검색은 상단 검색 기능으로 이용합니다.
+### 강의와 교재 장의 연결
+
+| 강의 슬라이드 | 연계 교재 장 |
+| --- | --- |
+| [1강 도입/개관](https://taehyeonglim.github.io/edtech/chapters/chapter-01/slides/deck.html){target=_blank} | [1장 교육방법과 교육공학의 이해](part1/ch01.md) |
+| [2강 교육과 기술의 관계](https://taehyeonglim.github.io/edtech/chapters/chapter-02/slides/deck.html){target=_blank} | [2장 교육과 테크놀로지의 만남](part1/ch02.md) |
+| [3강 2022 개정 교육과정과 AI·디지털 교육](https://taehyeonglim.github.io/edtech/chapters/chapter-03/slides/deck.html){target=_blank} | [10장 디지털 학습환경과 미래교실](part4/ch10.md) |
+| [4강 체제적 교수설계의 방법과 절차](https://taehyeonglim.github.io/edtech/chapters/chapter-04/slides/deck.html){target=_blank} | [3장 체제적 교수설계](part2/ch03.md) |
+| [5강 수업의 구성과 절차](https://taehyeonglim.github.io/edtech/chapters/chapter-05/slides/deck.html){target=_blank} | [4장 수업의 구성과 학습의 조건](part2/ch04.md) |
+| [6강 협동학습 전략](https://taehyeonglim.github.io/edtech/chapters/chapter-06/slides/deck.html){target=_blank} | [6장 협동학습 전략](part3/ch06.md) |
+| [7강 학습 동기 유발 전략](https://taehyeonglim.github.io/edtech/chapters/chapter-07/slides/deck.html){target=_blank} | [7장 학습동기 설계 (ARCS)](part3/ch07.md) |
+| [8강 멀티미디어 설계 원리](https://taehyeonglim.github.io/edtech/chapters/chapter-08/slides/deck.html){target=_blank} | [9장 멀티미디어 학습과 인지부하](part4/ch09.md) |
+| [9강 AI 디지털교과서의 시대](https://taehyeonglim.github.io/edtech/chapters/chapter-09/slides/deck.html){target=_blank} | [10장 디지털 학습환경과 미래교실](part4/ch10.md), [11장 AI와 교육의 만남](part4/ch11.md) |
+| [10강 AI와 교육이 만나는 방법](https://taehyeonglim.github.io/edtech/chapters/chapter-10/slides/deck.html){target=_blank} | [11장 AI와 교육의 만남](part4/ch11.md) |
+
+[5장 교수이론과 수업모형](part2/ch05.md)과 [8장 질문과 탐구 중심 수업](part3/ch08.md)은 연계 슬라이드가 없는 **텍스트 전용 장**입니다. 해당 장의 본문과 활동을 중심으로 학습하세요.
 
 ## 읽기 모드와 접근성
 
