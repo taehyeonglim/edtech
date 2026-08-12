@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>문서형 강의 뷰어 데모</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  <link rel="stylesheet" href="../viewer.css">
+</head>
+<body>
+  <div id="lecture-viewer"></div>
+
+  <script>
+    const DECK = {
+      eyebrow: "교육방법 및 교육공학",
+      title: "문서형 강의 뷰어 · 데모",
+      textbook: [
+        { label: "교재 1장", href: "https://taehyeonglim.github.io/edtech/book/part1/ch01/" }
+      ],
+      hub: "../../../index.html",
+      groups: [
+        {
+          label: "시작하기",
+          sections: [
+            {
+              id: "orientation",
+              title: "읽는 강의의 시작",
+              subtitle: "뷰어와 학습 흐름",
+              slides: [
+                {
+                  id: "welcome",
+                  layout: "cover",
+                  eyebrow: "Lecture viewer",
+                  title: "슬라이드가 아니라,\n읽고 돌아볼 수 있는 강의",
+                  lead: "문서형 강의 뷰어는 화면 크기에 맞춰 흐르는 글과 가벼운 내비게이션으로 한 차시의 맥락을 보존합니다.",
+                  meta: ["교육방법 및 교육공학", "문서형 리더 데모", "연계 교재 1장"],
+                  link: { label: "교재 1장으로 이동", href: "https://taehyeonglim.github.io/edtech/book/part1/ch01/" }
+                },
+                {
+                  id: "reader-principles",
+                  layout: "cards",
+                  eyebrow: "Three principles",
+                  title: "한 장면이 아니라 한 흐름을 설계합니다",
+                  lead: "강의자의 설명과 학습자의 복습을 모두 고려하는 세 가지 원칙입니다.",
+                  cards: [
+                    { label: "01", title: "맥락을 남긴다", body: "그룹과 섹션을 통해 지금의 개념이 전체 강의에서 어디에 놓이는지 보여 줍니다." },
+                    { label: "02", title: "읽기 편하게 만든다", body: "고정 캔버스 대신 문서 조판을 사용해 작은 화면에서도 본문이 제 크기로 읽힙니다." },
+                    { label: "03", title: "다시 찾게 한다", body: "해시 주소와 문서 모드로 필요한 장표와 설명을 빠르게 되짚을 수 있습니다." }
+                  ],
+                  cite: ["이 데모의 텍스트와 도식은 뷰어 동작을 설명하기 위해 새로 작성했습니다."]
+                },
+                {
+                  id: "learning-route",
+                  layout: "bullets",
+                  eyebrow: "Learning route",
+                  title: "강의를 읽는 세 번의 움직임",
+                  lead: "수업 중에는 장표를 따라가고, 복습 때에는 전체 구조를 훑습니다.",
+                  bullets: [
+                    "왼쪽 목차에서 <b>현재 섹션</b>과 전체 흐름을 확인합니다.",
+                    "화살표 키 또는 하단 독으로 한 장표씩 맥락을 따라갑니다.",
+                    "M 키를 누르면 모든 장표가 하나의 <b>세로 문서</b>로 이어집니다."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          label: "콘텐츠 패턴",
+          sections: [
+            {
+              id: "explanation",
+              title: "개념을 설명하는 방법",
+              subtitle: "명제 · 코드 · 표",
+              slides: [
+                {
+                  id: "core-statement",
+                  layout: "statement",
+                  eyebrow: "A central claim",
+                  title: "좋은 수업 자료의 기준",
+                  statement: "형식은 기억을 돕고, 구조는 이해를 돕는다.",
+                  cite: ["수업자료 설계를 위한 데모 명제"]
+                },
+                {
+                  id: "deck-data",
+                  layout: "code",
+                  eyebrow: "Data first",
+                  title: "내용은 DECK 데이터로, 화면은 공용 렌더러로",
+                  lead: "덱마다 HTML 구조를 다시 만들지 않아도 레이아웃과 장표 정보를 분리할 수 있습니다.",
+                  code: {
+                    file: "deck.html",
+                    text: "{\n  id: 'learning-route',\n  layout: 'bullets',\n  title: '강의를 읽는 세 번의 움직임',\n  bullets: ['현재 섹션을 확인한다', '한 장표씩 따라간다']\n}"
+                  }
+                },
+                {
+                  id: "layout-comparison",
+                  layout: "table",
+                  eyebrow: "Layout map",
+                  title: "정보의 성격에 맞는 조판을 선택합니다",
+                  table: {
+                    head: ["정보의 성격", "권장 레이아웃", "학습 경험"],
+                    rows: [
+                      ["관점의 선언", "statement", "한 문장을 크게 읽고 멈춘다"],
+                      ["요소 간 대비", "cards · table", "범주를 나란히 비교한다"],
+                      ["과정과 설명", "bullets · code", "순서와 근거를 따라간다"],
+                      ["시각 자료 해석", "figure · split", "그림과 해설을 연결한다"]
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          label: "시각 자료",
+          sections: [
+            {
+              id: "visual-reading",
+              title: "그림을 읽는 방식",
+              subtitle: "한 점 집중 · 해설 병치",
+              slides: [
+                {
+                  id: "single-figure",
+                  layout: "figure",
+                  eyebrow: "One visual",
+                  title: "도식 하나에 시선을 모읍니다",
+                  lead: "이미지는 장식이 아니라 개념 사이의 관계를 드러내는 읽을거리입니다.",
+                  figure: {
+                    src: "../../../chapters/chapter-01/images/img-s06-venn-fig.png",
+                    alt: "두 개의 겹치는 원으로 교육의 요소 관계를 표현한 벤 다이어그램",
+                    caption: "예시 도식: 서로 겹치는 영역을 통해 관계와 공통분모를 탐색합니다."
+                  },
+                  cite: ["chapter-01 공개 슬라이드 이미지 자산"]
+                },
+                {
+                  id: "split-reading",
+                  layout: "split",
+                  eyebrow: "Image with notes",
+                  title: "그림 옆에 해석의 발판을 둡니다",
+                  media: {
+                    src: "../../../chapters/chapter-01/images/img-s09-matrix-fig.png",
+                    alt: "수업 설계 요소를 행과 열로 비교한 매트릭스 도식",
+                    caption: "매트릭스는 선택지의 차이를 한 화면에서 비교하게 합니다."
+                  },
+                  bullets: [
+                    "먼저 그림의 <b>축과 범례</b>를 확인합니다.",
+                    "그다음 두 요소가 만나는 지점에서 의미를 읽습니다.",
+                    "마지막으로 자신의 수업 맥락에 적용할 질문을 만듭니다."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          label: "마무리",
+          sections: [
+            {
+              id: "review",
+              title: "복습을 위한 전환",
+              subtitle: "그리드 · 문서 · 인쇄",
+              slides: [
+                {
+                  id: "review-tools",
+                  layout: "cards",
+                  eyebrow: "Review tools",
+                  title: "강의가 끝난 뒤에도 구조는 남습니다",
+                  cards: [
+                    { label: "G", title: "전체 장표", body: "제목 카드 그리드에서 원하는 장면으로 바로 이동합니다." },
+                    { label: "M", title: "문서 모드", body: "섹션 헤딩과 함께 모든 장표를 세로로 이어서 읽습니다." },
+                    { label: "F", title: "전체화면", body: "수업 중에는 주변 인터페이스를 잠시 걷어낼 수 있습니다." }
+                  ]
+                },
+                {
+                  id: "closing-checklist",
+                  layout: "bullets",
+                  eyebrow: "Ready to adapt",
+                  title: "실제 강의 덱에 적용할 때",
+                  lead: "각 장표는 아래 필드만 채우면 공용 뷰어에서 일관된 경험으로 렌더됩니다.",
+                  bullets: [
+                    "고유한 <b>id</b>와 설명적인 title을 먼저 정합니다.",
+                    "내용에 맞춰 8가지 layout 중 하나를 선택합니다.",
+                    "필요하면 교재 딥링크와 출처를 슬라이드 하단에 덧붙입니다."
+                  ],
+                  link: { label: "교재 1장 다시 보기", href: "https://taehyeonglim.github.io/edtech/book/part1/ch01/" }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+  </script>
+  <script src="../viewer.js"></script>
+</body>
+</html>
