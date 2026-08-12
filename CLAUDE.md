@@ -50,6 +50,17 @@ git push origin main               # → 1~2분 후 https://taehyeonglim.github.
 - mkdocs 로컬 설치(Homebrew Python, PEP 668): `python3 -m pip install --user --break-system-packages mkdocs-material`
 - 배포 확인: `gh run list --repo taehyeonglim/edtech -L1`
 
+## 디자인 시스템
+
+교재와 슬라이드는 **하나의 디자인 언어**를 공유한다 (2026-08-13 통일). 토큰 정의는 두 곳에 중복되어 있으니 **한쪽을 고치면 다른 쪽도 같이 고칠 것**:
+
+- `assets/lecture-viewer/viewer.css` `:root` — 슬라이드 뷰어 (원본)
+- `docs/stylesheets/extra.css` `:root` — 교재. 여기서 Material 변수(`--md-*`)로 매핑하고 `[data-md-color-scheme="slate"]` 다크 대응값을 정의한다.
+
+핵심: Pretendard Variable(jsdelivr `@import`), 악센트 네이비 `#0B2C5C` + 링크 블루 `#1B66C9`, 라벨 3단 `#1d1d1f`/`#57575d`/`#66666d`, hairline `rgba(0,0,0,.10)`, radius 8/12/18/980, 12px 대문자 네이비 eyebrow 라벨.
+
+색을 바꿀 때는 반드시 axe 게이트를 다시 통과시킬 것 — CI가 `node tools/audit_candidate.mjs`로 25개 라우트를 WCAG 2.2 AA 기준 검사한다. (Material이 푸터 링크에 `opacity:.7`을 걸어 대비를 떨어뜨리는 것 같은 함정이 있다.)
+
 ## 저작권 원칙
 
 학지사 교재의 구조·개념 흐름은 참고하되 **본문을 그대로 옮기지 않는다.** 장·절 명칭도 독자 명칭을 쓴다(현재 목차는 이미 그렇게 설계됨). 자세한 배경은 `docs-internal/specs/2026-06-14-edtech-docs-site-design.md`.
