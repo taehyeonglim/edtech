@@ -362,6 +362,26 @@ section.layout-section .section-blurb {
   line-height: 1.5;
   max-width: 1400px;
 }
+section.layout-section .textbook-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 24px;
+  min-height: 24px;
+  margin-top: 36px;
+  padding: 10px 16px;
+  border: 2px solid var(--blue);
+  border-radius: 2px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+section.layout-section .textbook-link:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
+}
 
 /* ─── 3. layout-text ─── */
 section.layout-text { padding: 0; }
@@ -742,7 +762,8 @@ section.layout-closing .closing-meta {
       <div class="cover-eyebrow">교육방법 및 교육공학 · CHAPTER 02</div>
       <h1 class="cover-title">교육과 기술의<br>관계</h1>
       <div class="cover-rule"></div>
-      <div class="cover-subtitle">역사의 흐름에서 읽는 교육의 변화: 1945~현재</div>
+      <div class="cover-subtitle">기술 사건을 교육의 질문으로 읽기</div>
+      <div class="cover-subtitle" style="font-size:32px; margin-top:8px;">연계 교재: 2장 교육과 테크놀로지의 만남</div>
       <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part1/ch02/">텍스트 교재</a>
     </div>
     <div class="cover-photo">
@@ -765,29 +786,29 @@ section.layout-closing .closing-meta {
         <div class="num-section">
           <span class="num-chip">01</span>
           <div class="text">
-            <span class="label">역사적 흐름</span>
-            1945년부터 현재까지 기술과 교육의 <strong>상호작용</strong>을 연대순으로 설명할 수 있다.
+            <span class="label">기술결정론</span>
+            테크놀로지가 교육을 <strong>자동으로 개선한다는 관점의 한계</strong>를 설명할 수 있다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">02</span>
           <div class="text">
-            <span class="label">경제학적 근거</span>
-            기술-교육 경주 이론(Goldin &amp; Katz)이 AI·디지털 소양 교육 필요성에 주는 <strong>근거</strong>를 말할 수 있다.
+            <span class="label">전환점 읽기</span>
+            AI·퍼셉트론·웹·원격학습·생성형 AI의 <strong>주요 전환점</strong>을 교육의 질문과 연결할 수 있다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">03</span>
           <div class="text">
-            <span class="label">AI 역사</span>
-            기호주의 vs 연결주의, 딥러닝 혁명, 생성형 AI 등 <strong>AI 역사의 핵심 전환점</strong>을 연대순으로 설명할 수 있다.
+            <span class="label">원격학습</span>
+            코로나19 이후 원격학습이 <strong>디지털 격차와 교사의 설계 역량</strong> 문제를 어떻게 드러냈는지 설명할 수 있다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">04</span>
           <div class="text">
-            <span class="label">교사의 자리</span>
-            디지털 전환 시대에 예비교사가 <strong>먼저 이해하는 교사</strong>가 되어야 하는 이유를 논거와 함께 제시할 수 있다.
+            <span class="label">생성형 AI</span>
+            생성형 AI 도입에서 검토할 <strong>지식 검증·평가·윤리·교사 역할</strong>의 쟁점을 말할 수 있다.
           </div>
         </div>
       </div>
@@ -803,8 +824,9 @@ section.layout-closing .closing-meta {
   <section class="layout-section">
     <div class="section-inner">
       <div class="section-num">제 1 절 · SECTION 01</div>
-      <h2 class="section-title">기술은 어떻게<br>교육을 바꾸는가</h2>
-      <p class="section-blurb">전쟁과 기술의 연쇄, 기술-교육 상호작용의 논리, 그리고 이 장의 핵심 질문을 정리한다.</p>
+      <h2 class="section-title">기술은 교육을<br>대신하지 않는다</h2>
+      <p class="section-blurb">도구의 효과는 목표·학습자·과제·피드백·접근성 조건에 따라 달라진다.</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part1/ch02/#1-기술은-교육을-대신하지-않는다">교재 2장 1절: 기술은 교육을 대신하지 않는다</a>
     </div>
     <aside class="notes">1절에서는 이 장 전체를 관통하는 핵심 논리를 먼저 제시합니다. 기술이 교육을 일방적으로 바꾸는 것이 아니라, 둘 사이에는 복잡한 상호작용이 존재합니다. 그 논리를 이해한 다음 역사를 따라가면 훨씬 선명하게 보입니다.</aside>
   </section>
@@ -820,24 +842,24 @@ section.layout-closing .closing-meta {
       <h2 class="slide-heading">80년의 여정을 네 구간으로 읽는다</h2>
       <div class="flow-row">
         <div class="flow-card">
-          <div class="step-num">1945 – 1960</div>
-          <div class="step-key">기초의<br>시대</div>
-          <div class="step-desc">컴퓨터 탄생·AI 명명 — 전쟁이 낳은 계산 기계와 <strong>인공지능의 꿈</strong></div>
+          <div class="step-num">1950 – 1969</div>
+          <div class="step-key">AI의 질문과<br>모델 한계</div>
+          <div class="step-desc">튜링·다트머스·퍼셉트론 — <strong>지능을 어떻게 설명할지</strong> 묻다</div>
         </div>
         <div class="flow-card">
-          <div class="step-num">1970 – 1990</div>
-          <div class="step-key">연결의<br>시대</div>
-          <div class="step-desc">개인 컴퓨터·인터넷 개방·역전파 — <strong>지식 분산</strong>과 연결주의의 부활</div>
+          <div class="step-num">1989 – 1993</div>
+          <div class="step-key">웹과<br>정보 접근</div>
+          <div class="step-desc">검색·링크·공유의 확산 — <strong>출처 검증</strong>이 학습 조건이 되다</div>
         </div>
         <div class="flow-card">
-          <div class="step-num">2000 – 2019</div>
-          <div class="step-key">전환의<br>시대</div>
-          <div class="step-desc">디지털 네이티브·딥러닝 혁명·4차 산업혁명 — <strong>교육 불평등</strong>의 가시화</div>
+          <div class="step-num">2020 – 2021</div>
+          <div class="step-key">원격학습과<br>격차</div>
+          <div class="step-desc">접속·참여·피드백의 조건 — <strong>대체 경로</strong>가 필요해지다</div>
         </div>
         <div class="flow-card">
-          <div class="step-num">2020 – 현재</div>
-          <div class="step-key">재정의의<br>시대</div>
-          <div class="step-desc">코로나·생성형 AI — 교사의 역할을 <strong>근본부터 다시</strong> 묻다</div>
+          <div class="step-num">2022 – 현재</div>
+          <div class="step-key">생성형 AI와<br>학습 증거</div>
+          <div class="step-desc">그럴듯한 출력 이후 — <strong>과정·근거·책임</strong>을 확인하다</div>
         </div>
       </div>
     </div>
@@ -853,19 +875,19 @@ section.layout-closing .closing-meta {
     </div>
     <div class="body-area">
       <div class="copy">
-        <h2 class="slide-heading">전쟁 → 기술 → 교육의 연쇄</h2>
-        <ul>
-          <li>2차 세계대전: 핵물리·전자공학·암호학의 동시 급속 발전 → 거대한 실험실</li>
-          <li><strong>ENIAC(1945)</strong>: 탄도 계산용 최초 범용 전자식 컴퓨터 (진공관 18,000개)</li>
-          <li><strong>스푸트니크 쇼크(1957)</strong>: 과학·수학 교육에 대한 국가적 투자·교육과정 개혁 촉발</li>
+      <h2 class="slide-heading">기술 변화가 곧 학습 변화는 아니다</h2>
+      <ul>
+          <li>한 기술 사건이 교실을 곧바로 바꾸지는 않는다.</li>
+          <li>교육적 영향은 <strong>연구·산업·정책·학교 조건</strong>이 오랜 시간 결합하며 나타난다.</li>
+          <li>같은 도구도 목표·학습자·과제·피드백·접근성에 따라 학습을 돕거나 방해할 수 있다.</li>
         </ul>
         <div class="callout callout--info" style="margin-top:20px;">
-          전쟁의 필요는 인류가 상상하기 어려웠을 속도로 기술 발전을 가속했다.
+          질문은 “무엇이 최신 기술인가?”가 아니라 “어떤 학습 문제를 어떤 조건에서 지원하는가?”이다.
         </div>
       </div>
       <figure>
         <img data-src="../images/img-s05-war-tech.png" alt="전쟁·ENIAC·학교 교육과정 개혁 세 단계 연쇄 다이어그램">
-        <figcaption>전쟁 → 기술 가속 → 교육 개혁의 연쇄 구조</figcaption>
+        <figcaption>기술 변화의 역사적 맥락은 중요하지만, 교육 변화의 직선적 원인으로 읽지는 않는다.</figcaption>
       </figure>
     </div>
     <aside class="notes">제2차 세계대전은 핵물리학, 전자공학, 암호학, 항공공학을 동시에 급속히 발전시킨 거대한 실험실이었습니다. ENIAC은 방 하나를 가득 채울 만한 크기에 약 18,000개의 진공관을 탑재한 거대한 기계였습니다. 소련의 스푸트니크 쇼크(1957)는 미국 교육에 대한 전면적 재검토를 촉발했고, 과학·수학 교육에 대한 국가적 투자와 교육과정 개혁이 뒤따랐습니다.</aside>
@@ -887,7 +909,7 @@ section.layout-closing .closing-meta {
         </div>
         <ul style="margin-top:16px;">
           <li>기술 ↑ → 고숙련 노동력 수요 ↑ → 교육 공급이 따라가지 못할 때 <strong>격차 확대</strong></li>
-          <li>생성형 AI 시대: 교육의 <strong>적응 속도</strong>가 사회 전체의 향방을 결정</li>
+          <li>디지털 도구가 확산될수록 모든 학습자가 <strong>접근·이해·비판·생산</strong>의 기회를 갖도록 설계해야 한다.</li>
         </ul>
       </div>
       <figure>
@@ -909,14 +931,14 @@ section.layout-closing .closing-meta {
       <h2 class="slide-heading">이 장을 관통하는 두 가지 질문</h2>
       <div class="flow-row cols-2">
         <div class="flow-card">
-          <div class="step-num">질문 01 · 역사적 상호작용</div>
-          <div class="step-key">기술과 교육은<br>어떻게 상호작용해 왔는가</div>
-          <div class="step-desc">현대사 속에서 과학기술의 발전이 교육에 어떤 의미를 부여해 왔는지를 연대순으로 추적한다.</div>
+          <div class="step-num">질문 01 · 설계 조건</div>
+          <div class="step-key">이 기술은 어떤 학습 문제를<br>어떤 조건에서 돕는가</div>
+          <div class="step-desc">목표·학습자·과제·피드백을 먼저 읽고 도구의 역할을 판단한다.</div>
         </div>
         <div class="flow-card">
-          <div class="step-num">질문 02 · 역사적 근거</div>
-          <div class="step-key">AI·디지털 교육을<br>필수 소양으로 다루는 근거는</div>
-          <div class="step-desc">역사적 흐름의 관점에서 AI·디지털 교육이 공교육의 핵심이 되어야 하는 경제학적·사회적 근거를 설명한다.</div>
+          <div class="step-num">질문 02 · 학습 증거</div>
+          <div class="step-key">누가 참여하고, 무엇으로<br>이해와 책임을 확인할 것인가</div>
+          <div class="step-desc">접근성·출처 검증·과정 기록·구두 설명을 함께 설계한다.</div>
         </div>
       </div>
     </div>
@@ -927,8 +949,9 @@ section.layout-closing .closing-meta {
   <section class="layout-section">
     <div class="section-inner">
       <div class="section-num">제 2 절 · SECTION 02</div>
-      <h2 class="section-title">컴퓨터와 인공지능의<br>기원: 1940~1960년대</h2>
-      <p class="section-blurb">현대 AI는 어떤 전쟁의 유산에서 비롯되었는가?</p>
+      <h2 class="section-title">인공지능이라는 이름과<br>모델의 한계</h2>
+      <p class="section-blurb">튜링·다트머스·퍼셉트론을 통해 지능을 단순화하지 않는 설계 태도를 살핀다.</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part1/ch02/#2-인공지능이라는-이름이-만들어진-자리">교재 2장 2절: 인공지능이라는 이름이 만들어진 자리</a>
     </div>
     <aside class="notes">2절에서는 현대 컴퓨터과학과 인공지능의 기원을 추적합니다. ENIAC의 탄생, 다트머스 학술대회, 그리고 AI의 첫 번째 겨울까지 — 1940~1960년대의 사건들이 오늘날 AI 시대의 씨앗이 됩니다.</aside>
   </section>
@@ -941,14 +964,13 @@ section.layout-closing .closing-meta {
       <span class="header-meta">제 2 절 · 항 1</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">ENIAC(1945)과 앨런 튜링</h2>
+      <h2 class="slide-heading">계산의 기계화에서 지능을 묻는 질문으로</h2>
       <div class="cols">
         <div class="col-card">
-          <div class="col-title">ENIAC 1945 — 계산의 기계화</div>
+          <div class="col-title">계산 기계 — 역사적 배경</div>
           <ul>
-            <li>미국 육군 탄도연구소: 포병 사격표 계산 목적</li>
-            <li>진공관 18,000개·방 한 칸 크기의 거대 기계</li>
-            <li>수학적 추상과 물리적 기계의 결합 — <strong>현대 컴퓨터과학의 씨앗</strong></li>
+            <li>계산의 자동화는 인간 지능을 기계로 설명할 수 있는가라는 질문의 배경이 되었다.</li>
+            <li>계산 능력의 향상과 <strong>학습자의 이해</strong>는 같은 것이 아니다.</li>
           </ul>
           <figure>
             <img data-src="../images/img-s09-eniac.png" alt="ENIAC 컴퓨터 레트로 일러스트">
@@ -956,11 +978,10 @@ section.layout-closing .closing-meta {
           </figure>
         </div>
         <div class="col-card primary">
-          <div class="col-title">앨런 튜링 — 지능의 수학화</div>
+          <div class="col-title">앨런 튜링(1950) — 지능의 판별</div>
           <ul>
-            <li>에니그마 암호 해독(1939)으로 2차 대전 단축에 기여</li>
-            <li><strong>폰 노이만·튜링</strong>: 전쟁의 압박이 당대 최고 과학자를 결집</li>
-            <li>수학적 추상으로 현대 컴퓨터과학의 토대 마련</li>
+            <li>“기계가 생각할 수 있는가?”를 <strong>모방 게임</strong>의 문제로 바꾸어 제시</li>
+            <li>교육에서는 정답 산출만으로 학생의 동기·맥락·이유 설명을 환원할 수 없다.</li>
           </ul>
         </div>
       </div>
@@ -977,15 +998,15 @@ section.layout-closing .closing-meta {
     </div>
     <div class="body-area">
       <div class="copy">
-        <h2 class="slide-heading">인공지능의 탄생</h2>
+      <h2 class="slide-heading">인공지능이라는 이름이 만들어진 자리</h2>
         <ul>
-          <li><strong>튜링 테스트(1950)</strong>: 인간 판정자가 대화 상대가 기계인지 인간인지 구분하지 못하는지를 묻는 사고실험</li>
-          <li>매카시·민스키·로체스터·섀넌: <strong>'인공지능(Artificial Intelligence)'</strong> 1955년 제안 · 1956년 다트머스 워크숍에서 분야 명칭 정립</li>
-          <li><strong>퍼셉트론(1958, 로젠블랫)</strong>: 신경망의 수학적 구현 → AI의 봄</li>
-          <li>섀넌 정보이론: 디지털 정보의 수학적 기초</li>
+          <li><strong>튜링(1950)</strong>: 지능을 판별하는 질문을 새 형태로 제시</li>
+          <li>매카시·민스키·로체스터·섀넌: <strong>1955년 제안, 1956년 다트머스 프로젝트</strong>로 AI 연구의 상징적 기준점 마련</li>
+          <li>학습·지능의 특징을 정확히 기술하면 기계가 모사할 수 있다는 가정을 제시</li>
+          <li>교육적 질문: 모델의 출력 외에 학습자의 맥락·상호작용·가치 판단을 어떻게 볼 것인가</li>
         </ul>
         <div class="callout callout--info" style="margin-top:20px;">
-          '기계가 생각할 수 있는가' — 이 질문이 <strong>인공지능 연구의 철학적 토대</strong>가 되었다.
+          역사적 사건 하나가 곧바로 교실을 바꾸지는 않는다. 교실 변화는 연구·산업·정책·학교 조건이 함께 만들었다.
         </div>
       </div>
       <figure>
@@ -1000,44 +1021,44 @@ section.layout-closing .closing-meta {
   <section class="layout-table">
     <div class="header-bar">
       <span class="chapter-chip">2.3</span>
-      <span class="header-title">기호주의 vs 연결주의: Perceptrons(1969)와 연결주의 연구의 위축</span>
+      <span class="header-title">퍼셉트론 논쟁: 모델의 가능성과 한계를 함께 읽기</span>
       <span class="header-meta">제 2 절 · 항 3</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">두 AI 패러다임의 충돌</h2>
+      <h2 class="slide-heading">퍼셉트론 논쟁이 남긴 교훈</h2>
       <table class="data-table">
-        <caption>[표 2-1] 기호주의 대 연결주의: 두 AI 패러다임의 비교</caption>
+        <caption>[표 2-1] 퍼셉트론의 가능성과 한계를 수업 설계 질문으로 읽기</caption>
         <thead>
           <tr>
-            <th style="width:12em">구분</th>
-            <th>기호주의 (Symbolism)</th>
-            <th>연결주의 (Connectionism)</th>
+            <th style="width:14em">전환점</th>
+            <th>모델이 보여 준 가능성</th>
+            <th>교사가 확인할 한계와 질문</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="num">핵심 아이디어</td>
-            <td>논리·규칙으로 지능 구현</td>
-            <td>신경망 모방, 학습으로 지능 창발</td>
+            <td class="num">퍼셉트론(1958)</td>
+            <td>정보가 저장되고 조직되는 방식을 확률적 모델로 설명하려는 시도</td>
+            <td>오늘날의 신경망과 같지는 않으며, 특정 모델의 성능을 일반화할 수 없다.</td>
           </tr>
           <tr>
-            <td class="num">대표 인물</td>
-            <td>매카시, 민스키</td>
-            <td>로젠블랫, (훗날) 힌튼·르쿤·벤지오</td>
+            <td class="num">Perceptrons(1969)</td>
+            <td>퍼셉트론을 계산기하학 관점에서 엄밀하게 다루었다.</td>
+            <td>한계를 드러내는 비판은 모델을 버리라는 뜻이 아니라 조건을 따져 보라는 요청이다.</td>
           </tr>
           <tr>
-            <td class="num">1969년 결과</td>
-            <td>민스키·페퍼트의 수학적 반박으로 <strong>일시 우세</strong></td>
-            <td>연구 급격히 위축 — 1970년대 중반 <strong>첫 번째 AI 겨울</strong></td>
+            <td class="num">수업 설계</td>
+            <td>자동 채점·추천·질의응답은 일부 과제를 지원할 수 있다.</td>
+            <td>출력이 학생의 사고 과정을 충분히 설명한다고 가정하지 않는다.</td>
           </tr>
           <tr>
-            <td class="num">훗날의 역사</td>
-            <td>전문가 시스템으로 명맥 유지</td>
-            <td>딥러닝으로 <strong>재부상·주류화</strong> (2012)</td>
+            <td class="num">교사의 역할</td>
+            <td>도구가 잘하는 일과 못하는 일을 구분한다.</td>
+            <td>학생이 왜 그런 답을 만들었는지 해석하고 이유 설명을 확인한다.</td>
           </tr>
         </tbody>
       </table>
-      <p style="color:var(--navy); margin-top:24px; font-weight:600;">→ 1970년대 중반 AI 겨울 — 그러나 연결주의는 사라지지 않았다. 딥러닝은 연결주의의 계보를 잇는다.</p>
+      <p style="color:var(--navy); margin-top:24px; font-weight:600;">→ 이 논쟁의 핵심은 누가 이겼는지가 아니라, 모델의 가능성과 한계를 함께 읽는 태도다.</p>
     </div>
     <aside class="notes">1969년, 마빈 민스키와 시모어 페퍼트는 로젠블랫의 퍼셉트론 모델이 수학적으로 해결할 수 없는 문제들이 있음을 지적했습니다. 학계는 민스키의 견해를 지지했고, 인공신경망 연구는 급격히 위축되었습니다. 1970년대 중반 Lighthill 보고서와 연구비 축소로 첫 번째 AI의 겨울이 본격화됩니다. 기호주의의 일시적 우세였지만, 연결주의는 긴 침묵 속에서도 사라지지 않았습니다. 훗날 딥러닝은 연결주의의 계보를 잇습니다.</aside>
   </section>
@@ -1046,8 +1067,9 @@ section.layout-closing .closing-meta {
   <section class="layout-section">
     <div class="section-inner">
       <div class="section-num">제 3 절 · SECTION 03</div>
-      <h2 class="section-title">개인 컴퓨터, 인터넷,<br>연결의 시대: 1970~1990년대</h2>
-      <p class="section-blurb">컴퓨터가 개인의 도구가 되면서 교육은 어떻게 바뀌었는가?</p>
+      <h2 class="section-title">웹은 정보 접근의<br>조건을 바꾸었다</h2>
+      <p class="section-blurb">자료가 많아진 만큼 검색·출처 검증·연결의 책임도 학습의 기본 조건이 되었다.</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part1/ch02/#4-웹은-정보-접근의-조건을-바꾸었다">교재 2장 4절: 웹은 정보 접근의 조건을 바꾸었다</a>
     </div>
     <aside class="notes">3절에서는 컴퓨터가 기관의 전유물에서 개인의 도구로 전환되는 과정을 살펴봅니다. 토플러의 예언, IBM PC의 등장, 힌튼의 역전파, 인터넷의 개방 — 이 시기의 변화가 오늘날 디지털 학습 환경의 토대를 만들었습니다.</aside>
   </section>
@@ -1135,14 +1157,14 @@ section.layout-closing .closing-meta {
     </div>
     <div class="body-area">
       <div class="copy">
-        <h2 class="slide-heading">인터넷 개방과 학습 환경의 재편</h2>
+      <h2 class="slide-heading">웹은 정보 접근의 조건을 바꾸었다</h2>
         <ul>
-          <li>팀 버너스-리(1989): <strong>WWW</strong> 개념 제안 → 1990년대 인터넷 민간 개방</li>
-          <li>지식이 기관·교사에서 <strong>학습자</strong>에게로 분산</li>
-          <li>"교사는 정보 전달자인가, <strong>의미 변환 안내자</strong>인가?" — 교육학의 핵심 질문 부상</li>
+          <li>팀 버너스-리(1989): 과학자들의 정보 공유 수요를 해결하려 <strong>WWW</strong>를 구상</li>
+          <li>1990년 첫 서버·브라우저, 1991년 확산, 1993년 소스 코드의 로열티 없는 공개</li>
+          <li>검색·링크·공유·수정·재구성이 넓어진 만큼 <strong>출처와 근거를 검증</strong>해야 한다.</li>
         </ul>
         <div class="callout callout--info" style="margin-top:20px;">
-          인터넷의 등장은 교사의 역할에 대한 근본적 질문을 교육학의 중심으로 끌어올렸다.
+          교사는 정보를 가장 많이 가진 사람보다, 학습자가 질문을 세우고 자료의 출처·근거를 점검하도록 돕는 설계자가 된다.
         </div>
       </div>
       <figure>
@@ -1157,8 +1179,9 @@ section.layout-closing .closing-meta {
   <section class="layout-section">
     <div class="section-inner">
       <div class="section-num">제 4 절 · SECTION 04</div>
-      <h2 class="section-title">디지털 전환과<br>교육의 도전: 2000~2010년대</h2>
-      <p class="section-blurb">디지털 전환은 교육 불평등을 어떻게 심화시키는가?</p>
+      <h2 class="section-title">원격학습은 가능성과<br>격차를 함께 드러냈다</h2>
+      <p class="section-blurb">플랫폼을 여는 일보다 접속·참여·피드백·대체 경로를 설계하는 일이 중요하다.</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part1/ch02/#5-코로나19-원격학습은-가능성과-격차를-동시에-드러냈다">교재 2장 5절: 원격학습의 가능성과 격차</a>
     </div>
     <aside class="notes">4절에서는 2000년대 디지털 전환 시기를 살펴봅니다. 디지털 네이티브의 등장, 기술-교육 경주와 불평등의 심화, 그리고 딥러닝 혁명과 4차 산업혁명의 선언까지 — 이 시기의 변화가 오늘날 교육 정책의 배경을 이룹니다.</aside>
   </section>
@@ -1172,14 +1195,14 @@ section.layout-closing .closing-meta {
     </div>
     <div class="body-area">
       <div class="copy">
-        <h2 class="slide-heading">디지털 네이티브와 교육의 간극</h2>
+      <h2 class="slide-heading">접속 가능성과 정보 문해력은 다르다</h2>
         <ul>
-          <li>Prensky가 주장한 디지털 네이티브론: 디지털 기술과 <strong>함께 태어난</strong> 새로운 세대가 학교에 들어오다</li>
-          <li>멀티태스킹·즉각 피드백·그래픽 정보 처리에 익숙 — 단, 개인차·계층차 큼; 세대 일반화에 한계</li>
-          <li>학교 수업은 여전히 <strong>선형·텍스트 중심</strong> → 교육과 학습자의 간극 가시화</li>
+          <li>기기를 자주 쓰는 경험만으로 <strong>검색·검증·인용·재구성</strong> 역량이 자동으로 생기지는 않는다.</li>
+          <li>접속 환경, 가정의 지원, 과제 구조, 피드백은 학생마다 다르다.</li>
+          <li>세대의 이름보다 <strong>개별 학습자의 접근 조건</strong>을 수업 설계에서 확인한다.</li>
         </ul>
         <div class="callout callout--warning" style="margin-top:20px;">
-          디지털 네이티브 개념은 교육공학 분야에서 '어떻게 디지털 학습자에게 맞는 수업을 설계할 것인가'라는 질문을 촉발하는 기점이 되었다. (논쟁적 개념 — Bennett et al., 2008)
+          디지털 수업의 핵심은 친숙한 기기가 아니라, 모든 학습자가 참여하고 자신의 이해를 설명할 수 있는 조건이다.
         </div>
       </div>
       <figure>
@@ -1226,11 +1249,11 @@ section.layout-closing .closing-meta {
     </div>
     <div class="body-area">
       <div class="copy">
-        <h2 class="slide-heading">딥러닝 혁명과 4차 산업혁명</h2>
+      <h2 class="slide-heading">AI 성능 향상과 이해의 증거는 다르다</h2>
         <ul>
-          <li><strong>ImageNet(2012)</strong>: 힌튼 팀 압도적 우승 → 딥러닝 혁명 선언, 전 세계 투자 쏟아짐</li>
-          <li><strong>알파고 대 이세돌(2016.3)</strong>: 바둑과 같은 복잡한 탐색 과제에서 세계 최고 수준의 기사를 4-1로 꺾다</li>
-          <li>다보스 <strong>4차 산업혁명</strong> 선언(2016.1) → 한국 사회에서 'AI 교육' 관심 급증</li>
+          <li>AI 모델은 패턴 분류와 그럴듯한 언어 생성에서 강점을 보일 수 있다.</li>
+          <li>그러나 결과물만으로 학생의 <strong>깊은 개념 이해</strong>를 판단할 수는 없다.</li>
+          <li>과정 기록·근거 대조·오류 수정·이유 설명을 통해 학습 증거를 넓힌다.</li>
         </ul>
       </div>
       <figure>
@@ -1245,8 +1268,9 @@ section.layout-closing .closing-meta {
   <section class="layout-section">
     <div class="section-inner">
       <div class="section-num">제 5 절 · SECTION 05</div>
-      <h2 class="section-title">생성형 AI 시대와<br>교육의 재정의: 2020년대 이후</h2>
-      <p class="section-blurb">AI가 일상이 된 지금, 교사의 역할은 어떻게 달라져야 하는가?</p>
+      <h2 class="section-title">생성형 AI는 평가와<br>지식 검증을 다시 묻는다</h2>
+      <p class="section-blurb">출력 자체가 아니라 출처·수정 이유·학생의 판단과 책임을 평가 증거로 삼는다.</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part1/ch02/#6-생성형-ai는-평가와-지식-검증을-다시-묻는다">교재 2장 6절: 생성형 AI와 평가·지식 검증</a>
     </div>
     <aside class="notes">5절에서는 2020년대 이후 현재까지를 살펴봅니다. 코로나19의 충격, ChatGPT의 등장, 그리고 이 역사에서 예비교사가 배워야 할 것까지 — 우리가 지금 서 있는 자리를 역사 속에서 이해합니다.</aside>
   </section>
@@ -1264,9 +1288,9 @@ section.layout-closing .closing-meta {
         <div class="col-card">
           <div class="col-title">코로나19 — 원격 수업 전환</div>
           <ul>
-            <li>전 세계 학교 <strong>원격 수업</strong>으로 전환 — 에듀테크가 주요 교육 매체로</li>
-            <li>디지털 기기·인터넷 격차 → <strong>학습 격차</strong>로 직결</li>
-            <li>교사의 디지털 역량이 수업 질에 <strong>직접적 영향</strong></li>
+            <li>원격학습은 교육 지속성을 도왔지만, 모든 학생에게 같은 참여 조건을 보장하지는 못했다.</li>
+            <li>기기·네트워크뿐 아니라 가정의 지원, 과제 구조, 피드백 주기가 참여를 좌우한다.</li>
+            <li><strong>종이 발췌문·오프라인 제출</strong>처럼 목표를 유지하는 대체 경로가 필요하다.</li>
           </ul>
           <figure>
             <img data-src="../images/img-s21-covid.png" alt="학생이 노트북으로 원격 수업에 참여하는 장면">
@@ -1274,11 +1298,11 @@ section.layout-closing .closing-meta {
           </figure>
         </div>
         <div class="col-card primary">
-          <div class="col-title">한국의 정책적 응답</div>
+          <div class="col-title">교사의 설계 응답</div>
           <ul>
-            <li><strong>AI 디지털교과서</strong>(2025년 단계적 도입 → 법 개정으로 교육자료·학습지원 소프트웨어로 재분류)</li>
-            <li>2022 개정 교육과정: <strong>디지털 기초소양</strong>을 모든 교과 학습의 기반이 되는 기초소양으로 강화</li>
-            <li>팬데믹 경험과 4차 산업혁명 맥락이 결합된 정책적 응답</li>
+            <li>학습자가 접속하고, 질문하고, 과제를 수행하고, 피드백을 받을 흐름을 먼저 설계한다.</li>
+            <li>플랫폼의 기능이 아니라 <strong>학습 증거와 접근성</strong>을 기준으로 도구를 고른다.</li>
+            <li>학습 데이터와 개인정보의 처리 조건도 수업 설계의 일부다.</li>
           </ul>
           <figure>
             <img data-src="../images/img-s21-ai-textbook.png" alt="태블릿에 AI 디지털교과서 맞춤형 학습 경로 대시보드">
@@ -1301,12 +1325,12 @@ section.layout-closing .closing-meta {
       <div class="copy">
         <h2 class="slide-heading">교사의 역할 재정의</h2>
         <ul>
-          <li><strong>ChatGPT(2022.11)</strong>: 출시 5일 만에 100만 사용자 → 생성형 AI의 대중화</li>
-          <li>AI가 글쓰기·코딩·번역 수행 → "학교에서 <strong>무엇을</strong> 가르쳐야 하는가?"</li>
-          <li>교사 역할 재정의: 정보 전달 ❌ → <strong>동기 이해·비판적 사고 촉진·의미 있는 경험 설계</strong> ✅</li>
+          <li>생성형 AI는 글쓰기·설명·요약·번역·코딩을 지원하지만, 출력은 <strong>검증 대상</strong>이다.</li>
+          <li>결과물만 제출받으면 학생의 이해와 AI의 도움을 구분하기 어렵다.</li>
+          <li>초안 비교·출처 검토·구두 설명·동료 피드백을 조합해 학습 증거를 넓힌다.</li>
         </ul>
         <div class="callout callout--info" style="margin-top:20px;">
-          2020년 AI 교육정책 방향 발표 → 2023년 디지털 기반 교육혁신·AI 디지털교과서 추진 → 2025년 일부 학년·교과 도입 → 2026년 AI 교육자료 및 <strong>AI 교육 필수화 추진</strong>
+          AI 사용을 무조건 금지하거나 장려하기보다, <strong>학습 목표에 따라 허용 범위와 기록 방식</strong>을 분명히 제시한다. 윤리·포용·형평성도 함께 점검한다.
         </div>
       </div>
       <figure>

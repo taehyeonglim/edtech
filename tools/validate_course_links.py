@@ -85,7 +85,7 @@ def check_root(root: Path) -> list[str]:
         errors.extend(check_portability(path, text))
         expected_backlinks = {textbook_url(chapter) for chapter in deck_owners[deck]}
         found_backlinks = {
-            href
+            href.split("#", 1)[0]
             for href in re.findall(r"href=[\"']([^\"']+)", text, flags=re.IGNORECASE)
             if href.startswith("https://taehyeonglim.github.io/edtech/book/")
         }

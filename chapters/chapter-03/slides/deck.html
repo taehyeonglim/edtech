@@ -368,6 +368,26 @@ section.layout-section .section-blurb {
   line-height: 1.5;
   max-width: 1400px;
 }
+section.layout-section .textbook-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 24px;
+  min-height: 24px;
+  margin-top: 36px;
+  padding: 10px 16px;
+  border: 2px solid var(--blue);
+  border-radius: 2px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+section.layout-section .textbook-link:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
+}
 
 /* ─── 3. layout-text ─── */
 section.layout-text { padding: 0; }
@@ -799,10 +819,11 @@ section.layout-closing .closing-meta {
   <!-- ━━━━━━━━━━━━━━━━ 1. COVER ━━━━━━━━━━━━━━━━ -->
   <section class="layout-cover">
     <div class="cover-content">
-      <div class="cover-eyebrow">교육방법 및 교육공학 · CHAPTER 03</div>
-      <h1 class="cover-title">2022 개정<br>교육과정과<br>AI·디지털 교육</h1>
+      <div class="cover-eyebrow">교육방법 및 교육공학 · 3강 · TEXTBOOK CHAPTER 10</div>
+      <h1 class="cover-title">디지털 학습환경과<br>미래교실</h1>
       <div class="cover-rule"></div>
-      <div class="cover-subtitle">정책적 맥락과 학습이론의 기초</div>
+      <div class="cover-subtitle">도구가 아닌 학습 경험의 설계</div>
+      <div class="cover-subtitle" style="font-size:32px; margin-top:8px;">연계 교재: 10장 디지털 학습환경과 미래교실</div>
       <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part4/ch10/">텍스트 교재</a>
     </div>
     <div class="cover-photo">
@@ -825,36 +846,36 @@ section.layout-closing .closing-meta {
         <div class="num-section">
           <span class="num-chip">01</span>
           <div class="text">
-            <span class="label">교직 교육과정</span>
-            교직 교육과정 안에서 교육공학의 위치를 설명한다.
+            <span class="label">디지털 학습환경</span>
+            디지털 학습환경을 기기 도입이 아닌 <strong>학습 경험·자료·상호작용·평가의 재구성</strong>으로 설명할 수 있다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">02</span>
           <div class="text">
-            <span class="label">TPACK</span>
-            TPACK 모형의 세 핵심 지식과 교차 영역을 구분한다.
+            <span class="label">디지털 기초소양</span>
+            2022 개정 교육과정의 디지털 기초소양 논의를 <strong>교과 수업 설계</strong>와 연결할 수 있다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">03</span>
           <div class="text">
-            <span class="label">2022 개정 교육과정</span>
-            핵심 방향과 교수학습 원칙을 적용한다.
+            <span class="label">학습 유형</span>
+            온라인 학습·블렌디드 러닝·MOOC·모바일 학습·마이크로러닝의 차이를 구분할 수 있다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">04</span>
           <div class="text">
-            <span class="label">AI·디지털 시대 학습자</span>
-            특성 변화를 교사 역할과 연결한다.
+            <span class="label">정책 용어</span>
+            디지털교과서·AI 디지털교과서·<strong>AI 교육자료</strong>를 정책 시점에 맞추어 조심스럽게 사용할 수 있다.
           </div>
         </div>
         <div class="num-section">
           <span class="num-chip">05</span>
           <div class="text">
-            <span class="label">학습심리학 패러다임</span>
-            행동주의·인지주의·구성주의의 핵심 개념을 비교한다.
+            <span class="label">미래교실 조건</span>
+            실감미디어와 미래교실 설계에서 기술 효과를 과장하지 않고 <strong>교수학습 조건</strong>을 점검할 수 있다.
           </div>
         </div>
       </div>
@@ -874,21 +895,21 @@ section.layout-closing .closing-meta {
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">왜 중요한가 — 임용에서의 위치</h2>
+      <h2 class="slide-heading">왜 중요한가 — 도구가 많아도 수업은 흐릿할 수 있다</h2>
       <div class="flow-row cols-2">
         <div class="flow-card">
-          <div class="step-num">1차</div>
-          <div class="step-key">교직논술</div>
-          <div class="step-desc">교육과정 문해력·수업 설계·디지털 활용 역량이 출제 영역과 직결된다</div>
+          <div class="step-num">흐릿한 설계</div>
+          <div class="step-key">도구는 많지만<br>목표와 산출물은 불분명하다</div>
+          <div class="step-desc">지도 앱·공유 문서·영상·토론방을 써도 학생이 무엇을 검증하고 설명할지는 남는다.</div>
         </div>
         <div class="flow-card">
-          <div class="step-num">2차</div>
-          <div class="step-key">수업 설계·실연</div>
-          <div class="step-desc">교수설계 역량이 수업 구상과 실연 평가의 핵심 기준이 된다</div>
+          <div class="step-num">설계의 질문</div>
+          <div class="step-key">각 도구는 목표를 위해<br>어떤 역할을 맡는가</div>
+          <div class="step-desc">자료·상호작용·산출물·피드백·데이터의 흐름과 접근하지 못할 때의 대안을 함께 정한다.</div>
         </div>
       </div>
       <div class="callout callout--info" style="margin-top:24px; font-size:34px;">
-        2015 개정 교육과정 대비, <strong>2022 개정 교육과정에서 그 비중이 뚜렷하게 커졌다</strong>.
+        이 강의는 <strong>교재 10장</strong>과 연계해, 기술 사용을 학습 설계의 일부로 판단하는 기준을 다룬다.
       </div>
     </div>
     <aside class="notes">3장을 시작하기 전에 이 과목이 왜 중요한지 짚습니다. 교육방법 및 교육공학은 임용 1차 교직논술뿐 아니라 임용 2차 수업 설계·실연 평가에서도 핵심적으로 다뤄집니다. 특히 2015 개정 교육과정 때보다 2022 개정 교육과정에서 그 비중이 커졌는데, 이는 뒤에서 살펴볼 2022 개정 교육과정의 디지털·AI 기초소양 강조와 맞닿아 있습니다.</aside>
@@ -898,8 +919,9 @@ section.layout-closing .closing-meta {
   <section class="layout-section">
     <div class="section-inner">
       <div class="section-num">SECTION 01</div>
-      <h2 class="section-title">교직 교육과정 안에서의<br>교육방법 및 교육공학</h2>
-      <p class="section-blurb">안내 질문: 교육공학 지식이 교사의 수업 역량에 어떻게 기여하는가?</p>
+      <h2 class="section-title">디지털 학습환경은<br>네 흐름의 설계다</h2>
+      <p class="section-blurb">장비 목록이 아니라 자료·상호작용·산출물·데이터가 학습 목표에 맞게 이어지는 환경을 설계한다.</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part4/ch10/#1-디지털-학습환경은-네-흐름의-설계다">교재 10장 1절: 디지털 학습환경의 네 흐름</a>
     </div>
     <aside class="notes">1절에서는 교원양성 과정에서 교직 교과목군이 어떻게 구성되는지, 그 안에서 교육방법 및 교육공학이 왜 현장 적합성 역량의 핵심 과목으로 평가받는지를 설명합니다. 국가교육회의의 현장 적합성 강조와 임용시험 출제 경향을 연결하여 이 과목의 전략적 위치를 안내합니다.</aside>
   </section>
@@ -908,44 +930,44 @@ section.layout-closing .closing-meta {
   <section class="layout-table">
     <div class="header-bar">
       <span class="chapter-chip">03</span>
-      <span class="header-title">교직 과목군과 교육공학의 위치</span>
+      <span class="header-title">디지털 학습환경의 네 흐름</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">교직 과목군과 교육공학의 위치</h2>
+      <h2 class="slide-heading">디지털 학습환경의 네 흐름</h2>
       <table class="data-table">
         <thead>
           <tr>
-            <th>역량 영역</th>
-            <th>세부 역량</th>
-            <th>관련 과목(예시)</th>
+            <th>흐름</th>
+            <th>수업에서의 역할</th>
+            <th>설계 질문</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="num"><strong>현장 적합성</strong></td>
-            <td>수업 설계·실행</td>
-            <td><strong>교육방법 및 교육공학</strong></td>
+            <td class="num"><strong>자료</strong></td>
+            <td>검색·검증·인용·저작권을 포함한 자료 접근</td>
+            <td>학생은 무엇을 근거로 판단할 것인가?</td>
           </tr>
           <tr>
-            <td class="num"><strong>현장 적합성</strong></td>
-            <td>학습자 이해·지원</td>
-            <td>교육심리, 특수교육학</td>
+            <td class="num"><strong>상호작용</strong></td>
+            <td>질문·토론·동료 피드백을 대면과 온라인에 배치</td>
+            <td>어느 공간에서 어떤 대화가 필요한가?</td>
           </tr>
           <tr>
-            <td class="num"><strong>현장 적합성</strong></td>
-            <td>학교 현장 이해</td>
-            <td>교직실무, 학교폭력예방</td>
+            <td class="num"><strong>산출물</strong></td>
+            <td>소비를 넘어 해석·생성·공유하는 수행</td>
+            <td>학생의 이해가 어떤 결과물에 드러나는가?</td>
           </tr>
           <tr>
-            <td class="num"><strong>인성</strong></td>
-            <td>교사 윤리·성찰</td>
-            <td>교육봉사, 교직소양</td>
+            <td class="num"><strong>데이터</strong></td>
+            <td>피드백과 평가에 필요한 정보의 수집·처리</td>
+            <td>개인정보·접근성·대체 경로를 어떻게 보장할 것인가?</td>
           </tr>
         </tbody>
       </table>
       <div class="callout callout--info" style="margin-top:24px; font-size:38px;">
-        교육방법 및 교육공학은 <strong>교직이론</strong> 영역에서 교수·학습 이론, 교수설계, 교수매체 활용을 다루는 과목이다.
+        전자칠판과 태블릿의 수가 많다고 디지털 학습환경이 되지는 않는다. <strong>활동과 피드백의 연결</strong>이 핵심이다.
       </div>
     </div>
     <aside class="notes">교원양성 과정의 현장 적합성 역량 구조를 분석합니다. 인성 영역과 전문성 영역으로 구분하며, 전문성 영역 내 교수 설계와 디지털 기술 활용이 교육방법 및 교육공학이 직접 다루는 탐구 영역임을 설명합니다. 초등 임용 1차 교직논술에서 교수 설계·학습이론·디지털 교육 관련 논제가 꾸준히 출제되어 왔으며 이 과목의 전략적 중요성을 강조합니다(조학규, 2025).</aside>
@@ -955,39 +977,39 @@ section.layout-closing .closing-meta {
   <section class="layout-table">
     <div class="header-bar">
       <span class="chapter-chip">03</span>
-      <span class="header-title">교사 핵심역량 중 교수 역량</span>
+      <span class="header-title">도구를 고르기 전의 설계 질문</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">교사 핵심역량 중 교수 역량</h2>
+      <h2 class="slide-heading">도구를 고르기 전의 설계 질문</h2>
       <table class="data-table">
         <thead>
           <tr>
-            <th>역량 요소</th>
-            <th>내용</th>
+            <th>점검 항목</th>
+            <th>교사가 확인할 내용</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="num"><strong>수업 설계</strong></td>
-            <td>교육과정 분석·성취기준 기반 수업 계획</td>
+            <td class="num"><strong>학습 목표</strong></td>
+            <td>도구가 목표 수행을 직접 지원하는가?</td>
           </tr>
           <tr>
-            <td class="num"><strong>수업 실행</strong></td>
-            <td>다양한 교수법·매체 활용, 상호작용 촉진</td>
+            <td class="num"><strong>학생 활동</strong></td>
+            <td>학생이 소비를 넘어 해석·검증·생성하는가?</td>
           </tr>
           <tr>
-            <td class="num"><strong>수업 성찰</strong></td>
-            <td>자기 평가·동료 피드백 기반 수업 개선</td>
+            <td class="num"><strong>접근·데이터</strong></td>
+            <td>기기 격차·장애·언어 수준·개인정보 조건을 충족하는가?</td>
           </tr>
           <tr>
-            <td class="num"><strong>디지털 활용</strong></td>
-            <td>AI·디지털 도구의 교수·학습 통합 적용</td>
+            <td class="num"><strong>학습 증거</strong></td>
+            <td>설명·산출물·피드백 반영으로 도구의 효과를 판단할 수 있는가?</td>
           </tr>
         </tbody>
       </table>
       <div class="callout callout--summary" style="margin-top:24px; font-size:38px;">
-        교수 역량의 지식 구조를 체계화한 것이 <strong>TPACK 모형</strong>이다.
+        조건을 충족하지 못하면 인쇄 자료·대면 활동·오프라인 제출처럼 <strong>같은 목표를 달성할 대체 경로</strong>를 준비한다.
       </div>
     </div>
     <aside class="notes">경기도교육청의 교사 핵심역량 체계에서 교수 역량의 하위 요소를 설명합니다. 교과 전문성, 수업 설계 및 운영, 디지털 활용 역량이 포함됩니다. 수업 설계 및 운영 역량과 디지털 활용 역량은 교육방법 및 교육공학을 통해 집중적으로 증진됩니다. 교과 내용 지식의 숙달만으로는 효과적인 수업이 이루어지지 않으며, 이 역량들의 지식 구조를 체계화한 것이 TPACK 모형임을 연결합니다(류지헌, 김민정, 임태형, 2023; 조학규, 2025).</aside>
@@ -997,16 +1019,16 @@ section.layout-closing .closing-meta {
   <section class="layout-image">
     <div class="header-bar">
       <span class="chapter-chip">03</span>
-      <span class="header-title">TPACK 모형: 교사 지식의 통합 구조</span>
+      <span class="header-title">TPACK 모형: 미래교실 설계의 통합 조건</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
       <div class="copy">
-        <h2 class="slide-heading">TPACK 모형: 교사 지식의 통합 구조</h2>
+      <h2 class="slide-heading">TPACK 모형: 미래교실 설계의 통합 조건</h2>
         <p class="body-text"><strong>세 핵심 지식</strong>: TK(기술 지식) · CK(내용 지식) · PK(교수법 지식)</p>
         <p class="body-text"><strong>교차 영역</strong>: TCK · TPK · PCK → 중심: <strong>TPACK</strong></p>
         <div class="callout callout--info" style="margin-top:20px;">
-          디지털 도구 활용이 능숙해도 교수법·교과 지식이 통합되지 않으면 효과적 수업이 되지 않는다.<br>
+          미래교실은 특정 기기의 전시장이 아니다. 기술 지식만으로는 만들 수 없고, 교수·내용 지식과의 통합이 필요하다.<br>
           <span style="font-size:32px; color:var(--text-muted);">— Mishra &amp; Koehler (2006)</span>
         </div>
       </div>
@@ -1022,8 +1044,9 @@ section.layout-closing .closing-meta {
   <section class="layout-section">
     <div class="section-inner">
       <div class="section-num">SECTION 02</div>
-      <h2 class="section-title">2022 개정 교육과정<br>총론의 핵심 방향</h2>
-      <p class="section-blurb">안내 질문: 2022 개정 교육과정이 교사의 수업 설계 방식에 어떤 변화를 요구하는가?</p>
+      <h2 class="section-title">디지털 기초소양을<br>교과 수업에 넣기</h2>
+      <p class="section-blurb">특정 소프트웨어의 사용법이 아니라 정보 이해·활용·생성과 윤리적 참여를 교과 과제 안에서 설계한다.</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part4/ch10/#2-디지털-기초소양을-교과-수업에-넣기">교재 10장 2절: 디지털 기초소양을 교과 수업에 넣기</a>
     </div>
     <aside class="notes">2절에서는 2022 개정 교육과정(교육부 고시 제2022-33호)의 구성 중점 가~사 일곱 항목, 여섯 핵심역량과 추구하는 인간상, 그리고 교수·학습 설계 원칙 가~라를 살펴봅니다. 이 교육과정이 교수·학습 방법과 디지털 환경에 관한 요구를 2015 개정 교육과정에 비해 현저히 강화했음을 강조합니다(교육부, 2022).</aside>
   </section>
@@ -1032,19 +1055,19 @@ section.layout-closing .closing-meta {
   <section class="layout-flow-cards">
     <div class="header-bar">
       <span class="chapter-chip">03</span>
-      <span class="header-title">교육과정 구성의 중점 가~사</span>
+      <span class="header-title">교과 수업 속 디지털 기초소양</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">교육과정 구성의 중점 가~사</h2>
+      <h2 class="slide-heading">교과 수업 속 디지털 기초소양</h2>
       <ul class="policy-list">
-        <li><span class="policy-key">가.</span> 미래 사회 불확실성 대응 · <strong>학습 주도성</strong> 함양</li>
-        <li><span class="policy-key">나.</span> 인격적 성장 · 공동체 의식 함양</li>
-        <li><span class="policy-key">다.</span> 언어·수리·<strong>디지털 기초소양</strong> 갖추기</li>
-        <li><span class="policy-key">라.</span> 진로·학습 주도적 설계 · <strong>맞춤형 교육과정</strong></li>
-        <li><span class="policy-key">마.</span> 깊이 있는 학습 · 교과 간 연계·통합</li>
-        <li><span class="policy-key">바.</span> 학생 <strong>참여형 수업</strong> · 과정 중심 평가</li>
-        <li><span class="policy-key">사.</span> 교육과정 자율화·분권화 · 거버넌스 강화</li>
+        <li><span class="policy-key">가.</span> 자료를 <strong>검색</strong>하고 작성 기관·시점·목적을 확인한다.</li>
+        <li><span class="policy-key">나.</span> 여러 자료의 근거를 <strong>비교·검증</strong>한다.</li>
+        <li><span class="policy-key">다.</span> 인용·저작권 조건을 밝히며 <strong>재구성</strong>한다.</li>
+        <li><span class="policy-key">라.</span> 디지털 산출물로 자신의 판단과 근거를 <strong>설명</strong>한다.</li>
+        <li><span class="policy-key">마.</span> 온라인 협업에서 질문·피드백·참여 규칙을 함께 정한다.</li>
+        <li><span class="policy-key">바.</span> 개인정보·데이터 해석·AI 출력의 한계를 점검한다.</li>
+        <li><span class="policy-key">사.</span> 기기·접속·장애 조건이 달라도 참여할 <strong>대체 경로</strong>를 마련한다.</li>
       </ul>
     </div>
     <aside class="notes">2022 개정 교육과정 총론의 구성 중점 가~사 일곱 항목을 소개합니다. 교육방법 및 교육공학과 연결되는 핵심 항목은 세 가지입니다. '다' 항목은 디지털 기초소양을 언어·수리 소양과 동등한 기초역량으로 격상합니다. '마' 항목의 깊이 있는 학습은 정교한 수업 설계 없이 구현될 수 없습니다. '바' 항목의 학생 참여형 수업과 과정 중심 평가는 교육공학이 강조해 온 능동적 학습 원리와 맥을 같이합니다(교육부, 2022).</aside>
@@ -1054,21 +1077,21 @@ section.layout-closing .closing-meta {
   <section class="layout-image">
     <div class="header-bar">
       <span class="chapter-chip">03</span>
-      <span class="header-title">핵심역량 체계와 추구하는 인간상</span>
+      <span class="header-title">소비를 넘어 판단·생성으로</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
       <div class="copy">
-        <h2 class="slide-heading">핵심역량 체계와 추구하는 인간상</h2>
-        <p class="body-text"><strong>6대 핵심역량</strong></p>
+      <h2 class="slide-heading">소비를 넘어 판단·생성으로</h2>
+        <p class="body-text"><strong>교과 과제에서 묻는 두 가지</strong></p>
         <ul class="body-text" style="font-size:40px;">
-          <li style="list-style:none; position:relative; padding-left:36px; margin-bottom:10px;"><span style="position:absolute;left:0;color:var(--blue);">■</span>자기관리 · 지식정보처리 · 창의적 사고</li>
-          <li style="list-style:none; position:relative; padding-left:36px; margin-bottom:10px;"><span style="position:absolute;left:0;color:var(--blue);">■</span>심미적 감성 · 협력적 소통 · 공동체 역량</li>
+          <li style="list-style:none; position:relative; padding-left:36px; margin-bottom:10px;"><span style="position:absolute;left:0;color:var(--blue);">■</span>학생은 디지털 자료를 소비만 하는가, 아니면 <strong>근거를 판단</strong>하는가?</li>
+          <li style="list-style:none; position:relative; padding-left:36px; margin-bottom:10px;"><span style="position:absolute;left:0;color:var(--blue);">■</span>도구는 제출을 빠르게 하는가, 아니면 선택·협력·<strong>새 산출물 생성</strong>을 넓히는가?</li>
         </ul>
-        <p class="body-text" style="margin-top:18px;"><strong>추구하는 인간상</strong></p>
+        <p class="body-text" style="margin-top:18px;"><strong>설계의 기준</strong></p>
         <ul class="body-text" style="font-size:40px;">
-          <li style="list-style:none; position:relative; padding-left:36px; margin-bottom:10px;"><span style="position:absolute;left:0;color:var(--blue);">■</span>자기주도적인 사람 · 창의적인 사람</li>
-          <li style="list-style:none; position:relative; padding-left:36px; margin-bottom:10px;"><span style="position:absolute;left:0;color:var(--blue);">■</span>교양 있는 사람 · 더불어 사는 사람</li>
+          <li style="list-style:none; position:relative; padding-left:36px; margin-bottom:10px;"><span style="position:absolute;left:0;color:var(--blue);">■</span>검색·검증·인용·저작권·데이터·협업 규칙을 <strong>교과 목표</strong>에 연결한다.</li>
+          <li style="list-style:none; position:relative; padding-left:36px; margin-bottom:10px;"><span style="position:absolute;left:0;color:var(--blue);">■</span>학교의 인프라·교사 준비도·학생 접근성은 모두 같지 않음을 전제한다.</li>
         </ul>
       </div>
       <figure>
@@ -1083,39 +1106,39 @@ section.layout-closing .closing-meta {
   <section class="layout-table">
     <div class="header-bar">
       <span class="chapter-chip">03</span>
-      <span class="header-title">교수·학습 설계 원칙 가~라</span>
+      <span class="header-title">디지털 기초소양의 수업 설계 점검</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">교수·학습 설계 원칙 가~라</h2>
+      <h2 class="slide-heading">디지털 기초소양의 수업 설계 점검</h2>
       <table class="data-table">
         <thead>
           <tr>
-            <th>원칙</th>
-            <th>핵심 내용</th>
+            <th>흐름</th>
+            <th>교과 수업에서의 설계</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="num"><strong>가. 깊이 있는 학습과 핵심역량</strong></td>
-            <td>핵심역량 함양, 성취기준 기반 탐구·토의·프로젝트 학습</td>
+            <td class="num"><strong>자료</strong></td>
+            <td>자료 두 개를 비교해 작성 기관·시점·근거를 판단하고 인용한다.</td>
           </tr>
           <tr>
-            <td class="num"><strong>나. 능동적 참여와 학습의 즐거움</strong></td>
-            <td>학생 능동적 참여, 토의·토론·체험·탐구·협동 학습</td>
+            <td class="num"><strong>상호작용</strong></td>
+            <td>공유 초안을 읽고 근거를 묻는 동료 피드백을 남긴다.</td>
           </tr>
           <tr>
-            <td class="num"><strong>다. 학생 맞춤형 수업</strong></td>
-            <td>학습자 특성·수준 고려 맞춤형 수업, 지능정보기술 활용</td>
+            <td class="num"><strong>산출물</strong></td>
+            <td>자료 해석을 근거로 짧은 설명문·지도·보고서로 재구성한다.</td>
           </tr>
           <tr>
-            <td class="num"><strong>라. 유연·안전한 교수·학습 환경 및 디지털 학습 환경</strong></td>
-            <td>디지털 기반 학습 환경 구축, 안전하고 유연한 환경 조성</td>
+            <td class="num"><strong>접근·데이터</strong></td>
+            <td>개인정보 입력을 줄이고, 인쇄 자료·오프라인 제출로 같은 목표의 경로를 보장한다.</td>
           </tr>
         </tbody>
       </table>
       <div class="callout callout--info" style="margin-top:24px; font-size:36px;">
-        '가'⑤ 디지털 기초소양을 <strong>모든 교과</strong>를 통해 함양 · '다'② 지능정보기술 활용 맞춤형 학습 · '라'③ 디지털 학습 환경 구축 — 교육공학 역량의 정책적 근거
+        디지털 기초소양은 별도의 사용법 단원이 아니라 <strong>교과 과제 안에서 정보를 판단하고 윤리적으로 참여하는 경험</strong>으로 길러진다.
       </div>
     </div>
     <aside class="notes">2022 개정 교육과정 총론의 교수·학습 설계 원칙 가~라 네 항목을 설명합니다. 교육방법 및 교육공학과 가장 직접적으로 연결되는 세 조항을 강조합니다. 가항 ⑤에서 디지털 기초소양을 모든 교과에 걸쳐 함양하도록 수업을 설계하라는 요구, 다항 ②에서 지능정보기술을 활용한 맞춤형 학습, 라항 ③에서 디지털 학습 환경 구축을 명시한 조항이 교육공학 역량의 필요성을 정책 차원에서 직접 뒷받침합니다(교육부, 2022).</aside>
@@ -1125,8 +1148,9 @@ section.layout-closing .closing-meta {
   <section class="layout-section">
     <div class="section-inner">
       <div class="section-num">SECTION 03</div>
-      <h2 class="section-title">AI·디지털 교육 시대와<br>초등교육의 변화</h2>
-      <p class="section-blurb">안내 질문: AI 네이티브 세대의 특성이 교사의 수업 설계에 무엇을 요구하는가?</p>
+      <h2 class="section-title">온라인과 대면을<br>기능적으로 연결하기</h2>
+      <p class="section-blurb">온라인 과제를 하나 더하는 것이 아니라, 두 공간이 서로 다른 학습 기능을 맡고 결과가 이어지게 한다.</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part4/ch10/#3-온라인-학습과-블렌디드-러닝">교재 10장 3절: 온라인 학습과 블렌디드 러닝</a>
     </div>
     <aside class="notes">3절에서는 AI·디지털 교육 시대의 학습자 세대 전환(디지털 네이티브→AI 네이티브), 디지털 기초소양의 정책적 위상 변화, 그리고 교수·학습 환경 재편과 교사의 과제를 다룹니다. 이 내용은 2022 개정 교육과정이 강조하는 디지털 기초소양의 시대적 배경입니다.</aside>
   </section>
@@ -1135,18 +1159,18 @@ section.layout-closing .closing-meta {
   <section class="layout-flex-2col">
     <div class="header-bar">
       <span class="chapter-chip">03</span>
-      <span class="header-title">학습자 세대 전환: 디지털 네이티브 → AI 네이티브</span>
+      <span class="header-title">온라인 학습과 블렌디드 러닝</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">학습자 세대 전환: 디지털 네이티브 → AI 네이티브</h2>
+      <h2 class="slide-heading">온라인 학습과 블렌디드 러닝</h2>
       <div class="cols">
         <div class="col-card primary">
-          <div class="col-title">디지털 네이티브 (Prensky, 2001)</div>
+          <div class="col-title">온라인 학습</div>
           <ul>
-            <li>인터넷·스마트폰과 함께 성장</li>
-            <li>멀티태스킹·즉각적 피드백 선호</li>
-            <li>디지털 기기를 <strong>'모국어'</strong>처럼 사용</li>
+            <li>자료 전달·상호작용·과제 제출·피드백의 상당 부분이 네트워크 기반 환경에서 이루어진다.</li>
+            <li>형식만 온라인이라고 해서 효과가 보장되지는 않는다.</li>
+            <li>과제·피드백·접근성 조건을 함께 해석한다.</li>
           </ul>
           <figure>
             <img data-src="../images/img-s12-ai-native.png" alt="왼쪽 스마트폰을 든 어린이, 오른쪽 AI 챗봇과 대화하는 어린이 대비 일러스트">
@@ -1154,11 +1178,11 @@ section.layout-closing .closing-meta {
           </figure>
         </div>
         <div class="col-card">
-          <div class="col-title">AI 네이티브 (알파 세대 이후)</div>
+          <div class="col-title">블렌디드 러닝</div>
           <ul>
-            <li>생성형 AI를 <strong>일상 도구</strong>로 활용</li>
-            <li>검색보다 대화형 질의 선호</li>
-            <li><strong>AI 윤리·비판적 사고</strong> 역량 요구</li>
+            <li>대면과 온라인 경험의 <strong>사려 깊은 통합</strong>이다.</li>
+            <li>온라인의 사전 자료 검토·초안 공유와 대면의 오류 분석·토론을 연결한다.</li>
+            <li>한 공간의 결과가 다른 공간에서 어떻게 쓰일지 정한다.</li>
           </ul>
         </div>
       </div>
@@ -1170,19 +1194,19 @@ section.layout-closing .closing-meta {
   <section class="layout-image">
     <div class="header-bar">
       <span class="chapter-chip">03</span>
-      <span class="header-title">디지털 기초소양의 정책적 위상</span>
+      <span class="header-title">MOOC·모바일 학습·마이크로러닝</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
       <div class="copy">
-        <h2 class="slide-heading">디지털 기초소양의 정책적 위상</h2>
+      <h2 class="slide-heading">MOOC·모바일 학습·마이크로러닝</h2>
         <ul class="body-text">
-          <li><strong>2015 개정</strong>: SW·정보교육 강화가 시작되었으나 주로 <strong>특정 교과·영역 중심</strong>으로 편성</li>
-          <li><strong>2022 개정</strong>: 디지털 기초소양을 언어·수리 소양과 함께 <strong>모든 교과 수업 설계에서 함양</strong>하도록 명시</li>
-          <li><strong>21세기 4Cs</strong>: 비판적 사고 · 소통 · 협력 · 창의성</li>
+          <li><strong>MOOC</strong>: 대규모 개방 온라인 강좌. 학습자 다양성·중도 이탈·평가 신뢰도·공동체 형성을 함께 본다.</li>
+          <li><strong>모바일 학습</strong>: 스마트폰 사용보다 넓은 개념. 이동성·맥락·작은 화면·접근성·개인정보를 점검한다.</li>
+          <li><strong>마이크로러닝</strong>: 복습·절차 안내에는 유용하나, 복잡한 개념 이해를 짧은 조각만으로 대체할 수는 없다.</li>
         </ul>
         <div class="callout callout--summary" style="margin-top:20px; font-size:38px;">
-          단순한 교과 확대가 아닌 <strong>교육 패러다임 자체의 전환</strong> — 모든 교과 교사의 과제
+          <strong>짧게 나누는 것과 얕게 만드는 것은 다르다.</strong> 학습 단위의 길이는 목표·맥락·피드백과 함께 판단한다.
         </div>
       </div>
       <figure>
@@ -1197,26 +1221,26 @@ section.layout-closing .closing-meta {
   <section class="layout-flex-2col">
     <div class="header-bar">
       <span class="chapter-chip">03</span>
-      <span class="header-title">교수·학습 환경 재편과 교사의 과제</span>
+      <span class="header-title">두 공간의 기능 분담과 접근성</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">교수·학습 환경 재편과 교사의 과제</h2>
+      <h2 class="slide-heading">두 공간의 기능 분담과 접근성</h2>
       <div class="cols">
         <div class="col-card primary">
-          <div class="col-title">기회: 환경 재편</div>
+          <div class="col-title">온라인이 맡을 수 있는 기능</div>
           <ul>
-            <li>AI 튜터·학습 분석 도구 확산</li>
-            <li>원격·혼합학습 일상화</li>
-            <li>개별화 피드백 <strong>자동화</strong> 가능</li>
+            <li>개념 설명 영상과 자료의 사전 검토</li>
+            <li>초안 공유와 동료 피드백</li>
+            <li>자신의 속도로 자료를 되짚는 <strong>준비·기록</strong></li>
           </ul>
         </div>
         <div class="col-card">
-          <div class="col-title">과제: 교사 역량</div>
+          <div class="col-title">대면이 맡을 수 있는 기능</div>
           <ul>
-            <li><strong>형평성</strong>: 디지털 격차 해소</li>
-            <li><strong>윤리적 감수성</strong>: AI 편향·개인정보 보호</li>
-            <li><strong>인간적 관계</strong>: 기계가 대체할 수 없는 정서적 지지</li>
+            <li>오류 사례 분석과 근거를 따지는 토론</li>
+            <li>민감한 피드백과 즉각적인 수업 조정</li>
+            <li>기기·접속·장애 조건이 다를 때 <strong>대체 경로</strong> 확인</li>
           </ul>
         </div>
       </div>
@@ -1228,8 +1252,9 @@ section.layout-closing .closing-meta {
   <section class="layout-section">
     <div class="section-inner">
       <div class="section-num">SECTION 04</div>
-      <h2 class="section-title">학습심리학<br>패러다임의 변화</h2>
-      <p class="section-blurb">안내 질문: 세 학습심리학 패러다임이 각각 어떤 수업 설계 원리를 제안하는가?</p>
+      <h2 class="section-title">정책 용어·미래교실·대체 경로를<br>설계 조건으로 읽기</h2>
+      <p class="section-blurb">변하는 정책 용어는 시점과 함께 확인하고, 새 기술은 효과를 과장하지 않으며, 같은 목표의 저기술 경로를 준비한다.</p>
+      <a class="textbook-link" href="https://taehyeonglim.github.io/edtech/book/part4/ch10/#5-정책-용어를-시점과-함께-읽기">교재 10장 5절: 정책 용어를 시점과 함께 읽기</a>
     </div>
     <aside class="notes">4절에서는 행동주의에서 인지주의로, 다시 구성주의로 이어지는 학습심리학 패러다임의 이행을 추적합니다. 이 패러다임의 이행은 단순한 이론적 교체가 아니라 '학습이란 무엇인가'와 '교수란 무엇이어야 하는가'에 대한 근본 가정의 전환을 의미합니다. 각 패러다임이 제안하는 수업 설계 원리를 연결하여 설명합니다(류지헌, 김민정, 임태형, 2023).</aside>
   </section>
@@ -1238,16 +1263,16 @@ section.layout-closing .closing-meta {
   <section class="layout-image">
     <div class="header-bar">
       <span class="chapter-chip">03</span>
-      <span class="header-title">행동주의: 자극-반응의 학습관</span>
+      <span class="header-title">정책 용어를 시점과 함께 읽기</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
       <div class="copy">
-        <h2 class="slide-heading">행동주의: 자극-반응의 학습관</h2>
-        <p class="body-text"><strong>고전적 조건화</strong> (파블로프): 중성 자극 → 조건 자극 → 조건 반응</p>
-        <p class="body-text"><strong>조작적 조건화</strong> (스키너): 강화·처벌로 행동 빈도 조절</p>
+      <h2 class="slide-heading">정책 용어를 시점과 함께 읽기</h2>
+        <p class="body-text"><strong>2023년 정책 문맥</strong>: ‘AI 디지털교과서’는 디지털 기반 교육혁신 방안의 경위 속에서 읽는다.</p>
+        <p class="body-text"><strong>2026년 현재 용어</strong>: ‘AI 교육자료’는 구 AI 디지털교과서·코스웨어·에듀테크 등을 포괄해 설명한다.</p>
         <div class="callout callout--info" style="margin-top:20px; font-size:38px;">
-          수업 설계 적용: 명확한 목표 제시, <strong>즉각적 강화(피드백)</strong>, 반복 연습
+          제품 기능과 도입 범위는 바뀔 수 있다. 명칭보다 <strong>수업 속 역할·데이터 처리·학습 증거</strong>를 먼저 확인한다.
         </div>
       </div>
       <figure>
@@ -1262,17 +1287,16 @@ section.layout-closing .closing-meta {
   <section class="layout-image">
     <div class="header-bar">
       <span class="chapter-chip">03</span>
-      <span class="header-title">인지주의와 인지정보처리이론(CIP)</span>
+      <span class="header-title">실감미디어와 미래교실의 조건</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
       <div class="copy">
-        <h2 class="slide-heading">인지주의와 인지정보처리이론(CIP)</h2>
-        <p class="body-text"><strong>감각기억</strong> → (주의) → <strong>작동기억</strong> → (부호화) → <strong>장기기억</strong></p>
-        <p class="body-text">작동기억은 제한적이므로 정보는 <strong>의미 단위로 조직</strong>하고 불필요한 인지 부하를 줄여야 한다</p>
+      <h2 class="slide-heading">실감미디어와 미래교실의 조건</h2>
+        <p class="body-text"><strong>실감미디어</strong>는 가상·증강·혼합현실처럼 공간감과 상호작용을 제공하는 매체를 포함한다.</p>
+        <p class="body-text">위험한 실험·접근하기 어려운 장소·보이지 않는 구조·반복 절차에는 장점이 있을 수 있지만, 항상 더 낫다는 뜻은 아니다.</p>
         <div class="callout callout--info" style="margin-top:20px; font-size:38px;">
-          멀티미디어: 시각·청각 채널 분리로 작동기억 부하 분산<br>
-          <span style="font-size:32px; color:var(--text-muted);">— Mayer (2001)</span>
+          멀미·장비 비용·접근성·수업 시간·교사의 통제·평가 기준을 함께 설계한다. 미래교실의 핵심은 <strong>기술·교수·내용의 결합</strong>이다.
         </div>
       </div>
       <figure>
@@ -1287,26 +1311,26 @@ section.layout-closing .closing-meta {
   <section class="layout-flex-2col">
     <div class="header-bar">
       <span class="chapter-chip">03</span>
-      <span class="header-title">무주의 맹시와 수업 설계 함의</span>
+      <span class="header-title">도구 선택과 대체 경로</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">무주의 맹시와 수업 설계 함의</h2>
+      <h2 class="slide-heading">도구 선택과 대체 경로</h2>
       <div class="cols">
         <div class="col-card primary">
-          <div class="col-title">무주의 맹시 실험 (Simons &amp; Chabris, 1999)</div>
+          <div class="col-title">도구 선택 전 확인</div>
           <ul>
-            <li>농구 패스 세기 과제 중 고릴라를 <strong>감지하지 못함</strong></li>
-            <li><strong>주의가 다른 과제에 집중되면 눈에 보이는 예상치 못한 자극도 알아차리지 못할 수 있다</strong></li>
-            <li>학습자 인지 자원은 분산되지 않는다</li>
+            <li>목표를 먼저 쓰고, 도구가 목표를 직접 지원하는지 확인한다.</li>
+            <li>학생이 소비를 넘어 <strong>해석·검증·생성</strong>할 수 있는지 본다.</li>
+            <li>접근성·기기 격차·장애 지원·언어 수준·데이터 처리 조건을 점검한다.</li>
           </ul>
         </div>
         <div class="col-card">
-          <div class="col-title">수업 설계 원리</div>
+          <div class="col-title">대체 경로와 학습 증거</div>
           <ul>
-            <li>핵심 내용에 <strong>신호(signaling)</strong> 적용</li>
-            <li>불필요한 시각 요소 제거 (일관성 원리)</li>
-            <li>학습자 주의를 <strong>명시적으로 유도</strong></li>
+            <li>조건이 충족되지 않으면 인쇄 자료·대면 활동·오프라인 제출로 경로를 바꾼다.</li>
+            <li>대체 경로도 <strong>같은 학습 목표</strong>에 도달해야 한다.</li>
+            <li>참여 로그만 보지 않고 설명·산출물·피드백 반영으로 수업 뒤 효과를 판단한다.</li>
           </ul>
         </div>
       </div>
@@ -1318,26 +1342,26 @@ section.layout-closing .closing-meta {
   <section class="layout-flex-2col">
     <div class="header-bar">
       <span class="chapter-chip">03</span>
-      <span class="header-title">구성주의: 인지적 구성주의 vs 사회적 구성주의</span>
+      <span class="header-title">미래교실은 학습 활동의 환경이다</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">구성주의: 인지적 vs 사회적 구성주의</h2>
+      <h2 class="slide-heading">미래교실은 학습 활동의 환경이다</h2>
       <div class="cols">
         <div class="col-card primary">
-          <div class="col-title">피아제 — 인지적 구성주의 (1952)</div>
+          <div class="col-title">학생이 하는 일</div>
           <ul>
-            <li>도식(schema) → <strong>동화·조절</strong> → 평형화</li>
-            <li>내적 <strong>불평형</strong>이 학습의 원동력</li>
-            <li>교사 역할: 인지 갈등 유발자</li>
+            <li>질문을 만들고 자료를 탐색한다.</li>
+            <li>근거를 비교해 함께 <strong>산출물</strong>을 만든다.</li>
+            <li>피드백을 받아 자신의 판단을 수정한다.</li>
           </ul>
         </div>
         <div class="col-card">
-          <div class="col-title">비고츠키 — 사회적 구성주의 (Vygotsky, 1978)</div>
+          <div class="col-title">교사가 설계할 조건</div>
           <ul>
-            <li><strong>ZPD</strong>: 실제 발달 수준 ↔ 잠재 발달 수준</li>
-            <li><strong>스캐폴딩</strong>: Wood, Bruner &amp; Ross(1976)가 발전시킨 ZPD 지원 개념</li>
-            <li>사회적 상호작용이 발달을 선도</li>
+            <li>자료·상호작용·산출물·피드백·데이터를 목표에 맞게 연결한다.</li>
+            <li>기술·교수·내용을 통합하고, 접근성·형평성·윤리를 점검한다.</li>
+            <li>장비가 아닌 <strong>학습 경험의 질</strong>을 기준으로 개선한다.</li>
           </ul>
         </div>
       </div>
@@ -1349,50 +1373,50 @@ section.layout-closing .closing-meta {
   <section class="layout-table">
     <div class="header-bar">
       <span class="chapter-chip">03</span>
-      <span class="header-title">세 패러다임 통합 비교</span>
+      <span class="header-title">디지털 학습환경 설계 점검</span>
       <span class="header-meta">교육방법 및 교육공학</span>
     </div>
     <div class="body-area">
-      <h2 class="slide-heading">세 패러다임 통합 비교</h2>
+      <h2 class="slide-heading">디지털 학습환경 설계 점검</h2>
       <table class="data-table">
         <thead>
           <tr>
-            <th>구분</th>
-            <th>행동주의</th>
-            <th>인지주의</th>
-            <th>구성주의</th>
+            <th>점검 차원</th>
+            <th>피해야 할 단순화</th>
+            <th>설계 기준</th>
+            <th>학습 증거</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="num">학습 정의</td>
-            <td>행동 변화</td>
-            <td>정보 처리·저장</td>
-            <td>의미 구성</td>
+            <td class="num">도구</td>
+            <td>기기가 많으면 좋은 환경이다.</td>
+            <td>목표 수행을 직접 지원하는가</td>
+            <td>학생의 설명과 산출물</td>
           </tr>
           <tr>
-            <td class="num">핵심 원리</td>
-            <td>강화·처벌</td>
-            <td>작동기억·청킹</td>
-            <td>도식화·ZPD</td>
+            <td class="num">온라인</td>
+            <td>과제 하나를 더하면 블렌디드 러닝이다.</td>
+            <td>대면·온라인의 기능 분담과 결과 연결</td>
+            <td>토론·초안·피드백 반영</td>
           </tr>
           <tr>
-            <td class="num">교사 역할</td>
-            <td>강화자</td>
-            <td>정보 제공자</td>
-            <td>촉진자·비계</td>
+            <td class="num">새 기술</td>
+            <td>새로우면 더 효과적이다.</td>
+            <td>목표 적합성·접근성·실행 조건</td>
+            <td>수행과 피드백 기록</td>
           </tr>
           <tr>
-            <td class="num">수업 적용</td>
-            <td>목표 명세·반복 연습</td>
-            <td>선행조직자·멀티미디어</td>
-            <td>탐구·협력학습</td>
+            <td class="num">AI·데이터</td>
+            <td>AI가 맞춤형으로 해 주면 설계가 끝난다.</td>
+            <td>데이터 처리·검증·허용 범위·대체 경로</td>
+            <td>이유 설명·근거 대조·수정</td>
           </tr>
           <tr>
-            <td class="num">대표 학자</td>
-            <td>파블로프·스키너</td>
-            <td>Miller·Mayer</td>
-            <td>피아제·비고츠키</td>
+            <td class="num">미래교실</td>
+            <td>특정 제품의 전시장이다.</td>
+            <td>기술·교수·내용·윤리의 결합</td>
+            <td>학습자가 질문·탐색·협력·성찰한 흔적</td>
           </tr>
         </tbody>
       </table>
