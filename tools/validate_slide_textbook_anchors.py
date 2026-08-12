@@ -14,10 +14,8 @@ from urllib.parse import unquote, urlparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DECKS = (
-    "chapters/chapter-01/slides/deck.html",
-    "chapters/chapter-02/slides/deck.html",
-    "chapters/chapter-03/slides/deck.html",
+DECKS = tuple(
+    f"chapters/chapter-{number:02d}/slides/deck.html" for number in range(1, 11)
 )
 TEXTBOOK_URL = re.compile(
     r"^/edtech/book/(?P<part>part[1-4])/(?P<chapter>ch\d{2})/$"
