@@ -47,3 +47,8 @@ chapters/*/images/*
 chapters/*/slides/*
 !chapters/*/slides/deck.html
 !chapters/*/slides/deck.pdf
+
+# Local Pages build artifacts
+_site/
+.slide-pdfs/
+.slide-provenance.json

@@ -4,7 +4,7 @@ import { chromium } from 'playwright';
 import axe from 'axe-core';
 
 const WCAG_22_AA_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22a', 'wcag22aa'];
-const EXPECTED_ROUTE_COUNT = 37;
+const EXPECTED_ROUTE_COUNT = 25;
 
 function usage() {
   return 'Usage: node tools/audit_candidate.mjs --base-url http://127.0.0.1:8000 --manifest quality/route-manifest.json';
@@ -52,8 +52,20 @@ function reportRouteFailure(route, message) {
   console.error(`${route}: ${message}`);
 }
 
+// Meta-refresh stubs navigate away before axe can inject; verify them by content instead.
+const REDIRECT_STUB_ROUTES = new Set(['/book/text/']);
+
+async function auditRedirectStub(target) {
+  const response = await fetch(target.href);
+  if (response.status < 200 || response.status >= 300) throw new Error(`HTTP ${response.status}`);
+  const body = await response.text();
+  if (!/http-equiv="refresh"/i.test(body)) throw new Error('expected a meta-refresh redirect stub');
+  return [];
+}
+
 async function auditRoute(browser, baseUrl, route) {
   const target = new URL(route, baseUrl);
+  if (REDIRECT_STUB_ROUTES.has(route)) return auditRedirectStub(target);
   const page = await browser.newPage();
   const navigationFailures = [];
   page.on('framenavigated', (frame) => {

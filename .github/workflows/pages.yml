@@ -1,0 +1,72 @@
+name: Deploy edtech site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check mkdocs-material
+      - name: Validate source contracts
+        run: |
+          python3 tools/validate_textbook_apparatus.py
+          python3 tools/validate_textbook_alignment.py
+          python3 tools/validate_course_links.py
+          python3 tools/validate_freshness.py
+          python3 tools/validate_public_boundary.py --root docs
+          python3 tools/validate_candidate_routes.py --fixture tests/fixtures/candidate/valid
+      - name: Build public site
+        run: bash tools/build_site.sh _site
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '20'
+      - name: Install pinned browser audit dependencies
+        run: |
+          npm ci --ignore-scripts
+          npx playwright install --with-deps chromium
+      - name: Regenerate and validate slide PDFs
+        run: |
+          rm -rf .slide-pdfs .slide-provenance.json
+          npm run export:slides -- --manifest quality/textbook-contract.yml --root .slide-pdfs --provenance .slide-provenance.json
+          npm run validate:slides -- --manifest quality/textbook-contract.yml --root .slide-pdfs --provenance .slide-provenance.json
+          for number in $(seq -w 1 10); do
+            cp ".slide-pdfs/lecture-${number}.pdf" "_site/chapters/chapter-${number}/slides/deck.pdf"
+          done
+      - name: Audit the candidate to be uploaded
+        run: |
+          python3 tools/validate_public_boundary.py --root _site
+          python3 tools/validate_accessibility_static.py --root _site
+          python3 tools/validate_accessibility_static.py --root _site/book
+          python3 -m http.server 4173 --directory _site &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          sleep 1
+          python3 tools/validate_candidate_routes.py --base-url http://127.0.0.1:4173 --manifest quality/route-manifest.json
+          node tools/audit_candidate.mjs --base-url http://127.0.0.1:4173 --manifest quality/route-manifest.json
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment: github-pages
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e

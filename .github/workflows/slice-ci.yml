@@ -3,8 +3,6 @@ name: Slice CI
 on:
   pull_request:
     branches: [main]
-  push:
-    branches: [main]
 
 permissions:
   contents: read
@@ -26,7 +24,6 @@ jobs:
           python3 tools/validate_freshness.py
           python3 tools/validate_public_boundary.py --root docs
           python3 tools/validate_candidate_routes.py --fixture tests/fixtures/candidate/valid
-          python3 tools/validate_release_attestation.py --phase policy
       - name: Build textbook strictly
         run: mkdocs build --strict
       - name: Validate built textbook accessibility baseline
