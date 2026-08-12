@@ -62,15 +62,10 @@ jobs:
           python3 tools/validate_public_boundary.py --root docs
           python3 tools/validate_candidate_routes.py --fixture tests/fixtures/candidate/valid
           python3 tools/validate_release_attestation.py --phase policy
-      - name: Check reader before any write
-        run: |
-          python3 tools/generate_book_reader.py --mode release --check
-          python3 tools/validate_reader_foundation.py
       - name: Build one isolated candidate
         run: |
           rm -rf .candidate
           mkdir -p .candidate/site
-          python3 tools/generate_book_reader.py --mode release --write --output-dir .candidate/book-reader
           mkdocs build --strict --site-dir .candidate/mkdocs
           cp index.html .candidate/site/index.html
           touch .candidate/site/.nojekyll
@@ -84,8 +79,6 @@ jobs:
           cp book/index.html .candidate/site/book/index.html
           mkdir -p .candidate/site/book/text
           cp -r book/text/. .candidate/site/book/text/
-          cp -r .candidate/book-reader .candidate/site/book-reader
-          cp -r assets .candidate/site/assets
           tar -C .candidate/site --sort=name --mtime='UTC 1970-01-01' --owner=0 --group=0 --numeric-owner -cf - . | sha256sum | awk '{print "sha256:" $1}' > .candidate/candidate.digest
       - name: Audit the exact candidate to be uploaded
         run: |

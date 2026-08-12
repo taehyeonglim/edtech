@@ -27,13 +27,7 @@ jobs:
           python3 tools/validate_public_boundary.py --root docs
           python3 tools/validate_candidate_routes.py --fixture tests/fixtures/candidate/valid
           python3 tools/validate_release_attestation.py --phase policy
-      - name: Check reader before any write
-        run: |
-          python3 tools/generate_book_reader.py --mode release --check
-          python3 tools/validate_reader_foundation.py
       - name: Build textbook strictly
         run: mkdocs build --strict
       - name: Validate built textbook accessibility baseline
         run: python3 tools/validate_accessibility_static.py --root site
-      - name: Run quality fixtures
-        run: python3 -m unittest tools/test_generate_book_reader.py
