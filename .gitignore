@@ -52,3 +52,6 @@ chapters/*/slides/*
 _site/
 .slide-pdfs/
 .slide-provenance.json
+
+# 디자인 분석 산출물 (외부 사이트 분석 — 커밋 금지)
+insane-design/
