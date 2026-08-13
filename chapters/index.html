@@ -202,6 +202,9 @@
     }
 
     .lecture-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: clamp(28px, 4vw, 52px);
       margin: 0;
       padding: 0;
       list-style: none;
@@ -209,10 +212,10 @@
 
     .lecture-card {
       display: grid;
-      grid-template-columns: 52px minmax(0, 1fr) auto;
-      gap: clamp(18px, 3vw, 42px);
+      grid-template-columns: 34px minmax(0, 1fr) auto;
+      gap: 12px;
       align-items: center;
-      min-height: 88px;
+      min-height: 96px;
       border-bottom: 1px solid var(--separator);
       transition: background .18s var(--ease);
     }
@@ -223,7 +226,7 @@
 
     .week {
       align-self: start;
-      padding-top: 27px;
+      padding-top: 29px;
       color: var(--accent);
       font-family: var(--font-mono);
       font-size: 12px;
@@ -239,7 +242,7 @@
     .lecture-copy h3 {
       margin: 0;
       color: var(--label);
-      font-size: clamp(18px, 1.5vw, 21px);
+      font-size: clamp(17px, 1.35vw, 20px);
       font-weight: 700;
       letter-spacing: -.025em;
       line-height: 1.32;
@@ -270,13 +273,13 @@
       display: inline-flex;
       min-height: 36px;
       align-items: center;
-      gap: 9px;
+      gap: 6px;
       border: 1px solid var(--separator);
       border-radius: var(--r-pill);
       color: var(--accent);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      padding: 5px 13px;
+      padding: 5px 11px;
       white-space: nowrap;
       transition: background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
     }
@@ -317,6 +320,26 @@
     .footer-inner a {
       color: var(--accent-emphasis);
       font-weight: 650;
+    }
+
+    @media (max-width: 1040px) {
+      .lecture-list {
+        grid-template-columns: 1fr;
+      }
+
+      .lecture-card {
+        grid-template-columns: 52px minmax(0, 1fr) auto;
+        gap: clamp(18px, 3vw, 42px);
+        min-height: 88px;
+      }
+
+      .week {
+        padding-top: 27px;
+      }
+
+      .lecture-copy h3 {
+        font-size: clamp(18px, 2.2vw, 21px);
+      }
     }
 
     @media (max-width: 700px) {
