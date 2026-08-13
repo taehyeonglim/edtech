@@ -35,17 +35,30 @@
     .skip-link:focus { top: 16px; outline: 3px solid var(--blue); }
 
 
+    .site-header {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.96);
+    }
+
     .topnav {
       width: min(1160px, calc(100% - 40px));
       margin: 0 auto;
       display: flex;
-      gap: 18px;
+      min-height: 61px;
+      gap: 8px;
       align-items: center;
-      padding: 18px 0 0;
       font-weight: 800;
       font-size: 0.95rem;
     }
-    .topnav a { color: var(--blue); }
+    .topnav a {
+      border-radius: 980px;
+      color: var(--blue);
+      padding: 6px 10px;
+    }
+    .topnav a:hover { background: var(--soft); }
     .topnav .sep { color: var(--line); font-weight: 400; }
 
     .pagehead {
@@ -176,11 +189,13 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
-  <nav class="topnav" aria-label="상위 경로">
-    <a href="../">← 홈</a>
-    <span class="sep" aria-hidden="true">|</span>
-    <a href="../book/text/">📖 텍스트 교재</a>
-  </nav>
+  <header class="site-header">
+    <nav class="topnav" aria-label="과목 자료 이동">
+      <a href="../">홈</a>
+      <span class="sep" aria-hidden="true">|</span>
+      <a href="../book/">텍스트 교재</a>
+    </nav>
+  </header>
 
   <header class="pagehead">
     <p class="eyebrow">보조 자료 · 강의 슬라이드</p>

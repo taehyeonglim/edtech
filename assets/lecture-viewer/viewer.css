@@ -113,9 +113,11 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px s
 .viewer-breadcrumb { min-width: 0; color: var(--label-secondary); font-size: 14px; line-height: 1.35; }
 .viewer-breadcrumb strong { color: var(--label); font-weight: 650; }
 .viewer-breadcrumb-separator { margin: 0 6px; color: var(--label-tertiary); }
-.viewer-textbook-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 7px; }
-.viewer-textbook-pill { display: inline-flex; align-items: center; min-height: 32px; border-radius: var(--r-pill); background: var(--bg-secondary); color: var(--accent); font-size: var(--type-caption); font-weight: 650; padding: 5px 12px; text-decoration: none; white-space: nowrap; }
-.viewer-textbook-pill:hover { background: var(--accent-fill); }
+.viewer-topbar-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 7px; }
+.viewer-topbar-pill { display: inline-flex; align-items: center; min-height: 32px; border-radius: var(--r-pill); color: var(--accent); font-size: var(--type-caption); font-weight: 650; padding: 5px 12px; text-decoration: none; white-space: nowrap; }
+.viewer-global-pill { border: 1px solid var(--separator); background: var(--bg); color: var(--label-secondary); }
+.viewer-textbook-pill { background: var(--bg-secondary); }
+.viewer-topbar-pill:hover { background: var(--accent-fill); color: var(--accent); }
 .viewer-sidebar-open {
   display: none;
   width: 32px;
@@ -236,7 +238,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px s
   .viewer-breadcrumb { padding-top: 4px; font-size: var(--type-caption); }
   .viewer-topbar { flex-wrap: wrap; gap: 7px 12px; }
   .viewer-breadcrumb-wrap { flex: 1 1 100%; }
-  .viewer-textbook-links { width: 100%; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 1px; }
+  .viewer-topbar-links { width: 100%; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 1px; }
   .viewer-main { align-items: flex-start; padding-top: 38px; padding-bottom: 94px; }
   .viewer-slide-heading { margin-bottom: 27px; }
   .viewer-card-grid { grid-template-columns: 1fr; }

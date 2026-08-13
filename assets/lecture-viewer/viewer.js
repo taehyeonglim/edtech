@@ -144,14 +144,18 @@
     return `<section class="viewer-nav-group"><span class="viewer-group-label">${escapeHTML(group.label || "강의")}</span><div class="viewer-section-list">${sectionHtml}</div></section>`;
   }).join("");
 
-  const makeTextbookLinks = () => (deck.textbook || []).map((item) =>
-    `<a class="viewer-textbook-pill" href="${escapeHTML(safeHref(item.href))}">${escapeHTML(item.label || "교재")}</a>`
-  ).join("");
+  const makeTopbarLinks = () => [
+    '<a class="viewer-topbar-pill viewer-global-pill" href="https://taehyeonglim.github.io/edtech/">홈</a>',
+    '<a class="viewer-topbar-pill viewer-global-pill" href="https://taehyeonglim.github.io/edtech/chapters/">강의 목록</a>',
+    ...(deck.textbook || []).map((item) =>
+      `<a class="viewer-topbar-pill viewer-textbook-pill" href="${escapeHTML(safeHref(item.href))}">${escapeHTML(item.label || "텍스트 교재")}</a>`
+    )
+  ].join("");
 
   mount.innerHTML = `
     <div class="lecture-viewer${state.collapsed ? " is-sidebar-collapsed" : ""}" data-viewer-app>
       <aside class="viewer-sidebar" aria-label="강의 목차">
-        <div class="viewer-brand"><a class="viewer-brand-link" href="${escapeHTML(safeHref(deck.hub || "#"))}" aria-label="강의 목록으로 이동"><p class="viewer-brand-eyebrow">${escapeHTML(deck.eyebrow || "")}</p><p class="viewer-brand-title">${escapeHTML(deck.title || "")}</p></a></div>
+        <div class="viewer-brand"><a class="viewer-brand-link" href="${escapeHTML(safeHref(deck.hub || "#"))}" aria-label="과목 홈으로 이동"><p class="viewer-brand-eyebrow">${escapeHTML(deck.eyebrow || "")}</p><p class="viewer-brand-title">${escapeHTML(deck.title || "")}</p></a></div>
         <button class="viewer-sidebar-toggle" type="button" aria-label="사이드바 접기" aria-expanded="true">${icon.collapse}</button>
         <nav class="viewer-sidebar-nav" aria-label="섹션 목록">${makeSidebarNav()}</nav>
         <div class="viewer-sidebar-footer"><div class="viewer-progress-track" aria-hidden="true"><div class="viewer-progress-value"></div></div><span class="viewer-progress-text">1 / ${slides.length} 장표</span></div>
@@ -160,7 +164,7 @@
       <section class="viewer-stage" aria-label="강의 뷰어">
         <header class="viewer-topbar">
           <div class="viewer-breadcrumb-wrap"><button class="viewer-sidebar-open" type="button" aria-label="목차 열기" aria-expanded="false">${icon.menu}</button><div class="viewer-breadcrumb" aria-label="현재 위치"></div></div>
-          <nav class="viewer-textbook-links" aria-label="연계 교재">${makeTextbookLinks()}</nav>
+          <nav class="viewer-topbar-links" aria-label="과목 자료 이동">${makeTopbarLinks()}</nav>
         </header>
         <main class="viewer-main" tabindex="-1"><div class="viewer-slide-host"></div></main>
         <footer class="viewer-stage-footer" aria-label="장표 위치"></footer>
