@@ -374,7 +374,7 @@ body {
   border-bottom-color: var(--separator);
 }
 
-/* Navigation borrows the viewer sidebar's labels, panels, and current-state bar. */
+/* Navigation uses a quiet document rail with a restrained current-state marker. */
 .md-nav__title,
 .md-nav__item--section > .md-nav__link,
 /* Material colors section labels with a [for]-qualified rule; match its specificity. */
@@ -422,18 +422,21 @@ body {
 
 @media screen and (min-width: 76.25em) {
   .md-sidebar--primary {
-    padding: .8rem 0;
-    width: 17rem;
+    border-right: 1px solid var(--separator);
+    padding: .7rem 1.15rem .7rem 0;
+    width: 16.5rem;
   }
 
   .md-sidebar--primary .md-sidebar__scrollwrap {
-    background: var(--bg-secondary);
-    border: 1px solid var(--separator);
-    border-radius: var(--r-lg);
-    box-shadow: var(--shadow-card);
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
     margin: 0;
     max-height: calc(100vh - 7.2rem);
-    padding: .75rem .65rem;
+    padding: .2rem .35rem .75rem 0;
+    scrollbar-color: var(--separator) transparent;
+    scrollbar-width: thin;
   }
 
   .md-sidebar--primary .md-sidebar__inner {
@@ -448,50 +451,50 @@ body {
   }
 
   .md-sidebar--primary .md-nav--primary > .md-nav__list {
-    padding-top: .15rem;
+    padding-top: 0;
+  }
+
+  .md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item:first-child {
+    border-bottom: 1px solid var(--separator);
+    margin-bottom: .75rem;
+    padding-bottom: .75rem;
   }
 
   .md-sidebar--primary .md-nav__item--section {
-    margin: 1rem 0 0;
+    margin: .85rem 0 0;
   }
 
   .md-sidebar--primary .md-nav__item--section > .md-nav__link {
     margin: 0;
-    padding: 0 .75rem .4rem;
+    padding: 0 .55rem .35rem .7rem;
   }
 
   .md-sidebar--primary .md-nav__item:not(.md-nav__item--section) > .md-nav__link {
-    border-radius: var(--r-sm);
-    color: var(--label);
-    font-size: 15px;
+    border-left: 2px solid transparent;
+    border-radius: 0 6px 6px 0;
+    color: var(--label-secondary);
+    font-size: 14px;
     font-weight: 500;
-    line-height: 1.35;
-    margin: .08rem 0;
-    padding: .48rem .7rem .48rem .9rem;
-    position: relative;
+    line-height: 1.4;
+    margin: .04rem 0;
+    padding: .42rem .55rem .42rem .7rem;
   }
 
   .md-sidebar--primary .md-nav__item:not(.md-nav__item--section) > .md-nav__link:hover,
   .md-sidebar--primary .md-nav__item:not(.md-nav__item--section) > .md-nav__link:focus {
     background: var(--fill-hover);
-    color: var(--label);
+    color: var(--accent);
   }
 
   .md-sidebar--primary .md-nav__item:not(.md-nav__item--section) > .md-nav__link--active {
-    background: var(--accent-fill);
-    color: var(--label);
+    border-left-color: var(--accent);
+    background: transparent;
+    color: var(--accent);
     font-weight: 700;
   }
 
   .md-sidebar--primary .md-nav__item:not(.md-nav__item--section) > .md-nav__link--active::before {
-    background: var(--accent);
-    border-radius: 0 var(--r-pill) var(--r-pill) 0;
-    bottom: .5rem;
-    content: "";
-    left: 0;
-    position: absolute;
-    top: .5rem;
-    width: 3px;
+    display: none;
   }
 }
 
