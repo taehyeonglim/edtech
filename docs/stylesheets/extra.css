@@ -402,10 +402,15 @@ body {
     padding: 0;
   }
 
+  /* The header already carries the site title, and Material's sticky copy here
+     let the nav scroll visibly underneath it. Drop it on desktop only; the
+     mobile drawer still needs its title row for the close control. */
   .md-sidebar--primary .md-nav__title {
-    background: transparent;
-    box-shadow: none;
-    padding: .1rem .75rem .8rem;
+    display: none;
+  }
+
+  .md-sidebar--primary .md-nav--primary > .md-nav__list {
+    padding-top: .35rem;
   }
 
   .md-sidebar--primary .md-nav__item--section {
