@@ -4,24 +4,43 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="임태형">
-  <meta name="description" content="교육방법 및 교육공학: 11장 텍스트 교재와 10강 수업 슬라이드·PDF 자료">
+  <meta name="description" content="교육방법과 교육공학의 기초부터 교수설계, 수업 전략, 디지털·AI 학습환경까지 다루는 전주교육대학교 강의 교재와 수업 자료">
+  <meta name="theme-color" content="#ffffff">
   <meta property="og:title" content="교육방법 및 교육공학">
-  <meta property="og:description" content="11장 텍스트 교재와 10강 수업 슬라이드·PDF 자료">
+  <meta property="og:description" content="수업을 설계하고, 기술을 판단하는 법. 4부 11장 텍스트 교재와 10강 수업 자료를 한곳에서 확인하세요.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://taehyeonglim.github.io/edtech/">
-  <meta property="og:image" content="https://taehyeonglim.github.io/edtech/chapters/chapter-01/images/img-s01-classroom.png">
-  <title>교육방법 및 교육공학</title>
+  <meta property="og:image" content="https://taehyeonglim.github.io/edtech/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="교육방법 및 교육공학 — 수업을 설계하고, 기술을 판단하는 법.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="교육방법 및 교육공학">
+  <meta name="twitter:description" content="수업을 설계하고, 기술을 판단하는 법. 4부 11장 텍스트 교재와 10강 수업 자료">
+  <meta name="twitter:image" content="https://taehyeonglim.github.io/edtech/assets/og.png">
+  <title>교육방법 및 교육공학 · 임태형</title>
   <style>
+    @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
     :root {
-      --navy: #0b2c5c;
-      --blue: #1b66c9;
-      --ink: #1a1a1a;
-      --muted: #5c6470;
-      --line: #c5d2e3;
-      --paper: #ffffff;
-      --soft: #eef4fb;
-      --green: #1f9d57;
-      --red: #d93535;
+      --bg: #ffffff;
+      --bg-secondary: #f5f6f8;
+      --label: #1d1d1f;
+      --label-secondary: #57575d;
+      --label-tertiary: #66666d;
+      --separator: rgba(0, 0, 0, .10);
+      --fill-hover: rgba(0, 0, 0, .04);
+      --accent: #0b2c5c;
+      --accent-emphasis: #1b66c9;
+      --accent-fill: rgba(11, 44, 92, .07);
+      --shadow-card: 0 1px 3px rgba(0, 0, 0, .04);
+      --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif;
+      --safe-x: clamp(24px, 5.2vw, 80px);
+      --r-sm: 8px;
+      --r-md: 12px;
+      --r-lg: 18px;
+      --r-pill: 980px;
+      --ease: cubic-bezier(.28, .11, .32, 1);
     }
 
     * {
@@ -29,227 +48,836 @@
     }
 
     html {
+      min-width: 320px;
       scroll-behavior: smooth;
     }
 
     body {
+      min-width: 320px;
       margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
-      line-height: 1.55;
+      background: var(--bg);
+      color: var(--label);
+      font-family: var(--font);
+      font-size: 17px;
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
     }
 
     a {
       color: inherit;
       text-decoration: none;
     }
-    .skip-link {
-      position: absolute;
-      top: -48px;
-      left: 16px;
-      z-index: 10;
-      padding: 10px 14px;
-      background: #fff;
-      color: var(--navy);
-      font-weight: 900;
-    }
-    .skip-link:focus { top: 16px; outline: 3px solid var(--blue); }
 
-
-    .hero {
-      min-height: 68vh;
-      display: flex;
-      align-items: flex-end;
-      position: relative;
-      isolation: isolate;
-      background:
-        linear-gradient(90deg, rgba(11, 44, 92, 0.94), rgba(11, 44, 92, 0.68) 46%, rgba(11, 44, 92, 0.2)),
-        url("chapters/chapter-01/images/img-s01-classroom.png") center / cover;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 12px;
-      background: linear-gradient(90deg, var(--blue), var(--green), var(--red));
-      z-index: -1;
-    }
-
-    .hero-inner,
-    .footer-inner {
-      width: min(1160px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .hero-inner {
-      padding: 96px 0 72px;
-      color: #fff;
-    }
-
-    .eyebrow {
-      margin: 0 0 18px;
-      font-size: clamp(0.9rem, 1.6vw, 1.05rem);
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.82);
-    }
-
-    h1 {
-      margin: 0;
-      max-width: 900px;
-      font-size: clamp(3.1rem, 8vw, 6.4rem);
-      line-height: 0.98;
-      font-weight: 900;
-      letter-spacing: 0;
-    }
-
-    .title-part {
-      display: inline-block;
-    }
-
-    .subtitle {
-      max-width: 720px;
-      margin: 24px 0 0;
-      font-size: clamp(1.05rem, 2vw, 1.35rem);
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.86);
-    }
-
-    main {
-      background: var(--paper);
-    }
-
-    .hub {
-      width: min(1160px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 52px 0 12px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .hub-card {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding: 32px 30px 28px;
-      background: var(--soft);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .hub-card:hover {
-      border-color: var(--blue);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 26px rgba(11, 44, 92, 0.12);
-    }
-
-    .hub-card:focus-visible {
-      outline: 3px solid var(--blue);
+    a:focus-visible {
+      outline: 2px solid var(--accent-emphasis);
       outline-offset: 3px;
     }
 
-    .hub-icon {
-      font-size: 2.6rem;
-      line-height: 1;
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 12px;
+      left: 12px;
+      padding: 10px 14px;
+      border: 1px solid var(--separator);
+      border-radius: var(--r-sm);
+      background: var(--bg);
+      color: var(--accent);
+      font-weight: 700;
+      transform: translateY(-180%);
     }
 
-    .hub-card h2 {
-      margin: 6px 0 0;
-      color: var(--navy);
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      line-height: 1.15;
-      letter-spacing: 0;
+    .skip-link:focus {
+      transform: translateY(0);
     }
 
-    .hub-card p {
+    .shell {
+      width: min(1280px, calc(100% - clamp(48px, 10.4vw, 160px)));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--separator);
+    }
+
+    .header-inner {
+      display: flex;
+      min-height: 76px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: flex;
+      min-width: 0;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .brand strong {
+      font-size: 18px;
+      font-weight: 730;
+      letter-spacing: -.02em;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--label-tertiary);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .site-nav a {
+      border-radius: var(--r-pill);
+      color: var(--label-secondary);
+      font-size: 14px;
+      font-weight: 650;
+      padding: 7px 12px;
+    }
+
+    .site-nav a:hover {
+      background: var(--fill-hover);
+      color: var(--label);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(370px, .9fr);
+      gap: clamp(54px, 8vw, 120px);
+      align-items: center;
+      min-height: min(720px, calc(100vh - 76px));
+      padding-block: clamp(72px, 9vw, 132px);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .08em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      overflow-wrap: anywhere;
+    }
+
+    h1 {
+      max-width: 760px;
       margin: 0;
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 1rem;
+      font-size: clamp(44px, 5.4vw, 78px);
+      font-weight: 760;
+      letter-spacing: -.045em;
+      line-height: 1.06;
+      text-wrap: balance;
     }
 
-    .hub-go {
-      margin-top: auto;
-      padding-top: 12px;
-      color: var(--blue);
-      font-weight: 900;
-      letter-spacing: 0.01em;
+    .hero-lead {
+      max-width: 690px;
+      margin: 26px 0 0;
+      color: var(--label-secondary);
+      font-size: clamp(17px, 1.5vw, 21px);
+      line-height: 1.65;
+      text-wrap: pretty;
     }
 
-    footer {
-      border-top: 1px solid var(--line);
-      background: var(--soft);
-      color: var(--muted);
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 35px;
     }
 
-    .footer-inner {
-      padding: 26px 0;
-      font-size: 0.95rem;
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid var(--separator);
+      border-radius: var(--r-pill);
+      padding: 10px 19px;
+      font-size: 15px;
+      font-weight: 700;
+      transition: background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease), transform .18s var(--ease);
+    }
+
+    .button:hover {
+      border-color: rgba(11, 44, 92, .25);
+      background: var(--accent-fill);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .button-primary:hover {
+      border-color: var(--accent-emphasis);
+      background: var(--accent-emphasis);
+      color: #ffffff;
+    }
+
+    .arrow {
+      font-size: 18px;
+      line-height: 1;
+      transition: transform .18s var(--ease);
+    }
+
+    a:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    .course-map {
+      overflow: hidden;
+      border: 1px solid var(--separator);
+      border-radius: var(--r-lg);
+      background: var(--bg);
+      box-shadow: var(--shadow-card);
+    }
+
+    .map-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 21px 23px;
+      border-bottom: 1px solid var(--separator);
+    }
+
+    .map-head h2 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 720;
+      letter-spacing: -.015em;
+    }
+
+    .map-head span {
+      color: var(--label-tertiary);
+      font-size: 12px;
+    }
+
+    .map-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .map-link {
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      min-height: 79px;
+      padding: 13px 23px;
+      border-bottom: 1px solid var(--separator);
+      transition: background .18s var(--ease);
+    }
+
+    .map-list li:last-child .map-link {
+      border-bottom: 0;
+    }
+
+    .map-link:hover {
+      background: var(--accent-fill);
+    }
+
+    .map-number {
+      color: var(--accent);
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
       font-weight: 700;
     }
 
-    @media (max-width: 900px) {
-      .hero {
-        min-height: 58vh;
-      }
-
+    .map-copy strong,
+    .map-copy small {
+      display: block;
     }
 
-    @media (max-width: 640px) {
-      .hub {
+    .map-copy strong {
+      font-size: 15px;
+      font-weight: 680;
+      letter-spacing: -.01em;
+      line-height: 1.4;
+    }
+
+    .map-copy small {
+      margin-top: 3px;
+      color: var(--label-tertiary);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .map-arrow {
+      color: var(--label-tertiary);
+      font-size: 16px;
+    }
+
+    .course-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin: 0;
+      padding: 20px 23px;
+      border-top: 1px solid var(--separator);
+      background: var(--bg-secondary);
+    }
+
+    .course-facts div {
+      display: grid;
+      gap: 1px;
+    }
+
+    .course-facts dt {
+      color: var(--label-tertiary);
+      font-size: 11px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .course-facts dd {
+      margin: 0;
+      color: var(--accent);
+      font-size: 16px;
+      font-weight: 740;
+    }
+
+    .learning-flow {
+      padding-block: clamp(72px, 9vw, 118px);
+      border-top: 1px solid var(--separator);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, .68fr) minmax(320px, 1.32fr);
+      gap: clamp(36px, 7vw, 100px);
+      align-items: start;
+    }
+
+    .section-heading h2 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(30px, 3.5vw, 50px);
+      font-weight: 730;
+      letter-spacing: -.035em;
+      line-height: 1.16;
+      text-wrap: balance;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: clamp(44px, 6vw, 76px);
+      border-top: 1px solid var(--label);
+    }
+
+    .step {
+      min-height: 218px;
+      padding: 24px clamp(20px, 2.5vw, 34px) 28px 0;
+      border-bottom: 1px solid var(--separator);
+    }
+
+    .step + .step {
+      padding-left: clamp(20px, 2.5vw, 34px);
+      border-left: 1px solid var(--separator);
+    }
+
+    .step-number {
+      display: block;
+      margin-bottom: 43px;
+      color: var(--accent);
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .step h3 {
+      margin: 0;
+      font-size: 21px;
+      font-weight: 710;
+      letter-spacing: -.02em;
+      line-height: 1.35;
+    }
+
+    .step p {
+      max-width: 330px;
+      margin: 10px 0 0;
+      color: var(--label-secondary);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .resources {
+      padding-block: clamp(72px, 9vw, 118px);
+      background: var(--bg-secondary);
+    }
+
+    .resource-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 34px;
+    }
+
+    .resource-head h2 {
+      margin: 0;
+      font-size: clamp(29px, 3.2vw, 44px);
+      font-weight: 730;
+      letter-spacing: -.035em;
+      line-height: 1.18;
+    }
+
+    .resource-head p {
+      max-width: 460px;
+      margin: 0 0 2px;
+      color: var(--label-secondary);
+      font-size: 15px;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr);
+      gap: 16px;
+    }
+
+    .resource-card {
+      display: flex;
+      min-height: 340px;
+      flex-direction: column;
+      padding: clamp(27px, 3.5vw, 43px);
+      border: 1px solid var(--separator);
+      border-radius: var(--r-lg);
+      background: var(--bg);
+      box-shadow: var(--shadow-card);
+      transition: border-color .18s var(--ease), box-shadow .18s var(--ease), transform .18s var(--ease);
+    }
+
+    .resource-card:hover {
+      border-color: rgba(11, 44, 92, .28);
+      box-shadow: 0 10px 30px rgba(11, 44, 92, .08);
+      transform: translateY(-2px);
+    }
+
+    .resource-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 730;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .resource-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--label-tertiary);
+      font-size: 11px;
+      font-weight: 650;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .resource-status::before {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-emphasis);
+      content: "";
+    }
+
+    .resource-card h3 {
+      max-width: 580px;
+      margin: 46px 0 0;
+      font-size: clamp(27px, 3vw, 42px);
+      font-weight: 720;
+      letter-spacing: -.035em;
+      line-height: 1.16;
+    }
+
+    .resource-card p {
+      max-width: 590px;
+      margin: 14px 0 0;
+      color: var(--label-secondary);
+      font-size: 15px;
+    }
+
+    .resource-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: auto;
+      padding-top: 32px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      border-radius: var(--r-pill);
+      background: var(--bg-secondary);
+      color: var(--label-secondary);
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+
+    .resource-go {
+      color: var(--accent-emphasis);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--separator);
+    }
+
+    .footer-inner {
+      display: flex;
+      min-height: 116px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--label-tertiary);
+      font-size: 13px;
+    }
+
+    .footer-inner strong {
+      color: var(--label-secondary);
+      font-weight: 650;
+    }
+
+    .footer-inner a {
+      color: var(--accent-emphasis);
+      font-weight: 650;
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .course-map {
+        width: min(100%, 720px);
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .resource-grid {
         grid-template-columns: 1fr;
       }
+
+      .resource-card {
+        min-height: 310px;
+      }
     }
 
-    @media (max-width: 620px) {
-      .hero-inner,
-      .footer-inner,
-      .hub {
-        width: min(100% - 28px, 1160px);
+    @media (max-width: 720px) {
+      .brand span,
+      .site-nav a:first-child {
+        display: none;
       }
 
-      .hero-inner {
-        padding: 72px 0 56px;
+      .header-inner {
+        min-height: 66px;
       }
 
-      .title-part {
-        display: block;
+      .site-nav a {
+        padding-inline: 8px;
+      }
+
+      .hero {
+        padding-block: 64px 76px;
+      }
+
+      h1 {
+        font-size: clamp(42px, 12vw, 62px);
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        min-height: 0;
+        padding: 23px 0 26px;
+      }
+
+      .step + .step {
+        padding-left: 0;
+        border-left: 0;
+      }
+
+      .step-number {
+        margin-bottom: 19px;
+      }
+
+      .resource-head,
+      .resource-bottom,
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .resource-head p {
+        max-width: none;
+      }
+
+      .resource-card {
+        min-height: 330px;
+      }
+
+      .footer-inner {
+        justify-content: center;
+        padding-block: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .site-nav {
+        gap: 0;
+      }
+
+      .site-nav a {
+        font-size: 13px;
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .map-link {
+        grid-template-columns: 30px minmax(0, 1fr) auto;
+        padding-inline: 17px;
+      }
+
+      .map-head,
+      .course-facts {
+        padding-inline: 17px;
+      }
+
+      .resource-label {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .resource-card h3 {
+        margin-top: 31px;
+      }
+
+      .resource-bottom {
+        gap: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
-  <header class="hero">
-    <div class="hero-inner">
-      <p class="eyebrow">교육방법 및 교육공학</p>
-      <h1><span class="title-part">한 학기 학습의</span> <span class="title-part">출발점</span></h1>
-      <p class="subtitle">먼저 반응형 텍스트 교재를 읽고, 짧게 확인한 뒤 수업에서 적용하세요. 장마다 30~45분의 사전 읽기를 권장합니다.</p>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="./" aria-label="교육방법 및 교육공학 홈">
+        <strong>교육방법 및 교육공학</strong>
+        <span>전주교육대학교 · 임태형</span>
+      </a>
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <a href="#learning-flow">학습 방법</a>
+        <a href="./book/">텍스트 교재</a>
+        <a href="./chapters/">강의 자료</a>
+      </nav>
     </div>
   </header>
 
-  <main id="main-content" class="hub">
-    <a class="hub-card" href="./book/">
-      <div class="hub-icon" aria-hidden="true">📖</div>
-      <h2>텍스트 교재로 시작하기</h2>
-      <p>한 학기 기본 경로: 장당 30~45분 읽기 → 장의 짧은 확인 → 수업 중 적용. 검색과 보조기술에 안정적으로 대응합니다.</p>
-      <span class="hub-go">텍스트 교재 열기 →</span>
-    </a>
-    <a class="hub-card" href="./chapters/">
-      <div class="hub-icon" aria-hidden="true">🖥</div>
-      <h2>강의 슬라이드와 PDF</h2>
-      <p>교재를 읽은 뒤 수업용 슬라이드와 인쇄/PDF 보조 자료를 확인합니다.</p>
-      <span class="hub-go">보조 자료 열기 →</span>
-    </a>
+  <main id="main-content">
+    <section class="shell hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Jeonju National University of Education</p>
+        <h1 id="hero-title">수업을 설계하고,<br>기술을 판단하는 법.</h1>
+        <p class="hero-lead">교육방법과 교육공학의 토대부터 교수설계, 수업 전략, 디지털·AI 학습환경까지. 교사가 수업에서 마주하는 판단을 이론과 근거로 연결합니다.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="./book/part1/ch01/">
+            1장부터 읽기 <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="button" href="./book/">교재 전체 보기</a>
+        </div>
+      </div>
+
+      <aside class="course-map" aria-labelledby="map-title">
+        <div class="map-head">
+          <h2 id="map-title">한 학기 학습 지도</h2>
+          <span>4부 · 11장</span>
+        </div>
+        <ol class="map-list">
+          <li>
+            <a class="map-link" href="./book/part1/ch01/">
+              <span class="map-number">01</span>
+              <span class="map-copy">
+                <strong>교육방법·교육공학의 토대</strong>
+                <small>1–2장 · 개념과 역사</small>
+              </span>
+              <span class="map-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="map-link" href="./book/part2/ch03/">
+              <span class="map-number">02</span>
+              <span class="map-copy">
+                <strong>교수설계의 원리와 모형</strong>
+                <small>3–5장 · 설계와 학습 조건</small>
+              </span>
+              <span class="map-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="map-link" href="./book/part3/ch06/">
+              <span class="map-number">03</span>
+              <span class="map-copy">
+                <strong>수업 전략의 실제</strong>
+                <small>6–8장 · 협동, 동기, 탐구</small>
+              </span>
+              <span class="map-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="map-link" href="./book/part4/ch09/">
+              <span class="map-number">04</span>
+              <span class="map-copy">
+                <strong>디지털·AI 학습환경</strong>
+                <small>9–11장 · 멀티미디어, AI, 미래교실</small>
+              </span>
+              <span class="map-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
+        <dl class="course-facts">
+          <div><dt>교재</dt><dd>11장</dd></div>
+          <div><dt>수업 자료</dt><dd>10강</dd></div>
+          <div><dt>권장 읽기</dt><dd>30–45분</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <section id="learning-flow" class="learning-flow">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow">Learning flow</p>
+          <h2>읽고, 확인하고,<br>수업에서 적용합니다.</h2>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <span class="step-number">01 / 읽기</span>
+            <h3>핵심 개념을 먼저 읽습니다.</h3>
+            <p>수업 전에 텍스트 교재 한 장을 30–45분 동안 읽고, 개념과 사례의 연결을 잡습니다.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">02 / 확인</span>
+            <h3>질문으로 이해를 점검합니다.</h3>
+            <p>생각해 보기, 토론 질문, 형성 평가로 설명할 수 있는 것과 더 살펴볼 것을 구분합니다.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">03 / 적용</span>
+            <h3>수업 장면에 다시 연결합니다.</h3>
+            <p>강의 자료와 활동을 활용해 이론을 실제 수업 설계와 교사의 판단으로 옮깁니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="resources" aria-labelledby="resource-title">
+      <div class="shell">
+        <div class="resource-head">
+          <div>
+            <p class="eyebrow">Course materials</p>
+            <h2 id="resource-title">필요한 자료로 바로 가기</h2>
+          </div>
+          <p>개념 설명과 출처는 텍스트 교재가 정본입니다. 강의 자료는 수업 중 설명과 복습을 돕는 보조 경로입니다.</p>
+        </div>
+
+        <div class="resource-grid">
+          <a class="resource-card" href="./book/">
+            <div class="resource-label">
+              <span>Primary · 텍스트 교재</span>
+              <span class="resource-status">정본</span>
+            </div>
+            <h3>4부 11장으로 읽는<br>교육방법 및 교육공학</h3>
+            <p>핵심 개념, 학습 활동, 형성 평가, 각주와 참고문헌을 갖춘 반응형 웹 교재입니다.</p>
+            <div class="resource-bottom">
+              <span class="tags" aria-label="교재 기능">
+                <span class="tag">검색</span>
+                <span class="tag">다크 모드</span>
+                <span class="tag">접근성</span>
+              </span>
+              <span class="resource-go">교재 열기 <span class="arrow" aria-hidden="true">→</span></span>
+            </div>
+          </a>
+
+          <a class="resource-card" href="./chapters/">
+            <div class="resource-label">
+              <span>Supplement · 강의 자료</span>
+            </div>
+            <h3>10강 수업<br>슬라이드</h3>
+            <p>교재를 읽은 뒤 수업에서 개념을 설명하고 적용할 때 사용하는 문서형 강의 자료입니다.</p>
+            <div class="resource-bottom">
+              <span class="tags" aria-label="강의 자료 기능">
+                <span class="tag">10강</span>
+                <span class="tag">문서 모드</span>
+              </span>
+              <span class="resource-go">자료 열기 <span class="arrow" aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <div class="footer-inner">교육방법 및 교육공학 · 슬라이드는 10강 체계, 텍스트 교재는 11장 체계이며 대응 관계는 교재 홈에서 확인할 수 있습니다.</div>
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span><strong>교육방법 및 교육공학</strong> · 전주교육대학교 임태형</span>
+      <span>교재 11장 · 강의 자료 10강 · <a href="./book/">학습 시작하기</a></span>
+    </div>
   </footer>
 </body>
 </html>
