@@ -27,7 +27,7 @@ def deep_links(deck: Path) -> list[str]:
     return re.findall(r'href=["\']([^"\']+#[^"\']+)["\']', text, flags=re.IGNORECASE)
 
 
-def validate(root: Path) -> list[str]:
+def validate(root: Path, built: Path) -> list[str]:
     errors: list[str] = []
     checked = 0
     for relative in DECKS:
@@ -46,9 +46,9 @@ def validate(root: Path) -> list[str]:
             if not match or not fragment:
                 errors.append(f"{relative}: unsupported textbook deep link: {url}")
                 continue
-            output = root / "site" / match.group("part") / match.group("chapter") / "index.html"
+            output = built / match.group("part") / match.group("chapter") / "index.html"
             if not output.is_file():
-                errors.append(f"{relative}: missing MkDocs output: {output.relative_to(root)}")
+                errors.append(f"{relative}: missing MkDocs output: {output}")
                 continue
             count = output.read_text(encoding="utf-8", errors="replace").count(f'id="{fragment}"')
             checked += 1
@@ -64,8 +64,14 @@ def validate(root: Path) -> list[str]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=ROOT, help="repository root")
+    parser.add_argument(
+        "--built",
+        type=Path,
+        default=None,
+        help="directory holding the built textbook (default: <root>/site)",
+    )
     args = parser.parse_args()
-    errors = validate(args.root)
+    errors = validate(args.root, args.built or args.root / "site")
     if errors:
         print("Textbook deep-link anchor validation failed:", file=sys.stderr)
         print("\n".join(f"- {error}" for error in errors), file=sys.stderr)
