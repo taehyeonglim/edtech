@@ -1,6 +1,6 @@
 # edtech — 교육방법및교육공학 수업자료
 
-임태형 교수의 교육방법및교육공학 강의 자료 저장소. 원본 자료·제작 산출물·공개 배포본이 모두 여기 있다.
+전주교육대학교 임태형 교수의 교육방법및교육공학 강의 자료 저장소. 원본 자료·제작 산출물·공개 배포본이 모두 여기 있다.
 
 ## ⚠️ 이 저장소는 PUBLIC 이다
 
@@ -60,6 +60,16 @@ git push origin main               # → 1~2분 후 https://taehyeonglim.github.
 핵심: Pretendard Variable(jsdelivr `@import`), 악센트 네이비 `#0B2C5C` + 링크 블루 `#1B66C9`, 라벨 3단 `#1d1d1f`/`#57575d`/`#66666d`, hairline `rgba(0,0,0,.10)`, radius 8/12/18/980, 12px 대문자 네이비 eyebrow 라벨.
 
 색을 바꿀 때는 반드시 axe 게이트를 다시 통과시킬 것 — CI가 `node tools/audit_candidate.mjs`로 25개 라우트를 WCAG 2.2 AA 기준 검사한다. (Material이 푸터 링크에 `opacity:.7`을 걸어 대비를 떨어뜨리는 것 같은 함정이 있다.)
+
+## 사실 근거
+
+**교직논술 기출을 인용할 때는 반드시 `~/Documents/GitHub/pedagogical-essay`에서 확인한다.** 2026-08-13에 추정으로 쓰여 있던 기출 주장 2건이 대조 결과 모두 틀린 것으로 드러났다(슬라이드 6·7강). 학생이 시험 준비에 쓰는 정보라 오류의 대가가 크다.
+
+- `data/parsed/YYYY.md` — 제시문·하위 문항·배점 기준 (가장 빠른 확인 경로)
+- `data/analysis.json` — 영역별 이론과 출제 연도 색인
+- 연도는 **학년도** 표기다 (2017학년도 = 2016년 11월 시행)
+
+교재·슬라이드의 통독 검수 기록은 `docs-internal/reviews/`, 세션 핸드오프는 `docs-internal/handoffs/`에 있다(둘 다 비공개).
 
 ## 저작권 원칙
 
