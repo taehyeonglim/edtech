@@ -4,102 +4,204 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="임태형">
-  <meta name="description" content="교육방법 및 교육공학 10강 HTML 슬라이드 · PDF 배포본">
-  <title>강의 슬라이드 · 교육방법 및 교육공학</title>
+  <meta name="description" content="전주교육대학교 교육방법 및 교육공학 10강 HTML 강의 자료">
+  <meta name="theme-color" content="#ffffff">
+  <title>강의 자료 · 교육방법 및 교육공학</title>
   <style>
+    @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
     :root {
-      --navy: #0b2c5c;
-      --blue: #1b66c9;
-      --ink: #1a1a1a;
-      --muted: #5c6470;
-      --line: #c5d2e3;
-      --paper: #ffffff;
-      --soft: #eef4fb;
-      --green: #1f9d57;
-      --red: #d93535;
+      --bg: #ffffff;
+      --bg-secondary: #f5f6f8;
+      --label: #1d1d1f;
+      --label-secondary: #57575d;
+      --label-tertiary: #66666d;
+      --separator: rgba(0, 0, 0, .10);
+      --fill-hover: rgba(0, 0, 0, .04);
+      --accent: #0b2c5c;
+      --accent-emphasis: #1b66c9;
+      --accent-fill: rgba(11, 44, 92, .07);
+      --shadow-card: 0 1px 3px rgba(0, 0, 0, .04);
+      --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif;
+      --font-mono: "SF Mono", ui-monospace, Menlo, monospace;
+      --safe-x: clamp(24px, 5.2vw, 80px);
+      --r-sm: 8px;
+      --r-md: 12px;
+      --r-lg: 18px;
+      --r-pill: 980px;
+      --ease: cubic-bezier(.28, .11, .32, 1);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 320px;
+      scroll-behavior: smooth;
+    }
 
     body {
+      min-width: 320px;
       margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
-      line-height: 1.55;
+      background: var(--bg);
+      color: var(--label);
+      font-family: var(--font);
+      font-size: 17px;
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
     }
 
-    a { color: inherit; text-decoration: none; }
-    .skip-link { position: absolute; top: -48px; left: 16px; z-index: 10; padding: 10px 14px; background: #fff; color: var(--navy); font-weight: 900; }
-    .skip-link:focus { top: 16px; outline: 3px solid var(--blue); }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
+    a:focus-visible {
+      outline: 2px solid var(--accent-emphasis);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 12px;
+      left: 12px;
+      padding: 10px 14px;
+      border: 1px solid var(--separator);
+      border-radius: var(--r-sm);
+      background: var(--bg);
+      color: var(--accent);
+      font-weight: 700;
+      transform: translateY(-180%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - clamp(48px, 10.4vw, 160px)));
+      margin-inline: auto;
+    }
 
     .site-header {
       position: sticky;
       z-index: 20;
       top: 0;
-      border-bottom: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--separator);
+      background: rgba(255, 255, 255, .94);
+      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      display: flex;
+      min-height: 69px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      min-width: 0;
+      color: var(--label);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -.015em;
+      white-space: nowrap;
     }
 
     .topnav {
-      width: min(1160px, calc(100% - 40px));
-      margin: 0 auto;
       display: flex;
-      min-height: 61px;
-      gap: 8px;
       align-items: center;
-      font-weight: 800;
-      font-size: 0.95rem;
+      gap: 3px;
     }
+
     .topnav a {
-      border-radius: 980px;
-      color: var(--blue);
-      padding: 6px 10px;
+      display: inline-flex;
+      min-height: 32px;
+      align-items: center;
+      border-radius: var(--r-pill);
+      color: var(--label-secondary);
+      font-size: 13px;
+      font-weight: 650;
+      padding: 5px 11px;
+      white-space: nowrap;
     }
-    .topnav a:hover { background: var(--soft); }
-    .topnav .sep { color: var(--line); font-weight: 400; }
 
-    .pagehead {
-      width: min(1160px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 30px 0 8px;
-      border-bottom: 2px solid var(--navy);
+    .topnav a:hover,
+    .topnav a:focus {
+      background: var(--accent-fill);
+      color: var(--accent);
     }
+
+    .page-heading {
+      padding-block: clamp(68px, 9vw, 118px) clamp(58px, 7vw, 88px);
+    }
+
     .eyebrow {
-      margin: 0 0 10px;
-      font-size: 0.95rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .08em;
+      line-height: 1.35;
       text-transform: uppercase;
-      color: var(--muted);
-    }
-    .pagehead h1 {
-      margin: 0;
-      color: var(--navy);
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      line-height: 1.05;
-      font-weight: 900;
-    }
-    .pagehead .count {
-      display: inline-block;
-      margin: 14px 0 18px;
-      color: var(--muted);
-      font-weight: 800;
-      letter-spacing: 0.04em;
     }
 
-    .course-grid {
-      width: min(1160px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 28px 0 64px;
+    h1,
+    h2,
+    h3,
+    p {
+      overflow-wrap: anywhere;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(44px, 5vw, 68px);
+      font-weight: 760;
+      letter-spacing: -.045em;
+      line-height: 1.06;
+    }
+
+    .page-lead {
+      max-width: 620px;
+      margin: 22px 0 0;
+      color: var(--label-secondary);
+      font-size: clamp(17px, 1.35vw, 20px);
+      line-height: 1.65;
+      text-wrap: pretty;
+    }
+
+    .catalog {
+      padding-bottom: clamp(80px, 10vw, 132px);
+    }
+
+    .catalog-head {
+      display: flex;
+      min-height: 60px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border-top: 1px solid var(--label);
+      border-bottom: 1px solid var(--separator);
+    }
+
+    .catalog-head h2 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 720;
+      letter-spacing: -.01em;
+    }
+
+    .catalog-head p {
+      margin: 0;
+      color: var(--label-tertiary);
+      font-size: 12px;
     }
 
     .lecture-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -107,211 +209,293 @@
 
     .lecture-card {
       display: grid;
-      grid-template-columns: 184px minmax(0, 1fr);
-      min-height: 172px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      overflow: hidden;
-      background: #fff;
+      grid-template-columns: 52px minmax(0, 1fr) auto;
+      gap: clamp(18px, 3vw, 42px);
+      align-items: center;
+      min-height: 124px;
+      border-bottom: 1px solid var(--separator);
+      transition: background .18s var(--ease);
     }
 
-    .thumb {
-      min-height: 172px;
-      background: var(--soft) center / cover;
-      border-right: 1px solid var(--line);
-    }
-
-    .lecture-body {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 20px;
+    .lecture-card:hover {
+      background: var(--fill-hover);
     }
 
     .week {
-      display: inline-flex;
-      width: fit-content;
-      background: var(--navy);
-      color: #fff;
-      border-radius: 2px;
-      padding: 5px 10px;
-      font-size: 0.82rem;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-    }
-
-    .lecture-card h3 {
-      margin: 12px 0 0;
-      color: var(--ink);
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-      line-height: 1.28;
-    }
-
-    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 0 14px;
-      border-radius: 4px;
-      font-weight: 900;
-      border: 1px solid var(--navy);
-      color: var(--navy);
-    }
-    .button.primary { background: var(--navy); color: #fff; }
-    .button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
-
-    footer {
-      border-top: 1px solid var(--line);
-      background: var(--soft);
-      color: var(--muted);
-    }
-    .footer-inner {
-      width: min(1160px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 26px 0;
-      font-size: 0.95rem;
+      align-self: start;
+      padding-top: 39px;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 12px;
       font-weight: 700;
+      letter-spacing: .02em;
     }
 
-    @media (max-width: 900px) {
-      .lecture-list { grid-template-columns: 1fr; }
+    .lecture-copy {
+      min-width: 0;
+      padding-block: 27px;
     }
-    @media (max-width: 620px) {
-      .lecture-card { grid-template-columns: 1fr; }
-      .thumb { min-height: 180px; border-right: 0; border-bottom: 1px solid var(--line); }
-      .actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .lecture-copy h3 {
+      margin: 0;
+      color: var(--label);
+      font-size: clamp(19px, 1.7vw, 24px);
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.32;
+    }
+
+    .textbook-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 13px;
+      margin-top: 9px;
+    }
+
+    .textbook-links a {
+      color: var(--label-tertiary);
+      font-size: 13px;
+      font-weight: 550;
+      text-decoration: underline;
+      text-decoration-thickness: .06em;
+      text-underline-offset: .18em;
+    }
+
+    .textbook-links a:hover,
+    .textbook-links a:focus {
+      color: var(--accent-emphasis);
+    }
+
+    .open-deck {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--separator);
+      border-radius: var(--r-pill);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 14px;
+      white-space: nowrap;
+      transition: background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
+    }
+
+    .open-deck::after {
+      font-size: 16px;
+      line-height: 1;
+      content: "→";
+      transition: transform .18s var(--ease);
+    }
+
+    .open-deck:hover,
+    .open-deck:focus {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .open-deck:hover::after,
+    .open-deck:focus::after {
+      transform: translateX(3px);
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--separator);
+    }
+
+    .footer-inner {
+      display: flex;
+      min-height: 104px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--label-tertiary);
+      font-size: 13px;
+    }
+
+    .footer-inner a {
+      color: var(--accent-emphasis);
+      font-weight: 650;
+    }
+
+    @media (max-width: 700px) {
+      .page-heading {
+        padding-block: 58px 52px;
+      }
+
+      .lecture-card {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 14px;
+        padding-block: 23px;
+      }
+
+      .week {
+        padding-top: 5px;
+      }
+
+      .lecture-copy {
+        padding-block: 0;
+      }
+
+      .open-deck {
+        grid-column: 2;
+        width: fit-content;
+      }
+
+      .footer-inner {
+        min-height: 92px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand {
+        font-size: 14px;
+      }
+
+      .topnav a {
+        font-size: 12px;
+        padding-inline: 8px;
+      }
+
+      .catalog-head p,
+      .footer-inner span:last-child {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+      }
     }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
+
   <header class="site-header">
-    <nav class="topnav" aria-label="과목 자료 이동">
-      <a href="../">홈</a>
-      <span class="sep" aria-hidden="true">|</span>
-      <a href="../book/">텍스트 교재</a>
-    </nav>
+    <div class="shell header-inner">
+      <a class="brand" href="../">교육방법 및 교육공학</a>
+      <nav class="topnav" aria-label="과목 자료 이동">
+        <a href="../">홈</a>
+        <a href="../book/">텍스트 교재</a>
+      </nav>
+    </div>
   </header>
 
-  <header class="pagehead">
-    <p class="eyebrow">보조 자료 · 강의 슬라이드</p>
-    <h1>강의 슬라이드와 인쇄/PDF</h1>
-    <p class="count">교재를 먼저 읽고 수업에서 적용할 때 쓰는 10강 보조 자료입니다. 각 강의의 텍스트 교재 링크가 기본 경로입니다.</p>
-  </header>
+  <main id="main-content">
+    <header class="shell page-heading">
+      <p class="eyebrow">Course materials</p>
+      <h1>강의 자료</h1>
+      <p class="page-lead">교재를 읽은 뒤 수업과 복습에 활용하는 10강 문서형 슬라이드입니다.</p>
+    </header>
 
-  <main id="main-content" class="course-grid" aria-label="강의 슬라이드 목록">
-    <h2>10강 보조 자료</h2>
-    <ol class="lecture-list">
-      <li class="lecture-card">
-        <div class="thumb" style="background-image: url('chapter-01/images/img-s01-classroom.png');"></div>
-        <div class="lecture-body">
-          <div><span class="week">01</span><h3>도입/개관</h3></div>
-          <div class="actions">
-            <a class="button primary" href="../book/part1/ch01/">텍스트 교재 1장</a>
-            <a class="button" href="chapter-01/slides/deck.html">HTML 슬라이드</a>
+    <section class="shell catalog" aria-labelledby="catalog-title">
+      <div class="catalog-head">
+        <h2 id="catalog-title">10강</h2>
+        <p>HTML 문서형 슬라이드</p>
+      </div>
+
+      <ol class="lecture-list">
+        <li class="lecture-card">
+          <span class="week">01</span>
+          <div class="lecture-copy">
+            <h3>도입/개관</h3>
+            <div class="textbook-links"><a href="../book/part1/ch01/">텍스트 교재 1장</a></div>
           </div>
-        </div>
-      </li>
-      <li class="lecture-card">
-        <div class="thumb" style="background-image: url('chapter-02/images/img-s01-title.png');"></div>
-        <div class="lecture-body">
-          <div><span class="week">02</span><h3>교육과 기술의 관계</h3></div>
-          <div class="actions">
-            <a class="button primary" href="../book/part1/ch02/">텍스트 교재 2장</a>
-            <a class="button" href="chapter-02/slides/deck.html">HTML 슬라이드</a>
+          <a class="open-deck" href="chapter-01/slides/deck.html">슬라이드 열기</a>
+        </li>
+        <li class="lecture-card">
+          <span class="week">02</span>
+          <div class="lecture-copy">
+            <h3>교육과 기술의 관계</h3>
+            <div class="textbook-links"><a href="../book/part1/ch02/">텍스트 교재 2장</a></div>
           </div>
-        </div>
-      </li>
-      <li class="lecture-card">
-        <div class="thumb" style="background-image: url('chapter-03/images/img-s01-cover-bg.png');"></div>
-        <div class="lecture-body">
-          <div><span class="week">03</span><h3>2022 개정 교육과정과 AI·디지털 교육</h3></div>
-          <div class="actions">
-            <a class="button primary" href="../book/part4/ch10/">텍스트 교재 10장</a>
-            <a class="button" href="chapter-03/slides/deck.html">HTML 슬라이드</a>
+          <a class="open-deck" href="chapter-02/slides/deck.html">슬라이드 열기</a>
+        </li>
+        <li class="lecture-card">
+          <span class="week">03</span>
+          <div class="lecture-copy">
+            <h3>2022 개정 교육과정과 AI·디지털 교육</h3>
+            <div class="textbook-links"><a href="../book/part4/ch10/">텍스트 교재 10장</a></div>
           </div>
-        </div>
-      </li>
-      <li class="lecture-card">
-        <div class="thumb" style="background-image: url('chapter-04/images/img-s01-cover-bg.png');"></div>
-        <div class="lecture-body">
-          <div><span class="week">04</span><h3>체제적 교수설계의 방법과 절차</h3></div>
-          <div class="actions">
-            <a class="button primary" href="../book/part2/ch03/">텍스트 교재 3장</a>
-            <a class="button" href="chapter-04/slides/deck.html">HTML 슬라이드</a>
+          <a class="open-deck" href="chapter-03/slides/deck.html">슬라이드 열기</a>
+        </li>
+        <li class="lecture-card">
+          <span class="week">04</span>
+          <div class="lecture-copy">
+            <h3>체제적 교수설계의 방법과 절차</h3>
+            <div class="textbook-links"><a href="../book/part2/ch03/">텍스트 교재 3장</a></div>
           </div>
-        </div>
-      </li>
-      <li class="lecture-card">
-        <div class="thumb" style="background-image: url('chapter-05/images/img-s01-cover-bg.png');"></div>
-        <div class="lecture-body">
-          <div><span class="week">05</span><h3>수업의 구성과 절차</h3></div>
-          <div class="actions">
-            <a class="button primary" href="../book/part2/ch04/">텍스트 교재 4장</a>
-            <a class="button" href="chapter-05/slides/deck.html">HTML 슬라이드</a>
+          <a class="open-deck" href="chapter-04/slides/deck.html">슬라이드 열기</a>
+        </li>
+        <li class="lecture-card">
+          <span class="week">05</span>
+          <div class="lecture-copy">
+            <h3>수업의 구성과 절차</h3>
+            <div class="textbook-links"><a href="../book/part2/ch04/">텍스트 교재 4장</a></div>
           </div>
-        </div>
-      </li>
-      <li class="lecture-card">
-        <div class="thumb" style="background-image: url('chapter-06/images/img-s01-cover-bg.png');"></div>
-        <div class="lecture-body">
-          <div><span class="week">06</span><h3>협동학습 전략</h3></div>
-          <div class="actions">
-            <a class="button primary" href="../book/part3/ch06/">텍스트 교재 6장</a>
-            <a class="button" href="chapter-06/slides/deck.html">HTML 슬라이드</a>
+          <a class="open-deck" href="chapter-05/slides/deck.html">슬라이드 열기</a>
+        </li>
+        <li class="lecture-card">
+          <span class="week">06</span>
+          <div class="lecture-copy">
+            <h3>협동학습 전략</h3>
+            <div class="textbook-links"><a href="../book/part3/ch06/">텍스트 교재 6장</a></div>
           </div>
-        </div>
-      </li>
-      <li class="lecture-card">
-        <div class="thumb" style="background-image: url('chapter-07/images/img-s01-cover-bg.png');"></div>
-        <div class="lecture-body">
-          <div><span class="week">07</span><h3>학습 동기 유발 전략</h3></div>
-          <div class="actions">
-            <a class="button primary" href="../book/part3/ch07/">텍스트 교재 7장</a>
-            <a class="button" href="chapter-07/slides/deck.html">HTML 슬라이드</a>
+          <a class="open-deck" href="chapter-06/slides/deck.html">슬라이드 열기</a>
+        </li>
+        <li class="lecture-card">
+          <span class="week">07</span>
+          <div class="lecture-copy">
+            <h3>학습 동기 유발 전략</h3>
+            <div class="textbook-links"><a href="../book/part3/ch07/">텍스트 교재 7장</a></div>
           </div>
-        </div>
-      </li>
-      <li class="lecture-card">
-        <div class="thumb" style="background-image: url('chapter-08/images/img-s01-cover-bg.png');"></div>
-        <div class="lecture-body">
-          <div><span class="week">08</span><h3>멀티미디어 설계 원리</h3></div>
-          <div class="actions">
-            <a class="button primary" href="../book/part4/ch09/">텍스트 교재 9장</a>
-            <a class="button" href="chapter-08/slides/deck.html">HTML 슬라이드</a>
+          <a class="open-deck" href="chapter-07/slides/deck.html">슬라이드 열기</a>
+        </li>
+        <li class="lecture-card">
+          <span class="week">08</span>
+          <div class="lecture-copy">
+            <h3>멀티미디어 설계 원리</h3>
+            <div class="textbook-links"><a href="../book/part4/ch09/">텍스트 교재 9장</a></div>
           </div>
-        </div>
-      </li>
-      <li class="lecture-card">
-        <div class="thumb" style="background-image: url('chapter-09/images/img-s01-cover-bg.png');"></div>
-        <div class="lecture-body">
-          <div><span class="week">09</span><h3>AI 디지털교과서의 시대</h3></div>
-          <div class="actions">
-            <a class="button primary" href="../book/part4/ch10/">텍스트 교재 10장</a>
-            <a class="button primary" href="../book/part4/ch11/">텍스트 교재 11장</a>
-            <a class="button" href="chapter-09/slides/deck.html">HTML 슬라이드</a>
+          <a class="open-deck" href="chapter-08/slides/deck.html">슬라이드 열기</a>
+        </li>
+        <li class="lecture-card">
+          <span class="week">09</span>
+          <div class="lecture-copy">
+            <h3>AI 디지털교과서의 시대</h3>
+            <div class="textbook-links">
+              <a href="../book/part4/ch10/">텍스트 교재 10장</a>
+              <a href="../book/part4/ch11/">텍스트 교재 11장</a>
+            </div>
           </div>
-        </div>
-      </li>
-      <li class="lecture-card">
-        <div class="thumb" style="background-image: url('chapter-10/images/img-s01-cover-bg.png');"></div>
-        <div class="lecture-body">
-          <div><span class="week">10</span><h3>AI와 교육이 만나는 방법</h3></div>
-          <div class="actions">
-            <a class="button primary" href="../book/part4/ch11/">텍스트 교재 11장</a>
-            <a class="button" href="chapter-10/slides/deck.html">HTML 슬라이드</a>
+          <a class="open-deck" href="chapter-09/slides/deck.html">슬라이드 열기</a>
+        </li>
+        <li class="lecture-card">
+          <span class="week">10</span>
+          <div class="lecture-copy">
+            <h3>AI와 교육이 만나는 방법</h3>
+            <div class="textbook-links"><a href="../book/part4/ch11/">텍스트 교재 11장</a></div>
           </div>
-        </div>
-      </li>
-    </ol>
+          <a class="open-deck" href="chapter-10/slides/deck.html">슬라이드 열기</a>
+        </li>
+      </ol>
+    </section>
   </main>
 
-  <footer>
-    <div class="footer-inner">교육방법 및 교육공학 · HTML/PDF 교안</div>
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>교육방법 및 교육공학 · 전주교육대학교 임태형</span>
+      <span><a href="../book/">텍스트 교재</a>에서 학습을 시작하세요.</span>
+    </div>
   </footer>
 </body>
 </html>
