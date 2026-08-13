@@ -302,6 +302,47 @@ def count_cited_expansion_blocks(text: str) -> int:
     return sum(1 for block in expansion_blocks(text) if CORE_REFERENCE_RE.search(block))
 
 
+INTERNAL_ID_RE: Final = re.compile(
+    r"ch\d{2}-(?:obj|act|assess|src|o\d|fa|precheck|apply|prework|cumulative|check)[a-z0-9-]*"
+)
+EDITORIAL_RESIDUE: Final[tuple[str, ...]] = (
+    "metadata verified",
+    "verified at",
+    "metadata inspected",
+    "Crossref metadata",
+    "oEmbed",
+)
+CAPTION_RE: Final = re.compile(r"^\*그림\s+([^.]*)\.", re.MULTILINE)
+
+
+def reader_visible_text(text: str) -> str:
+    """Body as students see it: front matter and HTML comments removed."""
+    without_front_matter = re.sub(r"\A---\n.*?\n---\n", "", text, flags=re.DOTALL)
+    return re.sub(r"<!--.*?-->", "", without_front_matter, flags=re.DOTALL)
+
+
+def publishing_hygiene_errors(text: str, chapter_number: int) -> list[str]:
+    """Catch editing infrastructure that leaked onto the student-facing page."""
+    errors: list[str] = []
+    visible = reader_visible_text(text)
+
+    exposed = sorted(set(INTERNAL_ID_RE.findall(visible)))
+    if exposed:
+        errors.append(
+            "internal tracking ids must stay in HTML comments, found on the page: "
+            + ", ".join(exposed)
+        )
+
+    residue = sorted({phrase for phrase in EDITORIAL_RESIDUE if phrase in visible})
+    if residue:
+        errors.append("editorial verification notes must not ship: " + ", ".join(residue))
+
+    for caption in CAPTION_RE.findall(visible):
+        if not re.fullmatch(rf"{chapter_number}-\d+", caption.strip()):
+            errors.append(f"figure captions must read '그림 {chapter_number}-N.', found '그림 {caption}.'")
+    return errors
+
+
 def audit_chapter(path: Path, use_standard: bool) -> ChapterAudit:
     errors: list[str] = []
     relative = rel(path)
@@ -309,6 +350,7 @@ def audit_chapter(path: Path, use_standard: bool) -> ChapterAudit:
         return ChapterAudit(str(relative), "failed", {}, ["chapter file is missing"])
 
     text = path.read_text(encoding="utf-8")
+    errors.extend(publishing_hygiene_errors(text, int(path.stem.removeprefix("ch"))))
     if use_standard:
         errors.extend(standard_structure_errors(text))
         errors.extend(standard_requirement_errors(text))

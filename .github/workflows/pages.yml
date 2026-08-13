@@ -39,6 +39,7 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Audit the candidate to be uploaded
         run: |
+          python3 tools/validate_slide_textbook_anchors.py
           python3 tools/validate_public_boundary.py --root _site
           python3 tools/validate_accessibility_static.py --root _site
           python3 tools/validate_accessibility_static.py --root _site/book

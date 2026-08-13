@@ -28,3 +28,5 @@ jobs:
         run: mkdocs build --strict
       - name: Validate built textbook accessibility baseline
         run: python3 tools/validate_accessibility_static.py --root site
+      - name: Validate slide deep links against built anchors
+        run: python3 tools/validate_slide_textbook_anchors.py

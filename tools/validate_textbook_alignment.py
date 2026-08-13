@@ -165,9 +165,6 @@ def split_front_matter(text: str, label: str) -> tuple[dict[str, Any] | None, st
     return metadata, text[match.end():], []
 
 
-def table_section(body: str) -> str:
-    tables = re.findall(r"(?:^\|.*\|\n)+", body, re.MULTILINE)
-    return "\n".join(table for table in tables if re.search(r"^\|.*(?:학습목표|목표 ID).*\|$", table, re.MULTILINE))
 
 
 def section(body: str, heading_pattern: str) -> str:
@@ -179,24 +176,24 @@ def exact_token_present(token: str, text: str) -> bool:
     return bool(re.search(rf"(?<![A-Za-z0-9_-]){re.escape(token)}(?![A-Za-z0-9_-])", text))
 
 
-def source_is_mapped(source_id: str, correspondence: str, body: str) -> bool:
-    for line in correspondence.splitlines():
-        if not exact_token_present(source_id, line):
-            continue
-        for footnote_id in re.findall(r"\[\^([^\]]+)\]", line):
-            if re.search(rf"^\[\^{re.escape(footnote_id)}\]:", body, re.MULTILINE):
-                return True
-    return False
 
 
 def body_resolves_id(field: str, value: str, body: str) -> bool:
-    if field == "source_ids":
-        return exact_token_present(value, body)
     return exact_token_present(value, body)
 
 
 def validate_local_ids(metadata: dict[str, Any], body: str, chapter_id: str, label: str) -> list[str]:
     errors: list[str] = []
+    declared = {
+        str(value)
+        for field in LOCAL_ID_FIELDS + ("source_ids",)
+        for value in (metadata.get(field) or [])
+    }
+    # Forward-only checking let ch01/ch02 reference an assess-06 that no
+    # front matter declared; look the other way too.
+    for found in sorted(set(re.findall(rf"{re.escape(chapter_id)}-[a-z0-9-]+", body))):
+        if found not in declared:
+            errors.append(f"{label} body references undeclared id: {found}")
     for field in LOCAL_ID_FIELDS + ("source_ids",):
         values = metadata.get(field)
         if not isinstance(values, list) or any(not isinstance(value, str) for value in values):
