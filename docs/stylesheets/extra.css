@@ -755,6 +755,33 @@ body {
   font-style: normal;
 }
 
+.md-typeset .chapter-visual {
+  margin: 1.5rem 0 1.75rem;
+}
+
+.md-typeset .chapter-visual img {
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  object-fit: cover;
+  padding: 0;
+  width: 100%;
+}
+
+.md-typeset .chapter-visual figcaption {
+  margin: .65rem auto 0;
+}
+
+.md-typeset .chapter-visual figcaption > span,
+.md-typeset .chapter-visual .chapter-visual-source {
+  display: block;
+}
+
+.md-typeset .chapter-visual .chapter-visual-source {
+  color: var(--label-tertiary);
+  font-size: 11px;
+  margin-top: .15rem;
+}
+
 /* Existing in-body teaching media uses the same restrained card vocabulary. */
 .교재-highlight {
   background: var(--accent-fill);

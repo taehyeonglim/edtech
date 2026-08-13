@@ -106,15 +106,20 @@
                 },
                 {
                   id: "design-learning-conditions",
-                  layout: "cards",
+                  layout: "split",
                   eyebrow: "Learning conditions",
                   title: "학습 조건을 설계하기",
                   lead: "조건은 교실 환경만을 가리키지 않는다.",
-                  cards: [
-                    { label: "목표", title: "무엇을 할 수 있어야 하는가", body: "학생이 수업 뒤 무엇을 할 수 있어야 하는가" },
-                    { label: "선수학습", title: "무엇이 준비되어야 하는가", body: "그 수행에 필요한 경험과 하위 기능은 무엇인가" },
-                    { label: "활동·자료", title: "어떤 경험이 필요한가", body: "어떤 예시와 연습이 수행을 가능하게 하는가" },
-                    { label: "피드백·평가·전이", title: "무엇으로 확인할 것인가", body: "무엇으로 확인하고 새 맥락에 적용하게 할 것인가" }
+                  media: {
+                    src: "../images/img-s05-conditions.png",
+                    alt: "다섯 학습 결과 유형이 각기 다른 교수 조건으로 이어지는 다중 경로 도식",
+                    caption: "조건은 목표 수행에 필요한 선수학습·활동·자료·피드백·평가·전이를 함께 뜻한다."
+                  },
+                  bullets: [
+                    "<b>목표</b> — 학생이 수업 뒤 무엇을 할 수 있어야 하는가?",
+                    "<b>선수학습</b> — 그 수행에 필요한 경험과 하위 기능은 무엇인가?",
+                    "<b>활동·자료</b> — 어떤 예시와 연습이 수행을 가능하게 하는가?",
+                    "<b>피드백·평가·전이</b> — 무엇으로 확인하고 새 맥락에 적용하게 할 것인가?"
                   ]
                 },
                 {
@@ -133,6 +138,19 @@
                     "같은 설명이라도 목표가 기억·개념 구분·원리 적용 중 무엇인지에 따라 필요한 조건이 달라진다.",
                     "Gagné (1965) 이론의 핵심 명제"
                   ]
+                },
+                {
+                  id: "learning-conditions-focus",
+                  layout: "figure",
+                  eyebrow: "GAGNÉ · VISUAL FOCUS",
+                  title: "같은 설명이 모든 학습을 만들지는 않는다",
+                  lead: "회상·절차 적용·문제 해결·협력처럼 목표 수행이 달라지면 필요한 예시와 연습, 피드백도 달라진다.",
+                  figure: {
+                    src: "../../../assets/visuals/generated/learning-conditions-classroom.jpg",
+                    alt: "한 교실에서 회상, 절차 연습, 문제 해결, 협력 활동을 서로 다른 지원으로 수행하는 학습자들",
+                    caption: "학습 결과의 유형을 먼저 구분하면 ‘무엇을 더 설명할까’보다 ‘어떤 조건을 마련할까’를 묻게 된다.",
+                    source: "OpenAI GPT Image로 생성한 자체 시각자료 · 2026"
+                  }
                 }
               ]
             },
@@ -219,6 +237,19 @@
                   ]
                 },
                 {
+                  id: "nine-events-focus",
+                  layout: "figure",
+                  eyebrow: "NINE EVENTS · VISUAL FOCUS",
+                  title: "교수사태는 수업 순서보다 인지 지원의 흐름이다",
+                  lead: "주의에서 전이까지의 사건은 학습자의 선택·조직·연습·회상 과정을 외부에서 돕는다.",
+                  figure: {
+                    src: "../../../assets/visuals/generated/nine-events-classroom.jpg",
+                    alt: "한 수업에서 주의, 목표 인식, 회상, 안내, 연습, 피드백, 평가, 전이로 이어지는 장면",
+                    caption: "모든 차시를 같은 형식으로 만드는 목록이 아니라, 빠진 학습 조건을 진단하는 점검틀로 사용한다.",
+                    source: "OpenAI GPT Image로 생성한 자체 시각자료 · 2026"
+                  }
+                },
+                {
                   id: "events-one-to-five",
                   layout: "table",
                   eyebrow: "Events 1–5",
@@ -251,12 +282,19 @@
                 },
                 {
                   id: "retention-and-transfer",
-                  layout: "cards",
+                  layout: "split",
                   eyebrow: "Lasting learning",
                   title: "파지와 전이: 새 맥락까지 확인하기",
-                  cards: [
-                    { label: "파지 (Retention)", title: "다시 꺼내어 수행하기", body: "시간이 지난 뒤에도 필요한 지식과 기능을 인출한다. 배운 내용을 다시 꺼내어 수행할 기회를 만들고, 평가 뒤에도 핵심 수행을 확인한다." },
-                    { label: "전이 (Transfer)", title: "새로운 맥락에 적용하기", body: "배운 수행을 새로운 맥락에 적용한다. 같은 답을 반복하지 않는 변형 과제와 다음 수업의 적용 기회를 남긴다." }
+                  media: {
+                    src: "../images/img-s17-sequencing.png",
+                    alt: "학습 내용을 다시 꺼내고 새 맥락에 적용하도록 이어지는 수업 계열화 도식",
+                    caption: "파지는 시간 간격을 두고 다시 수행하게 하고, 전이는 조건이 달라진 문제에 적용하게 한다."
+                  },
+                  bullets: [
+                    "<b>파지</b> — 시간이 지난 뒤에도 필요한 지식과 기능을 다시 인출한다.",
+                    "평가 뒤에도 핵심 수행을 다시 해 볼 기회를 남긴다.",
+                    "<b>전이</b> — 배운 수행을 조건이 달라진 새로운 맥락에 적용한다.",
+                    "같은 답을 반복하지 않는 변형 과제와 다음 수업의 적용 기회를 설계한다."
                   ]
                 }
               ]

@@ -153,13 +153,20 @@
                 },
                 {
                   id: "clt-core-claim",
-                  layout: "cards",
+                  layout: "split",
                   eyebrow: "John Sweller · 1988",
                   title: "인지부하이론(CLT)의 핵심 주장",
-                  cards: [
-                    { label: "제한", title: "작동기억의 한계", body: "제한된 작동기억에서는 요소가 많고 관계가 복잡할수록 핵심 이해가 어려워진다." },
-                    { label: "판단", title: "부하를 구분하기", body: "설계는 내용의 복잡성·제시 방식·핵심 사고를 구분해 판단한다." },
-                    { label: "목표", title: "효과적 설계", body: "외재적 부하를 줄이고, 핵심 관계를 비교·설명하는 사고를 지원한다." }
+                  media: {
+                    src: "../../../assets/visuals/generated/cognitive-overload-comparison.jpg",
+                    alt: "복잡하고 중복된 자료로 혼란스러운 학습자와 단순화·분절·신호화된 자료에 집중하는 학습자의 비교",
+                    caption: "인지부하 설계는 내용을 쉽게 만드는 일이 아니라 불필요한 처리와 필요한 사고를 구분하는 일이다.",
+                    source: "OpenAI GPT Image로 생성한 자체 시각자료 · 2026"
+                  },
+                  bullets: [
+                    "<b>제한</b> — 작동기억은 한 번에 처리할 수 있는 요소와 관계의 양이 제한된다.",
+                    "<b>구분</b> — 내용의 복잡성, 제시 방식의 부담, 핵심 사고에 쓰는 자원을 나누어 본다.",
+                    "<b>감축</b> — 중복·분산·장식처럼 불필요한 외재적 부하를 줄인다.",
+                    "<b>지원</b> — 핵심 관계를 비교·설명·적용하는 사고에 자원을 쓸 수 있게 한다."
                   ]
                 },
                 {
@@ -179,6 +186,19 @@
                   cite: ["모든 부하를 없애는 것이 아니라, 불필요한 부담은 줄이고 필요한 사고에 자원을 쓴다."]
                 },
                 {
+                  id: "cognitive-overload-focus",
+                  layout: "figure",
+                  eyebrow: "COGNITIVE LOAD · VISUAL FOCUS",
+                  title: "복잡한 내용과 복잡한 제시는 다르다",
+                  lead: "과제 자체의 복잡성은 학습해야 하지만, 산만한 배치와 중복 설명이 만드는 부담은 설계로 줄일 수 있다.",
+                  figure: {
+                    src: "../../../assets/visuals/generated/cognitive-overload-comparison.jpg",
+                    alt: "과도하게 복잡한 자료와 핵심을 분절·신호화한 자료를 사용하는 같은 학습자의 전후 비교",
+                    caption: "정리된 화면은 정보량이 적어서가 아니라 필요한 관계가 한눈에 드러나기 때문에 학습을 돕는다.",
+                    source: "OpenAI GPT Image로 생성한 자체 시각자료 · 2026"
+                  }
+                },
+                {
                   id: "expertise-reversal",
                   layout: "split",
                   eyebrow: "Expertise reversal",
@@ -193,6 +213,19 @@
                     "<b>숙련자</b>에게 동일한 설명은 이미 아는 내용의 외재적 부하가 되어 역효과를 낼 수 있다.",
                     "설계의 최적 조건은 학습자의 사전 지식 수준에 따라 달라진다. — Kalyuga et al. (2003)"
                   ]
+                },
+                {
+                  id: "expertise-guidance-focus",
+                  layout: "figure",
+                  eyebrow: "EXPERTISE REVERSAL · VISUAL FOCUS",
+                  title: "좋은 안내도 학습자 수준에 따라 방해가 될 수 있다",
+                  lead: "초보자에게 필요한 완성 예제와 단계 안내는 숙련자에게 중복 처리 부담이 될 수 있다.",
+                  figure: {
+                    src: "../../../assets/visuals/generated/expertise-guidance.jpg",
+                    alt: "상세한 예제와 교사 지원을 받는 초보자와 최소 안내로 복잡한 문제를 해결하는 숙련자의 비교",
+                    caption: "안내는 고정된 양이 아니라 사전 지식과 수행 증거에 따라 점차 줄이는 가변적 설계 요소다.",
+                    source: "OpenAI GPT Image로 생성한 자체 시각자료 · 2026"
+                  }
                 }
               ]
             }
@@ -241,6 +274,19 @@
                     "통합(integration) 단계가 핵심이다.",
                     "시각·청각 채널의 연결을 통해 진정한 이해가 발생한다. — Mayer (2009)"
                   ]
+                },
+                {
+                  id: "multimedia-processing-focus",
+                  layout: "figure",
+                  eyebrow: "MULTIMEDIA LEARNING · VISUAL FOCUS",
+                  title: "말과 그림은 함께 보인다고 자동으로 통합되지 않는다",
+                  lead: "학습자는 관련 정보를 선택하고 언어·이미지 모델로 조직한 뒤 사전 지식과 통합해야 한다.",
+                  figure: {
+                    src: "../../../assets/visuals/generated/multimedia-processing.jpg",
+                    alt: "학습자가 간결한 애니메이션과 설명을 시각·언어 경로로 처리해 하나의 정신모형으로 통합하는 개념 장면",
+                    caption: "설계자는 대응하는 말과 그림을 가깝게 배치하고, 핵심 관계를 신호화하며, 불필요한 경쟁 정보를 덜어 낸다.",
+                    source: "OpenAI GPT Image로 생성한 자체 시각자료 · 2026"
+                  }
                 }
               ]
             }

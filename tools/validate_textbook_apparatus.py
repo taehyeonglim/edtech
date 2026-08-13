@@ -217,8 +217,8 @@ def standard_requirement_errors(text: str) -> list[str]:
         errors.append(f"reflection questions must number 2-3, found {reflection_count}")
 
     visual_aid_count = count_visual_aids(text)
-    if not 2 <= visual_aid_count <= 4:
-        errors.append(f"visual learning aids must number 2-4, found {visual_aid_count}")
+    if not 2 <= visual_aid_count <= 6:
+        errors.append(f"visual learning aids must number 2-6, found {visual_aid_count}")
     for image in MARKDOWN_IMAGE_RE.findall(text):
         if not image.strip():
             errors.append("Markdown image is missing alt text")

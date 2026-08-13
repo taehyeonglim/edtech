@@ -26,6 +26,7 @@ jobs:
           python3 tools/validate_textbook_alignment.py
           python3 tools/validate_course_links.py
           python3 tools/validate_freshness.py
+          python3 tools/validate_visual_assets.py
           python3 tools/validate_public_boundary.py --root docs
           python3 tools/validate_candidate_routes.py --fixture tests/fixtures/candidate/valid
       - name: Build public site

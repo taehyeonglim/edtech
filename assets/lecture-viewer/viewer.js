@@ -101,7 +101,15 @@
 
   const renderFigure = (figure) => {
     if (!figure || !figure.src) return "";
-    return `<figure class="viewer-figure"><img src="${escapeHTML(safeHref(figure.src))}" alt="${escapeHTML(figure.alt || "")}">${figure.caption ? `<figcaption>${escapeHTML(figure.caption)}</figcaption>` : ""}</figure>`;
+    const source = figure.source
+      ? (typeof figure.source === "string"
+        ? `<span class="viewer-figure-source">${escapeHTML(figure.source)}</span>`
+        : `<a class="viewer-figure-source" href="${escapeHTML(safeHref(figure.source.href))}" target="_blank" rel="noopener noreferrer">${escapeHTML(figure.source.label || "이미지 출처")}</a>`)
+      : "";
+    const caption = figure.caption || source
+      ? `<figcaption>${figure.caption ? `<span>${escapeHTML(figure.caption)}</span>` : ""}${source}</figcaption>`
+      : "";
+    return `<figure class="viewer-figure"><img src="${escapeHTML(safeHref(figure.src))}" alt="${escapeHTML(figure.alt || "")}" loading="lazy" decoding="async">${caption}</figure>`;
   };
 
   const renderLayout = (slide) => {

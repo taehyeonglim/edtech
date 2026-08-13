@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "policy": {
+    "allowed_external_licenses": ["Public Domain", "CC0", "CC BY 2.0", "CC BY 4.0", "CC BY-SA 4.0"],
+    "generated_assets": "OpenAI GPT Image로 제작한 자체 시각자료이며 이미지 내부에 학습용 라벨을 넣지 않는다.",
+    "legacy_asset_globs": ["chapters/chapter-*/images/*", "docs/assets/images/ch*/*"]
+  },
+  "assets": [
+    {
+      "path": "assets/visuals/wiki/alan-turing-1951.jpg",
+      "type": "external",
+      "title": "Alan Turing (1951)",
+      "author": "Elliott & Fry",
+      "license": "Public Domain",
+      "original_page": "https://commons.wikimedia.org/wiki/File:Alan_Turing_(1951).jpg",
+      "modifications": "Resized and padded to a 16:9 teaching layout."
+    },
+    {
+      "path": "assets/visuals/wiki/tim-berners-lee-2009.jpg",
+      "type": "external",
+      "title": "Tim Berners-Lee April 2009",
+      "author": "Enrique Dans",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "original_page": "https://commons.wikimedia.org/wiki/File:Tim_Berners-Lee_April_2009.jpg",
+      "modifications": "Resized and padded to a 16:9 teaching layout."
+    },
+    {
+      "path": "assets/visuals/generated/course-system-perspectives.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 premium editorial educational illustration of educational methods and technology as one connected system, with a Korean teacher planning among learners, curriculum materials, classroom environment, and digital tools; off-white, navy, blue, amber; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/teacher-design-judgment.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 editorial illustration of a Korean teacher making instructional design decisions across learner needs, objectives, activities, evidence, and technology using unlabeled physical objects; off-white, navy, blue, amber; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/digital-four-flows.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 scientific-educational illustration of four intertwined flows in digital education: people communicating, content moving, data feedback circulating, and collaborative activity, shown through Korean university learners and elegant unlabeled paths; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/blended-learning-bridge.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 editorial illustration of blended learning as a bridge between a Korean classroom discussion and remote home learning, connected through shared activity and evidence; restrained navy, blue, amber; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/immersive-classroom.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 editorial scene of Korean university students exploring a historical environment with lightweight immersive headsets while a teacher facilitates observation and discussion; technology remains a tool; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/systems-thinking-blueprint.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 scientific-educational illustration of an instructional design ecosystem with learner, objective, activity, media, assessment, and environment as physical objects connected in feedback loops; no labels, text, or logos."
+    },
+    {
+      "path": "assets/visuals/generated/addie-iteration-studio.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 educational illustration of five iterative design workstations for learner analysis, experience sketching, media production, classroom facilitation, and evidence review, connected in a loop; no labels, readable text, or logos."
+    },
+    {
+      "path": "assets/visuals/generated/learning-conditions-classroom.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 Korean classroom scene showing different learning outcomes receiving different conditions: recall, procedure, novel problem solving, and collaboration, with a teacher varying materials and support; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/nine-events-classroom.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 sequential editorial illustration of a Korean university lesson moving through attention, objective orientation, prior knowledge, modeling, guided practice, feedback, assessment, and transfer through action rather than labels; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/observable-objective-evidence.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 illustration aligning a teacher's observable performance objective, students doing the task, and concrete evidence such as artifacts, demonstration, and an unlabeled checklist; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/cooperative-learning-jigsaw.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 Korean university jigsaw-learning scene showing expert groups with distinct materials and mixed home groups teaching one another in a split spatial composition; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/interdependence-accountability.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 educational illustration of positive interdependence and individual accountability, with a Korean team building one shared structure from complementary pieces while each learner presents a distinct contribution; no labels, readable text, or logos."
+    },
+    {
+      "path": "assets/visuals/generated/team-learning-comparison.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 classroom comparison of a loosely divided group task, a carefully interdependent cooperative team, and a structured peer-teaching team, distinguished through interaction and materials rather than labels; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/motivation-arcs-classroom.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 Korean university lesson shown through four connected experiences of curiosity and attention, personal relevance, growing confidence, and satisfaction after meaningful success; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/self-determination-classroom.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 Korean classroom showing learners choosing meaningful task paths, mastering a challenge with feedback, and belonging to a supportive peer community while the teacher offers structure; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/flow-classroom.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 scene of Korean university students in flow while building and testing a challenging prototype, with faded peripheral anxiety and boredom scenes and an unlabeled challenge-skill channel; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/cognitive-overload-comparison.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 before-and-after illustration of the same learner facing cluttered competing materials and then simplified, chunked, signaled, aligned content; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/multimedia-processing.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 scientific-educational illustration of concise narrated animation entering distinct visual and auditory processing paths, interacting with prior knowledge, and forming one coherent mental model; no labels, readable text, or logos."
+    },
+    {
+      "path": "assets/visuals/generated/expertise-guidance.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 comparison of a novice learner using worked examples, visible steps, and teacher scaffolds with an expert solving a complex problem independently with minimal prompts; no labels, readable text, or logos."
+    },
+    {
+      "path": "assets/visuals/generated/ai-dashboard-teacher.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 Korean teacher using abstract unlabeled AI-supported dashboard patterns while looking toward actual students and combining data with observation and conversation; technology subordinate to professional judgment; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/ai-ethics-risk.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 conceptual illustration balancing privacy, fairness, transparency, human oversight, and student agency against hidden data exposure and biased pathways in Korean education; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/ai-literacy-verification.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 scene of Korean university students and a teacher comparing an AI response with primary documents, books, data, and independent sources using evidence trails and cross-checking gestures; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/ai-equity-alternatives.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 illustration of one learning goal reached through shared devices, print, peer collaboration, teacher support, audio access, and hands-on activity, including diverse Korean learners and a wheelchair user; no readable text or logos."
+    },
+    {
+      "path": "assets/visuals/generated/inquiry-dialogue-classroom.jpg",
+      "type": "generated",
+      "generator": "OpenAI GPT Image",
+      "date": "2026-08-14",
+      "prompt": "Wide 16:9 Korean university inquiry and dialogic teaching scene where students examine puzzling evidence, formulate questions, debate explanations, and revise a shared model while the teacher listens and probes; no readable text or logos."
+    }
+  ]
+}
