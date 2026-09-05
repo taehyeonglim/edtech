@@ -221,13 +221,37 @@
                   title: "AI 수업의 네 갈래를 활동으로 설계하기",
                   lead: "하나의 활동에도 활용뿐 아니라 이해·검증·윤리의 요소를 함께 넣는다.",
                   table: {
-                    head: ["갈래", "핵심 활동", "학습 증거"],
+                    head: [
+                      "갈래",
+                      "핵심 활동",
+                      "학습 증거"
+                    ],
                     rows: [
-                      ["AI에 대해", "데이터·알고리즘·모델의 한계를 설명", "개념 설명과 오류 사례 분석"],
-                      ["AI로·AI와 함께", "설명·초안·피드백을 활용하고 검증·수정", "사용 기록, 출처 검증, 수정 이유"],
-                      ["AI를 비판하기", "개인정보·편향·투명성·책임성 점검", "위험 점검표와 대체 경로 제안"]
+                      [
+                        "AI에 대해 배우기",
+                        "데이터·모델·한계 이해",
+                        "개념과 오류 설명"
+                      ],
+                      [
+                        "AI로 배우기",
+                        "설명·연습·피드백 활용",
+                        "도움 뒤 독립 수행"
+                      ],
+                      [
+                        "AI와 함께 문제 해결하기",
+                        "제안 비교와 검증·수정",
+                        "채택·기각의 근거"
+                      ],
+                      [
+                        "AI를 비판적으로 다루기",
+                        "편향·정보·책임 검토",
+                        "위험 판단과 대안"
+                      ]
                     ]
-                  }
+                  },
+                  cite: [
+                    "교재가 수업 설계를 위해 구성한 네 갈래이며 국제기구의 분류를 그대로 옮긴 것이 아니다."
+                  ]
                 }
               ]
             }
@@ -288,11 +312,67 @@
                   title: "AI 튜터와 맞춤형 학습의 설계 조건",
                   lead: "맞춤형 학습은 혼자 화면을 오래 보는 일이 아니라 교사·동료·전체 토론과 결합될 때 의미가 커진다.",
                   table: {
-                    head: ["점검 항목", "질문", "피해야 할 단순화"],
+                    head: [
+                      "점검 항목",
+                      "질문",
+                      "피해야 할 단순화"
+                    ],
                     rows: [
-                      ["피드백의 질", "오류 원인과 다음 전략을 알려 주는가?", "정답·반복 문제만 자동 제시"],
-                      ["학습 기회", "학생이 피드백을 이해하고 해결 과정을 고칠 수 있는가?", "낮은 성취 학생에게 반복 연습만 과도하게 배정"]
+                      [
+                        "피드백의 질",
+                        "오류 원인과 다음 전략을 알려 주는가?",
+                        "정답·반복 문제만 자동 제시"
+                      ],
+                      [
+                        "학습 기회",
+                        "학생이 피드백을 이해하고 해결 과정을 고칠 수 있는가?",
+                        "낮은 성취 학생에게 반복 연습만 과도하게 배정"
+                      ]
                     ]
+                  },
+                  cite: [
+                    "전통적 튜터와 생성형 AI 연구를 구분하고 지원 제거 뒤의 학습도 확인한다."
+                  ],
+                  link: {
+                    label: "교재 11장 · 서로 다른 AI 연구 비교",
+                    href: "https://taehyeonglim.github.io/edtech/book/part4/ch11/#5-ai-튜터와-맞춤형-학습"
+                  }
+                },
+                {
+                  id: "independent-application",
+                  layout: "table",
+                  eyebrow: "연구 근거 읽기",
+                  title: "AI의 도움과 학생에게 남은 학습",
+                  table: {
+                    head: [
+                      "연구",
+                      "비교 조건",
+                      "해석의 경계"
+                    ],
+                    rows: [
+                      [
+                        "Kulik·Fletcher(2016)",
+                        "전통적 지능형 튜터 연구 종합",
+                        "모든 생성형 AI에 일반화하지 않음"
+                      ],
+                      [
+                        "Kestin 외(2025)",
+                        "대학 물리: 맞춤 AI 튜터와 능동학습",
+                        "해당 수업의 사후 수행"
+                      ],
+                      [
+                        "Bastani 외(2025)",
+                        "고교 수학: AI 지원과 지원 제거 뒤 수행",
+                        "도움 중 성과와 독립 학습 구별"
+                      ]
+                    ]
+                  },
+                  cite: [
+                    "초등 적용에서는 읽기·사전지식·안내 조건과 독립 수행을 다시 확인한다."
+                  ],
+                  link: {
+                    label: "교재 11장 · 연구의 대상·비교·한계",
+                    href: "https://taehyeonglim.github.io/edtech/book/part4/ch11/#5-ai-튜터와-맞춤형-학습"
                   }
                 }
               ]
@@ -462,7 +542,9 @@
                     "Kasneci, E., et al. (2023). ChatGPT for good? Learning and Individual Differences, 103, 102274.",
                     "Kulik, J. A., & Fletcher, J. D. (2016). Effectiveness of intelligent tutoring systems. Review of Educational Research, 86(1), 42–78.",
                     "National Institute of Standards and Technology. (2023). AI Risk Management Framework 1.0.",
-                    "Siemens, G., & Baker, R. S. J. d. (2012). Learning analytics and educational data mining. LAK, 252–254."
+                    "Siemens, G., & Baker, R. S. J. d. (2012). Learning analytics and educational data mining. LAK, 252–254.",
+                    "Kestin, G., et al. (2025). AI tutoring outperforms in-class active learning. Scientific Reports, 15, 17458. doi:10.1038/s41598-025-97652-6",
+                    "Bastani, H., et al. (2025). Generative AI without guardrails can harm learning. PNAS, 122(26), e2422633122. 정정 공지: doi:10.1073/pnas.2518204122"
                   ]
                 },
                 {

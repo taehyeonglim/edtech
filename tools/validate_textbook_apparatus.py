@@ -236,8 +236,17 @@ def standard_requirement_errors(text: str) -> list[str]:
     )
     if choice_count < 3:
         errors.append(f"formative assessment must include at least 3 multiple-choice items, found {choice_count}")
-    if constructed_count < 1:
-        errors.append(f"formative assessment must include at least 1 constructed-response item, found {constructed_count}")
+    if constructed_count < 2:
+        errors.append(f"formative assessment must include at least 2 constructed-response items, found {constructed_count}")
+    numbers = [int(re.match(r"(\d+)\.", item).group(1)) for item in items]
+    if numbers != list(range(1, len(items) + 1)):
+        errors.append("formative assessment numbering must be consecutive from 1")
+    for row in MARKDOWN_TABLE_ROW_RE.findall(correspondence):
+        if "형성 평가" not in row:
+            continue
+        references = [int(number) for number in re.findall(r"(\d+)번", row.split("형성 평가", 1)[1])]
+        if not references or any(number not in numbers for number in references):
+            errors.append("objective correspondence references a missing formative assessment item")
     return errors
 
 

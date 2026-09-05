@@ -48,6 +48,9 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascripts/study.js
+
 plugins:
   - search:
       lang: ko

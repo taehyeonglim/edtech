@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate textbook section deep links used in the revised lecture 1–3 decks.
+"""Validate textbook section deep links used in all ten lecture decks.
 
 Run ``python3 -m mkdocs build --strict`` first so the script can inspect the
 actual IDs emitted by MkDocs rather than guessing a Korean heading slug.
@@ -24,7 +24,13 @@ TEXTBOOK_URL = re.compile(
 
 def deep_links(deck: Path) -> list[str]:
     text = deck.read_text(encoding="utf-8", errors="replace")
-    return re.findall(r'href=["\']([^"\']+#[^"\']+)["\']', text, flags=re.IGNORECASE)
+    # Both the no-script HTML and rendered DECK data contain student-facing links.
+    links = re.findall(
+        r'''(?:\bhref|["']href["'])\s*[:=]\s*["']([^"']+#[^"']+)["']''',
+        text,
+        flags=re.IGNORECASE,
+    )
+    return list(dict.fromkeys(links))
 
 
 def validate(root: Path, built: Path) -> list[str]:

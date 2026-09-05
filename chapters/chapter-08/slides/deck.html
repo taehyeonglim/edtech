@@ -124,12 +124,28 @@
                   id: "dual-coding",
                   layout: "cards",
                   eyebrow: "Paivio · 1986",
-                  title: "이중부호화 이론: 두 채널의 분리된 처리",
+                  title: "이중부호화: 언어·비언어 표상의 관계",
                   cards: [
-                    { label: "언어", title: "언어 채널", body: "언어적 정보를 처리한다." },
-                    { label: "이미지", title: "이미지 채널", body: "비언어적·시각 정보를 처리한다." },
-                    { label: "연결", title: "두 채널의 동시 활성화", body: "기억과 이해를 향상시키며, Mayer CTML 이중채널 가정의 이론적 기반이 된다." }
-                  ]
+                    {
+                      label: "언어",
+                      title: "언어적 표상",
+                      body: "말과 글이 담는 언어적 정보를 설명한다."
+                    },
+                    {
+                      label: "비언어",
+                      title: "비언어적 표상",
+                      body: "사물과 장면 등 비언어적 표상을 설명한다."
+                    },
+                    {
+                      label: "연결",
+                      title: "상호 보완의 조건",
+                      body: "두 표상의 연결을 다룬다. 그림 추가만으로 학습 향상을 보장하거나 시각·청각 채널과 동일시하지 않는다."
+                    }
+                  ],
+                  link: {
+                    label: "교재 9장 · 이론별 설명 대상",
+                    href: "https://taehyeonglim.github.io/edtech/book/part4/ch09/#3-말과-그림이-만날-때"
+                  }
                 }
               ]
             }
@@ -141,15 +157,18 @@
             {
               id: "cognitive-load",
               title: "인지부하이론 (Cognitive Load Theory)",
-              subtitle: "세 가지 부하를 설계 판단으로",
+              subtitle: "부하 구분과 후속 해석을 설계 판단으로",
               slides: [
                 {
                   id: "section-02",
                   layout: "statement",
                   eyebrow: "SECTION 02",
                   title: "인지부하이론 (Cognitive Load Theory)",
-                  statement: "안내 질문: 세 가지 인지부하의 차이를 파악하는 것이 왜 수업 설계에서 결정적으로 중요한가?",
-                  link: { label: "교재 9장 4절 · 인지부하의 세 범주", href: "https://taehyeonglim.github.io/edtech/book/part4/ch09/#4-인지부하의-세-범주" }
+                  statement: "안내 질문: 과제와 선행지식, 제시 방식, 학습에 쓰는 자원을 어떻게 구분할까?",
+                  link: {
+                    label: "교재 9장 4절 · 인지부하의 세 범주",
+                    href: "https://taehyeonglim.github.io/edtech/book/part4/ch09/#4-인지부하의-세-범주"
+                  }
                 },
                 {
                   id: "clt-core-claim",
@@ -173,17 +192,39 @@
                   id: "three-loads",
                   layout: "table",
                   eyebrow: "Load types",
-                  title: "세 가지 인지부하의 특성과 설계 방향",
+                  title: "고전적 부하 구분과 후속 해석",
                   lead: "표 8-1",
                   table: {
-                    head: ["부하 유형", "원인", "설계 방향"],
+                    head: [
+                      "부하 유형",
+                      "원인",
+                      "설계 방향"
+                    ],
                     rows: [
-                      ["내재적 부하", "과제 자체의 복잡성·난이도", "분할·사전훈련으로 조절"],
-                      ["외재적 부하", "잘못된 학습 자료 설계", "불필요 요소 제거"],
-                      ["학습 관련 부하", "핵심 관계 비교·오류 설명·새 사례 적용", "필요한 사고에 자원 투입"]
+                      [
+                        "내재적 부하",
+                        "내용 요소의 상호작용과 선행지식",
+                        "과제와 선수 개념 점검"
+                      ],
+                      [
+                        "외재적 부하",
+                        "제시 방식과 교수 절차의 불필요한 처리",
+                        "탐색·중복·장식 점검"
+                      ],
+                      [
+                        "학습 관련 부하",
+                        "고전적 구분의 용어",
+                        "후속 논의에서는 학습에 자원을 배분하는 것으로 해석"
+                      ]
                     ]
                   },
-                  cite: ["모든 부하를 없애는 것이 아니라, 불필요한 부담은 줄이고 필요한 사고에 자원을 쓴다."]
+                  cite: [
+                    "Sweller 외(1998, 2019). 학습 관련 부하를 별도 총량으로 더하는 가정은 수정되었다."
+                  ],
+                  link: {
+                    label: "교재 9장 · 고전 모형과 재개념화",
+                    href: "https://taehyeonglim.github.io/edtech/book/part4/ch09/#4-인지부하의-세-범주"
+                  }
                 },
                 {
                   id: "cognitive-overload-focus",
@@ -305,8 +346,11 @@
                   layout: "statement",
                   eyebrow: "SECTION 04",
                   title: "멀티미디어 설계 원리의 체계",
-                  statement: "안내 질문: 세 가지 인지부하 유형은 멀티미디어 설계 원리 체계에 어떻게 대응되는가?",
-                  link: { label: "교재 9장 5절 · 멀티미디어 원리를 수업에 적용하기", href: "https://taehyeonglim.github.io/edtech/book/part4/ch09/#5-멀티미디어-원리를-수업에-적용하기" }
+                  statement: "안내 질문: 자료를 수정할 때 어떤 처리를 줄이고 어떤 학습을 지원해야 할까?",
+                  link: {
+                    label: "교재 9장 5절 · 멀티미디어 원리를 수업에 적용하기",
+                    href: "https://taehyeonglim.github.io/edtech/book/part4/ch09/#5-멀티미디어-원리를-수업에-적용하기"
+                  }
                 },
                 {
                   id: "extraneous-load-principles",
@@ -314,65 +358,156 @@
                   eyebrow: "Extraneous load",
                   title: "외재적 부하 저감 원리: 불필요한 처리의 제거",
                   table: {
-                    head: ["원리", "설계 지침"],
+                    head: [
+                      "원리",
+                      "설계 지침"
+                    ],
                     rows: [
-                      ["일관성", "관련 없는 그림·텍스트·사운드 제거"],
-                      ["신호", "핵심어 볼드·색상·화살표로 강조"],
-                      ["중복성", "음성 설명 시 동일 텍스트 화면 표시 금지"],
-                      ["공간근접성", "이미지와 설명 텍스트 화면에서 인접 배치"],
-                      ["시간근접성", "관련 시각·음성 정보 동시 제시"]
+                      [
+                        "일관성",
+                        "관련 없는 그림·텍스트·사운드 제거"
+                      ],
+                      [
+                        "신호",
+                        "핵심어 볼드·색상·화살표로 강조"
+                      ],
+                      [
+                        "중복성",
+                        "그림·긴 글·음성의 경쟁 점검. 청각 접근성과 언어 지원에 필요한 텍스트는 제공"
+                      ],
+                      [
+                        "공간근접성",
+                        "이미지와 설명 텍스트 화면에서 인접 배치"
+                      ],
+                      [
+                        "시간근접성",
+                        "관련 시각·음성 정보 동시 제시"
+                      ]
                     ]
                   },
-                  cite: ["외재적 부하를 줄여 핵심 관계를 비교·설명하는 사고에 자원을 쓴다."]
+                  cite: [
+                    "Mayer(2009). 중복 원리를 자막·대본의 일괄 금지로 적용하지 않는다."
+                  ]
                 },
                 {
                   id: "intrinsic-load-principles",
                   layout: "table",
                   eyebrow: "Intrinsic load",
-                  title: "내재적 부하 조절 원리: 복잡성의 관리",
+                  title: "필수적 처리의 관리와 학습자 지원",
                   table: {
-                    head: ["원리", "설계 지침"],
+                    head: [
+                      "원리",
+                      "설계 지침"
+                    ],
                     rows: [
-                      ["분할", "복잡한 내용을 단계별로 순차 제시"],
-                      ["사전훈련", "핵심 용어·개념을 본 학습 전에 먼저 제시"],
-                      ["정보양식", "이미지 설명에 화면 텍스트 대신 음성 사용"],
-                      ["완성된 예제", "핵심 개념 적용 모범 사례를 완성형으로 제시"]
+                      [
+                        "분할",
+                        "복잡한 내용을 단계별로 순차 제시"
+                      ],
+                      [
+                        "사전훈련",
+                        "핵심 용어·개념을 본 학습 전에 먼저 제시"
+                      ],
+                      [
+                        "정보양식",
+                        "그림과 말의 역할을 분담하고 청각 접근성·학습자 언어 조건을 확인"
+                      ],
+                      [
+                        "완성된 예제",
+                        "핵심 개념 적용 모범 사례를 완성형으로 제시"
+                      ]
                     ]
                   },
-                  cite: ["내재적 부하 관리로 학습자가 핵심에 집중할 수 있도록 한다."]
+                  cite: [
+                    "CTML의 필수적 처리와 CLT의 내재적 부하는 설명 틀이 다르다. 완성 예제의 효과도 선행지식에 따라 검토한다."
+                  ]
                 },
                 {
                   id: "germane-load-principles",
                   layout: "table",
                   eyebrow: "Germane load",
-                  title: "학습 관련 부하: 능동적 학습의 지원",
+                  title: "생성적 처리와 의미 구성의 지원",
                   table: {
-                    head: ["원리", "설계 지침"],
+                    head: [
+                      "원리",
+                      "설계 지침"
+                    ],
                     rows: [
-                      ["멀티미디어", "텍스트만보다 시각+음성 병행이 더 효과적"],
-                      ["개인화", "2인칭 호칭·구어체로 능동 처리 유도"],
-                      ["목소리", "기계음보다 실제 사람 목소리 사용"],
-                      ["이미지", "화자 화면 이미지 추가 효과는 혼재; 비언어 신호 활용이 더 효과적"],
-                      ["자기 설명", "배운 내용을 자신의 언어로 재설명하는 기회 제공"]
+                      [
+                        "멀티미디어",
+                        "말과 그림을 목표 관계에 맞게 연결"
+                      ],
+                      [
+                        "개인화",
+                        "학습자에게 적절한 대화체 표현 검토"
+                      ],
+                      [
+                        "목소리·화자 이미지",
+                        "제시 방식의 효과를 연구 조건과 함께 판단"
+                      ],
+                      [
+                        "자기설명",
+                        "비교·오류·적용의 이유를 자신의 말로 설명"
+                      ]
                     ]
                   },
-                  cite: ["핵심 관계의 비교·설명·적용으로 능동적 인지 처리를 지원한다."]
+                  cite: [
+                    "Mayer(2009). 생성적 처리를 독립적인 세 번째 부하와 일대일 대응시키지 않는다."
+                  ]
                 },
                 {
                   id: "principles-system",
                   layout: "table",
                   eyebrow: "System map",
-                  title: "멀티미디어 설계 원리 체계",
+                  title: "자료 설계에서 구별할 판단",
                   lead: "표 8-2",
                   table: {
-                    head: ["인지부하 유형", "대응 원리", "설계 목표"],
+                    head: [
+                      "판단",
+                      "지원 예시",
+                      "확인할 조건"
+                    ],
                     rows: [
-                      ["외재적 부하 저감", "일관성·신호·중복성·공간근접성·시간근접성 (Mayer 5개)", "불필요 처리 제거"],
-                      ["내재적 부하 조절", "분할·사전훈련·정보양식 (Mayer 3개) + 완성된 예제 (CLT)", "복잡성 단계적 관리"],
-                      ["학습 관련 부하 지원", "멀티미디어·개인화·목소리·이미지 (Mayer 4개) + 자기설명 (생성학습)", "핵심 관계의 능동적 처리"]
+                      [
+                        "불필요한 처리 줄이기",
+                        "신호·근접 배치·장식 정리",
+                        "핵심 설명까지 제거하지 않았는가"
+                      ],
+                      [
+                        "필수적 처리 관리하기",
+                        "분절·사전훈련·표상 역할 분담",
+                        "선행지식·접근성에 맞는가"
+                      ],
+                      [
+                        "의미 구성 지원하기",
+                        "관계 비교·자기설명",
+                        "새 과제에서도 설명할 수 있는가"
+                      ]
                     ]
                   },
-                  cite: ["핵심 관계를 먼저 정하고, 꼭 필요한 표상·신호·분절·확인 질문만 남긴다."]
+                  cite: [
+                    "CTML의 처리 구분과 CLT의 부하 범주를 기계적으로 일대일 대응하지 않는다."
+                  ],
+                  link: {
+                    label: "교재 9장 · 적용 조건과 수정 사례",
+                    href: "https://taehyeonglim.github.io/edtech/book/part4/ch09/#5-멀티미디어-원리를-수업에-적용하기"
+                  }
+                },
+                {
+                  id: "independent-application",
+                  layout: "bullets",
+                  eyebrow: "초등 수업 적용",
+                  title: "물의 순환 자료의 수정 이유",
+                  lead: "창작 사례 · 먼저 판단하고 교재의 풀이와 비교합니다.",
+                  bullets: [
+                    "배경 음악·장식 사진·긴 글을 동시에 제시했지만 학생은 응결을 설명하지 못합니다.",
+                    "줄일 정보와 남길 설명을 정하고, 청각 접근성을 위한 텍스트를 확보합니다.",
+                    "초보자와 숙련자의 안내를 다르게 설계하고 새 그림의 설명으로 확인합니다."
+                  ],
+                  link: {
+                    label: "교재의 풀이와 조건 비교",
+                    href: "https://taehyeonglim.github.io/edtech/book/part4/ch09/#5-멀티미디어-원리를-수업에-적용하기"
+                  }
                 }
               ]
             }
@@ -398,35 +533,40 @@
                   id: "learning-process-technologies",
                   layout: "split",
                   eyebrow: "Learning analytics",
-                  title: "학습 과정 분석 기술의 발전",
+                  title: "학습 과정 측정의 가능성과 한계",
                   media: {
                     src: "../images/img-s20-process-tech.png",
                     alt: "시선추적 기기·EEG 헤드셋·얼굴표정 분석 화면 3종 조합 일러스트",
                     caption: "그림 8-5 · 학습 과정 분석 기술 3종 (류지헌 외, 2023)"
                   },
                   bullets: [
-                    "<b>시선추적(eye-tracking)</b> — 주의 분포와 공간근접성 효과를 실시간 측정한다.",
-                    "<b>뇌파(EEG)</b> — 인지부하와 집중도를 생리 신호로 측정한다.",
-                    "<b>얼굴표정 분석</b> — 흥미·혼란·지루함을 실시간으로 감지한다.",
-                    "학습 결과 측정에서 과정 측정으로 향하는 새로운 연구 패러다임이다."
+                    "시선추적과 뇌파는 주의·처리와 관련된 지표를 제공할 수 있다.",
+                    "생리 지표만으로 이해의 내용이나 감정을 확정하지 않는다.",
+                    "노력 평정, 학생의 설명, 오류와 전이 수행을 함께 읽는다."
+                  ],
+                  cite: [
+                    "Sweller 외(2019). 측정 방법의 타당성과 해석 조건을 함께 검토한다."
                   ]
                 },
                 {
                   id: "immersive-media",
                   layout: "split",
                   eyebrow: "Immersive media",
-                  title: "실감형 미디어: 멀티미디어 학습의 새로운 지평",
+                  title: "실감미디어의 학습 조건",
                   media: {
                     src: "../images/img-s21-immersive-media.png",
                     alt: "VR 헤드셋 착용 학습자와 AR 과학 실험·역사 환경 재현 교육 장면 콜라주",
                     caption: "그림 8-6 · 실감형 미디어 교육 적용 (류지헌 외, 2023)"
                   },
                   bullets: [
-                    "VR·AR·MR은 시각·청각·상호작용 채널을 동시에 활성화해 이중채널 가정의 적용 범위를 연구하게 한다.",
-                    "<b>도전</b> — 다중감각 인지부하 측정·관리 원리의 확장 연구가 진행 중이다.",
-                    "<b>잠재력</b> — 추상 개념을 구체적·조작적으로 체험할 수 있다.",
-                    "의학 수술 시뮬레이션·역사 환경 재현·분자 구조 조작은 전통 미디어의 한계를 초월한다."
-                  ]
+                    "VR·AR의 공간적 탐색이 어떤 학습 목표를 지원하는지 확인한다.",
+                    "기기 경험과 학습을 구분하고, 접근성·멀미·자료 복잡성을 점검한다.",
+                    "사진·평면도 등 대체 자료에서도 같은 목표 수행을 확인한다."
+                  ],
+                  link: {
+                    label: "교재 10장 · 실감미디어의 조건",
+                    href: "https://taehyeonglim.github.io/edtech/book/part4/ch10/#6-실감미디어와-미래교실의-조건"
+                  }
                 },
                 {
                   id: "theory-integration",
@@ -434,15 +574,37 @@
                   eyebrow: "Integrated view",
                   title: "8강 핵심 이론의 통합과 최신 동향 연결",
                   table: {
-                    head: ["이론", "핵심 기여", "설계 원리 연결"],
+                    head: [
+                      "이론",
+                      "핵심 기여",
+                      "설계 원리 연결"
+                    ],
                     rows: [
-                      ["CIP (감각→작업→장기)", "작동기억의 제한과 스키마 형성 근거", "모든 원리의 인지과학적 전제"],
-                      ["이중부호화 (Paivio)", "시각·언어 분리 채널 입증", "이중채널 가정·멀티미디어 원리"],
-                      ["CLT (Sweller)", "내재적·외재적·학습 관련 부하의 설계 판단", "원리 체계의 인지과학적 근거"],
-                      ["CTML (Mayer)", "말과 그림의 선택·조직·통합", "처방적 멀티미디어 설계 지침"]
+                      [
+                        "CIP (감각→작업→장기)",
+                        "작동기억의 제한과 스키마 형성 근거",
+                        "모든 원리의 인지과학적 전제"
+                      ],
+                      [
+                        "이중부호화 (Paivio)",
+                        "언어·비언어 표상의 관계",
+                        "이중채널 가정·멀티미디어 원리"
+                      ],
+                      [
+                        "CLT (Sweller)",
+                        "과제·제시 방식·선행지식의 처리 요구",
+                        "원리 체계의 인지과학적 근거"
+                      ],
+                      [
+                        "CTML (Mayer)",
+                        "말과 그림의 선택·조직·통합",
+                        "처방적 멀티미디어 설계 지침"
+                      ]
                     ]
                   },
-                  cite: ["CTML은 CIP·이중부호화·CLT의 관점을 결합하여 멀티미디어 설계 원리를 제시한다."]
+                  cite: [
+                    "학습 관련 부하의 후속 재개념화는 교재 9장 4절에서 확인한다."
+                  ]
                 },
                 {
                   id: "references",
@@ -461,7 +623,8 @@
                     "Paivio, A. (1986). <b>Mental Representations: A Dual Coding Approach</b>. Oxford University Press.",
                     "Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. <b>Cognitive Science, 12</b>(2), 257–285.",
                     "Sweller, J. (1994). Cognitive load theory, learning difficulty, and instructional design. <b>Learning and Instruction, 4</b>(4), 295–312.",
-                    "Sweller, J., van Merriënboer, J. J. G., & Paas, F. G. W. C. (1998). Cognitive architecture and instructional design. <b>Educational Psychology Review, 10</b>(3), 251–296."
+                    "Sweller, J., van Merriënboer, J. J. G., & Paas, F. G. W. C. (1998). Cognitive architecture and instructional design. <b>Educational Psychology Review, 10</b>(3), 251–296.",
+                    "Sweller, J., van Merriënboer, J. J. G., & Paas, F. (2019). Cognitive architecture and instructional design: 20 years later. Educational Psychology Review, 31, 261–292."
                   ]
                 },
                 {

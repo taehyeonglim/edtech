@@ -161,12 +161,12 @@ def main() -> int:
     total_slides = len(deck_layouts)
     visual_slides = sum(layout in VISUAL_LAYOUTS for layout in deck_layouts)
     density = visual_slides / total_slides if total_slides else 0
-    if total_slides != 271:
-        errors.append(f"slide count regression: expected 271, found {total_slides}")
+    if total_slides != 281:
+        errors.append(f"slide count regression: expected 281, found {total_slides}")
     if focus_count != 23:
         errors.append(f"visual-focus slide count regression: expected 23, found {focus_count}")
-    if visual_slides != 112 or density < 0.40:
-        errors.append(f"visual density regression: expected 112/271 (>=40%), found {visual_slides}/{total_slides} ({density:.1%})")
+    if visual_slides != 113 or density < 0.40:
+        errors.append(f"visual density regression: expected 113/281 (>=40%), found {visual_slides}/{total_slides} ({density:.1%})")
     if chapter_visuals != 15:
         errors.append(f"textbook visual placement regression: expected 15, found {chapter_visuals}")
 
